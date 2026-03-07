@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "1SZO3hX/T5I=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Noelle\\Documents\\SMT3HD_Reimagined\\src\\Reimagined.Mod\\Reimagined.Mod.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Noelle\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Noelle\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\Noelle\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
+  ],
+  "logs": []
+}

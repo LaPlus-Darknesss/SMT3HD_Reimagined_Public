@@ -1,0 +1,10 @@
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\bin\Release\net6.0\SMT3HD_Reimagined.deps.json
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\bin\Release\net6.0\SMT3HD_Reimagined.dll
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\bin\Release\net6.0\SMT3HD_Reimagined.pdb
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\obj\Release\net6.0\Reimagined.Mod.csproj.AssemblyReference.cache
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\obj\Release\net6.0\Reimagined.Mod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\obj\Release\net6.0\Reimagined.Mod.csproj.CoreCompileInputs.cache
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\obj\Release\net6.0\SMT3HD_Reimagined.dll
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\obj\Release\net6.0\refint\SMT3HD_Reimagined.dll
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\obj\Release\net6.0\SMT3HD_Reimagined.pdb
+C:\Users\Noelle\Documents\SMT3HD_Reimagined\src\Reimagined.Mod\obj\Release\net6.0\ref\SMT3HD_Reimagined.dll
