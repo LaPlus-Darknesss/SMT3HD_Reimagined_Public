@@ -51,6 +51,14 @@ namespace SMT3HD_Reimagined
                 public string LastTimestamp = "";
                 public HashSet<string> SourcePointVariants = new HashSet<string>(StringComparer.Ordinal);
                 public HashSet<string> SourceCamVariants = new HashSet<string>(StringComparer.Ordinal);
+                public HashSet<int> TransportTerminalTypeVariants = new HashSet<int>();
+                public HashSet<int> TransportTerminalNoVariants = new HashSet<int>();
+                public HashSet<int> TransportJumpNoVariants = new HashSet<int>();
+                public HashSet<int> TransportEventStatVariants = new HashSet<int>();
+                public HashSet<int> TransportSeqVariants = new HashSet<int>();
+                public HashSet<int> TransportCallModeVariants = new HashSet<int>();
+                public HashSet<int> TransportProcessStatVariants = new HashSet<int>();
+                public HashSet<int> TransportTerminalCntVariants = new HashSet<int>();
             }
 
             public static void HotkeyDumpWarpCatalogSummary()
@@ -107,11 +115,19 @@ namespace SMT3HD_Reimagined
                     int? transportCallMode = GetTransportFieldForSerializableOutput(route, route.TransportCallMode);
                     int? transportProcessStat = GetTransportFieldForSerializableOutput(route, route.TransportProcessStat);
                     int? transportTerminalCnt = GetTransportFieldForSerializableOutput(route, route.TransportTerminalCnt);
+                    int[] observedTransportTerminalType = GetOrderedObservedTransportTerminalTypeVariants(route);
+                    int[] observedTransportTerminalNo = GetOrderedObservedTransportTerminalNoVariants(route);
+                    int[] observedTransportJumpNo = GetOrderedObservedTransportJumpNoVariants(route);
+                    int[] observedTransportEventStat = GetOrderedObservedTransportEventStatVariants(route);
+                    int[] observedTransportSeq = GetOrderedObservedTransportSeqVariants(route);
+                    int[] observedTransportCallMode = GetOrderedObservedTransportCallModeVariants(route);
+                    int[] observedTransportProcessStat = GetOrderedObservedTransportProcessStatVariants(route);
+                    int[] observedTransportTerminalCnt = GetOrderedObservedTransportTerminalCntVariants(route);
                     string? currentDoorFavoriteLine = BuildCurrentDoorFavoriteLineOrNull(route);
 
                     var payload = new
                     {
-                        schemaVersion = 3,
+                        schemaVersion = 4,
                         generatedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture),
                         browseMode = mode,
                         selectedIndex1 = index + 1,
@@ -145,6 +161,17 @@ namespace SMT3HD_Reimagined
                             transportCallMode = transportCallMode,
                             transportProcessStat = transportProcessStat,
                             transportTerminalCnt = transportTerminalCnt,
+                            observed = new
+                            {
+                                transportTerminalType = observedTransportTerminalType,
+                                transportTerminalNo = observedTransportTerminalNo,
+                                transportJumpNo = observedTransportJumpNo,
+                                transportEventStat = observedTransportEventStat,
+                                transportSeq = observedTransportSeq,
+                                transportCallMode = observedTransportCallMode,
+                                transportProcessStat = observedTransportProcessStat,
+                                transportTerminalCnt = observedTransportTerminalCnt,
+                            },
                         },
                         seenCount = route.Count,
                         lastTimestamp = route.LastTimestamp,
@@ -536,12 +563,25 @@ namespace SMT3HD_Reimagined
                             existing.DstPointRes = incoming.DstPointRes;
                         if (!string.IsNullOrEmpty(incoming.DstCamName))
                             existing.DstCamName = incoming.DstCamName;
+
+                        if (string.Equals(incoming.Kind, "terminal", StringComparison.Ordinal))
+                        {
+                            existing.TransportTerminalType = incoming.TransportTerminalType;
+                            existing.TransportTerminalNo = incoming.TransportTerminalNo;
+                            existing.TransportJumpNo = incoming.TransportJumpNo;
+                            existing.TransportEventStat = incoming.TransportEventStat;
+                            existing.TransportSeq = incoming.TransportSeq;
+                            existing.TransportCallMode = incoming.TransportCallMode;
+                            existing.TransportProcessStat = incoming.TransportProcessStat;
+                            existing.TransportTerminalCnt = incoming.TransportTerminalCnt;
+                        }
                     }
 
                     if (!string.IsNullOrEmpty(incoming.SrcPointRes))
                         existing.SourcePointVariants.Add(incoming.SrcPointRes);
                     if (!string.IsNullOrEmpty(incoming.SrcCamName))
                         existing.SourceCamVariants.Add(incoming.SrcCamName);
+                    AddObservedTransportVariants(existing, incoming);
                     return;
                 }
 
@@ -583,6 +623,7 @@ namespace SMT3HD_Reimagined
                     clone.SourcePointVariants.Add(r.SrcPointRes);
                 if (!string.IsNullOrEmpty(r.SrcCamName))
                     clone.SourceCamVariants.Add(r.SrcCamName);
+                AddObservedTransportVariants(clone, r);
                 return clone;
             }
 
@@ -636,6 +677,7 @@ namespace SMT3HD_Reimagined
                         r.SourcePointVariants.Add(r.SrcPointRes);
                     if (!string.IsNullOrEmpty(r.SrcCamName))
                         r.SourceCamVariants.Add(r.SrcCamName);
+                    AddObservedTransportVariants(r);
 
                     route = r;
                     return true;
@@ -759,14 +801,10 @@ namespace SMT3HD_Reimagined
 
             private static void AppendTerminalExtraInline(StringBuilder sb, WarpCatalogRoute r)
             {
-                if (r.TransportSeq >= 0)
-                    sb.Append(" seq=").Append(r.TransportSeq.ToString(CultureInfo.InvariantCulture));
-                if (r.TransportCallMode >= 0)
-                    sb.Append(" call=").Append(r.TransportCallMode.ToString(CultureInfo.InvariantCulture));
-                if (r.TransportProcessStat >= 0)
-                    sb.Append(" proc=").Append(r.TransportProcessStat.ToString(CultureInfo.InvariantCulture));
-                if (r.TransportTerminalCnt >= 0)
-                    sb.Append(" cnt=").Append(r.TransportTerminalCnt.ToString(CultureInfo.InvariantCulture));
+                AppendObservedIntFieldInline(sb, "seq", r.TransportSeq, GetOrderedObservedTransportSeqVariants(r));
+                AppendObservedIntFieldInline(sb, "call", r.TransportCallMode, GetOrderedObservedTransportCallModeVariants(r));
+                AppendObservedIntFieldInline(sb, "proc", r.TransportProcessStat, GetOrderedObservedTransportProcessStatVariants(r));
+                AppendObservedIntFieldInline(sb, "cnt", r.TransportTerminalCnt, GetOrderedObservedTransportTerminalCntVariants(r));
             }
 
             private static void AppendSourcePointVariantSummary(StringBuilder sb, WarpCatalogRoute r)
@@ -799,6 +837,131 @@ namespace SMT3HD_Reimagined
 
 
 
+            private static void AddObservedTransportVariants(WarpCatalogRoute route)
+            {
+                AddObservedTransportVariants(route, route);
+            }
+
+            private static void AddObservedTransportVariants(WarpCatalogRoute target, WarpCatalogRoute source)
+            {
+                if (target == null || source == null)
+                    return;
+
+                AddObservedIntVariant(target.TransportTerminalTypeVariants, source.TransportTerminalType);
+                AddObservedIntVariant(target.TransportTerminalNoVariants, source.TransportTerminalNo);
+                AddObservedIntVariant(target.TransportJumpNoVariants, source.TransportJumpNo);
+                AddObservedIntVariant(target.TransportEventStatVariants, source.TransportEventStat);
+                AddObservedIntVariant(target.TransportSeqVariants, source.TransportSeq);
+                AddObservedIntVariant(target.TransportCallModeVariants, source.TransportCallMode);
+                AddObservedIntVariant(target.TransportProcessStatVariants, source.TransportProcessStat);
+                AddObservedIntVariant(target.TransportTerminalCntVariants, source.TransportTerminalCnt);
+            }
+
+            private static void AddObservedIntVariant(HashSet<int> set, int value)
+            {
+                if (set == null)
+                    return;
+                if (value >= 0)
+                    set.Add(value);
+            }
+
+            private static int[] GetOrderedObservedIntVariants(HashSet<int> set)
+            {
+                if (set == null || set.Count <= 0)
+                    return Array.Empty<int>();
+
+                return set.OrderBy(v => v).ToArray();
+            }
+
+            private static int[] GetOrderedObservedTransportTerminalTypeVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportTerminalTypeVariants);
+            }
+
+            private static int[] GetOrderedObservedTransportTerminalNoVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportTerminalNoVariants);
+            }
+
+            private static int[] GetOrderedObservedTransportJumpNoVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportJumpNoVariants);
+            }
+
+            private static int[] GetOrderedObservedTransportEventStatVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportEventStatVariants);
+            }
+
+            private static int[] GetOrderedObservedTransportSeqVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportSeqVariants);
+            }
+
+            private static int[] GetOrderedObservedTransportCallModeVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportCallModeVariants);
+            }
+
+            private static int[] GetOrderedObservedTransportProcessStatVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportProcessStatVariants);
+            }
+
+            private static int[] GetOrderedObservedTransportTerminalCntVariants(WarpCatalogRoute route)
+            {
+                return GetOrderedObservedIntVariants(route.TransportTerminalCntVariants);
+            }
+
+            private static void AppendObservedIntFieldInline(StringBuilder sb, string label, int latestValue, int[] observedValues)
+            {
+                if (observedValues == null || observedValues.Length <= 0)
+                {
+                    if (latestValue >= 0)
+                        sb.Append(' ').Append(label).Append('=').Append(latestValue.ToString(CultureInfo.InvariantCulture));
+                    return;
+                }
+
+                if (observedValues.Length == 1)
+                {
+                    sb.Append(' ').Append(label).Append('=').Append(observedValues[0].ToString(CultureInfo.InvariantCulture));
+                    return;
+                }
+
+                sb.Append(' ').Append(label).Append("*=");
+                for (int i = 0; i < observedValues.Length; i++)
+                {
+                    if (i > 0)
+                        sb.Append('|');
+                    sb.Append(observedValues[i].ToString(CultureInfo.InvariantCulture));
+                }
+            }
+
+            private static string BuildObservedIntSummary(int[] observedValues, int latestValue)
+            {
+                if (observedValues == null || observedValues.Length <= 0)
+                    return latestValue >= 0 ? latestValue.ToString(CultureInfo.InvariantCulture) : "<none>";
+
+                if (observedValues.Length == 1)
+                    return observedValues[0].ToString(CultureInfo.InvariantCulture);
+
+                return string.Join(" | ", observedValues.Select(v => v.ToString(CultureInfo.InvariantCulture)));
+            }
+
+            private static string BuildObservedTransportSummary(WarpCatalogRoute route)
+            {
+                return string.Format(CultureInfo.InvariantCulture,
+                    "type={0} no={1} jump={2} evt={3} seq={4} call={5} proc={6} cnt={7}",
+                    BuildObservedIntSummary(GetOrderedObservedTransportTerminalTypeVariants(route), route.TransportTerminalType),
+                    BuildObservedIntSummary(GetOrderedObservedTransportTerminalNoVariants(route), route.TransportTerminalNo),
+                    BuildObservedIntSummary(GetOrderedObservedTransportJumpNoVariants(route), route.TransportJumpNo),
+                    BuildObservedIntSummary(GetOrderedObservedTransportEventStatVariants(route), route.TransportEventStat),
+                    BuildObservedIntSummary(GetOrderedObservedTransportSeqVariants(route), route.TransportSeq),
+                    BuildObservedIntSummary(GetOrderedObservedTransportCallModeVariants(route), route.TransportCallMode),
+                    BuildObservedIntSummary(GetOrderedObservedTransportProcessStatVariants(route), route.TransportProcessStat),
+                    BuildObservedIntSummary(GetOrderedObservedTransportTerminalCntVariants(route), route.TransportTerminalCnt));
+            }
+
             private static string BuildWarpCatalogSelectedRouteText(WarpCatalogRoute route, string mode, int index, int count)
             {
                 var sb = new StringBuilder(768);
@@ -827,7 +990,9 @@ namespace SMT3HD_Reimagined
                 sb.AppendLine($"SourceCams: {(sourceCams.Length > 0 ? string.Join(" | ", sourceCams) : "<none>")}");
                 sb.AppendLine($"Dst: F{route.DstF} A{route.DstA} S{route.DstS} point=\"{San(route.DstPointRes)}\" cam=\"{San(route.DstCamName)}\"");
                 sb.AppendLine($"DoorIdx: {(doorIdx.HasValue ? doorIdx.Value.ToString(CultureInfo.InvariantCulture) : "<n/a for non-door route>")}");
-                sb.AppendLine($"Transport: {(transportTerminalType.HasValue ? $"type={transportTerminalType.Value} no={transportTerminalNo.GetValueOrDefault(-1)} jump={transportJumpNo.GetValueOrDefault(-1)} evt={transportEventStat.GetValueOrDefault(-1)} seq={transportSeq.GetValueOrDefault(-1)} call={transportCallMode.GetValueOrDefault(-1)} proc={transportProcessStat.GetValueOrDefault(-1)} cnt={transportTerminalCnt.GetValueOrDefault(-1)}" : "<n/a for non-terminal route>")}");
+                sb.AppendLine($"TransportLatest: {(transportTerminalType.HasValue ? $"type={transportTerminalType.Value} no={transportTerminalNo.GetValueOrDefault(-1)} jump={transportJumpNo.GetValueOrDefault(-1)} evt={transportEventStat.GetValueOrDefault(-1)} seq={transportSeq.GetValueOrDefault(-1)} call={transportCallMode.GetValueOrDefault(-1)} proc={transportProcessStat.GetValueOrDefault(-1)} cnt={transportTerminalCnt.GetValueOrDefault(-1)}" : "<n/a for non-terminal route>")}");
+                if (transportTerminalType.HasValue)
+                    sb.AppendLine($"TransportObserved: {BuildObservedTransportSummary(route)}");
                 sb.AppendLine($"Executor: {(currentDoorFavoriteLine != null ? "current door-favorites compatible" : "not executable by current door-favorites executor")}");
                 if (currentDoorFavoriteLine != null)
                     sb.AppendLine($"ExecutorFavoriteLine: {currentDoorFavoriteLine}");
@@ -872,7 +1037,8 @@ namespace SMT3HD_Reimagined
                     else if (!string.IsNullOrEmpty(route.SrcCamName))
                         sb.AppendLine($"# sourceCams={San(route.SrcCamName)}");
                     sb.AppendLine($"# dst=F{route.DstF} A{route.DstA} S{route.DstS} point=\"{San(route.DstPointRes)}\"");
-                    sb.AppendLine($"# transport(type={route.TransportTerminalType} no={route.TransportTerminalNo} jump={route.TransportJumpNo} evt={route.TransportEventStat} seq={route.TransportSeq} call={route.TransportCallMode} proc={route.TransportProcessStat} cnt={route.TransportTerminalCnt})");
+                    sb.AppendLine($"# transportLatest(type={route.TransportTerminalType} no={route.TransportTerminalNo} jump={route.TransportJumpNo} evt={route.TransportEventStat} seq={route.TransportSeq} call={route.TransportCallMode} proc={route.TransportProcessStat} cnt={route.TransportTerminalCnt})");
+                    sb.AppendLine($"# transportObserved({BuildObservedTransportSummary(route)})");
                 }
                 else
                 {

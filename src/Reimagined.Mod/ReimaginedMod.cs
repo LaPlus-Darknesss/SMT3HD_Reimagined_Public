@@ -503,6 +503,27 @@ if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.F7)
                     return;
                 }
 
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.Semicolon))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+; (route-favorites browse prev)");
+                    GameDebugMenuBridge.HotkeyWarpCatalogRouteFavoritesBrowsePrev();
+                    return;
+                }
+
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.Quote))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+' (route-favorites browse next)");
+                    GameDebugMenuBridge.HotkeyWarpCatalogRouteFavoritesBrowseNext();
+                    return;
+                }
+
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.Backslash))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+\\ (dump selected route-favorite)");
+                    GameDebugMenuBridge.HotkeyDumpSelectedWarpCatalogRouteFavorite();
+                    return;
+                }
+
                 if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.Slash))
                 {
                     MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+/ (toggle warp catalog browse mode)");
@@ -2048,6 +2069,9 @@ private static Button CreateButtonWithLabel(Transform parent, string name, strin
             if (GameDebugMenuBridge.TryGetWarpCatalogRouteFavoritesSummary(out string warpRouteFavs))
                 sb.AppendLine($"warpRouteFavorites: {San(warpRouteFavs)}");
 
+            if (GameDebugMenuBridge.TryGetWarpCatalogRouteFavoriteBrowseSummary(out string warpRouteFavBrowse))
+                sb.AppendLine($"warpRouteFavoriteBrowse: {San(warpRouteFavBrowse)}");
+
             if (GameDebugMenuBridge.TryGetWarpArmSummary(out string warpArm))
                 sb.AppendLine($"warpArm: {San(warpArm)}");
             sb.AppendLine();
@@ -2057,7 +2081,8 @@ private static Button CreateButtonWithLabel(Transform parent, string name, strin
             sb.AppendLine("Ctrl+Alt+Shift+H/L: favorite prev/next   Ctrl+Alt+Shift+G: apply favorite   Ctrl+Alt+Shift+R: reload favorites file");
             sb.AppendLine("Ctrl+Alt+Shift+[/]: warp fav prev/next (or Left/Right Arrow)   Ctrl+Alt+Shift+F8: warp confirm   Ctrl+Alt+Shift+F7: reload warp favorites   Ctrl+Alt+Shift+F9: dump warp table");
             sb.AppendLine("Ctrl+Alt+Shift+P: record next route   Ctrl+Alt+Shift+J: dump warp catalog summary   Ctrl+Alt+Shift+I: dump selected route   Ctrl+Alt+Shift+V: dump favorite snippet/archive");
-            sb.AppendLine("Ctrl+Alt+Shift+A: append selected door route to warp favorites   Ctrl+Alt+Shift+C: save selected route to route favorites   Ctrl+Alt+Shift+/: browse mode toggle   Ctrl+Alt+Shift+,/.: browse prev/next catalog route");
+            sb.AppendLine("Ctrl+Alt+Shift+A: append selected door route to warp favorites   Ctrl+Alt+Shift+C: save selected route to route favorites   Ctrl+Alt+Shift+;/' : route-fav prev/next   Ctrl+Alt+Shift+\\: dump selected route-fav");
+            sb.AppendLine("Ctrl+Alt+Shift+/: browse mode toggle   Ctrl+Alt+Shift+,/.: browse prev/next catalog route");
             sb.AppendLine("F2: full scene probe   F3: terminal seam   F4: capabilities");
             sb.AppendLine("F5: UI signature   F6: UI delta   F7: UI watchlist");
             sb.AppendLine("Ctrl+Alt+Shift+F11: native debug menu tree dump");
