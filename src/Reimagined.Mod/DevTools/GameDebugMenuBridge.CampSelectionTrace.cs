@@ -9,7 +9,19 @@ namespace SMT3HD_Reimagined
     {
         private static partial class GameDebugMenuBridge
         {
-
+            // =========================================================
+            // Pass 71: Live camp highlight trace (opt-in, throttled)
+            // =========================================================
+            //
+            // Why this exists:
+            // - When you're mapping menu flows, needing to press a dump hotkey constantly is slow.
+            // - A lightweight "print one line when selection changes" trace lets us explore new
+            //   screens quickly and capture a *timeline* of cursor behavior.
+            //
+            // Safety / performance:
+            // - Completely opt-in (toggle hotkey).
+            // - Throttled (once every N frames).
+            // - If snapshot capture fails, it stays silent.
 
             private static bool s_campHlTraceEnabled;
             private static int s_campHlTraceLastFrame;

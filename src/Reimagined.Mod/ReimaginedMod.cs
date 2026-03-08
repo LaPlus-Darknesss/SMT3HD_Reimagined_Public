@@ -475,6 +475,48 @@ if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.F7)
                     return;
                 }
 
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.I))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+I (dump selected warp catalog route)");
+                    GameDebugMenuBridge.HotkeyDumpWarpCatalogSelectedRoute();
+                    return;
+                }
+
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.V))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+V (dump selected route as warp favorite snippet/template)");
+                    GameDebugMenuBridge.HotkeyDumpWarpCatalogSelectedFavoriteSnippet();
+                    return;
+                }
+
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.A))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+A (append selected door route to warp favorites)");
+                    GameDebugMenuBridge.HotkeyAppendSelectedWarpCatalogDoorToFavorites();
+                    return;
+                }
+
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.Slash))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+/ (toggle warp catalog browse mode)");
+                    GameDebugMenuBridge.HotkeyWarpCatalogBrowseToggleMode();
+                    return;
+                }
+
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.Comma))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+, (warp catalog browse prev)");
+                    GameDebugMenuBridge.HotkeyWarpCatalogBrowsePrev();
+                    return;
+                }
+
+                if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.Period))
+                {
+                    MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+. (warp catalog browse next)");
+                    GameDebugMenuBridge.HotkeyWarpCatalogBrowseNext();
+                    return;
+                }
+
 if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.F8))
                 {
                     MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+F8 (warp to current favorite; double-tap confirm)");
@@ -2004,7 +2046,8 @@ private static Button CreateButtonWithLabel(Transform parent, string name, strin
             sb.AppendLine("Ctrl+Alt+Shift+K: apply candidate   Ctrl+Alt+Shift+U: undo   Ctrl+Alt+Shift+Y: redo");
             sb.AppendLine("Ctrl+Alt+Shift+H/L: favorite prev/next   Ctrl+Alt+Shift+G: apply favorite   Ctrl+Alt+Shift+R: reload favorites file");
             sb.AppendLine("Ctrl+Alt+Shift+[/]: warp fav prev/next (or Left/Right Arrow)   Ctrl+Alt+Shift+F8: warp confirm   Ctrl+Alt+Shift+F7: reload warp favorites   Ctrl+Alt+Shift+F9: dump warp table");
-            sb.AppendLine("Ctrl+Alt+Shift+P: record next route   Ctrl+Alt+Shift+J: dump warp catalog summary");
+            sb.AppendLine("Ctrl+Alt+Shift+P: record next route   Ctrl+Alt+Shift+J: dump warp catalog summary   Ctrl+Alt+Shift+I: dump selected route   Ctrl+Alt+Shift+V: dump favorite snippet/archive");
+            sb.AppendLine("Ctrl+Alt+Shift+A: append selected door route to warp favorites   Ctrl+Alt+Shift+/: browse mode toggle   Ctrl+Alt+Shift+,/.: browse prev/next catalog route");
             sb.AppendLine("F2: full scene probe   F3: terminal seam   F4: capabilities");
             sb.AppendLine("F5: UI signature   F6: UI delta   F7: UI watchlist");
             sb.AppendLine("Ctrl+Alt+Shift+F11: native debug menu tree dump");
