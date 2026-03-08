@@ -5515,6 +5515,13 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
                     DumpStaticGetter(w, "Il2Cpp.fclTerminalUpdate", "trmCheckSaveAct");
                     DumpStaticGetter(w, "Il2Cpp.fclTerminalUpdate", "trmGetJumpTerminalNo");
                 }
+
+                w.WriteLine();
+                GameDebugMenuBridge.WriteCurrentTerminalStaticWorkProbe(w);
+
+                w.WriteLine();
+                w.WriteLine("[selected route-favorite candidate]");
+                GameDebugMenuBridge.WriteSelectedWarpCatalogRouteFavoriteTerminalSeamProbe(w);
             }
 
             MelonLogger.Msg($"[Reimagined] wrote terminal seam state dump: {path}");

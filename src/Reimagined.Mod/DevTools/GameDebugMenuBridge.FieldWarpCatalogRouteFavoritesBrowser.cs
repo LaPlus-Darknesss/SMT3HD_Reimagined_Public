@@ -235,6 +235,101 @@ namespace SMT3HD_Reimagined
                 return $"[{(index + 1).ToString(CultureInfo.InvariantCulture)}/{count.ToString(CultureInfo.InvariantCulture)}] {body}";
             }
 
+
+            public static void WriteSelectedWarpCatalogRouteFavoriteTerminalSeamProbe(StreamWriter w)
+            {
+                if (w == null)
+                    return;
+
+                w.WriteLine("selected_route_favorite_probe:");
+                if (!TryGetSelectedWarpCatalogRouteFavoriteEntry(out WarpCatalogRouteFavoriteEntry? entry, out int index, out int count) || entry == null)
+                {
+                    w.WriteLine("  selected=<none>");
+                    return;
+                }
+
+                WarpCatalogRoute route = entry.Route;
+                w.WriteLine($"  selected={BuildWarpCatalogRouteFavoriteBrowseInline(entry, index, count)}");
+                w.WriteLine($"  kind={San(route.Kind)}");
+                w.WriteLine($"  saved_at={San(entry.SavedAt)}");
+                w.WriteLine($"  saved_browse={San(entry.BrowseMode)} [{entry.SelectedIndex1.ToString(CultureInfo.InvariantCulture)}/{entry.SelectedCount.ToString(CultureInfo.InvariantCulture)}]");
+                w.WriteLine($"  src=F{route.SrcF} A{route.SrcA} S{route.SrcS}");
+                w.WriteLine($"  dst=F{route.DstF} A{route.DstA} S{route.DstS}");
+                w.WriteLine($"  executor_current_door_favorites_compatible={entry.CurrentDoorFavoritesCompatible}");
+                if (!string.IsNullOrEmpty(entry.CurrentDoorFavoriteLine))
+                    w.WriteLine($"  executor_current_door_favorite_line={San(entry.CurrentDoorFavoriteLine)}");
+
+                if (!string.Equals(route.Kind, "terminal", StringComparison.Ordinal))
+                {
+                    w.WriteLine("  terminal_candidate=false");
+                    return;
+                }
+
+                int[] observedTransportTerminalType = GetOrderedObservedTransportTerminalTypeVariants(route);
+                int[] observedTransportTerminalNo = GetOrderedObservedTransportTerminalNoVariants(route);
+                int[] observedTransportJumpNo = GetOrderedObservedTransportJumpNoVariants(route);
+                int[] observedTransportEventStat = GetOrderedObservedTransportEventStatVariants(route);
+                int[] observedTransportSeq = GetOrderedObservedTransportSeqVariants(route);
+                int[] observedTransportCallMode = GetOrderedObservedTransportCallModeVariants(route);
+                int[] observedTransportProcessStat = GetOrderedObservedTransportProcessStatVariants(route);
+                int[] observedTransportTerminalCnt = GetOrderedObservedTransportTerminalCntVariants(route);
+
+                w.WriteLine("  terminal_candidate=true");
+                w.WriteLine($"  candidate_transport_latest=type={route.TransportTerminalType.ToString(CultureInfo.InvariantCulture)} no={route.TransportTerminalNo.ToString(CultureInfo.InvariantCulture)} jump={route.TransportJumpNo.ToString(CultureInfo.InvariantCulture)} evt={FormatTrmEvtValue(route.TransportEventStat)} seq={FormatTrmSeqValue(route.TransportSeq)} call={route.TransportCallMode.ToString(CultureInfo.InvariantCulture)} proc={route.TransportProcessStat.ToString(CultureInfo.InvariantCulture)} cnt={route.TransportTerminalCnt.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  candidate_transport_observed=type={FormatObservedIntArray(observedTransportTerminalType)} no={FormatObservedIntArray(observedTransportTerminalNo)} jump={FormatObservedIntArray(observedTransportJumpNo)} evt={FormatObservedIntArrayWithLabels(observedTransportEventStat, true)} seq={FormatObservedIntArrayWithLabels(observedTransportSeq, false)} call={FormatObservedIntArray(observedTransportCallMode)} proc={FormatObservedIntArray(observedTransportProcessStat)} cnt={FormatObservedIntArray(observedTransportTerminalCnt)}");
+
+                bool readAnything = TryReadCurrentTerminalState(
+                    out bool terminalActive,
+                    out int liveCheckTerminal,
+                    out int liveCallMode,
+                    out int liveProcessStat,
+                    out int liveEventStat,
+                    out int liveJumpNo,
+                    out int liveTerminalType,
+                    out int liveTerminalNo,
+                    out int liveTerminalCnt);
+
+                w.WriteLine($"  live_probe_read_anything={readAnything}");
+                w.WriteLine($"  live_terminal_active={terminalActive}");
+                w.WriteLine($"  live_check_terminal={liveCheckTerminal.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  live_terminal_type={liveTerminalType.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  live_terminal_no={liveTerminalNo.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  live_jump_no={liveJumpNo.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  live_event_stat={FormatTrmEvtValue(liveEventStat)}");
+                w.WriteLine($"  live_call_mode={liveCallMode.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  live_process_stat={liveProcessStat.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  live_terminal_cnt={liveTerminalCnt.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"  live_trm_seq=<unavailable from current safe probe surface>");
+
+                bool identityMatch =
+                    ContainsObservedInt(observedTransportTerminalType, liveTerminalType) &&
+                    ContainsObservedInt(observedTransportTerminalNo, liveTerminalNo) &&
+                    ContainsObservedInt(observedTransportJumpNo, liveJumpNo) &&
+                    ContainsObservedInt(observedTransportEventStat, liveEventStat);
+                bool stateMatch =
+                    ContainsObservedInt(observedTransportCallMode, liveCallMode) &&
+                    ContainsObservedInt(observedTransportProcessStat, liveProcessStat) &&
+                    ContainsObservedInt(observedTransportTerminalCnt, liveTerminalCnt);
+
+                w.WriteLine($"  compare_identity_match={identityMatch}");
+                w.WriteLine($"  compare_state_match={stateMatch}");
+                w.WriteLine($"  compare_call_mode_match={ContainsObservedInt(observedTransportCallMode, liveCallMode)}");
+                w.WriteLine($"  compare_process_stat_match={ContainsObservedInt(observedTransportProcessStat, liveProcessStat)}");
+                w.WriteLine($"  compare_terminal_cnt_match={ContainsObservedInt(observedTransportTerminalCnt, liveTerminalCnt)}");
+                w.WriteLine("  compare_trm_seq_match=<unavailable from current safe probe surface>");
+            }
+
+            private static string FormatObservedIntArrayWithLabels(int[] values, bool eventLabels)
+            {
+                if (values == null || values.Length == 0)
+                    return "<none>";
+
+                var parts = new string[values.Length];
+                for (int i = 0; i < values.Length; i++)
+                    parts[i] = eventLabels ? FormatTrmEvtValue(values[i]) : FormatTrmSeqValue(values[i]);
+                return string.Join(" | ", parts);
+            }
+
             private static string BuildWarpCatalogRouteFavoriteSelectedText(WarpCatalogRouteFavoriteEntry entry, int index, int count)
             {
                 WarpCatalogRoute route = entry.Route;
@@ -407,6 +502,22 @@ namespace SMT3HD_Reimagined
                 {
                     return Array.Empty<int>();
                 }
+            }
+
+
+
+            private static bool ContainsObservedInt(int[] values, int probe)
+            {
+                if (probe < 0 || values == null || values.Length == 0)
+                    return false;
+
+                for (int i = 0; i < values.Length; i++)
+                {
+                    if (values[i] == probe)
+                        return true;
+                }
+
+                return false;
             }
 
             private static string FormatObservedIntArray(int[] values)

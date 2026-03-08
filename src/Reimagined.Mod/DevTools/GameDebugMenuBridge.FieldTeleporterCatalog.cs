@@ -1,5 +1,6 @@
 #nullable enable
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -503,6 +504,174 @@ namespace SMT3HD_Reimagined
                 }
 
                 return readAnything;
+            }
+
+            public static void WriteCurrentTerminalStaticWorkProbe(StreamWriter w)
+            {
+                if (w == null)
+                    return;
+
+                w.WriteLine("[terminal static work]");
+
+                var initType = FindGameType("Il2Cpp.fclTerminalInit", "fclTerminalInit");
+                if (initType == null)
+                {
+                    w.WriteLine("terminal_static_work: <fclTerminalInit not found>");
+                    return;
+                }
+
+                object? gbwk = GetStaticMemberValueLoose(initType, "GBWK");
+                if (gbwk == null)
+                {
+                    w.WriteLine("terminal_static_work: <GBWK unavailable>");
+                    return;
+                }
+
+                w.WriteLine($"gbwk_type={gbwk.GetType().FullName}");
+                w.WriteLine($"terminal_identity=type={GetInt(gbwk, "TerminalType", -1).ToString(CultureInfo.InvariantCulture)} no={GetInt(gbwk, "TerminalNo", -1).ToString(CultureInfo.InvariantCulture)} lastType={GetInt(gbwk, "LastTerminalType", -1).ToString(CultureInfo.InvariantCulture)} cnt={GetInt(gbwk, "TerminalCnt", -1).ToString(CultureInfo.InvariantCulture)} act={GetInt(gbwk, "ActFlag", -1).ToString(CultureInfo.InvariantCulture)} actStart={GetInt(gbwk, "ActStartFlag", -1).ToString(CultureInfo.InvariantCulture)} init={FormatBoolField(gbwk, "Initialized")} eventEnd={FormatBoolField(gbwk, "EventEnd")}");
+
+                object? seqInfo = GetMember(gbwk, "SeqInfo");
+                if (seqInfo != null)
+                {
+                    int current = GetInt(seqInfo, "Current", -1);
+                    int next = GetInt(seqInfo, "Next", -1);
+                    int last = GetInt(seqInfo, "Last", -1);
+                    int change = GetInt(seqInfo, "Change", -1);
+                    int timer = GetInt(seqInfo, "Timer", -1);
+                    int mesFlag = GetInt(seqInfo, "MesFlag", -1);
+                    int flag = GetInt(seqInfo, "Flag", -1);
+                    w.WriteLine($"seq_info=current={FormatTrmSeqValue(current)} next={FormatTrmSeqValue(next)} last={FormatTrmSeqValue(last)} change={change.ToString(CultureInfo.InvariantCulture)} timer={timer.ToString(CultureInfo.InvariantCulture)} mesFlag={mesFlag.ToString(CultureInfo.InvariantCulture)} flag={flag.ToString(CultureInfo.InvariantCulture)}");
+                }
+                else
+                {
+                    w.WriteLine("seq_info=<unavailable>");
+                }
+
+                w.WriteLine($"cmd_cursor={FormatTerminalCursorSummary(GetMember(gbwk, "CmdSelInfo"), "CursorInfo")}");
+                w.WriteLine($"trans_cursor={FormatTerminalCursorSummary(GetMember(gbwk, "TransWindow"), "CursorInfo")}");
+                w.WriteLine($"terminal_list={FormatTerminalListPreview(GetMember(gbwk, "TerminalList"), 16)}");
+            }
+
+            private static string FormatBoolField(object obj, string memberName)
+            {
+                try
+                {
+                    object? v = GetMember(obj, memberName);
+                    if (v == null)
+                        return "<null>";
+                    return Convert.ToBoolean(v, CultureInfo.InvariantCulture) ? "true" : "false";
+                }
+                catch
+                {
+                    return "<unavailable>";
+                }
+            }
+
+            private static string FormatTrmSeqValue(int value)
+            {
+                if (value < 0)
+                    return value.ToString(CultureInfo.InvariantCulture);
+                return $"{value.ToString(CultureInfo.InvariantCulture)}({FormatTrmSeqLabel(value)})";
+            }
+
+            private static string FormatTrmSeqLabel(int value)
+            {
+                return value switch
+                {
+                    0 => "TRM_SEQ_RO",
+                    1 => "TRM_SEQ_TR",
+                    2 => "TRM_SEQ_SA",
+                    3 => "TRM_SEQ_TL",
+                    4 => "TRM_SEQ_EX",
+                    5 => "TRM_SEQ_CFM",
+                    6 => "TRM_SEQ_ACT",
+                    7 => "TRM_SEQ_SA_IN",
+                    8 => "TRM_SEQ_SA_OUT",
+                    _ => "TRM_SEQ_UNKNOWN",
+                };
+            }
+
+            private static string FormatTrmEvtValue(int value)
+            {
+                if (value < 0)
+                    return value.ToString(CultureInfo.InvariantCulture);
+                return $"{value.ToString(CultureInfo.InvariantCulture)}({FormatTrmEvtLabel(value)})";
+            }
+
+            private static string FormatTrmEvtLabel(int value)
+            {
+                return value switch
+                {
+                    0 => "TRM_EVT_NONE",
+                    1 => "TRM_EVT_WAIT",
+                    2 => "TRM_EVT_START",
+                    3 => "TRM_EVT_BUSY",
+                    4 => "TRM_EVT_TALK_START",
+                    5 => "TRM_EVT_TALK",
+                    6 => "TRM_EVT_TERM",
+                    _ => "TRM_EVT_UNKNOWN",
+                };
+            }
+
+            private static string FormatTerminalCursorSummary(object? owner, string cursorMemberName)
+            {
+                if (owner == null)
+                    return "<unavailable>";
+
+                object? cursor = GetMember(owner, cursorMemberName);
+                if (cursor == null)
+                    return "<cursor unavailable>";
+
+                object? pos = GetMember(cursor, "CursorPos");
+                object? size = GetMember(cursor, "CursorSize");
+
+                int index = pos != null ? GetInt(pos, "Index", -1) : -1;
+                int shift = pos != null ? GetInt(pos, "Shift", -1) : -1;
+                int drawShift = pos != null ? GetInt(pos, "DrawShift", -1) : -1;
+                int shiftMax = pos != null ? GetInt(pos, "ShiftMax", -1) : -1;
+                int listNums = pos != null ? GetInt(pos, "ListNums", -1) : -1;
+                int invisibleListNums = pos != null ? GetInt(pos, "InvisibleListNums", -1) : -1;
+                int timer = pos != null ? GetInt(pos, "Timer", -1) : -1;
+                int activeTimer = pos != null ? GetInt(pos, "ActiveTimer", -1) : -1;
+                int stepY = GetInt(cursor, "StepY", -1);
+                int stopFlag = GetInt(cursor, "StopFlag", -1);
+                string sizeText = size != null
+                    ? $"x={GetInt(size, "X", -1).ToString(CultureInfo.InvariantCulture)} y={GetInt(size, "Y", -1).ToString(CultureInfo.InvariantCulture)} w={GetInt(size, "W", -1).ToString(CultureInfo.InvariantCulture)} h={GetInt(size, "H", -1).ToString(CultureInfo.InvariantCulture)}"
+                    : "<size unavailable>";
+
+                return $"index={index.ToString(CultureInfo.InvariantCulture)} shift={shift.ToString(CultureInfo.InvariantCulture)} drawShift={drawShift.ToString(CultureInfo.InvariantCulture)} shiftMax={shiftMax.ToString(CultureInfo.InvariantCulture)} listNums={listNums.ToString(CultureInfo.InvariantCulture)} invisibleListNums={invisibleListNums.ToString(CultureInfo.InvariantCulture)} timer={timer.ToString(CultureInfo.InvariantCulture)} activeTimer={activeTimer.ToString(CultureInfo.InvariantCulture)} stepY={stepY.ToString(CultureInfo.InvariantCulture)} stop={stopFlag.ToString(CultureInfo.InvariantCulture)} size[{sizeText}]";
+            }
+
+            private static string FormatTerminalListPreview(object? terminalList, int maxItems)
+            {
+                if (terminalList == null)
+                    return "<unavailable>";
+
+                if (!TryGetArrayLength(terminalList, out int len))
+                    return "<length unavailable>";
+
+                int take = Math.Max(0, Math.Min(len, maxItems));
+                var parts = new List<string>(take);
+                for (int i = 0; i < take; i++)
+                {
+                    if (!TryGetArrayElement(terminalList, i, out object? elem) || elem == null)
+                    {
+                        parts.Add("?");
+                        continue;
+                    }
+
+                    try
+                    {
+                        parts.Add(Convert.ToInt32(elem, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture));
+                    }
+                    catch
+                    {
+                        parts.Add(elem.ToString() ?? "?");
+                    }
+                }
+
+                string suffix = len > take ? " ..." : string.Empty;
+                return $"len={len.ToString(CultureInfo.InvariantCulture)} values=[{string.Join("|", parts)}]{suffix}";
             }
 
             private static bool TrySnapshotDoorEntryForIndex(int doorIndex)
