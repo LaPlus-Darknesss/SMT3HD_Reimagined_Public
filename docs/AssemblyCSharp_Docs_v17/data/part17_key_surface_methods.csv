@@ -1,0 +1,67 @@
+file,namespace,type,vis,ret,name,params,caller_count,il2cpp_token,rva,original_name,metadata_token_int
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppStructArray<byte>,LoadFileByte,"string key, string path_name",144,,,,100674328.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,bool,IsLoad,string key,105,,,,100674308.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name",76,,,,100674313.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name",76,,,,100674314.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name",76,,,,100674315.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,void,UnloadAB,string key,49,,,,100674311.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,void,Load,"string key, string aname",47,,,,100674303.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppSystem.Object,LoadFileObject,"string key, string path_name",37,,,,100674327.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path, string name, string extension",18,,,,100674323.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path, string name, string extension",18,,,,100674325.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadAsset,"string key, string path, string name",14,,,,100674322.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundle,GetAB,string key,8,,,,100674309.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,bool,IsFileExists,"string key, string path_name",5,,,,100674329.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path_name",5,,,,100674323.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path_name",5,,,,100674325.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AudioClip,LoadAudioClip,"string key, string path, string name",4,,,,100674319.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string path, string name",4,,,,100674317.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string path, string name",4,,,,100674318.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string fullPath",2,,,,100674317.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string fullPath",2,,,,100674318.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,bool,CheckAsiaDLC,"string key, int dlc_id",1,,,,100674304.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,bool,CheckRaidouDLC,"string key, int dlc_id",1,,,,100674305.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,void,LoadDirect,"string key, string aname, int dlc_id",1,,,,100674306.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,VideoClip,LoadVideoClip,"string key, string path, string name",1,,,,100674320.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,string,GetABName,string key,0,,,,100674310.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,IEnumerator,LoadCoroutine,"string key, int dlc_id",0,,,,100674307.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path, string name, string extension",0,,,,100674324.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path, string name, string extension",0,,,,100674326.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path_name",0,,,,100674324.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path_name",0,,,,100674326.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, string par, string name2 = null",0,,,,100674313.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, string par, string name2 = null",0,,,,100674314.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, string par, string name2 = null",0,,,,100674315.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, GameObject parent, string name2 = null",0,,,,100674313.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, GameObject parent, string name2 = null",0,,,,100674314.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, GameObject parent, string name2 = null",0,,,,100674315.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadPrefabAsync,"string key, string path, string name",0,,,,100674316.0
+Il2Cpp/DlcFileCtr.cs,Il2Cpp,DlcFileCtr,public,void,Load,"string key, int id, string aname",7,,,,100674350.0
+Il2Cpp/GlobalData.cs,Il2Cpp,GlobalData,public,void,LoadAssetExt,"string key, string name, string dlc",13,,,,100674439.0
+Il2Cpp/GlobalData.cs,Il2Cpp,GlobalData,public,bool,CheckDLCKey,string key,1,,,,100674440.0
+Il2Cpp/GlobalData.cs,Il2Cpp,GlobalData,public,string,DLCGetFieldSeKey,"string key, int no",1,,,,100674459.0
+Il2Cpp/GlobalData.cs,Il2Cpp,GlobalData,public,bool,IsFieldBGMLoaded,string key,1,,,,100674450.0
+Il2Cpp/GlobalData.cs,Il2Cpp,GlobalData,public,void,LoadFieldBGM,string key,1,,,,100674448.0
+Il2Cpp/GlobalData.cs,Il2Cpp,GlobalData,public,bool,ReplaceDLCName,"ref string key, string name",1,,,,100674447.0
+Il2Cpp/GlobalData.cs,Il2Cpp,GlobalData,public,void,RemoveDLC,string key,0,,,,100674453.0
+Il2Cpp/Localize.cs,Il2Cpp,Localize,public,void,LoadLocalizeText,"string key, string filename",96,,,,100674520.0
+Il2Cpp/Localize.cs,Il2Cpp,Localize,public,void,Remove,string key,62,,,,100674525.0
+Il2Cpp/Localize.cs,Il2Cpp,Localize,public,EventEMsgData,GetData,string key,7,,,,100674524.0
+Il2Cpp/Localize.cs,Il2Cpp,Localize,public,void,LoadEventData,"string key, string name, int eventno, bool check = false",3,,,,100674521.0
+Il2Cpp/Localize.cs,Il2Cpp,Localize,public,void,Load,"string key, string filePath",1,,,,100674523.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,RemoveKeys,"SndAssetBundleManager.SNDDIR type, string key = null",32,,,,100674720.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,LoadKeys,"SndAssetBundleManager.SNDDIR type, string key, string path = null",29,,,,100674710.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,string,IsLocalizeKey,string key,11,,,,100674725.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,_loadse,string key,7,,,,
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,LoadEventVoice,"int eventno, string key, EventEMsgData data",6,,,,100674724.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,_loadbgm,"SndAssetBundleManager.SNDDIR type, string key",4,,,,
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,LoadKeysSE1,"SndAssetBundleManager.SNDDIR type, string key, string se_name",2,,,,100674715.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,LoadFNPCVoice,string key,1,,,,100674727.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,int,LoadKeysMSE,"string key, int idx",1,,,,100674717.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,string,VoiceCommonKey,"string key, string name",1,,,,100674723.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,_loadvoice,"string key, string path",1,,,,
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,bool,load_voice,"int eventno, string key, string name, string voice, EventEMsgData data, int i, bool replace",1,,,,
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,LoadBossAIMSG,string key,0,,,,100674722.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,LoadKeysBGM1,"SndAssetBundleManager.SNDDIR type, string key, string bgm_name",0,,,,100674712.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,_loadbgm2,"string key, string bgm_name",0,,,,
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,_loadse2,"string key, string se_name",0,,,,

@@ -1,0 +1,79 @@
+method,group,token,callerCount,signature
+fldAddressResolverFL1,Address resolve (fldAddress*),100668467.0,1.0,public unsafe static fldFileInfoHeaderFL1_t fldAddressResolverFL1(Il2CppStructArray<byte> pData)
+fldAddressResolverFL2,Address resolve (fldAddress*),100668469.0,1.0,public unsafe static fldFileInfoHeaderFL2_t fldAddressResolverFL2(Il2CppStructArray<byte> pData)
+DelAutoMapObj,Automap,100668526.0,4.0,"public unsafe static void DelAutoMapObj(ref GameObject AutoMapObj, ref Il2CppReferenceArray<GameObject> List1, ref Il2CppReferenceArray<Il2CppReferenceArray<GameObject>> List2)"
+fldAutoMapDelete,Automap,100668530.0,0.0,public unsafe static void fldAutoMapDelete()
+fldMakeBlockBasicFL2,Field building (fldMake*),100668461.0,0.0,"public unsafe static void fldMakeBlockBasicFL2(Il2CppReferenceArray<fldConstruntAreaFL2_t> pBlockTable, uint nBlock)"
+fldMakeDmyMatter,Field building (fldMake*),100668457.0,0.0,public unsafe static dds3Basic_t fldMakeDmyMatter()
+fldMakeFilePath,Field building (fldMake*),100668531.0,10.0,"public unsafe static void fldMakeFilePath(ref string pathstr, int field, int area)"
+fldMakeObjectBasic2,Field building (fldMake*),100668462.0,1.0,public unsafe static void fldMakeObjectBasic2()
+fldMakeObjectBasic3,Field building (fldMake*),100668463.0,1.0,public unsafe static void fldMakeObjectBasic3()
+fldMakeResouceBasicFL1,Field building (fldMake*),100668459.0,1.0,"public unsafe static void fldMakeResouceBasicFL1(Il2CppReferenceArray<fldResourceTypeTable_t> pTypeTable, uint nTypeTable, Il2CppStructArray<byte> pHead)"
+fldMakeResouceBasicFL2,Field building (fldMake*),100668460.0,2.0,"public unsafe static void fldMakeResouceBasicFL2(Il2CppReferenceArray<fldResourceTypeTable_t> pTypeTable, uint nTypeTable, Il2CppStructArray<byte> pHead)"
+fldFreeFile,Field freeing (fldFree*),100668529.0,1.0,public unsafe static void fldFreeFile()
+fldFreeNextFile,Field freeing (fldFree*),100668516.0,6.0,public unsafe static void fldFreeNextFile()
+fldLoadFile,Field loading (fldLoad*),100668527.0,0.0,"public unsafe static Il2CppSystem.Object fldLoadFile(string pFileName, string akey = """")"
+fldLoadNextFile,Field loading (fldLoad*),100668513.0,1.0,"public unsafe static int fldLoadNextFile(int field, int area)"
+fldLoadNextFileBF,Field loading (fldLoad*),100668519.0,0.0,"public unsafe static Il2CppSystem.Object fldLoadNextFileBF(Il2CppSystem.Object pData, int field, int area)"
+fldLoadNextFileF1,Field loading (fldLoad*),100668521.0,0.0,"public unsafe static Il2CppSystem.Object fldLoadNextFileF1(Il2CppSystem.Object pData, int field, int area)"
+fldLoadNextFileF2,Field loading (fldLoad*),100668522.0,0.0,"public unsafe static Il2CppSystem.Object fldLoadNextFileF2(Il2CppStructArray<byte> pData, int field, int area)"
+fldLoadNextFileTB,Field loading (fldLoad*),100668520.0,20.0,"public unsafe static Il2CppSystem.Object fldLoadNextFileTB(Il2CppSystem.Object pData, int field, int area)"
+fldLoadNextFile_BtlRet,Field loading (fldLoad*),100668514.0,20.0,public unsafe static int fldLoadNextFile_BtlRet()
+fldLoadNextFile_SetId_BtlRet,Field loading (fldLoad*),100668513.0,2.0,"public unsafe static void fldLoadNextFile_SetId_BtlRet(int field, int area)"
+fldLoadNextGetStatus,Field loading (fldLoad*),100668518.0,3.0,public unsafe static int fldLoadNextGetStatus()
+fldLoadNextTask,Field loading (fldLoad*),100668517.0,2.0,public unsafe static int fldLoadNextTask()
+SetfldResCollPolyTome,FieldCollision (ResColl*),100668482.0,0.0,"public unsafe static fldResCollPolyTome_t SetfldResCollPolyTome(Il2CppStructArray<byte> pData, int addr)"
+SetfldResCollPolyTomeName,FieldCollision (ResColl*),100668483.0,2.0,"public unsafe static Il2CppReferenceArray<fldResCollPolyTomeName_t> SetfldResCollPolyTomeName(Il2CppStructArray<byte> pData, int size, int addr)"
+SetfldResCollision,FieldCollision (ResCollision*),100668478.0,2.0,"public unsafe static fldResCollision_t SetfldResCollision(Il2CppStructArray<byte> pData, int addr)"
+SetfldResCollisionPoly,FieldCollision (ResCollision*),100668479.0,2.0,"public unsafe static fldResCollisionPoly_t SetfldResCollisionPoly(Il2CppStructArray<byte> pData, int addr)"
+SetfldResCollisionPolyFace,FieldCollision (ResCollision*),100668481.0,1.0,"public unsafe static Il2CppReferenceArray<fldResCollisionPolyFace_t> SetfldResCollisionPolyFace(Il2CppStructArray<byte> pData, int size, int addr)"
+SetfldResCollisionpVertex,FieldCollision (ResCollision*),100668480.0,1.0,"public unsafe static Il2CppStructArray<Vector4> SetfldResCollisionpVertex(Il2CppStructArray<byte> pData, int size, int addr)"
+SetfldResHeadAreaName,FieldHeader (ResHead*),100668475.0,1.0,"public unsafe static fldResHeadAreaName_t SetfldResHeadAreaName(Il2CppStructArray<byte> pData, int addr)"
+SetfldResHeadLink,FieldHeader (ResHead*),100668476.0,1.0,"public unsafe static fldResHeadLink_t SetfldResHeadLink(Il2CppStructArray<byte> pData, int addr)"
+SetfldResHeadLinkData,FieldHeader (ResHead*),100668477.0,1.0,"public unsafe static fldResHeadLinkData_t SetfldResHeadLinkData(Il2CppStructArray<byte> pData, ref int addr)"
+SetfldResHeadPos,FieldHeader (ResHead*),100668474.0,1.0,"public unsafe static fldResHeadPos_t SetfldResHeadPos(Il2CppStructArray<byte> pData, int addr)"
+SetfldResPut,FieldPlacement (ResPut*),100668485.0,4.0,"public unsafe static fldResPut_t SetfldResPut(Il2CppStructArray<byte> pData, int addr, fldResPut_t pPut)"
+SetfldResPutEveBall,FieldPlacement (ResPut*),100668487.0,1.0,"public unsafe static fldResPutEveBall_t SetfldResPutEveBall(Il2CppStructArray<byte> pData, int addr, fldResPut_t pPut)"
+SetfldResPutEveBox,FieldPlacement (ResPut*),100668511.0,1.0,"public unsafe static fldResPutEveBox_t SetfldResPutEveBox(Il2CppStructArray<byte> pData, int addr)"
+SetfldResPutEvePoly,FieldPlacement (ResPut*),100668510.0,1.0,"public unsafe static fldResPutEvePoly_t SetfldResPutEvePoly(Il2CppStructArray<byte> pData, int addr)"
+SetfldResPutItemBox,FieldPlacement (ResPut*),100668490.0,0.0,"public unsafe static fldResPutItemBox_t SetfldResPutItemBox(Il2CppStructArray<byte> pData, int addr)"
+SetfldResPutNpc,FieldPlacement (ResPut*),100668489.0,0.0,"public unsafe static fldResPutNpc_t SetfldResPutNpc(Il2CppStructArray<byte> pData, int addr)"
+SetfldResPutSE,FieldPlacement (ResPut*),100668491.0,0.0,"public unsafe static fldResPutSE_t SetfldResPutSE(Il2CppStructArray<byte> pData, int addr)"
+SetfldResCam,FieldResources (Res*),100668488.0,0.0,"public unsafe static fldResCam_t SetfldResCam(Il2CppStructArray<byte> pData, int addr)"
+SetfldResEvent,FieldResources (Res*),100668484.0,0.0,"public unsafe static fldResEvent_t SetfldResEvent(Il2CppStructArray<byte> pData, int addr)"
+SetfldResModel,FieldResources (Res*),100668503.0,1.0,"public unsafe static fldResModel_t SetfldResModel(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourceDataTable,FieldResources (Res*),100668473.0,0.0,"public unsafe static Il2CppReferenceArray<fldResHead_t> SetfldResourceDataTable(Il2CppStructArray<byte> pData, uint size, int addr)"
+SetfldResourceEffect,FieldResources (Res*),100668492.0,1.0,"public unsafe static fldResourceEffect_t SetfldResourceEffect(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourceLight,FieldResources (Res*),100668493.0,1.0,"public unsafe static fldResourceLight_t SetfldResourceLight(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourcePathData_Float,FieldResources (Res*),100668496.0,0.0,"public unsafe static fldResourcePathData_t_Float SetfldResourcePathData_Float(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourcePathData_Light,FieldResources (Res*),100668499.0,0.0,"public unsafe static fldResourcePathData_t_Light SetfldResourcePathData_Light(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourcePathData_Vector3,FieldResources (Res*),100668497.0,0.0,"public unsafe static fldResourcePathData_t_Vector3 SetfldResourcePathData_Vector3(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourcePathData_Vector4,FieldResources (Res*),100668498.0,0.0,"public unsafe static fldResourcePathData_t_Vector4 SetfldResourcePathData_Vector4(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourcePathTable,FieldResources (Res*),100668495.0,0.0,"public unsafe static Il2CppReferenceArray<fldResourcePathTable_t> SetfldResourcePathTable(Il2CppStructArray<byte> pData, int size, int addr)"
+SetfldResourcePathTableInfo,FieldResources (Res*),100668494.0,1.0,"public unsafe static fldResourcePathTableInfo_t SetfldResourcePathTableInfo(Il2CppStructArray<byte> pData, int addr)"
+SetfldResourcePathUInt32,FieldResources (Res*),100668501.0,1.0,"public unsafe static Il2CppStructArray<uint> SetfldResourcePathUInt32(Il2CppStructArray<byte> pData, int size, int addr)"
+SetfldResourcePathVector3,FieldResources (Res*),100668502.0,0.0,"public unsafe static Il2CppStructArray<Vector3> SetfldResourcePathVector3(Il2CppStructArray<byte> pData, int size, int addr)"
+SetfldResourcePathVector4,FieldResources (Res*),100668500.0,0.0,"public unsafe static Il2CppStructArray<Vector4> SetfldResourcePathVector4(Il2CppStructArray<byte> pData, int size, int addr)"
+SetfldResourceTypeTable,FieldResources (Res*),100668472.0,0.0,"public unsafe static Il2CppReferenceArray<fldResourceTypeTable_t> SetfldResourceTypeTable(Il2CppStructArray<byte> pData, uint size, int addr)"
+SetfldConstruntAreaFL2,FieldSetters (Setfld*),100668471.0,0.0,"public unsafe static Il2CppReferenceArray<fldConstruntAreaFL2_t> SetfldConstruntAreaFL2(Il2CppStructArray<byte> pData, uint size, int addr)"
+SetfldEveType,FieldSetters (Setfld*),100668486.0,4.0,"public unsafe static uint SetfldEveType(Il2CppStructArray<byte> pData, int addr, fldResPut_t pPut)"
+SetfldFileAreaDataFL1,FieldSetters (Setfld*),100668468.0,0.0,"public unsafe static fldFileAreaDataFL1_t SetfldFileAreaDataFL1(Il2CppStructArray<byte> pData, int addr)"
+SetfldFileAreaDataFL2,FieldSetters (Setfld*),100668470.0,0.0,"public unsafe static fldFileAreaDataFL2_t SetfldFileAreaDataFL2(Il2CppStructArray<byte> pData, int addr)"
+fldFileAddrResetMode,File resolver (fldFile*),100668532.0,0.0,public unsafe static void fldFileAddrResetMode(int mode)
+fldFileResolverFL1,File resolver (fldFile*),100668464.0,1.0,"public unsafe static void fldFileResolverFL1(fldFileInfoHeaderFL1_t pInfoHeaderFL1, Il2CppStructArray<byte> pHead, string akey)"
+fldFileResolverFL2,File resolver (fldFile*),100668465.0,0.0,"public unsafe static void fldFileResolverFL2(fldFileInfoHeaderFL2_t pInfoHeaderFL2, Il2CppStructArray<byte> pHead)"
+ChangeMaterial,Other,100668525.0,1.0,"public unsafe static void ChangeMaterial(Il2CppReferenceArray<GameObject> List1, Il2CppReferenceArray<Il2CppReferenceArray<GameObject>> List2, Material mat_black, Material mat_white, Material mat_line)"
+GetStringToByte,Other,100668466.0,11.0,"public unsafe static string GetStringToByte(Il2CppStructArray<byte> pData, int addr)"
+fldCheckNextFile,Other,100668533.0,0.0,public unsafe static bool fldCheckNextFile(int field)
+fldGetMatter_From_ModelRangeID,Other,100668458.0,8.0,public unsafe static dds3Basic_t fldGetMatter_From_ModelRangeID(int modelRangeID)
+fldSetupButtonGuide,Other,100668528.0,3.0,public unsafe static void fldSetupButtonGuide()
+typeAsiaCheckEvent,Region/DLC gates,100668534.0,1.0,public unsafe static bool typeAsiaCheckEvent(string resourceName)
+SetsdfMatDef,SDF defs (Setsdf*),100668505.0,0.0,"public unsafe static sdfMatDef_t SetsdfMatDef(Il2CppStructArray<byte> pData, int addr)"
+SetsdfModelDef,SDF defs (Setsdf*),100668504.0,1.0,"public unsafe static sdfModelDef_t SetsdfModelDef(Il2CppStructArray<byte> pData, int addr, bool set = true)"
+SetsdfModelNodeDef,SDF defs (Setsdf*),100668512.0,1.0,"public unsafe static sdfModelNodeDef_t SetsdfModelNodeDef(Il2CppStructArray<byte> pData, ref int addr)"
+SetsdfMotionCutChunk,SDF defs (Setsdf*),100668508.0,1.0,"public unsafe static Il2CppReferenceArray<sdfMotionCutChunk_t> SetsdfMotionCutChunk(Il2CppStructArray<byte> pData, int addr)"
+SetsdfMotionCutDef,SDF defs (Setsdf*),100668507.0,1.0,"public unsafe static Il2CppReferenceArray<sdfMotionCutDef_t> SetsdfMotionCutDef(Il2CppStructArray<byte> pData, int size, int addr)"
+SetsdfMotionNodeDef,SDF defs (Setsdf*),100668509.0,0.0,"public unsafe static Il2CppReferenceArray<sdfMotionNodeDef_t> SetsdfMotionNodeDef(Il2CppStructArray<byte> pData, int len, int addr)"
+SetsdfMotionPlayBook,SDF defs (Setsdf*),100668506.0,1.0,"public unsafe static sdfMotionPlayBook_t SetsdfMotionPlayBook(Il2CppStructArray<byte> pData, int addr)"
+GetChildList,Scene traversal helpers,100668524.0,2.0,"public unsafe static void GetChildList(GameObject AutoMapObj, ref Il2CppReferenceArray<GameObject> List1, ref Il2CppReferenceArray<Il2CppReferenceArray<GameObject>> List2)"
+GetChildren,Scene traversal helpers,100668523.0,1.0,public unsafe static Il2CppReferenceArray<GameObject> GetChildren(GameObject parentObj)

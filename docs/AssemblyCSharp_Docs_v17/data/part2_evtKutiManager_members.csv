@@ -1,0 +1,46 @@
+token_dec,token_hex,rid,rva,kind,accessor,name,decl
+100670727,0x06001D07,7431,0x000D44BC,method,,evtKutiManager,static evtKutiManager()
+100670728,0x06001D08,7432,0x000D47E4,method,,DlcTimeLineLoad,public unsafe void DlcTimeLineLoad(Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> _tbl)
+100670729,0x06001D09,7433,0x000D4828,method,,DlcTimeLineDivisionAdd,public unsafe void DlcTimeLineDivisionAdd(string key)
+100670730,0x06001D0A,7434,0x000D486C,method,,Awake,public unsafe void Awake()
+100670731,0x06001D0B,7435,0x000D48A0,method,,Initialize,"public unsafe void Initialize(string key, string path, bool evt = true)"
+100670732,0x06001D0C,7436,0x000D4904,method,,Append,"public unsafe void Append(string key, string path, bool evt = true)"
+100670733,0x06001D0D,7437,0x000D4968,method,,IsExists,public unsafe bool IsExists()
+100670734,0x06001D0E,7438,0x000D49A4,method,,Clear,public unsafe void Clear(bool sw = false)
+100670735,0x06001D0F,7439,0x000D49E4,method,,OnDestroy,public unsafe void OnDestroy()
+100670736,0x06001D10,7440,0x000D4A18,method,,FixedUpdate,public unsafe void FixedUpdate()
+100670737,0x06001D11,7441,0x000D4A4C,method,,SetKutiName,public unsafe void SetKutiName(string name)
+100670738,0x06001D12,7442,0x000D4A90,method,,Contains,public unsafe bool Contains()
+100670739,0x06001D13,7443,0x000D4ACC,method,,StopKuti,public unsafe void StopKuti()
+100670740,0x06001D14,7444,0x000D4B00,method,,IsSpeaking,"public unsafe void IsSpeaking(evtUnitHandle_t h, float time)"
+100670741,0x06001D15,7445,0x000D4B50,method,,SetUnit,public unsafe void SetUnit(evtUnitHandle_t h)
+100670742,0x06001D16,7446,0x000D4B94,method,,evtKutiManager,public unsafe evtKutiManager() : this(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<evtKutiManager>.NativeClassPtr))
+100670743,0x06001D17,7447,0x0000BCE8,method,,evtKutiManager,public evtKutiManager(System.IntPtr pointer) : base(pointer)
+100670744,0x06001D18,7448,0x000D4BD0,property,get,hUnit,public unsafe evtUnitHandle_t hUnit
+100670746,0x06001D1A,7450,0x000D4C00,property,get,TimeLine,"public unsafe Dictionary<string, List<float>> TimeLine"
+100670748,0x06001D1C,7452,0x000D4C30,property,get,KutiName,public unsafe string KutiName
+100670750,0x06001D1E,7454,0x000D4C58,property,get,KutiSwitch,public unsafe bool KutiSwitch
+100670752,0x06001D20,7456,0x000D4C80,property,get,MsgTime,public unsafe float MsgTime
+100670754,0x06001D22,7458,0x000D4CA8,property,get,UpTime,public unsafe float UpTime
+100670756,0x06001D24,7460,0x000D4CD0,property,get,eTimeLine710,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine710
+100670758,0x06001D26,7462,0x000D4D00,property,get,eTimeLine711,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine711
+100670760,0x06001D28,7464,0x000D4D30,property,get,eTimeLine712,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine712
+100670762,0x06001D2A,7466,0x000D4D60,property,get,eTimeLine713,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine713
+100670764,0x06001D2C,7468,0x000D4D90,property,get,eTimeLine714,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine714
+100670766,0x06001D2E,7470,0x000D4DC0,property,get,eTimeLine715,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine715
+100670768,0x06001D30,7472,0x000D4DF0,property,get,eTimeLine716,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine716
+100670770,0x06001D32,7474,0x000D4E20,property,get,eTimeLine717,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine717
+100670772,0x06001D34,7476,0x000D4E50,property,get,eTimeLine718,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine718
+100670774,0x06001D36,7478,0x000D4E80,property,get,eTimeLine719,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine719
+100670776,0x06001D38,7480,0x000D4EB0,property,get,eTimeLine720,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine720
+100670778,0x06001D3A,7482,0x000D4EE0,property,get,eTimeLine723,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine723
+100670780,0x06001D3C,7484,0x000D4F10,property,get,eTimeLine726,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine726
+100670782,0x06001D3E,7486,0x000D4F40,property,get,eTimeLine728,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine728
+100670784,0x06001D40,7488,0x000D4F70,property,get,eTimeLine730,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine730
+100670786,0x06001D42,7490,0x000D4FA0,property,get,eTimeLine731,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> eTimeLine731
+100670788,0x06001D44,7492,0x000D4FD0,property,get,fTimeLine015,public unsafe Il2CppReferenceArray<evtKutiManager.E_TimeLineTbl> fTimeLine015
+100709404,0x0600B41C,46108,0x002592EC,method,,E_TimeLineTbl,static E_TimeLineTbl()
+100709405,0x0600B41D,46109,0x0005A675,method,,E_TimeLineTbl,public E_TimeLineTbl(System.IntPtr pointer) : base(pointer)
+100709406,0x0600B41E,46110,0x0005A67E,method,,E_TimeLineTbl,public E_TimeLineTbl() : base(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<evtKutiManager.E_TimeLineTbl>.NativeClassPtr))
+100709407,0x0600B41F,46111,0x00259340,property,get,name,public unsafe string name
+100709409,0x0600B421,46113,0x00259368,property,get,timeline,public unsafe List<float> timeline

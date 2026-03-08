@@ -1,0 +1,12 @@
+method,token,access,ret,params,wrapper_field
+GetMsgList,100672223,public,Il2CppSystem.Object,"int ekucyo, int idx",GetMsgList_Private_Static_Object_Int32_Int32_0
+nbSetMesMakka,100672228,public,void,"int msgid, int i",nbSetMesMakka_Public_Static_Void_Int32_Int32_0
+nbSetMesItem,100672229,public,void,"int msgid, int it",nbSetMesItem_Public_Static_Void_Int32_Int32_0
+nbClsNegoMessage,100672230,public,void,ref nbNegoProcessData_t n,nbClsNegoMessage_Public_Static_Void_byref_nbNegoProcessData_t_0
+nbDispNegoMessage,100672231,public,void,"ref nbNegoProcessData_t n, int msgid, int msgno, int sel",nbDispNegoMessage_Public_Static_Void_byref_nbNegoProcessData_t_Int32_Int32_Int32_0
+nbCheckNegoMessage,100672232,public,int,ref nbNegoProcessData_t n,nbCheckNegoMessage_Public_Static_Int32_byref_nbNegoProcessData_t_0
+nbSetNegoMesVar,100672233,public,void,"int msgid, ref datUnitWork_t p, ref datUnitWork_t e",nbSetNegoMesVar_Public_Static_Void_Int32_byref_datUnitWork_t_byref_datUnitWork_t_0
+nbGetInfoMsg,100672255,public,int,int infotype,nbGetInfoMsg_Public_Static_Int32_Int32_0
+nbCheckSelectMesJoukenAri,100672256,public,int,"int msg_no, int field_no",nbCheckSelectMesJoukenAri_Public_Static_Int32_Int32_Int32_0
+nbNegoProcessMessageChk,100672263,public,Il2CppSystem.Object,dds3ProcessID_t id,nbNegoProcessMessageChk_Private_Static_Object_dds3ProcessID_t_0
+nbNegoProcessMessage,100672264,public,Il2CppSystem.Object,dds3ProcessID_t id,nbNegoProcessMessage_Private_Static_Object_dds3ProcessID_t_0

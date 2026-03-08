@@ -1,0 +1,7 @@
+owner_type,property,property_type,get_token,set_token
+fclKeisyoList_t,SkillID,Il2CppStructArray<ushort>,0x06008385,0x06008386
+fclKeisyoList_t,SkillCnt,sbyte,0x06008387,0x06008388
+fclKeisyoListAll_t,SkillID,Il2CppStructArray<ushort>,0x0600838E,0x0600838F
+fclKeisyoListAll_t,SkillCnt,sbyte,0x06008390,0x06008391
+cmbKeisyoSort_t,KeisyoSkill,ushort,0x0600861C,0x0600861D
+cmbKeisyoSort_t,KeiAttr,byte,0x0600861E,0x0600861F

@@ -1,0 +1,8 @@
+type,name,params,ret,caller_count,il2cpp_token,rva,original_name
+Platform_AB_Chk,LanguageSearch,"Il2CppObjectBase languageName, List<int> exist, Il2CppObjectBase filename, string platform",string,1,,,
+Platform_AB_Chk,PlatformSearch,"string path, Il2CppObjectBase filename, Il2CppObjectBase platformAry",string,1,,,
+Platform_AB_Chk,ABPlatformChk,string filePath,string,0,,,
+Platform_AB_Chk,DlcChk,,string,0,,,
+Platform_AB_Chk,ExistsChk,"string path, Il2CppObjectBase filename",List<int>,0,,,
+Platform_AB_Chk,PlatformSearchSet,"string filePath, Il2CppObjectBase platformAry",void,0,,,
+Platform_AB_Chk,Start,,void,0,,,

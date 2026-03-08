@@ -1,0 +1,42 @@
+token_dec,token_hex,rid,rva,kind,accessor,name,decl
+100671093,0x06001E75,7797,0x000D9BA4,method,,evtStage,static evtStage()
+100671094,0x06001E76,7798,0x000D9EE0,method,,evtSetTestCamera,public unsafe static void evtSetTestCamera()
+100671095,0x06001E77,7799,0x000D9F08,method,,evtSetRegistUnit,"public unsafe static int evtSetRegistUnit(int major, int minor)"
+100671096,0x06001E78,7800,0x000D9F54,method,,evtLoadUnit,"public unsafe static int evtLoadUnit(int major, int minor)"
+100671097,0x06001E79,7801,0x000D9FA0,method,,evtSetUnitPos,"public unsafe static void evtSetUnitPos(int unitID, int posID)"
+100671098,0x06001E7A,7802,0x000D9FE0,method,,evtFreeStage,public unsafe static void evtFreeStage()
+100671099,0x06001E7B,7803,0x000DA008,method,,evtFreeAllUnit,public unsafe static void evtFreeAllUnit()
+100671100,0x06001E7C,7804,0x000DA030,method,,evtLoadArea,"public unsafe static int evtLoadArea(int fld, int area)"
+100671101,0x06001E7D,7805,0x000DA07C,method,,evtLoadArea_FromMemory,"public unsafe static int evtLoadArea_FromMemory(int fld, int area, Il2CppStructArray<byte> pF1, Il2CppStructArray<byte> pF2, Il2CppStructArray<byte> pTB, Il2CppStructArray<byte> pBF)"
+100671102,0x06001E7E,7806,0x000DA114,method,,evtStartEvent,public unsafe static void evtStartEvent(int no)
+100671103,0x06001E7F,7807,0x000DA148,method,,LoadEvent1,public unsafe static Il2CppSystem.Object LoadEvent1(dds3ProcessID_t id)
+100671104,0x06001E80,7808,0x000DA18C,method,,e705Patch,public unsafe static void e705Patch(int eventno)
+100671105,0x06001E81,7809,0x000DA1C0,method,,IsNoText,public unsafe static bool IsNoText(int eventno)
+100671106,0x06001E82,7810,0x000DA200,method,,IsNoText,public unsafe static bool IsNoText(string eventno)
+100671107,0x06001E83,7811,0x000DA244,method,,LoadEventData,"public unsafe static void LoadEventData(string key, int e, bool ecmnf = false)"
+100671108,0x06001E84,7812,0x000DA298,method,,evtKillFieldScript,public unsafe static void evtKillFieldScript()
+100671109,0x06001E85,7813,0x000DA2C0,method,,evtPathStop,public unsafe static void evtPathStop(dds3Basic_t basic)
+100671110,0x06001E86,7814,0x000DA2F8,method,,evtPathStart,public unsafe static void evtPathStart(dds3Basic_t basic)
+100671111,0x06001E87,7815,0x000DA330,method,,evtPathRate,"public unsafe static void evtPathRate(dds3Basic_t basic, float rate)"
+100671112,0x06001E88,7816,0x000DA374,method,,evtPathDir,"public unsafe static void evtPathDir(dds3Basic_t basic, int dir)"
+100671113,0x06001E89,7817,0x000DA3B8,method,,evtPathLinkAndMake,"public unsafe static int evtPathLinkAndMake(dds3Basic_t path, dds3Basic_t obj)"
+100671114,0x06001E8A,7818,0x000DA40C,method,,evtCheckPathStat,public unsafe static int evtCheckPathStat(dds3Basic_t obj)
+100671115,0x06001E8B,7819,0x000DA450,method,,evtPathLoop,"public unsafe static void evtPathLoop(dds3Basic_t basic, int sw)"
+100671116,0x06001E8C,7820,0x000DA494,method,,evtEffectLoopControl,"public unsafe static void evtEffectLoopControl(dds3Basic_t eff, int sw)"
+100671117,0x06001E8D,7821,0x000DA4D8,method,,evtStageAnimeControl,"public unsafe static int evtStageAnimeControl(int type, int mode)"
+100671118,0x06001E8E,7822,0x0000C403,method,,evtStage,public evtStage(System.IntPtr pointer) : base(pointer)
+100671119,0x06001E8F,7823,0x000DA524,property,get,UnitInitPosRot,public unsafe static Vector4 UnitInitPosRot
+100671121,0x06001E91,7825,0x000DA540,property,get,fld_default_light,public unsafe static Il2CppReferenceArray<sdf3DLight_t> fld_default_light
+100671123,0x06001E93,7827,0x000DA568,property,get,fld_default_fog,public unsafe static sdf3DFogParam_t fld_default_fog
+100671125,0x06001E95,7829,0x000DA590,property,get,fld_default_ambient,public unsafe static Vector4 fld_default_ambient
+100671127,0x06001E97,7831,0x000DA5AC,property,get,fld_light_dst,public unsafe static Il2CppReferenceArray<sdf3DLight_t> fld_light_dst
+100671129,0x06001E99,7833,0x000DA5D4,property,get,fld_fog_dst,public unsafe static sdf3DFogParam_t fld_fog_dst
+100671131,0x06001E9B,7835,0x000DA5FC,property,get,fld_ambient_dst,public unsafe static Vector4 fld_ambient_dst
+100671133,0x06001E9D,7837,0x000DA618,property,get,evtStartEvent_path,public unsafe static string evtStartEvent_path
+100671135,0x06001E9F,7839,0x000DA638,property,get,evtStartEvent_no,public unsafe static int evtStartEvent_no
+100671137,0x06001EA1,7841,0x000DA654,property,get,process,public unsafe static int process
+100671139,0x06001EA3,7843,0x000DA670,property,get,m_head,public unsafe static StringBuilder m_head
+100671141,0x06001EA5,7845,0x000DA698,property,get,m_akey,public unsafe static StringBuilder m_akey
+100671143,0x06001EA7,7847,0x000DA6C0,property,get,m_aname,public unsafe static StringBuilder m_aname
+100671145,0x06001EA9,7849,0x000DA6E8,property,get,m_tkey,public unsafe static StringBuilder m_tkey
+100671147,0x06001EAB,7851,0x000DA710,property,get,m_tname,public unsafe static StringBuilder m_tname

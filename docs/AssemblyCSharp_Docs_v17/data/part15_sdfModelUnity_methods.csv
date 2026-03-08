@@ -1,0 +1,24 @@
+token,name,ret,params
+0x0600381C,sdfModelNodeNewUnity,sdfModelNode_t,
+0x0600381D,sdfModelRootNewUnity,sdfModelRootNode_t,
+0x0600381E,sdfModelAllocNodeListUnity,void,"ref sdfModelRootNode_t aRoot, int aLeng"
+0x0600381F,sdfModelNodeAddUnity,void,"ref sdfModelRootNode_t aRoot, ref sdfModelNode_t aParent, ref sdfModelNode_t aNode"
+0x06003820,sdfModelNodeUnlinkUnity,void,ref sdfModelNode_t aNode
+0x06003821,sdfModelNodeSetParentUnity,void,"ref sdfModelNode_t aNode, ref sdfModelNode_t aParent"
+0x06003822,sdfModelLinkDrawPacketUnity,void,"ref sdfModelNode_t aNode, Il2CppSystem.Object aShape, int aOtIndex, int aIndexFrom, int aId"
+0x06003823,sdfModelMakeLocalTmUnity,void,ref sdfModelNode_t aNode
+0x06003824,sdfModelNodeBaseSetUnity,void,"ref sdfModelNode_t aNode, sdfModelNodeDef_t aDef"
+0x06003825,sdfModelNodeSetUnity,void,"ref sdfModelNode_t aNode, sdfModelNodeDef_t aDef"
+0x06003826,sdfModelMakeRootUnity,sdfModelRootNode_t,"sdfModelTexList_t aTexList, Il2CppStructArray<byte> bytedata, int bPos"
+0x06003827,sdfModelMakeUnity,sdfModelRootNode_t,"sdfModelTexList_t aTexList, Il2CppStructArray<byte> bData, int bPos"
+0x06003828,sdfModelGetNodeTm,Matrix4x4,GameObject aObject
+0x06003829,sdfModelSearchExtraChunkUnity,sdfModelExtraChunk_t,"Il2CppStructArray<byte> bData, uint aChunkId"
+0x0600382A,sdfModelGetExtraChunkUnity,sdfModelExtraChunk_t,"sdfModelRootNode_t aRoot, uint aChunkId"
+0x0600382B,sdfModelGetNodeNameUnity,string,"sdfModelRootNode_t aRoot, int aIndex"
+0x0600382C,sdfModelGetMarkPosCountUnity,int,sdfModelRootNode_t aRoot
+0x0600382D,sdfModelSearchMarkPosDataUnity,sdfModelExtraChunkMarkPos_t,"sdfModelRootNode_t aRoot, int aId"
+0x0600382E,sdfModelGetMarkPosMatrixUnity,int,"sdfModelRootNode_t aRoot, int aId"
+0x0600382F,sdfModelMakeMarkPosMatrixUnity,int,"ref sdfModelRootNode_t aRoot, sdfModelExtraChunkMarkPos_t aMark"
+0x06003830,sdfModelGetMarkPosUnity,int,"sdfModelRootNode_t aRoot, int aId"
+0x06003831,sdfModelMakeMarkPosUnity,int,"ref sdfModelRootNode_t aRoot, sdfModelExtraChunkMarkPos_t aMark"
+0x06003832,sdfModelGetGameObject,GameObject,"sdfModelRootNode_t aRoot, sdfModelExtraChunkMarkPos_t aMark"

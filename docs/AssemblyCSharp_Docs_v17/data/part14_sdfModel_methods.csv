@@ -1,0 +1,21 @@
+class_file,name,token,return,params,caller_count,xref_start,xref_end,ref_start,ref_end
+Il2Cpp/sdfModel.cs,sdfModelLinkOt,0x06003812,void,"ref sdfModelOt_t aOt, ref sdfModelRootNode_t aRoot",4323,2667157,2671480,2667157,2671480
+Il2Cpp/sdfModel.cs,sdfModelMakeMorphList,0x0600380C,void,"sdfModelRootNode_t root, int morphCount",4323,2667157,2671480,2667157,2671480
+Il2Cpp/sdfModel.cs,sdfModelNodeBaseSet,0x0600380B,void,"ref sdfModelNode_t aNode, ref sdfModelNodeDef_t aDef",4323,2667157,2671480,2667157,2671480
+Il2Cpp/sdfModel.cs,sdfModelRootFree,0x06003804,void,"ref sdfModelRootNode_t aRoot, int aReleaseNodes, int aReleaseMatList",4323,2667157,2671480,2667157,2671480
+Il2Cpp/sdfModel.cs,sdfModelSearchMarkPosData,0x06003814,sdfModelExtraChunkMarkPos_t,"ref sdfModelRootNode_t aRoot, int aId",20,5301622,5301642,5301622,5301642
+Il2Cpp/sdfModel.cs,sdfModelEvalNode,0x0600380F,void,"ref sdfModelNode_t aNode, ref Matrix4x4 aParentTm, int aFrameId",3,5480522,5480552,5480552,5480555
+Il2Cpp/sdfModel.cs,sdfModelEvalTm,0x06003811,void,ref sdfModelRootNode_t aRoot,1,5480572,5480595,5480595,5480596
+Il2Cpp/sdfModel.cs,sdfModelGetMarkPos,0x06003815,int,"ref sdfModelRootNode_t aRoot, int aId",1,5480600,5480603,5480603,5480604
+Il2Cpp/sdfModel.cs,sdfModelMakeEarly,0x0600380E,sdfModelRootNode_t,"sdfModelTexList_t aTexList, ref sdfModelDef_t aModelData",1,5480512,5480521,5480521,5480522
+Il2Cpp/sdfModel.cs,sdfModelMakeLocalTm,0x0600380A,void,ref sdfModelNode_t aNode,1,5480458,5480466,5480466,5480467
+Il2Cpp/sdfModel.cs,sdfModelMakeRoot,0x0600380D,sdfModelRootNode_t,"sdfModelTexList_t aTexList, sdfModelDef_t aModelData",1,5480467,5480511,5480511,5480512
+Il2Cpp/sdfModel.cs,sdfModelNodeAdd,0x06003806,void,"ref sdfModelRootNode_t aRoot, ref sdfModelNode_t aParent, ref sdfModelNode_t aNode",1,5480426,5480450,5480450,5480451
+Il2Cpp/sdfModel.cs,sdfModelNodeNew,0x06003802,sdfModelNode_t,,1,5480402,5480411,5480411,5480412
+Il2Cpp/sdfModel.cs,sdfModelNodeSetParent,0x06003808,void,"ref sdfModelNode_t aNode, ref sdfModelNode_t aParent",1,5480451,5480457,5480457,5480458
+Il2Cpp/sdfModel.cs,sdfModelAllocNodeList,0x06003805,void,"ref sdfModelRootNode_t aRoot, int aLeng",0,5480424,5480426,0,0
+Il2Cpp/sdfModel.cs,sdfModelEvalTm2,0x06003810,void,"ref sdfModelRootNode_t aRoot, int aFrameId",0,5480555,5480572,0,0
+Il2Cpp/sdfModel.cs,sdfModelMakeMarkPos,0x06003813,void,"ref sdfModelRootNode_t aRoot, ref sdfModelExtraChunkMarkPos_t aMark",0,5480596,5480600,0,0
+Il2Cpp/sdfModel.cs,sdfModelNodeUnlink,0x06003807,void,ref sdfModelNode_t aNode,0,,,,
+Il2Cpp/sdfModel.cs,sdfModelRootNew,0x06003803,sdfModelRootNode_t,,0,5480412,5480424,0,0
+Il2Cpp/sdfModel.cs,sdfModelSearchNode,0x06003809,sdfModelNode_t,"ref sdfModelRootNode_t aRoot, uint aId",0,,,,

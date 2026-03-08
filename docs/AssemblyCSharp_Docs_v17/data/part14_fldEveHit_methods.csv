@@ -1,0 +1,26 @@
+class_file,name,token,return,params,caller_count,xref_start,xref_end,ref_start,ref_end
+Il2Cpp/fldEveHit.cs,fldStatusSet,0x06002657,void,,6,5432675,5432735,5432735,5432741
+Il2Cpp/fldEveHit.cs,fldEveHitResID_Find,0x06002667,int,dds3ProcessID_t pid,3,5435430,5435441,5435441,5435444
+Il2Cpp/fldEveHit.cs,fldEveHit_ScriptEnd,0x06002662,int,"ref string pScriptName, int idx",3,5434729,5434734,5434734,5434737
+Il2Cpp/fldEveHit.cs,fldEveHit_ScriptStart,0x06002661,dds3ProcessID_t,"ref string pScriptName, int idx",3,5434724,5434726,5434726,5434729
+Il2Cpp/fldEveHit.cs,fldEveHitResName_Find,0x06002669,string,dds3ProcessID_t pid,2,5435450,5435461,5435461,5435463
+Il2Cpp/fldEveHit.cs,fldEveHit_AddEveHit,0x0600265C,int,"fldResHead_t pEvnRng, dds3Basic_t pBasic",2,5432924,5434516,5434516,5434518
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkDir,0x0600265D,int,"dds3Basic_t unit, dds3Basic_t put",2,5434518,5434603,5434603,5434605
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkEveHit,0x06002666,void,dds3Basic_t pObjectBasic,2,5434777,5435428,5435428,5435430
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkNpcScr,0x0600266C,int,int npcidx,2,5435579,5435587,5435587,5435589
+Il2Cpp/fldEveHit.cs,fldEveHit_Init,0x06002659,void,,2,5432754,5432909,5432909,5432911
+Il2Cpp/fldEveHit.cs,fldEveHitPositionInside,0x0600265F,int,"Vector4 pos, int idx",1,5434686,5434714,5434714,5434715
+Il2Cpp/fldEveHit.cs,fldEveHitTakaraIdx_Find,0x06002668,int,dds3ProcessID_t pid,1,5435444,5435449,5435449,5435450
+Il2Cpp/fldEveHit.cs,fldEveHit_AddEveHitItemBox,0x0600266A,void,"int idx, float x, float y, float z, float r",1,5435463,5435527,5435527,5435528
+Il2Cpp/fldEveHit.cs,fldEveHit_AddEveHitNpc,0x0600266B,void,"ref string resname, int eveidx, float x, float y, float z, float r, int hojiID, int npcidx",1,5435528,5435578,5435578,5435579
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkBoxIn,0x06002660,int,"Vector4 pos, int idx",1,5434715,5434723,5434723,5434724
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkDir2,0x0600265E,int,"dds3Basic_t unit, dds3Basic_t put",1,5434605,5434685,5434685,5434686
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkEveHitAfter,0x06002664,int,,1,5434751,5434755,5434755,5434756
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkOn,0x06002665,int,string evehitname,1,5434756,5434776,5434776,5434777
+Il2Cpp/fldEveHit.cs,fldEveHit_ChkTakaraScr,0x0600266D,int,int takaraidx,1,5435589,5435597,5435597,5435598
+Il2Cpp/fldEveHit.cs,fldEveHit_ScriptEnd2,0x06002663,int,int idx,1,5434737,5434750,5434750,5434751
+Il2Cpp/fldEveHit.cs,fldKaifukuTest,0x06002656,void,,1,5432654,5432674,5432674,5432675
+Il2Cpp/fldEveHit.cs,fldEveHitProcess_Chk,0x0600266E,int,,0,5435598,5435604,0,0
+Il2Cpp/fldEveHit.cs,fldEveHitProcess_Task,0x06002658,void,,0,5432741,5432754,0,0
+Il2Cpp/fldEveHit.cs,fldEveHit_AddEveData,0x0600265B,int,"fldResHead_t pEve, dds3Basic_t pBasic",0,5432917,5432924,0,0
+Il2Cpp/fldEveHit.cs,fldEveHit_End,0x0600265A,void,,0,5432911,5432917,0,0

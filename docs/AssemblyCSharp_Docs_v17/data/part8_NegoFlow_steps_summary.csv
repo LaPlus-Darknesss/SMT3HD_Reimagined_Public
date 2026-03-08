@@ -1,0 +1,17 @@
+flow_id,class,min,max,nunique
+1,NbNegoFlowOne,3,39,37
+2,NbNegoFlowFullMoon,1,16,16
+3,NbNegoFlowStock,1,2,2
+4,NbNegoFlowDouchara,1,13,13
+5,NbNegoFlowInnen,1,21,21
+6,NbNegoFlowTwo,1,81,75
+7,NbNegoFlowQuestion,1,26,10
+8,NbNegoFlowFight,1,19,19
+9,NbNegoFlowOk,1,22,20
+10,NbNegoFlowNg,1,33,32
+11,NbNegoFlowDrain,1,9,9
+12,NbNegoFlowMukan,1,49,35
+13,NbNegoFlowSensei,1,12,12
+14,NbNegoFlowBinjo,1,2,2
+15,NbNegoFlowInoti,1,23,16
+16,NbNegoFlowKoketa,1,3,3

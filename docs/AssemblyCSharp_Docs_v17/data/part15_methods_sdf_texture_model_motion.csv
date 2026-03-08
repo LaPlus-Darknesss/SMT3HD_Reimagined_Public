@@ -1,0 +1,73 @@
+class,token,name,ret,params
+sdfDevFile,0x06003775,sdfDevLoadFileEx,sdfMemHandle_t,"string aFilename, Il2CppSystem.Object aTopPtr, ref int aSizePtr, int aMergin"
+sdfDevFile,0x06003776,sdfDevLoadFile,sdfMemHandle_t,"string aFilename, ref Il2CppSystem.Object aTopPtr, int aSizePtr"
+sdfDevFile,0x06003777,sdfDevLoadFileUnity,Il2CppSystem.Object,"string aFilename, ref Il2CppSystem.Object aTopPtr, int aSizePtr, string akey = """""
+sdfDevFile,0x06003778,sdfDevLoadFileUnity,Il2CppSystem.Object,"string aFilename, ref Il2CppStructArray<byte> aTopPtr, int aSizePtr, string akey = """""
+sdfDevFile,0x06003779,sdfDevLoadTexList,sdfModelTexList_t,string aFilename
+sdfMat,0x060037CF,sdfTexListFree,void,"sdfModelTexList_t aList, int aReleaseItems"
+sdfMat,0x060037D0,sdfMatListNew,sdfMatList_t,int aInitCapa
+sdfMat,0x060037D1,sdfMatListGrow,void,sdfMatList_t aList
+sdfMat,0x060037D2,sdfMatListAdd,void,"sdfMatList_t aList, sdfMat_t aMat"
+sdfMat,0x060037D3,sdfMatSetAmbient,void,"sdfMat_t aMat, uint aColor"
+sdfMat,0x060037D4,sdfMatSetDiffuse,void,"sdfMat_t aMat, uint aColor"
+sdfMat,0x060037D5,sdfMatSetSpecular,void,"sdfMat_t aMat, uint aColor"
+sdfMat,0x060037D6,sdfMatSetConstant,void,"sdfMat_t aMat, float aRatio"
+sdfMat,0x060037D7,sdfMatNew,sdfMat_t,
+sdfMat,0x060037D8,sdfMatSet,sdfMatDef_t,"sdfMat_t aMatPtr, sdfModelTexList_t aTexList, sdfMatDef_t aDef"
+sdfMat,0x060037D9,sdfMatFreeDelayed,void,sdfMat_t aMat
+sdfMat,0x060037DA,sdfMatListMake,sdfMatList_t,"sdfModelTexList_t aTexList, int setCount, sdfMatDef_t aData"
+sdfModelUnity,0x0600381C,sdfModelNodeNewUnity,sdfModelNode_t,
+sdfModelUnity,0x0600381D,sdfModelRootNewUnity,sdfModelRootNode_t,
+sdfModelUnity,0x0600381E,sdfModelAllocNodeListUnity,void,"ref sdfModelRootNode_t aRoot, int aLeng"
+sdfModelUnity,0x0600381F,sdfModelNodeAddUnity,void,"ref sdfModelRootNode_t aRoot, ref sdfModelNode_t aParent, ref sdfModelNode_t aNode"
+sdfModelUnity,0x06003820,sdfModelNodeUnlinkUnity,void,ref sdfModelNode_t aNode
+sdfModelUnity,0x06003821,sdfModelNodeSetParentUnity,void,"ref sdfModelNode_t aNode, ref sdfModelNode_t aParent"
+sdfModelUnity,0x06003822,sdfModelLinkDrawPacketUnity,void,"ref sdfModelNode_t aNode, Il2CppSystem.Object aShape, int aOtIndex, int aIndexFrom, int aId"
+sdfModelUnity,0x06003823,sdfModelMakeLocalTmUnity,void,ref sdfModelNode_t aNode
+sdfModelUnity,0x06003824,sdfModelNodeBaseSetUnity,void,"ref sdfModelNode_t aNode, sdfModelNodeDef_t aDef"
+sdfModelUnity,0x06003825,sdfModelNodeSetUnity,void,"ref sdfModelNode_t aNode, sdfModelNodeDef_t aDef"
+sdfModelUnity,0x06003826,sdfModelMakeRootUnity,sdfModelRootNode_t,"sdfModelTexList_t aTexList, Il2CppStructArray<byte> bytedata, int bPos"
+sdfModelUnity,0x06003827,sdfModelMakeUnity,sdfModelRootNode_t,"sdfModelTexList_t aTexList, Il2CppStructArray<byte> bData, int bPos"
+sdfModelUnity,0x06003828,sdfModelGetNodeTm,Matrix4x4,GameObject aObject
+sdfModelUnity,0x06003829,sdfModelSearchExtraChunkUnity,sdfModelExtraChunk_t,"Il2CppStructArray<byte> bData, uint aChunkId"
+sdfModelUnity,0x0600382A,sdfModelGetExtraChunkUnity,sdfModelExtraChunk_t,"sdfModelRootNode_t aRoot, uint aChunkId"
+sdfModelUnity,0x0600382B,sdfModelGetNodeNameUnity,string,"sdfModelRootNode_t aRoot, int aIndex"
+sdfModelUnity,0x0600382C,sdfModelGetMarkPosCountUnity,int,sdfModelRootNode_t aRoot
+sdfModelUnity,0x0600382D,sdfModelSearchMarkPosDataUnity,sdfModelExtraChunkMarkPos_t,"sdfModelRootNode_t aRoot, int aId"
+sdfModelUnity,0x0600382E,sdfModelGetMarkPosMatrixUnity,int,"sdfModelRootNode_t aRoot, int aId"
+sdfModelUnity,0x0600382F,sdfModelMakeMarkPosMatrixUnity,int,"ref sdfModelRootNode_t aRoot, sdfModelExtraChunkMarkPos_t aMark"
+sdfModelUnity,0x06003830,sdfModelGetMarkPosUnity,int,"sdfModelRootNode_t aRoot, int aId"
+sdfModelUnity,0x06003831,sdfModelMakeMarkPosUnity,int,"ref sdfModelRootNode_t aRoot, sdfModelExtraChunkMarkPos_t aMark"
+sdfModelUnity,0x06003832,sdfModelGetGameObject,GameObject,"sdfModelRootNode_t aRoot, sdfModelExtraChunkMarkPos_t aMark"
+sdfModel,0x06003802,sdfModelNodeNew,sdfModelNode_t,
+sdfModel,0x06003803,sdfModelRootNew,sdfModelRootNode_t,
+sdfModel,0x06003804,sdfModelRootFree,void,"ref sdfModelRootNode_t aRoot, int aReleaseNodes, int aReleaseMatList"
+sdfModel,0x06003805,sdfModelAllocNodeList,void,"ref sdfModelRootNode_t aRoot, int aLeng"
+sdfModel,0x06003806,sdfModelNodeAdd,void,"ref sdfModelRootNode_t aRoot, ref sdfModelNode_t aParent, ref sdfModelNode_t aNode"
+sdfModel,0x06003807,sdfModelNodeUnlink,void,ref sdfModelNode_t aNode
+sdfModel,0x06003808,sdfModelNodeSetParent,void,"ref sdfModelNode_t aNode, ref sdfModelNode_t aParent"
+sdfModel,0x06003809,sdfModelSearchNode,sdfModelNode_t,"ref sdfModelRootNode_t aRoot, uint aId"
+sdfModel,0x0600380A,sdfModelMakeLocalTm,void,ref sdfModelNode_t aNode
+sdfModel,0x0600380B,sdfModelNodeBaseSet,void,"ref sdfModelNode_t aNode, ref sdfModelNodeDef_t aDef"
+sdfModel,0x0600380C,sdfModelMakeMorphList,void,"sdfModelRootNode_t root, int morphCount"
+sdfModel,0x0600380D,sdfModelMakeRoot,sdfModelRootNode_t,"sdfModelTexList_t aTexList, sdfModelDef_t aModelData"
+sdfModel,0x0600380E,sdfModelMakeEarly,sdfModelRootNode_t,"sdfModelTexList_t aTexList, ref sdfModelDef_t aModelData"
+sdfModel,0x0600380F,sdfModelEvalNode,void,"ref sdfModelNode_t aNode, ref Matrix4x4 aParentTm, int aFrameId"
+sdfModel,0x06003810,sdfModelEvalTm2,void,"ref sdfModelRootNode_t aRoot, int aFrameId"
+sdfModel,0x06003811,sdfModelEvalTm,void,ref sdfModelRootNode_t aRoot
+sdfModel,0x06003812,sdfModelLinkOt,void,"ref sdfModelOt_t aOt, ref sdfModelRootNode_t aRoot"
+sdfModel,0x06003813,sdfModelMakeMarkPos,void,"ref sdfModelRootNode_t aRoot, ref sdfModelExtraChunkMarkPos_t aMark"
+sdfModel,0x06003814,sdfModelSearchMarkPosData,sdfModelExtraChunkMarkPos_t,"ref sdfModelRootNode_t aRoot, int aId"
+sdfModel,0x06003815,sdfModelGetMarkPos,int,"ref sdfModelRootNode_t aRoot, int aId"
+dds3ModelBasic,0x060000DD,ModelBasicConstructor,int,dds3Basic_t pBasic
+dds3ModelBasic,0x060000DE,ModelBasicDestructor,int,dds3Basic_t pBasic
+dds3ModelBasic,0x060000DF,dds3AddModelBasic2,dds3Basic_t,"uint serialID, sdfModelDef_t pModelDef, sdfMotionPlayBook_t pMotDef, sdfModelTexList_t pTexList, string pName"
+dds3ModelBasic,0x060000E0,dds3ModelBasicMakeRootNode,sdfModelRootNode_t,ref dds3Basic_t pBasic
+dds3ModelBasic,0x060000E1,dds3ModelBasicMakeMotion,sdfMotionCtrlr_t,"ref dds3Basic_t pBasic, sdfModelRootNode_t pRootNode"
+fldFileResolver,0x060026C0,SetsdfModelDef,sdfModelDef_t,"Il2CppStructArray<byte> pData, int addr, bool set = true"
+fldFileResolver,0x060026C1,SetsdfMatDef,sdfMatDef_t,"Il2CppStructArray<byte> pData, int addr"
+fldFileResolver,0x060026C2,SetsdfMotionPlayBook,sdfMotionPlayBook_t,"Il2CppStructArray<byte> pData, int addr"
+fldFileResolver,0x060026C3,SetsdfMotionCutDef,Il2CppReferenceArray<sdfMotionCutDef_t>,"Il2CppStructArray<byte> pData, int size, int addr"
+fldFileResolver,0x060026C4,SetsdfMotionCutChunk,Il2CppReferenceArray<sdfMotionCutChunk_t>,"Il2CppStructArray<byte> pData, int addr"
+fldFileResolver,0x060026C5,SetsdfMotionNodeDef,Il2CppReferenceArray<sdfMotionNodeDef_t>,"Il2CppStructArray<byte> pData, int len, int addr"
+fldFileResolver,0x060026C8,SetsdfModelNodeDef,sdfModelNodeDef_t,"Il2CppStructArray<byte> pData, ref int addr"

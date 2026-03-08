@@ -1,0 +1,6 @@
+field,method_name,signature_line,signature_line_no,caller_count,RefRangeStart,RefRangeEnd,XrefRangeStart,XrefRangeEnd,il2cpp_token
+KutiFunction_Private_Static_Void_0,KutiFunction,public unsafe static void KutiFunction(),369,0,0,0,5373515,5373520,100666917
+evtCommand_GET_MSGTRG_Public_Static_Int32_0,evtCommand_GET_MSGTRG,public unsafe static int evtCommand_GET_MSGTRG(),2181,0,0,0,5375571,5375591,100667068
+evtCommand_KUTI_Public_Static_Int32_0,evtCommand_KUTI,public unsafe static int evtCommand_KUTI(),392,0,0,0,5373546,5373573,100666919
+evtCommand_KUTISET_Public_Static_Int32_0,evtCommand_KUTISET,public unsafe static int evtCommand_KUTISET(),380,0,0,0,5373520,5373546,100666918
+evtCommand_MESSAGE_WAIT_Public_Static_Int32_0,evtCommand_MESSAGE_WAIT,public unsafe static int evtCommand_MESSAGE_WAIT(),2205,0,0,0,5375595,5375603,100667070

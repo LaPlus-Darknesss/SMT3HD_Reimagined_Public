@@ -1,0 +1,140 @@
+token,rid,rva,name,ret,sig_line
+0x060030F7,12535,0x00114B74,DAT_STR_REF_RCNAME,string,public unsafe static string DAT_STR_REF_RCNAME(int _idx)
+0x060030F8,12536,0x00114BAC,DAT_STR_REF_DVNAME,string,public unsafe static string DAT_STR_REF_DVNAME(int _idx)
+0x060030F9,12537,0x00114BE4,DAT_STR_REF_SKNAME,string,public unsafe static string DAT_STR_REF_SKNAME(int _idx)
+0x060030FA,12538,0x00114C1C,DAT_STR_REF_ITNAME,string,public unsafe static string DAT_STR_REF_ITNAME(int _idx)
+0x060030FB,12539,0x00114C54,DAT_STR_REF_DHNAME,string,public unsafe static string DAT_STR_REF_DHNAME(int _idx)
+0x060030FC,12540,0x00114C8C,FR_DRAW_SPD,int,public unsafe static int FR_DRAW_SPD(_FRQ FRQ)
+0x060030FD,12541,0x00114CD0,GetFRQString,string,public unsafe static string GetFRQString(_FRQ frq)
+0x060030FE,12542,0x00114D0C,IsCloseWindow,bool,public unsafe static bool IsCloseWindow(int id)
+0x06003100,12544,0x00114D80,ResolveResourceAddress,void,public unsafe static void ResolveResourceAddress(Il2CppSystem.Object pdata)
+0x06003101,12545,0x00114DB8,GetTypeHeader,itfMesBinTypeHeader_t,"public unsafe static itfMesBinTypeHeader_t GetTypeHeader(instanceMes_tag pinst, int index)"
+0x06003102,12546,0x00114E0C,GetTypeHeader2,itfMesBinTypeHeader2_t,public unsafe static itfMesBinTypeHeader2_t GetTypeHeader2(Il2CppStructArray<byte> pfileheader)
+0x06003103,12547,0x00114E50,GetMessagePagePtr,Il2CppStructArray<byte>,"public unsafe static Il2CppStructArray<byte> GetMessagePagePtr(itfMesBinMesHeader_t pmesheader, Il2CppStructArray<byte> data, int page)"
+0x06003104,12548,0x00114EB4,ReadytoMessage,void,"public unsafe static void ReadytoMessage(instanceMes_tag pinst, int mode = 0)"
+0x06003105,12549,0x00114EF8,WindowDispOn,void,public unsafe static void WindowDispOn(int MsgID)
+0x06003106,12550,0x00114F2C,WindowDispOn,void,public unsafe static void WindowDispOn(instanceMes_tag pinst)
+0x06003107,12551,0x00114F64,ClearMessage,void,public unsafe static void ClearMessage()
+0x06003108,12552,0x00114F8C,ClearSpeaker,void,public unsafe static void ClearSpeaker()
+0x06003109,12553,0x00114FB4,WindowDispOff,void,public unsafe static void WindowDispOff(bool sw = false)
+0x0600310A,12554,0x00114FE8,ForceWindowDispOff,void,public unsafe static void ForceWindowDispOff()
+0x0600310B,12555,0x00115010,SelectWindowDispOn,void,public unsafe static void SelectWindowDispOn(instanceMes_tag pinst)
+0x0600310C,12556,0x00115048,IsSelectWindowDispOn,bool,public unsafe static bool IsSelectWindowDispOn(bool spd)
+0x0600310D,12557,0x00115088,IsSelectWindowDispOff,bool,public unsafe static bool IsSelectWindowDispOff()
+0x0600310E,12558,0x001150B8,SelectWindowDispOff,void,public unsafe static void SelectWindowDispOff(instanceMes_tag pinst)
+0x0600310F,12559,0x001150F0,SwitchOK,void,public unsafe static void SwitchOK(bool sw)
+0x06003110,12560,0x00115124,FadeOutWindow,void,public unsafe static void FadeOutWindow()
+0x06003111,12561,0x0011514C,IsFadeOutWindow,bool,public unsafe static bool IsFadeOutWindow()
+0x06003112,12562,0x0011517C,FadeInWindow,void,public unsafe static void FadeInWindow()
+0x06003113,12563,0x001151A4,SwitchSpeaker,void,"public unsafe static void SwitchSpeaker(bool sw, bool disp = true)"
+0x06003114,12564,0x001151E4,SetMessage,void,"public unsafe static void SetMessage(GameObject obj, int line, string text)"
+0x06003115,12565,0x0011523C,SetVar,void,"public unsafe static void SetVar(instanceMes_tag pinst, int index, string pstr, int length)"
+0x06003116,12566,0x001152A0,CommitVarTable,void,public unsafe static void CommitVarTable(variable_tag pvar)
+0x06003117,12567,0x001152D8,GetSpeakerName,Il2CppStructArray<byte>,public unsafe static Il2CppStructArray<byte> GetSpeakerName(instanceMes_tag pinst)
+0x06003118,12568,0x0011531C,GetNumSelectItem,int,"public unsafe static int GetNumSelectItem(int allitem, uint mask)"
+0x06003119,12569,0x00115368,GetFontHandleUnit,_FRQ,"public unsafe static _FRQ GetFontHandleUnit(Il2CppStructArray<byte> dat, Il2CppStructArray<uint> ppstr, Il2CppStructArray<int> pplen, int num, uint mask, int x, int y, uint z)"
+0x0600311A,12570,0x00115418,InitializeSelectWindow,void,"public unsafe static void InitializeSelectWindow(_FRQ pFRQ, int max)"
+0x0600311B,12571,0x0011545C,UnchainFontHandleUnit,_FRQ,"public unsafe static _FRQ UnchainFontHandleUnit(_FRQ pfont, int index, int lines)"
+0x0600311C,12572,0x001154BC,ChangeFontPosition,void,"public unsafe static void ChangeFontPosition(_FRQ pfont, int dist_x, int dist_y)"
+0x0600311D,12573,0x00115510,ChangeZBuffer,void,"public unsafe static void ChangeZBuffer(_FRQ pfont, uint z)"
+0x0600311E,12574,0x00115554,ChangeSelection,void,"public unsafe static void ChangeSelection(int index, int onoff)"
+0x0600311F,12575,0x00115594,ChangeFontColorAll,void,"public unsafe static void ChangeFontColorAll(_FRQ pfont, int color)"
+0x06003120,12576,0x001155D8,ChangeFontAlpha,void,"public unsafe static void ChangeFontAlpha(_FRQ pfont, int alpha)"
+0x06003121,12577,0x0011561C,GetMaskedIndex,int,"public unsafe static int GetMaskedIndex(int index, uint mask)"
+0x06003122,12578,0x00115668,RaiseMessageSpeedMax,void,public unsafe static void RaiseMessageSpeedMax(_FRQ pfont)
+0x06003123,12579,0x001156A0,RaiseMessageSpeedMaxAll,void,public unsafe static void RaiseMessageSpeedMaxAll(_FRQ pfont)
+0x06003124,12580,0x001156D8,OpenMessageWindow,void,public unsafe static void OpenMessageWindow(instanceMes_tag pinst)
+0x06003125,12581,0x00115710,OpenCheckSpeakerWindow,void,public unsafe static void OpenCheckSpeakerWindow(instanceMes_tag pinst)
+0x06003126,12582,0x00115748,InitializeSpeaker,void,"public unsafe static void InitializeSpeaker(Speaker_tag pspeaker, int defaultpos)"
+0x06003127,12583,0x0011578C,InitializeMessage,void,"public unsafe static void InitializeMessage(message_tag pmessage, int defaultpos)"
+0x06003128,12584,0x001157D0,InitializeSelect,void,public unsafe static void InitializeSelect(select_tag pselect)
+0x06003129,12585,0x00115808,InitializeWindow,void,public unsafe static void InitializeWindow(window_tag pwindow)
+0x0600312A,12586,0x00115840,InitializeVariable,void,public unsafe static void InitializeVariable(variable_tag pvariable)
+0x0600312B,12587,0x00115878,InitializeCurCtr,void,"public unsafe static void InitializeCurCtr(curctr_tag pcurctr, int isdisp)"
+0x0600312C,12588,0x001158BC,ForceSetCurCtr,void,"public unsafe static void ForceSetCurCtr(curctr_tag pcurctr, short phase, short ctr0, short ctr1)"
+0x0600312D,12589,0x0011591C,ReleaseAllWindow,void,public unsafe static void ReleaseAllWindow(instanceMes_tag pinst)
+0x0600312E,12590,0x00115954,ReleaseAllVariable,void,public unsafe static void ReleaseAllVariable(variable_tag pvariable)
+0x0600312F,12591,0x0011598C,ConvertZenkakuNumber,void,"public unsafe static void ConvertZenkakuNumber(ref string buf, int num)"
+0x06003130,12592,0x001159E0,ResetWindowPara,void,"public unsafe static void ResetWindowPara(window_tag pwin, int type, int alpha)"
+0x06003131,12593,0x00115A34,CalcMesFlow,void,public unsafe static void CalcMesFlow(instanceMes_tag pinst)
+0x06003132,12594,0x00115A6C,CalcWindow,void,public unsafe static void CalcWindow(instanceMes_tag pinst)
+0x06003133,12595,0x00115AA4,CalcMessage,void,public unsafe static void CalcMessage(instanceMes_tag pinst)
+0x06003134,12596,0x00115ADC,itfMesMngMessage,int,public unsafe static int itfMesMngMessage()
+0x06003135,12597,0x00115B0C,itfMesMngGetPhase,int,public unsafe static int itfMesMngGetPhase(int msgid)
+0x06003136,12598,0x00115B4C,itfMesMngSetPhase,void,"public unsafe static void itfMesMngSetPhase(int msgid, int phase)"
+0x06003137,12599,0x00115B8C,itfMesMngSelect,int,public unsafe static int itfMesMngSelect()
+0x06003138,12600,0x00115BBC,itfMesMngGetSelPhase,int,public unsafe static int itfMesMngGetSelPhase(int msgid)
+0x06003139,12601,0x00115BFC,itfMesMngSetSelPhase,void,"public unsafe static void itfMesMngSetSelPhase(int msgid, int phase)"
+0x0600313A,12602,0x00115C3C,itfMesMngGetSelectNo,int,public unsafe static int itfMesMngGetSelectNo(int msgid)
+0x0600313B,12603,0x00115C7C,itfMesMngMaskSelect,int,public unsafe static int itfMesMngMaskSelect()
+0x0600313C,12604,0x00115CAC,itfMesMng_SEL_SELNO,int,public unsafe static int itfMesMng_SEL_SELNO()
+0x0600313D,12605,0x00115CDC,itfMesMngOpenWindow,int,public unsafe static int itfMesMngOpenWindow()
+0x0600313E,12606,0x00115D0C,itfMesMngCloseWindow,int,public unsafe static int itfMesMngCloseWindow()
+0x0600313F,12607,0x00115D3C,itfMesMngMsgWndCls,void,public unsafe static void itfMesMngMsgWndCls(int msgid)
+0x06003140,12608,0x00115D70,itfMesMngOpenSelectWindow,int,public unsafe static int itfMesMngOpenSelectWindow()
+0x06003141,12609,0x00115DA0,itfMesMngCloseSelectWindow,int,public unsafe static int itfMesMngCloseSelectWindow()
+0x06003142,12610,0x00115DD0,itfMesMngSetVarScr,int,public unsafe static int itfMesMngSetVarScr()
+0x06003143,12611,0x00115E00,itfMesMngIgnoreConfig,int,public unsafe static int itfMesMngIgnoreConfig()
+0x06003144,12612,0x00115E30,itfMesMngSetMesPositionScript,int,public unsafe static int itfMesMngSetMesPositionScript()
+0x06003145,12613,0x00115E60,itfMesMngSetMesPosDefault,int,public unsafe static int itfMesMngSetMesPosDefault()
+0x06003146,12614,0x00115E90,itfMesMngValidateNext,int,public unsafe static int itfMesMngValidateNext()
+0x06003147,12615,0x00115EC0,itfMesMngWindowType,int,public unsafe static int itfMesMngWindowType()
+0x06003148,12616,0x00115EF0,itfMesMngWindowTypeAlpha,int,public unsafe static int itfMesMngWindowTypeAlpha()
+0x06003149,12617,0x00115F20,itfMesMngSelectDefKey,int,public unsafe static int itfMesMngSelectDefKey()
+0x0600314A,12618,0x00115F50,itfMesMngInitialize,int,"public unsafe static int itfMesMngInitialize(Il2CppSystem.Object presource, Il2CppStringArray master_text = null, string key = null)"
+0x0600314B,12619,0x00115FB8,itfMesMngRelease,void,public unsafe static void itfMesMngRelease(int id)
+0x0600314C,12620,0x00115FEC,itfMesMngRequestMessage,int,"public unsafe static int itfMesMngRequestMessage(int id, int message, int page, int callmode = 0)"
+0x0600314D,12621,0x00116054,create_bufferdata,_FRQ,"public unsafe static _FRQ create_bufferdata(int id, int var)"
+0x0600314E,12622,0x001160A4,itfMesMngRequestMessageRelease,void,"public unsafe static void itfMesMngRequestMessageRelease(int id, int cls_speaker)"
+0x0600314F,12623,0x001160E4,itfMesMngRequestSelect,void,"public unsafe static void itfMesMngRequestSelect(int id, int select)"
+0x06003150,12624,0x00116124,itfMesMngRequestSelectRelease,void,public unsafe static void itfMesMngRequestSelectRelease(int id)
+0x06003151,12625,0x00116158,itfMesMngSetMaskSelect,void,"public unsafe static void itfMesMngSetMaskSelect(int id, uint maskpattern)"
+0x06003152,12626,0x00116198,itfMesMngSetSelect,void,"public unsafe static void itfMesMngSetSelect(int id, int selno)"
+0x06003153,12627,0x001161D8,itfMesPos,void,"public unsafe static void itfMesPos(int x, int y)"
+0x06003154,12628,0x00116218,itfMesPosDefault,void,public unsafe static void itfMesPosDefault()
+0x06003155,12629,0x00116240,itfMesMngSetMesPosition,void,"public unsafe static void itfMesMngSetMesPosition(int id, int x, int y)"
+0x06003156,12630,0x00116290,itfMesMngMarkBitStat,void,"public unsafe static void itfMesMngMarkBitStat(int id, uint flag)"
+0x06003157,12631,0x001162D0,itfMesMngClearBitStat,void,"public unsafe static void itfMesMngClearBitStat(int id, uint flag)"
+0x06003158,12632,0x00116310,itfMesMngGetVarLocalize,string,"public unsafe static string itfMesMngGetVarLocalize(int id, int index)"
+0x06003159,12633,0x00116358,itfMesMngSetVar,void,"public unsafe static void itfMesMngSetVar(int id, int index, int num, int type)"
+0x0600315A,12634,0x001163B4,itfMesMngSetFloor,string,public unsafe static string itfMesMngSetFloor(int num)
+0x0600315B,12635,0x001163EC,itfMesMngSetVarImmediate,void,"public unsafe static void itfMesMngSetVarImmediate(int id, int index, string pstr)"
+0x0600315C,12636,0x00116440,itfMesMngSetVarImmediate2,void,"public unsafe static void itfMesMngSetVarImmediate2(int id, int index, string pstr, int length)"
+0x0600315D,12637,0x001164A0,itfMesMngSetResourcePtr,Il2CppSystem.Object,"public unsafe static Il2CppSystem.Object itfMesMngSetResourcePtr(int id, Il2CppSystem.Object presource)"
+0x0600315E,12638,0x001164F4,itfMesMngGetStrImmediate,string,"public unsafe static string itfMesMngGetStrImmediate(int id, int message, int page)"
+0x0600315F,12639,0x00116548,itfMesMngGetFRQ,_FRQ,"public unsafe static _FRQ itfMesMngGetFRQ(int id, int message)"
+0x06003160,12640,0x00116598,itfMesMngChangeWindowType,void,"public unsafe static void itfMesMngChangeWindowType(int id, int type, int alpha)"
+0x06003161,12641,0x001165E8,itfMesMngSetSelectDefKey,int,"public unsafe static int itfMesMngSetSelectDefKey(int id, int key, int index)"
+0x06003162,12642,0x00116644,itfMesMngSetDefaultSpeed,void,"public unsafe static void itfMesMngSetDefaultSpeed(int id, int speed)"
+0x06003163,12643,0x00116684,itfMesMngSetKutiCallback,void,"public unsafe static void itfMesMngSetKutiCallback(int id, instanceMes_tag.func_kutiDelegate func)"
+0x06003164,12644,0x001166C8,itfMesMngInitializeManager,void,public unsafe static void itfMesMngInitializeManager()
+0x06003165,12645,0x001166F0,ExitALL,void,public unsafe static void ExitALL()
+0x06003166,12646,0x00116718,OnIndexCallback,void,"public unsafe static void OnIndexCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+0x06003167,12647,0x0011677C,GetLastLinkFontHandle,_FRQ,public unsafe static _FRQ GetLastLinkFontHandle(_FRQ pfont)
+0x06003168,12648,0x001167C0,GetLastMessagePara,void,"public unsafe static void GetLastMessagePara(_FRQ pfont, message_tag pmessage)"
+0x06003169,12649,0x00116808,CountLineMessage,int,"public unsafe static int CountLineMessage(_FRQ pfont_top, _FRQ pfont)"
+0x0600316A,12650,0x0011685C,CalcSelect,void,public unsafe static void CalcSelect(instanceMes_tag pinst)
+0x0600316B,12651,0x00116894,SlideUpDownMessage,void,"public unsafe static void SlideUpDownMessage(instanceMes_tag pinst, int y)"
+0x0600316C,12652,0x001168D8,SelectItem,int,public unsafe static int SelectItem(instanceMes_tag pinst)
+0x0600316D,12653,0x0011691C,SelectItemMove,void,"public unsafe static void SelectItemMove(select_tag psel, int direct)"
+0x0600316E,12654,0x00116960,SelectItemDefKey,int,public unsafe static int SelectItemDefKey(select_tag psel)
+0x0600316F,12655,0x001169A4,CalcCurCtr,void,public unsafe static void CalcCurCtr(instanceMes_tag pinst)
+0x06003170,12656,0x001169DC,DrawMesFlow,void,public unsafe static void DrawMesFlow(instanceMes_tag pinst)
+0x06003171,12657,0x00116A14,DrawSpeaker,void,public unsafe static void DrawSpeaker(_FRQ pfont)
+0x06003172,12658,0x00116A4C,DrawMessage,int,public unsafe static int DrawMessage(_FRQ pfont)
+0x06003173,12659,0x00116A90,DrawSelection,int,"public unsafe static int DrawSelection(uint stat, bool spda)"
+0x06003174,12660,0x00116ADC,DrawWindow,void,public unsafe static void DrawWindow(instanceMes_tag pinst)
+0x06003175,12661,0x00116B14,CalcManagerProc,dds3ProcessFunc_t,public unsafe static dds3ProcessFunc_t CalcManagerProc(dds3ProcessID_t proc_id)
+0x06003176,12662,0x00116B58,DrawManagerProc,dds3ProcessFunc_t,public unsafe static dds3ProcessFunc_t DrawManagerProc(dds3ProcessID_t proc_id)
+0x06003177,12663,0x00116B9C,DebugDrawWindowLine,void,public unsafe static void DebugDrawWindowLine(itfpanel_t meswin)
+0x06003178,12664,0x00116BD4,GetDataBytes,Il2CppStructArray<byte>,"public unsafe static Il2CppStructArray<byte> GetDataBytes(Il2CppStructArray<byte> data, int index, int len)"
+0x06003179,12665,0x00116C34,CallEventVoice,void,public unsafe static void CallEventVoice(instanceMes_tag pinst)
+0x0600317A,12666,0x00116C6C,check_aimsg,bool,public unsafe static bool check_aimsg(string tagid)
+0x0600317B,12667,0x00116CB0,IsSpeaking,bool,public unsafe static bool IsSpeaking()
+0x0600317C,12668,0x00116CE0,IsSpeakStart,bool,public unsafe static bool IsSpeakStart()
+0x0600317D,12669,0x00116D10,InitDanteEventMsg,void,public unsafe static void InitDanteEventMsg()
+0x0600317E,12670,0x00116D38,FinalDanteEventMsg,void,public unsafe static void FinalDanteEventMsg()
+0x0600317F,12671,0x00116D60,MsgWndSetActive,void,"public unsafe static void MsgWndSetActive(int i, bool sw)"
+0x06003180,12672,0x00116DA0,MsgWndActiveSelf,bool,public unsafe static bool MsgWndActiveSelf(int i)
+0x06003181,12673,0x00116DE0,MsgWndOwnerShowUI,void,public unsafe static void MsgWndOwnerShowUI(bool sw)
+0x06003182,12674,0x00012BB1,itfMesManager,,public itfMesManager(System.IntPtr pointer) : base(pointer)

@@ -1,0 +1,12 @@
+name,type
+check,short
+id1,ushort
+id2,ushort
+result,ushort
+item,Il2CppReferenceArray<Il2CppStructArray<ushort>>
+mainmes,ushort
+mescnt,ushort
+winmes,ushort
+losemes,ushort
+fullmes,ushort
+innen_motion,Il2CppReferenceArray<InnenMotionInfo_s>

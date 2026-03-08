@@ -1,0 +1,244 @@
+file,token,token_dec,method,signature
+Il2Cpp/fclCombineAct.cs,0x06001F3E,100671294,cmpSetModelMotion,public unsafe static void cmpSetModelMotion(cmbModelPack_t handle)
+Il2Cpp/fclCombineAct.cs,0x06001F3F,100671295,cmbActDammy,public unsafe static void cmbActDammy()
+Il2Cpp/fclCombineAct.cs,0x06001F40,100671296,cmbActUpdateMask,public unsafe static void cmbActUpdateMask()
+Il2Cpp/fclCombineAct.cs,0x06001F41,100671297,cmbActHideIkenie,public unsafe static void cmbActHideIkenie()
+Il2Cpp/fclCombineAct.cs,0x06001F42,100671298,cmbActHideZairyou,public unsafe static void cmbActHideZairyou()
+Il2Cpp/fclCombineAct.cs,0x06001F43,100671299,cmbActIkenieBadStart,public unsafe static void cmbActIkenieBadStart()
+Il2Cpp/fclCombineAct.cs,0x06001F44,100671300,cmbActIkenieBadStop,public unsafe static void cmbActIkenieBadStop()
+Il2Cpp/fclCombineAct.cs,0x06001F45,100671301,cmbActGetEffEraseSpd,public unsafe static float cmbActGetEffEraseSpd(ushort DevilID)
+Il2Cpp/fclCombineAct.cs,0x06001F46,100671302,cmbActGetEffOfsPos,public unsafe static float cmbActGetEffOfsPos(ushort DevilID)
+Il2Cpp/fclCombineAct.cs,0x06001F47,100671303,cmbActGetEffRadius,public unsafe static float cmbActGetEffRadius(ushort DevilID)
+Il2Cpp/fclCombineAct.cs,0x06001F48,100671304,cmbActGetEffNums,public unsafe static int cmbActGetEffNums(ushort DevilID)
+Il2Cpp/fclCombineAct.cs,0x06001F49,100671305,cmbActLoadPB,"public unsafe static sdfMemHandle_t cmbActLoadPB(ushort DevilID, int pSize)"
+Il2Cpp/fclCombineAct.cs,0x06001F4A,100671306,cmbInitModelPack,"public unsafe static void cmbInitModelPack(int ModelNo, cmbModelPack_t pPack)"
+Il2Cpp/fclCombineAct.cs,0x06001F4B,100671307,_MDC,public unsafe static int _MDC(int no)
+Il2Cpp/fclCombineAct.cs,0x06001F4C,100671308,cmbLoadModelPack,"public unsafe static void cmbLoadModelPack(int ModelNo, cmbModelPack_t pPack)"
+Il2Cpp/fclCombineAct.cs,0x06001F4D,100671309,model_loaded,public unsafe static bool model_loaded()
+Il2Cpp/fclCombineAct.cs,0x06001F4E,100671310,CombineAct_ModelLoadEffectForUnity,"public unsafe static void CombineAct_ModelLoadEffectForUnity(dds3ModelHandle_t modelHandle, GameObject obj, int MajorNo, int MinorNo)"
+Il2Cpp/fclCombineAct.cs,0x06001F4F,100671311,CombineAct_ModelFreeEffectForUnity,public unsafe static void CombineAct_ModelFreeEffectForUnity(dds3ModelHandle_t modelHandle)
+Il2Cpp/fclCombineAct.cs,0x06001F50,100671312,cmbFreeModelPack,public unsafe static int cmbFreeModelPack(cmbModelPack_t pPack)
+Il2Cpp/fclCombineAct.cs,0x06001F51,100671313,cmbGetModelHandleFromPack,public unsafe static dds3ModelHandle_t cmbGetModelHandleFromPack(cmbModelPack_t pPack)
+Il2Cpp/fclCombineAct.cs,0x06001F52,100671314,cmbSetPackModel,"public unsafe static dds3ModelHandle_t cmbSetPackModel(cmbModelPack_t pPack, bool show = true)"
+Il2Cpp/fclCombineAct.cs,0x06001F53,100671315,cmbSetPackModelShow,public unsafe static dds3ModelHandle_t cmbSetPackModelShow(cmbModelPack_t pPack)
+Il2Cpp/fclCombineAct.cs,0x06001F54,100671316,cmbHidePackModel,public unsafe static dds3ModelHandle_t cmbHidePackModel(cmbModelPack_t pPack)
+Il2Cpp/fclCombineAct.cs,0x06001F55,100671317,cmbSetActEffDrawOff,public unsafe static void cmbSetActEffDrawOff(byte Index)
+Il2Cpp/fclCombineAct.cs,0x06001F56,100671318,cmbSetActEff,"public unsafe static void cmbSetActEff(byte Index, float Radius, float Height, Vector4 Pos)"
+Il2Cpp/fclCombineAct.cs,0x06001F57,100671319,cmbGetModelPosition,"public unsafe static sbyte cmbGetModelPosition(string pKeyWord, ref Vector4 pPos)"
+Il2Cpp/fclCombineAct.cs,0x06001F58,100671320,cmbCreateActMaskPosData,"public unsafe static void cmbCreateActMaskPosData(Il2CppStructArray<Vector4> Pos, Il2CppStructArray<float> pRadius, Il2CppStructArray<int> pFlag)"
+Il2Cpp/fclCombineAct.cs,0x06001F59,100671321,cmbDrawActEff,"public unsafe static void cmbDrawActEff(Il2CppStructArray<Vector4> Pos, Il2CppStructArray<float> pRadius, float MaskRate, Il2CppStructArray<int> pFlag, int EffMode)"
+Il2Cpp/fclCombineAct.cs,0x06001F5A,100671322,cmbDrawZairyou,"public unsafe static void cmbDrawZairyou(int EffMode, float MaskRate, int DrawFlag)"
+Il2Cpp/fclCombineAct.cs,0x06001F5B,100671323,cmbDrawTanjyou,public unsafe static void cmbDrawTanjyou()
+Il2Cpp/fclCombineAct.cs,0x06001F5C,100671324,cmbDrawAction,public unsafe static void cmbDrawAction()
+Il2Cpp/fclCombineAct.cs,0x06001F5D,100671325,cmbGetStatTarget,public unsafe static datUnitWork_t cmbGetStatTarget()
+Il2Cpp/fclCombineAct.cs,0x06001F5E,100671326,cmbActTimeTableControl,public unsafe static void cmbActTimeTableControl()
+Il2Cpp/fclCombineAct.cs,0x06001F5F,100671327,cmbInitActEff,"public unsafe static void cmbInitActEff(ref effEVECombParSmoke_t eff, ushort DevilID)"
+Il2Cpp/fclCombineAct.cs,0x06001F60,100671328,cmbInitActionForScr,public unsafe static void cmbInitActionForScr()
+Il2Cpp/fclCombineAct.cs,0x06001F61,100671329,cmpActionSE,"public unsafe static void cmpActionSE(int Mode, int Type)"
+Il2Cpp/fclCombineAct.cs,0x06001F62,100671330,cmbActionBGM,public unsafe static void cmbActionBGM(int Mode)
+Il2Cpp/fclCombineAct.cs,0x06001F63,100671331,cmbInitAction,public unsafe static void cmbInitAction()
+Il2Cpp/fclCombineAct.cs,0x06001F64,100671332,cmbActDisableZairyou,public unsafe static void cmbActDisableZairyou()
+Il2Cpp/fclCombineAct.cs,0x06001F65,100671333,cmbChkActScript,public unsafe static sbyte cmbChkActScript()
+Il2Cpp/fclCombineAct.cs,0x06001F66,100671334,cmbChkPolygonMovie,public unsafe static sbyte cmbChkPolygonMovie()
+Il2Cpp/fclCombineAct.cs,0x06001F67,100671335,cmbUpdateAction,public unsafe static void cmbUpdateAction()
+Il2Cpp/fclCombineAct.cs,0x06001F68,100671336,IsMovieSkip,public unsafe static bool IsMovieSkip()
+Il2Cpp/fclCombineAct.cs,0x06001F69,100671337,GetLight,"public unsafe static void GetLight(ref float l0_r, ref float l0_g, ref float l0_b, ref float a0_r, ref float a0_g, ref float a0_b, ref float bias, ref float v0_x, ref float v0_y, ref float v0_z, float unity_x, float unity_y, float unity_z)"
+Il2Cpp/fclCombineAct.cs,0x06001F6A,100671338,SetLight_From_evtCommand,public unsafe static void SetLight_From_evtCommand(string light_name)
+Il2Cpp/fclCombineAct.cs,0x06001F6B,100671339,fclCombineAct,public fclCombineAct(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineAct.cs,0x0600B445,100709445,Invoke,public unsafe void Invoke()
+Il2Cpp/fclCombineAct.cs,0x0600B446,100709446,BeginInvoke,"public unsafe Il2CppSystem.IAsyncResult BeginInvoke(Il2CppSystem.AsyncCallback callback, Il2CppSystem.Object @object)"
+Il2Cpp/fclCombineAct.cs,0x0600B447,100709447,EndInvoke,public unsafe void EndInvoke(Il2CppSystem.IAsyncResult result)
+Il2Cpp/fclCombineAct.cs,0x0600B448,100709448,cmbActCallback_t,public cmbActCallback_t(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineAct.cs,0x0600B449,100709449,cmbActCallback_t,public static implicit operator fclCombineAct.cmbActCallback_t(System.Action A_0)
+Il2Cpp/fclCombineAct.cs,0x0600B44A,100709450,,"public static fclCombineAct.cmbActCallback_t operator +(fclCombineAct.cmbActCallback_t A_0, fclCombineAct.cmbActCallback_t A_1)"
+Il2Cpp/fclCombineAct.cs,0x0600B44B,100709451,,"public static fclCombineAct.cmbActCallback_t operator -(fclCombineAct.cmbActCallback_t A_0, fclCombineAct.cmbActCallback_t A_1)"
+Il2Cpp/fclCombineAct.cs,0x0600B44E,100709454,cmbActTimeTable_t,public cmbActTimeTable_t(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineAct.cs,0x0600B457,100709463,cmbActTimeTableArry_t,public cmbActTimeTableArry_t(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineCalc.cs,0x06001F90,100671376,cmbChkCurse,public unsafe static sbyte cmbChkCurse()
+Il2Cpp/fclCombineCalc.cs,0x06001F91,100671377,cmbInitCombineResultTable,public unsafe static void cmbInitCombineResultTable(int Mode)
+Il2Cpp/fclCombineCalc.cs,0x06001F92,100671378,cmbCreateCombineResultTable,public unsafe static void cmbCreateCombineResultTable(sbyte Mode)
+Il2Cpp/fclCombineCalc.cs,0x06001F93,100671379,cmbCreateLocalStock,public unsafe static void cmbCreateLocalStock()
+Il2Cpp/fclCombineCalc.cs,0x06001F94,100671380,cmbCalcRoot,public unsafe static sbyte cmbCalcRoot()
+Il2Cpp/fclCombineCalc.cs,0x06001F95,100671381,cmbCalcDevSel1st,public unsafe static void cmbCalcDevSel1st()
+Il2Cpp/fclCombineCalc.cs,0x06001F96,100671382,cmbCalcDevSel2nd,public unsafe static void cmbCalcDevSel2nd()
+Il2Cpp/fclCombineCalc.cs,0x06001F97,100671383,cmbCalcDevSelSac,public unsafe static void cmbCalcDevSelSac()
+Il2Cpp/fclCombineCalc.cs,0x06001F98,100671384,cmbInitRibbon,public unsafe static void cmbInitRibbon(int Mode)
+Il2Cpp/fclCombineCalc.cs,0x06001F99,100671385,cmbCalcBirthDevil,public unsafe static sbyte cmbCalcBirthDevil()
+Il2Cpp/fclCombineCalc.cs,0x06001F9A,100671386,cmbCalcBirthDevil2,public unsafe static void cmbCalcBirthDevil2()
+Il2Cpp/fclCombineCalc.cs,0x06001F9B,100671387,cmbAddBirthDevilToStock,"public unsafe static void cmbAddBirthDevilToStock(Il2CppReferenceArray<datUnitWork_t> pStock, int top, byte StockNums)"
+Il2Cpp/fclCombineCalc.cs,0x06001F9C,100671388,cmbCalcError,public unsafe static void cmbCalcError()
+Il2Cpp/fclCombineCalc.cs,0x06001F9D,100671389,cmbCalcIntroduce,public unsafe static sbyte cmbCalcIntroduce()
+Il2Cpp/fclCombineCalc.cs,0x06001F9E,100671390,cmbCalcZensyo,public unsafe static int cmbCalcZensyo()
+Il2Cpp/fclCombineCalc.cs,0x06001F9F,100671391,cmbCalcStatus,public unsafe static void cmbCalcStatus()
+Il2Cpp/fclCombineCalc.cs,0x06001FA0,100671392,cmbCalcModelLoad,public unsafe static void cmbCalcModelLoad()
+Il2Cpp/fclCombineCalc.cs,0x06001FA1,100671393,cmbCalcSequence,public unsafe static dds3ProcessFunc_t cmbCalcSequence(dds3ProcessID_t PID)
+Il2Cpp/fclCombineCalc.cs,0x06001FA2,100671394,fclCombineCalc,public fclCombineCalc(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineCalc.cs,0x0600B45D,100709469,uv_s,public unsafe uv_s() : this(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<fclCombineCalc.uv_s>.NativeClassPtr))
+Il2Cpp/fclCombineCalc.cs,0x0600B45E,100709470,uv_s,public uv_s(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FA6,100671398,cmbChkEventDevil,public unsafe static sbyte cmbChkEventDevil(ushort DevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FA7,100671399,cmbGetPowerUpTableIndex,public unsafe static sbyte cmbGetPowerUpTableIndex(ushort MitamaID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FA8,100671400,cmbCalcParamUpVal,"public unsafe static int cmbCalcParamUpVal(int Default, int MitamaUp, int ParamMax, byte Rate)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FA9,100671401,cmbCalcParamPowerUp,"public unsafe static sbyte cmbCalcParamPowerUp(ushort MitamaID, datUnitWork_t pStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FAA,100671402,cmbChkIkenieExtPattern,"public unsafe static sbyte cmbChkIkenieExtPattern(ushort Devil1ID, ushort Devil2ID, ushort SacrificeID)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FAB,100671403,cmbChkMetato,"public unsafe static int cmbChkMetato(ushort Devil1ID, ushort Devil2ID, ushort BirthDevilID)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FAC,100671404,cmbChkIkenieExtPatternDevRace,"public unsafe static ushort cmbChkIkenieExtPatternDevRace(ushort Devil1ID, ushort Devil2ID, ushort SacrificeID)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FAD,100671405,cmbChkIkenieExtPatternDev,"public unsafe static ushort cmbChkIkenieExtPatternDev(datUnitWork_t pDevil1, datUnitWork_t pDevil2, datUnitWork_t pSacrifice, sbyte CurseFlag, sbyte LevelMode)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FAE,100671406,cmbChkIkenieExtPatternBirthDevil,public unsafe static sbyte cmbChkIkenieExtPatternBirthDevil(ushort DevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FAF,100671407,cmbGetRankUpDownDevil,"public unsafe static ushort cmbGetRankUpDownDevil(ushort DevilID, byte Flag)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB0,100671408,cmbGetRankUpDown,"public unsafe static sbyte cmbGetRankUpDown(ushort SoulID, sbyte DevilRaceID)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB1,100671409,cmbGetBirthSpirit,"public unsafe static ushort cmbGetBirthSpirit(ushort Devil1ID, ushort Devil2ID)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB2,100671410,cmbGetKeisyoSkillEndIndex,public unsafe static sbyte cmbGetKeisyoSkillEndIndex(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB3,100671411,cmbGetBirthDevilRace,"public unsafe static byte cmbGetBirthDevilRace(ushort Devil1ID, ushort Devil2ID, sbyte CurseFlag)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB4,100671412,cmbGetAverageLevel,"public unsafe static int cmbGetAverageLevel(datUnitWork_t pDevil1, datUnitWork_t pDevil2, datUnitWork_t pDevil3, sbyte LevelMode)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB5,100671413,cmbGetStockDevilInfo,"public unsafe static void cmbGetStockDevilInfo(datUnitWork_t pStock, ref ushort pBufID, ref byte pBufRace)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB6,100671414,cmbChkExtPattern,"public unsafe static ushort cmbChkExtPattern(ushort Devil1ID, ushort Devil2ID)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB7,100671415,cmbChkExtPatternBirthDevil,public unsafe static sbyte cmbChkExtPatternBirthDevil(ushort DevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB8,100671416,cmbChkMetaOnlyDevil,public unsafe static sbyte cmbChkMetaOnlyDevil(ushort DevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FB9,100671417,cmbChkAccident,public unsafe static sbyte cmbChkAccident()
+Il2Cpp/fclCombineCalcCore.cs,0x06001FBA,100671418,cmbChkAccidentType,public unsafe static sbyte cmbChkAccidentType()
+Il2Cpp/fclCombineCalcCore.cs,0x06001FBB,100671419,cmbGetAccidentFailDevil,public unsafe static ushort cmbGetAccidentFailDevil(ushort BirthDevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FBC,100671420,cmbRndGetAccidentBirthDevil,public unsafe static ushort cmbRndGetAccidentBirthDevil(ushort BirthDevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FBD,100671421,cmbAddParamAccidentBirthDevil,public unsafe static void cmbAddParamAccidentBirthDevil(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FBE,100671422,cmbCalcNormal2,"public unsafe static ushort cmbCalcNormal2(datUnitWork_t pDevil1, datUnitWork_t pDevil2, sbyte CurseFlag, sbyte LevelMode)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FBF,100671423,cmbCalcDevil2,"public unsafe static int cmbCalcDevil2(datUnitWork_t pStock1, datUnitWork_t pStock2, sbyte CurseFlag, sbyte LevelMode, Il2CppStructArray<ushort> pID, Il2CppStructArray<byte> pRace, ref byte pResultType)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC0,100671424,cmbCalcIkenieExp,"public unsafe static void cmbCalcIkenieExp(datUnitWork_t pStock, datUnitWork_t pDevil1, datUnitWork_t pDevil2, datUnitWork_t pSacrifice)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC1,100671425,cmbChkIkenieIllegalDevil,public unsafe static sbyte cmbChkIkenieIllegalDevil(ushort DevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC2,100671426,cmbCalcIkenie,"public unsafe static ushort cmbCalcIkenie(datUnitWork_t pDevil1, datUnitWork_t pDevil2, datUnitWork_t pSacrifice, sbyte CurseFlag, sbyte LevelMode, Il2CppStructArray<ushort> pID, Il2CppStructArray<byte> pRace)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC3,100671427,cmbGetEmptyStockIndex,"public unsafe static sbyte cmbGetEmptyStockIndex(Il2CppReferenceArray<datUnitWork_t> pStock, sbyte StockNums, int ofs = 0)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC4,100671428,cmbGetStockDevilIndex,"public unsafe static sbyte cmbGetStockDevilIndex(ushort DevilID, Il2CppReferenceArray<datUnitWork_t> pStock, byte StockNums)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC5,100671429,cmbAddKeisyoSkillFromSkill,"public unsafe static void cmbAddKeisyoSkillFromSkill(datUnitWork_t pDstStock, datUnitWork_t pSrcStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC6,100671430,cmbDeleteKeisyoSkill,"public unsafe static void cmbDeleteKeisyoSkill(datUnitWork_t pStock, byte Index)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC7,100671431,cmbMoveKeisyoSkillToSkill,"public unsafe static sbyte cmbMoveKeisyoSkillToSkill(ushort KeisyoSkillID, datUnitWork_t pStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC8,100671432,cmbAddSkill,"public unsafe static sbyte cmbAddSkill(ushort SkillID, datUnitWork_t pStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FC9,100671433,cmbChkSkillOwner,"public unsafe static sbyte cmbChkSkillOwner(ushort SkillID, datUnitWork_t pStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FCA,100671434,cmbChkKeisyoSkillOwner,"public unsafe static sbyte cmbChkKeisyoSkillOwner(ushort SkillID, datUnitWork_t pStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FCB,100671435,cmbChkKeisyoSkillNums,public unsafe static sbyte cmbChkKeisyoSkillNums(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FCC,100671436,cmbCopyDefaultDevilToStock,"public unsafe static void cmbCopyDefaultDevilToStock(ushort DevilID, datUnitWork_t pStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FCD,100671437,cmbCopyCustomDevilToStock,"public unsafe static void cmbCopyCustomDevilToStock(datUnitWork_t pDstStock, datUnitWork_t pSrcStock)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FCE,100671438,cmbClearStock,public unsafe static void cmbClearStock(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FCF,100671439,cmbClearSkill,public unsafe static void cmbClearSkill(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD0,100671440,cmbClearKeisyoSkill,public unsafe static void cmbClearKeisyoSkill(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD1,100671441,cmbDeleteUnitFromStockList,public unsafe static void cmbDeleteUnitFromStockList(sbyte UnitWorkIdx)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD2,100671442,cmbAddUnitToStockList,public unsafe static void cmbAddUnitToStockList(sbyte UnitWorkIdx)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD3,100671443,cmbDeleteDevilFromStock,"public unsafe static sbyte cmbDeleteDevilFromStock(ushort DevilID, Il2CppReferenceArray<datUnitWork_t> pStock, int top, byte StockNums)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD4,100671444,cmbAddDefaultDevilToStock,"public unsafe static sbyte cmbAddDefaultDevilToStock(ushort DevilID, Il2CppReferenceArray<datUnitWork_t> pStock, byte StockNums, int ofs = 0)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD5,100671445,cmbAddCustomDevilToStock,"public unsafe static sbyte cmbAddCustomDevilToStock(datUnitWork_t pDevil, Il2CppReferenceArray<datUnitWork_t> pStock, byte StockNums, int ofs = 0)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD6,100671446,cmbCalcTotalKeisyoSkillRate,public unsafe static int cmbCalcTotalKeisyoSkillRate(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD7,100671447,cmbRndGetKeisyoSkill,public unsafe static ushort cmbRndGetKeisyoSkill(datUnitWork_t pStock)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD8,100671448,cmbRndAddKeisyoSkillToSkill,"public unsafe static void cmbRndAddKeisyoSkillToSkill(datUnitWork_t pDevil1, datUnitWork_t pDevil2, datUnitWork_t pSacrifice, datUnitWork_t pStock, fclKeisyoList_t pKeisyoBuf, ref fclKeisyoListAll_t pKeisyoAllBuf)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FD9,100671449,cmbSetKeisyoListBuf,public unsafe static void cmbSetKeisyoListBuf(fclKeisyoList_t pKeisyoList)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FDA,100671450,GetcmbSetKeisyoListBuf,public unsafe static fclKeisyoList_t GetcmbSetKeisyoListBuf()
+Il2Cpp/fclCombineCalcCore.cs,0x06001FDB,100671451,cmbSetKeisyoListAllBuf,public unsafe static void cmbSetKeisyoListAllBuf(fclKeisyoListAll_t pKeisyoListAll)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FDC,100671452,GetcmbSetKeisyoListAllBuf,public unsafe static fclKeisyoListAll_t GetcmbSetKeisyoListAllBuf()
+Il2Cpp/fclCombineCalcCore.cs,0x06001FDD,100671453,cmbChkLastKeisyoSkill,public unsafe static sbyte cmbChkLastKeisyoSkill(ushort SkillID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FDE,100671454,cmbGetTargetDevil,"public unsafe static ushort cmbGetTargetDevil(byte Race, byte Level)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FDF,100671455,cmbGetManinNeedItemID,public unsafe static ushort cmbGetManinNeedItemID()
+Il2Cpp/fclCombineCalcCore.cs,0x06001FE0,100671456,cmbCalcCombineManin,public unsafe static ushort cmbCalcCombineManin(ushort DevilID)
+Il2Cpp/fclCombineCalcCore.cs,0x06001FE1,100671457,cmbChkDante,"public unsafe static int cmbChkDante(datUnitWork_t pStock1, datUnitWork_t pStock2, datUnitWork_t pSacrifice)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FE2,100671458,cmbGetBirthDevil,"public unsafe static byte cmbGetBirthDevil(datUnitWork_t pStock1, datUnitWork_t pStock2, datUnitWork_t pSacrifice, datUnitWork_t pResultBuf, sbyte CurseFlag, sbyte LevelMode, sbyte AccidentMode, fclKeisyoList_t pKeisyoList, ref fclKeisyoListAll_t pKeisyoListAll)"
+Il2Cpp/fclCombineCalcCore.cs,0x06001FE3,100671459,fclCombineCalcCore,public fclCombineCalcCore(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineDraw.cs,0x06001FE9,100671465,InitializeGameObject,public unsafe static void InitializeGameObject()
+Il2Cpp/fclCombineDraw.cs,0x06001FEA,100671466,FinalizeGameObject,public unsafe static void FinalizeGameObject()
+Il2Cpp/fclCombineDraw.cs,0x06001FEB,100671467,cmbDrawDevilInfo,"public unsafe static void cmbDrawDevilInfo(string path, uint Col, uint Col2, datUnitWork_t pStock, bool eff = false)"
+Il2Cpp/fclCombineDraw.cs,0x06001FEC,100671468,cmbDrawDevilInfo,"public unsafe static void cmbDrawDevilInfo(string path, int idx, uint Col, uint Col2, datUnitWork_t pStock, int type)"
+Il2Cpp/fclCombineDraw.cs,0x06001FED,100671469,cmbDrawDevilIcon,"public unsafe static void cmbDrawDevilIcon(string path, int type)"
+Il2Cpp/fclCombineDraw.cs,0x06001FEE,100671470,cmbDrawCombineResultIcon,"public unsafe static void cmbDrawCombineResultIcon(GameObject o, int tx, sbyte type)"
+Il2Cpp/fclCombineDraw.cs,0x06001FEF,100671471,cmbDrawStockDevilInfo,"public unsafe static void cmbDrawStockDevilInfo(sbyte SelPos, uint SelCol, cmpCursorInfo_t pCursorInfo, byte Type)"
+Il2Cpp/fclCombineDraw.cs,0x06001FF0,100671472,cmbDrawSelDevInfo,"public unsafe static void cmbDrawSelDevInfo(string path, int index, datUnitWork_t pStock, sbyte type, int rate, int disp)"
+Il2Cpp/fclCombineDraw.cs,0x06001FF1,100671473,cmbDrawPlayerInfo,"public unsafe static void cmbDrawPlayerInfo(datUnitWork_t pStock, int disp)"
+Il2Cpp/fclCombineDraw.cs,0x06001FF2,100671474,cmbDrawRootMenu,public unsafe static void cmbDrawRootMenu(int Mode)
+Il2Cpp/fclCombineDraw.cs,0x06001FF3,100671475,cmbDrawHelp,public unsafe static void cmbDrawHelp(int help)
+Il2Cpp/fclCombineDraw.cs,0x06001FF4,100671476,cmbDrawInfoWindow,public unsafe static void cmbDrawInfoWindow(sbyte InfoType)
+Il2Cpp/fclCombineDraw.cs,0x06001FF5,100671477,cmbDrawSelectCursor,"public unsafe static void cmbDrawSelectCursor(byte mode, uint Col, cmpCursorInfo_t pCI)"
+Il2Cpp/fclCombineDraw.cs,0x06001FF6,100671478,cmbDrawSelDevilInfo,"public unsafe static void cmbDrawSelDevilInfo(int type, int disp)"
+Il2Cpp/fclCombineDraw.cs,0x06001FF7,100671479,cmbDraw1stDevilSelect,public unsafe static void cmbDraw1stDevilSelect()
+Il2Cpp/fclCombineDraw.cs,0x06001FF8,100671480,cmbDraw2ndDevilSelect,public unsafe static void cmbDraw2ndDevilSelect()
+Il2Cpp/fclCombineDraw.cs,0x06001FF9,100671481,cmbDrawSacDevilSelect,public unsafe static void cmbDrawSacDevilSelect()
+Il2Cpp/fclCombineDraw.cs,0x06001FFA,100671482,cmbDrawRibbon,public unsafe static void cmbDrawRibbon(int id)
+Il2Cpp/fclCombineDraw.cs,0x06001FFB,100671483,cmbDrawStatus,public unsafe static void cmbDrawStatus()
+Il2Cpp/fclCombineDraw.cs,0x06001FFC,100671484,cmbDrawStatusRibbon,public unsafe static void cmbDrawStatusRibbon()
+Il2Cpp/fclCombineDraw.cs,0x06001FFD,100671485,cmbDrawStatusRibbon,"public unsafe static void cmbDrawStatusRibbon(Il2CppStringArray list, int mode)"
+Il2Cpp/fclCombineDraw.cs,0x06001FFE,100671486,cmbDrawBirthDevilMaskBG,public unsafe static void cmbDrawBirthDevilMaskBG()
+Il2Cpp/fclCombineDraw.cs,0x06001FFF,100671487,cmbDrawBirthDevil,public unsafe static void cmbDrawBirthDevil(int RibbonMode)
+Il2Cpp/fclCombineDraw.cs,0x06002000,100671488,cmbDrawBirthDevilSelectSkillInit,public unsafe static void cmbDrawBirthDevilSelectSkillInit()
+Il2Cpp/fclCombineDraw.cs,0x06002001,100671489,cmbDrawBirthDevilSelectSkillRet,public unsafe static void cmbDrawBirthDevilSelectSkillRet()
+Il2Cpp/fclCombineDraw.cs,0x06002002,100671490,cmbDrawBirthDevilSelectSkillEnd,public unsafe static void cmbDrawBirthDevilSelectSkillEnd()
+Il2Cpp/fclCombineDraw.cs,0x06002003,100671491,cmbDrawBirthDevilSelectSkill,public unsafe static void cmbDrawBirthDevilSelectSkill()
+Il2Cpp/fclCombineDraw.cs,0x06002004,100671492,cmbDrawZensyoMenu,public unsafe static void cmbDrawZensyoMenu(int Mode)
+Il2Cpp/fclCombineDraw.cs,0x06002005,100671493,cmbDrawTalkMenu,public unsafe static void cmbDrawTalkMenu(int Mode)
+Il2Cpp/fclCombineDraw.cs,0x06002006,100671494,cmbDrawSeqMessage,public unsafe static void cmbDrawSeqMessage()
+Il2Cpp/fclCombineDraw.cs,0x06002007,100671495,cmbDrawSequence,public unsafe static Il2CppSystem.Object cmbDrawSequence(dds3ProcessID_t PID)
+Il2Cpp/fclCombineDraw.cs,0x06002008,100671496,UpdateDevilList,public unsafe static void UpdateDevilList(int mode)
+Il2Cpp/fclCombineDraw.cs,0x06002009,100671497,fclCombineDraw,public fclCombineDraw(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineInit.cs,0x06002021,100671521,fclCombineDisableTalkIkenie,public unsafe static void fclCombineDisableTalkIkenie()
+Il2Cpp/fclCombineInit.cs,0x06002022,100671522,fclCombineDisableTalkMagatama,public unsafe static void fclCombineDisableTalkMagatama()
+Il2Cpp/fclCombineInit.cs,0x06002023,100671523,fclCombineDisableCmdZensyo,public unsafe static void fclCombineDisableCmdZensyo()
+Il2Cpp/fclCombineInit.cs,0x06002024,100671524,fclCombineDisableTalkZensyo,public unsafe static void fclCombineDisableTalkZensyo()
+Il2Cpp/fclCombineInit.cs,0x06002025,100671525,fclCombineChkEventStat,public unsafe static sbyte fclCombineChkEventStat()
+Il2Cpp/fclCombineInit.cs,0x06002026,100671526,fclCombineEventStart,public unsafe static void fclCombineEventStart(sbyte Signal)
+Il2Cpp/fclCombineInit.cs,0x06002027,100671527,fclCombineEventEnd,public unsafe static void fclCombineEventEnd()
+Il2Cpp/fclCombineInit.cs,0x06002028,100671528,fclCombineTexLoad,public unsafe static void fclCombineTexLoad()
+Il2Cpp/fclCombineInit.cs,0x06002029,100671529,fclCombineTexFree,public unsafe static void fclCombineTexFree()
+Il2Cpp/fclCombineInit.cs,0x0600202A,100671530,cmbInitEffParam,public unsafe static void cmbInitEffParam()
+Il2Cpp/fclCombineInit.cs,0x0600202B,100671531,cmbChkGeneralStat,public unsafe static int cmbChkGeneralStat()
+Il2Cpp/fclCombineInit.cs,0x0600202C,100671532,fclCombineTokusyuBGM,public unsafe static int fclCombineTokusyuBGM()
+Il2Cpp/fclCombineInit.cs,0x0600202D,100671533,fclCombineBGM,public unsafe static void fclCombineBGM(sbyte Mode)
+Il2Cpp/fclCombineInit.cs,0x0600202E,100671534,fclCombineInitPanelMover,public unsafe static void fclCombineInitPanelMover(cmbGlobalWork_t pData)
+Il2Cpp/fclCombineInit.cs,0x0600202F,100671535,fclCombineInitialize,public unsafe static void fclCombineInitialize()
+Il2Cpp/fclCombineInit.cs,0x06002030,100671536,fclUpdateInit,public unsafe static void fclUpdateInit()
+Il2Cpp/fclCombineInit.cs,0x06002031,100671537,OnInstitutionCallback,"public unsafe static void OnInstitutionCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+Il2Cpp/fclCombineInit.cs,0x06002032,100671538,OnCombMenuCallback,"public unsafe static void OnCombMenuCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+Il2Cpp/fclCombineInit.cs,0x06002033,100671539,OnDlistSumCallback,"public unsafe static void OnDlistSumCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+Il2Cpp/fclCombineInit.cs,0x06002034,100671540,OnDlistSumBarCallback,"public unsafe static void OnDlistSumBarCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+Il2Cpp/fclCombineInit.cs,0x06002035,100671541,OnDlistRecCallback,"public unsafe static void OnDlistRecCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+Il2Cpp/fclCombineInit.cs,0x06002036,100671542,fclCombineDestroy,public unsafe static Il2CppSystem.Object fclCombineDestroy(dds3ProcessID_t PID)
+Il2Cpp/fclCombineInit.cs,0x06002037,100671543,_fclCombineCalc,public unsafe static dds3ProcessFunc_t _fclCombineCalc(dds3ProcessID_t PID)
+Il2Cpp/fclCombineInit.cs,0x06002038,100671544,_fclCombineDraw,public unsafe static Il2CppSystem.Object _fclCombineDraw(dds3ProcessID_t PID)
+Il2Cpp/fclCombineInit.cs,0x06002039,100671545,_fclCombineUpdate,public unsafe static Il2CppSystem.Object _fclCombineUpdate(dds3ProcessID_t PID)
+Il2Cpp/fclCombineInit.cs,0x0600203A,100671546,fclCombineProcessStart,public unsafe static void fclCombineProcessStart()
+Il2Cpp/fclCombineInit.cs,0x0600203B,100671547,fclCombineProcessEnd,public unsafe static int fclCombineProcessEnd()
+Il2Cpp/fclCombineInit.cs,0x0600203C,100671548,fclChkCombineProcess,public unsafe static sbyte fclChkCombineProcess()
+Il2Cpp/fclCombineInit.cs,0x0600203D,100671549,CollidersEnabled,"public unsafe static void CollidersEnabled(int mode, bool chk = false)"
+Il2Cpp/fclCombineInit.cs,0x0600203E,100671550,GetCurrentCursorInfo,public unsafe static cmpCursorInfo_t GetCurrentCursorInfo()
+Il2Cpp/fclCombineInit.cs,0x0600203F,100671551,fclCombineInit,public fclCombineInit(System.IntPtr pointer) : base(pointer)
+Il2Cpp/fclCombineUpdate.cs,0x06002055,100671573,UpdateCursor1st,"public unsafe static void UpdateCursor1st(int ocsr, int ncsr)"
+Il2Cpp/fclCombineUpdate.cs,0x06002056,100671574,cmbExit,public unsafe static void cmbExit()
+Il2Cpp/fclCombineUpdate.cs,0x06002057,100671575,cmbUpdateRoot,public unsafe static void cmbUpdateRoot()
+Il2Cpp/fclCombineUpdate.cs,0x06002058,100671576,cmbChkNoDeleteFlag,public unsafe static int cmbChkNoDeleteFlag(int Index)
+Il2Cpp/fclCombineUpdate.cs,0x06002059,100671577,cmbUpdateDevSel1st,public unsafe static void cmbUpdateDevSel1st()
+Il2Cpp/fclCombineUpdate.cs,0x0600205A,100671578,cmbUpdateDevSel2nd,public unsafe static void cmbUpdateDevSel2nd()
+Il2Cpp/fclCombineUpdate.cs,0x0600205B,100671579,cmbUpdateStatus,public unsafe static void cmbUpdateStatus()
+Il2Cpp/fclCombineUpdate.cs,0x0600205C,100671580,cmbSetActiveRibbon,public unsafe static void cmbSetActiveRibbon()
+Il2Cpp/fclCombineUpdate.cs,0x0600205D,100671581,cmbChkIkenieEnable,public unsafe static int cmbChkIkenieEnable()
+Il2Cpp/fclCombineUpdate.cs,0x0600205E,100671582,cmbUpdateBirthDevil,public unsafe static void cmbUpdateBirthDevil()
+Il2Cpp/fclCombineUpdate.cs,0x0600205F,100671583,SkillSelWakuClr,public unsafe static void SkillSelWakuClr()
+Il2Cpp/fclCombineUpdate.cs,0x06002060,100671584,CalcHpMp,public unsafe static void CalcHpMp(ref datUnitWork_t tmp_BirthDevil)
+Il2Cpp/fclCombineUpdate.cs,0x06002061,100671585,cmbUpdateBirthDevilSelectSkillInit,public unsafe static void cmbUpdateBirthDevilSelectSkillInit()
+Il2Cpp/fclCombineUpdate.cs,0x06002062,100671586,OnSkillSelectCallback,"public unsafe static void OnSkillSelectCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+Il2Cpp/fclCombineUpdate.cs,0x06002063,100671587,OnSSkillCallback,"public unsafe static void OnSSkillCallback(int type, SteamColliders mine, SteamCollider collider, int index)"
+Il2Cpp/fclCombineUpdate.cs,0x06002064,100671588,cmbUpdateBirthDevilSelectSkillReturn,public unsafe static void cmbUpdateBirthDevilSelectSkillReturn()
+Il2Cpp/fclCombineUpdate.cs,0x06002065,100671589,cmbUpdateBirthDevilSelectSkill,public unsafe static void cmbUpdateBirthDevilSelectSkill()
+Il2Cpp/fclCombineUpdate.cs,0x06002066,100671590,ChkSkill,public unsafe static bool ChkSkill(int skillid)
+Il2Cpp/fclCombineUpdate.cs,0x06002067,100671591,cmbUpdateBirthDevilConfSkill,public unsafe static void cmbUpdateBirthDevilConfSkill()
+Il2Cpp/fclCombineUpdate.cs,0x06002068,100671592,cmbUpdateBirthDevilMouse,public unsafe static uint cmbUpdateBirthDevilMouse(int move)
+Il2Cpp/fclCombineUpdate.cs,0x06002069,100671593,cmbSetAction,public unsafe static void cmbSetAction()
+Il2Cpp/fclCombineUpdate.cs,0x0600206A,100671594,cmbUpdateDecideDevil,public unsafe static sbyte cmbUpdateDecideDevil()
+Il2Cpp/fclCombineUpdate.cs,0x0600206B,100671595,cmbUpdateSacConfirm,public unsafe static sbyte cmbUpdateSacConfirm()
+Il2Cpp/fclCombineUpdate.cs,0x0600206C,100671596,cmbUpdateDevSelSac,public unsafe static void cmbUpdateDevSelSac()
+Il2Cpp/fclCombineUpdate.cs,0x0600206D,100671597,cmbUpdateError,public unsafe static void cmbUpdateError()
+Il2Cpp/fclCombineUpdate.cs,0x0600206E,100671598,cmbUpdateSeqTalk,public unsafe static void cmbUpdateSeqTalk()
+Il2Cpp/fclCombineUpdate.cs,0x0600206F,100671599,cmbUpdateSeqMsg,public unsafe static void cmbUpdateSeqMsg()
+Il2Cpp/fclCombineUpdate.cs,0x06002070,100671600,cmbDestroyActModel,public unsafe static void cmbDestroyActModel()
+Il2Cpp/fclCombineUpdate.cs,0x06002071,100671601,cmbDestroyActEffect,public unsafe static void cmbDestroyActEffect()
+Il2Cpp/fclCombineUpdate.cs,0x06002072,100671602,cmbUpdateIntroduce,public unsafe static void cmbUpdateIntroduce()
+Il2Cpp/fclCombineUpdate.cs,0x06002073,100671603,cmbCallEncyc,public unsafe static void cmbCallEncyc(int Mode)
+Il2Cpp/fclCombineUpdate.cs,0x06002074,100671604,cmbUpdateZensyo,public unsafe static void cmbUpdateZensyo()
+Il2Cpp/fclCombineUpdate.cs,0x06002075,100671605,cmbUpdateDebugActCombine,public unsafe static sbyte cmbUpdateDebugActCombine()
+Il2Cpp/fclCombineUpdate.cs,0x06002076,100671606,cmbUpdatePanelMover,public unsafe static void cmbUpdatePanelMover()
+Il2Cpp/fclCombineUpdate.cs,0x06002077,100671607,cmbUpdateModelLoad,public unsafe static void cmbUpdateModelLoad()
+Il2Cpp/fclCombineUpdate.cs,0x06002078,100671608,cmbUpdateSequence,public unsafe static Il2CppSystem.Object cmbUpdateSequence(dds3ProcessID_t PID)
+Il2Cpp/fclCombineUpdate.cs,0x06002079,100671609,DevilStatusMode,"public unsafe static void DevilStatusMode(bool sw, bool gc = true)"
+Il2Cpp/fclCombineUpdate.cs,0x0600207A,100671610,OyajiOff,public unsafe static void OyajiOff()
+Il2Cpp/fclCombineUpdate.cs,0x0600207B,100671611,IsZensyoMode,public unsafe static bool IsZensyoMode()
+Il2Cpp/fclCombineUpdate.cs,0x0600207C,100671612,UnlockTrophy,public unsafe static void UnlockTrophy()
+Il2Cpp/fclCombineUpdate.cs,0x0600207D,100671613,fclCombineUpdate,public fclCombineUpdate(System.IntPtr pointer) : base(pointer)

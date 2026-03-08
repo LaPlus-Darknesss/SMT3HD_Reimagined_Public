@@ -1,0 +1,10 @@
+class_file,name,token,return,params,caller_count,xref_start,xref_end,ref_start,ref_end
+Il2Cpp/dds3ModelBasic.cs,ModelBasicDestructor,0x060000DE,int,dds3Basic_t pBasic,20,5301622,5301622,5301622,5301642
+Il2Cpp/dds3ModelRangeBasic.cs,dds3AddModelRangeBasicNew,0x060000E6,dds3Basic_t,"uint serialID, Il2CppSystem.Object pData, Vector4 pos, string pName",2,5301672,5301679,5301679,5301681
+Il2Cpp/dds3ModelRangeBasic.cs,dds3ModelRangeBasicSetBlockID,0x060000E7,void,"ref dds3Basic_t aPtr, int blockID",2,5301681,5301685,5301685,5301687
+Il2Cpp/dds3ModelBasic.cs,dds3AddModelBasic2,0x060000DF,dds3Basic_t,"uint serialID, sdfModelDef_t pModelDef, sdfMotionPlayBook_t pMotDef, sdfModelTexList_t pTexList, string pName",1,5301642,5301649,5301649,5301650
+Il2Cpp/dds3ModelBasic.cs,ModelBasicConstructor,0x060000DD,int,dds3Basic_t pBasic,0,5301617,5301622,0,0
+Il2Cpp/dds3ModelRangeBasic.cs,ModelRangeBasicConstructor,0x060000E4,int,dds3Basic_t pBasic,0,5301661,5301669,0,0
+Il2Cpp/dds3ModelRangeBasic.cs,ModelRangeBasicDestructor,0x060000E5,int,dds3Basic_t pBasic,0,5301669,5301672,0,0
+Il2Cpp/dds3ModelBasic.cs,dds3ModelBasicMakeMotion,0x060000E1,sdfMotionCtrlr_t,"ref dds3Basic_t pBasic, sdfModelRootNode_t pRootNode",0,5301657,5301661,0,0
+Il2Cpp/dds3ModelBasic.cs,dds3ModelBasicMakeRootNode,0x060000E0,sdfModelRootNode_t,ref dds3Basic_t pBasic,0,5301650,5301657,0,0

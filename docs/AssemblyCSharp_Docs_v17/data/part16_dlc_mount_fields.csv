@@ -1,0 +1,3 @@
+class,field,type
+DlcFileCtr.Data,id,int
+DlcFileCtr.Data,mount,string

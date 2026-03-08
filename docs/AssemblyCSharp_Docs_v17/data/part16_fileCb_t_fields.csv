@@ -1,0 +1,17 @@
+field,type,line
+type,byte,57
+phase,byte,73
+allocRetry,byte,89
+allocHeadOrTail,byte,105
+next,fileCb_t,121
+filename,string,139
+fileHandle,sdfFileCmdHandle_t,156
+loadRemain,int,174
+size,int,190
+fendCallback,fileEndCallback_t,206
+pendCallback,pacFileEndCallback_t,224
+endCallbackParm,Il2CppSystem.Object,242
+memHandle,sdfMemHandle_t,260
+topPtr,Il2CppSystem.Object,278
+loadPtr,byte,296
+callbackNext,fileCb_t,312

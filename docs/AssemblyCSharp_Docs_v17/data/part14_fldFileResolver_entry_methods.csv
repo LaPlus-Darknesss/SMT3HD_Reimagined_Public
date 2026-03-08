@@ -1,0 +1,26 @@
+class_file,name,token,return,params,caller_count,xref_start,xref_end,ref_start,ref_end
+Il2Cpp/fldFileResolver.cs,fldLoadNextFileTB,0x060026D0,Il2CppSystem.Object,"Il2CppSystem.Object pData, int field, int area",20,5301622,5301642,5301622,5301642
+Il2Cpp/fldFileResolver.cs,fldLoadNextFile_BtlRet,0x060026CA,int,,20,5301622,5301642,5301622,5301642
+Il2Cpp/fldFileResolver.cs,fldMakeFilePath,0x060026DB,void,"ref string pathstr, int field, int area",10,5437716,5437717,5437717,5437727
+Il2Cpp/fldFileResolver.cs,fldGetMatter_From_ModelRangeID,0x06002692,dds3Basic_t,int modelRangeID,8,5435619,5435620,5435620,5435628
+Il2Cpp/fldFileResolver.cs,fldFreeNextFile,0x060026CC,void,,6,5436882,5436886,5436886,5436892
+Il2Cpp/fldFileResolver.cs,fldLoadNextGetStatus,0x060026CE,int,,3,5436907,5436911,5436911,5436914
+Il2Cpp/fldFileResolver.cs,fldSetupButtonGuide,0x060026D8,void,,3,5437558,5437560,5437560,5437563
+Il2Cpp/fldFileResolver.cs,fldLoadNextFile_SetId_BtlRet,0x060026C9,void,"int field, int area",2,5436866,5436871,5436871,5436873
+Il2Cpp/fldFileResolver.cs,fldLoadNextTask,0x060026CD,int,,2,5436892,5436905,5436905,5436907
+Il2Cpp/fldFileResolver.cs,fldMakeResouceBasicFL2,0x06002694,void,"Il2CppReferenceArray<fldResourceTypeTable_t> pTypeTable, uint nTypeTable, Il2CppStructArray<byte> pHead",2,5435865,5435918,5435918,5435920
+Il2Cpp/fldFileResolver.cs,fldAddressResolverFL1,0x0600269B,fldFileInfoHeaderFL1_t,Il2CppStructArray<byte> pData,1,5436293,5436294,5436294,5436295
+Il2Cpp/fldFileResolver.cs,fldAddressResolverFL2,0x0600269D,fldFileInfoHeaderFL2_t,Il2CppStructArray<byte> pData,1,5436313,5436314,5436314,5436315
+Il2Cpp/fldFileResolver.cs,fldFileResolverFL1,0x06002698,void,"fldFileInfoHeaderFL1_t pInfoHeaderFL1, Il2CppStructArray<byte> pHead, string akey",1,5436130,5436262,5436262,5436263
+Il2Cpp/fldFileResolver.cs,fldFreeFile,0x060026D9,void,,1,5437563,5437702,5437702,5437703
+Il2Cpp/fldFileResolver.cs,fldLoadNextFile,0x060026CB,int,"int field, int area",1,5436873,5436881,5436881,5436882
+Il2Cpp/fldFileResolver.cs,fldMakeObjectBasic2,0x06002696,void,,1,5435926,5436022,5436022,5436023
+Il2Cpp/fldFileResolver.cs,fldMakeObjectBasic3,0x06002697,void,,1,5436023,5436129,5436129,5436130
+Il2Cpp/fldFileResolver.cs,fldMakeResouceBasicFL1,0x06002693,void,"Il2CppReferenceArray<fldResourceTypeTable_t> pTypeTable, uint nTypeTable, Il2CppStructArray<byte> pHead",1,5435628,5435864,5435864,5435865
+Il2Cpp/fldFileResolver.cs,fldFileResolverFL2,0x06002699,void,"fldFileInfoHeaderFL2_t pInfoHeaderFL2, Il2CppStructArray<byte> pHead",0,5436263,5436276,0,0
+Il2Cpp/fldFileResolver.cs,fldLoadFile,0x060026D7,Il2CppSystem.Object,"string pFileName, string akey = """"",0,5436986,5437558,0,0
+Il2Cpp/fldFileResolver.cs,fldLoadNextFileBF,0x060026CF,Il2CppSystem.Object,"Il2CppSystem.Object pData, int field, int area",0,5436914,5436918,0,0
+Il2Cpp/fldFileResolver.cs,fldLoadNextFileF1,0x060026D1,Il2CppSystem.Object,"Il2CppSystem.Object pData, int field, int area",0,5436918,5436922,0,0
+Il2Cpp/fldFileResolver.cs,fldLoadNextFileF2,0x060026D2,Il2CppSystem.Object,"Il2CppStructArray<byte> pData, int field, int area",0,5436922,5436926,0,0
+Il2Cpp/fldFileResolver.cs,fldMakeBlockBasicFL2,0x06002695,void,"Il2CppReferenceArray<fldConstruntAreaFL2_t> pBlockTable, uint nBlock",0,5435920,5435926,0,0
+Il2Cpp/fldFileResolver.cs,fldMakeDmyMatter,0x06002691,dds3Basic_t,,0,5435604,5435619,0,0

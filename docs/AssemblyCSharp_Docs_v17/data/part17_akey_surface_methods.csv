@@ -1,0 +1,14 @@
+file,namespace,type,vis,ret,name,params,caller_count,il2cpp_token,rva,original_name,metadata_token_int
+Il2Cpp/sdfDevFile.cs,Il2Cpp,sdfDevFile,public,Il2CppSystem.Object,sdfDevLoadFileUnity,"string aFilename, ref Il2CppStructArray<byte> aTopPtr, int aSizePtr, string akey = """"",23,,,,100669954.0
+Il2Cpp/sdfDevFile.cs,Il2Cpp,sdfDevFile,public,Il2CppSystem.Object,sdfDevLoadFileUnity,"string aFilename, ref Il2CppStructArray<byte> aTopPtr, int aSizePtr, string akey = """"",23,,,,100669955.0
+Il2Cpp/billManager.cs,Il2Cpp,billManager,public,billHandle_t,dds3BillboardFileLoad,"int type, string pFileName, string akey",2,,,,
+Il2Cpp/dds3SceneBasic.cs,Il2Cpp,dds3SceneBasic,public,void,dds3SceneBasicMakeScene,"ref dds3Basic_t pBasic, string file, string akey",2,,,,
+Il2Cpp/ScrScriptProcess.cs,Il2Cpp,ScrScriptProcess,public,dds3ProcessID_t,scrStartScript3,"int priority, string filename, int startproc, string akey",1,,,,100673452.0
+Il2Cpp/dds3EffectObjectBasic.cs,Il2Cpp,dds3EffectObjectBasic,public,dds3Basic_t,dds3AddP2AEffectObjectBasic,"string file, Vector4 pos, Vector4 rot, string akey",1,,,,
+Il2Cpp/dds3EffectObjectBasic.cs,Il2Cpp,dds3EffectObjectBasic,public,dds3Basic_t,dds3AddTMXEffectObjectBasic,"string file, Vector4 pos, Vector4 rot, string akey",1,,,,
+Il2Cpp/dds3SceneBasic.cs,Il2Cpp,dds3SceneBasic,public,int,dds3SceneBasicLoadScriptFile,"ref dds3Basic_t scene, string scrfile, string akey = """"",1,,,,
+Il2Cpp/fldFileResolver.cs,Il2Cpp,fldFileResolver,public,void,fldFileResolverFL1,"fldFileInfoHeaderFL1_t pInfoHeaderFL1, Il2CppStructArray<byte> pHead, string akey",1,,,,100668464.0
+Il2Cpp/sdfDevFile.cs,Il2Cpp,sdfDevFile,public,Il2CppSystem.Object,sdfDevLoadFileUnity,"string aFilename, ref Il2CppSystem.Object aTopPtr, int aSizePtr, string akey = """"",1,,,,100669954.0
+Il2Cpp/sdfDevFile.cs,Il2Cpp,sdfDevFile,public,Il2CppSystem.Object,sdfDevLoadFileUnity,"string aFilename, ref Il2CppSystem.Object aTopPtr, int aSizePtr, string akey = """"",1,,,,100669955.0
+Il2Cpp/ScrScriptProcess.cs,Il2Cpp,ScrScriptProcess,public,scrProcessWork_s,AddScript3,"string filename, int startproc, string akey = ""EventAB""",0,,,,100673449.0
+Il2Cpp/fldFileResolver.cs,Il2Cpp,fldFileResolver,public,Il2CppSystem.Object,fldLoadFile,"string pFileName, string akey = """"",0,,,,100668527.0

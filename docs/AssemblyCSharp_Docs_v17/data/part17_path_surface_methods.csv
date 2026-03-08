@@ -1,0 +1,37 @@
+file,namespace,type,vis,ret,name,params,caller_count,il2cpp_token,rva,original_name,metadata_token_int
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppStructArray<byte>,LoadFileByte,"string key, string path_name",144,,,,100674328.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name",76,,,,100674313.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name",76,,,,100674314.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name",76,,,,100674315.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppSystem.Object,LoadFileObject,"string key, string path_name",37,,,,100674327.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,LoadKeys,"SndAssetBundleManager.SNDDIR type, string key, string path = null",29,,,,100674710.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path, string name, string extension",18,,,,100674323.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path, string name, string extension",18,,,,100674325.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadAsset,"string key, string path, string name",14,,,,100674322.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,bool,IsFileExists,"string key, string path_name",5,,,,100674329.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path_name",5,,,,100674323.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,UnityEngine.Object,LoadFile,"string key, string path_name",5,,,,100674325.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AudioClip,LoadAudioClip,"string key, string path, string name",4,,,,100674319.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string path, string name",4,,,,100674317.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string path, string name",4,,,,100674318.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string fullPath",2,,,,100674317.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,Il2CppReferenceArray<Sprite>,LoadSprite,"string key, string fullPath",2,,,,100674318.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,VideoClip,LoadVideoClip,"string key, string path, string name",1,,,,100674320.0
+Il2Cpp/Localize.cs,Il2Cpp,Localize,public,void,Load,"string key, string filePath",1,,,,100674523.0
+Il2Cpp/Platform_AB_Chk.cs,Il2Cpp,Platform_AB_Chk,public,string,PlatformSearch,"string path, Il2CppObjectBase filename, Il2CppObjectBase platformAry",1,,,,100663312.0
+Il2Cpp/SndAssetBundleManager.cs,Il2Cpp,SndAssetBundleManager,public,void,_loadvoice,"string key, string path",1,,,,
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,void,CheckChangeVoice,"ref string path, ref string name",0,,,,100674321.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path, string name, string extension",0,,,,100674324.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path, string name, string extension",0,,,,100674326.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path_name",0,,,,100674324.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadFileAsync,"string key, string path_name",0,,,,100674326.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, string par, string name2 = null",0,,,,100674313.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, string par, string name2 = null",0,,,,100674314.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, string par, string name2 = null",0,,,,100674315.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, GameObject parent, string name2 = null",0,,,,100674313.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, GameObject parent, string name2 = null",0,,,,100674314.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,GameObject,LoadPrefab,"string key, string path, string name, GameObject parent, string name2 = null",0,,,,100674315.0
+Il2Cpp/AssetBundleCtrl.cs,Il2Cpp,AssetBundleCtrl,public,AssetBundleRequest,LoadPrefabAsync,"string key, string path, string name",0,,,,100674316.0
+Il2Cpp/Platform_AB_Chk.cs,Il2Cpp,Platform_AB_Chk,public,string,ABPlatformChk,string filePath,0,,,,100663314.0
+Il2Cpp/Platform_AB_Chk.cs,Il2Cpp,Platform_AB_Chk,public,List<int>,ExistsChk,"string path, Il2CppObjectBase filename",0,,,,100663311.0
+Il2Cpp/Platform_AB_Chk.cs,Il2Cpp,Platform_AB_Chk,public,void,PlatformSearchSet,"string filePath, Il2CppObjectBase platformAry",0,,,,100663313.0

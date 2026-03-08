@@ -1,0 +1,5 @@
+name,type
+type,uint
+rate,Il2CppStructArray<byte>
+killeraisyo,Il2CppReferenceArray<datNegoAisyo_s>
+ngaisyo,Il2CppReferenceArray<datNegoAisyo_s>

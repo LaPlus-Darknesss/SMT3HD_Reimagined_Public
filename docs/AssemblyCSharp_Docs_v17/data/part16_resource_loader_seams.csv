@@ -1,0 +1,47 @@
+class,method,signature,caller_count,ptrfield,il2cpp_token_dec,il2cpp_token_hex,wrapper_token_hex
+AssetBundleCtrl,LoadFileByte,"public unsafe Il2CppStructArray<byte> LoadFileByte(string key, string path_name)",144,LoadFileByte_Public_Il2CppStructArray_1_Byte_String_String_0,100674328,0x6002b18,0x60062ce
+AssetBundleCtrl,IsLoad,public unsafe bool IsLoad(string key),105,IsLoad_Public_Boolean_String_0,100674308,0x6002b04,0x60062ba
+AssetBundleCtrl,LoadPrefab,"public unsafe GameObject LoadPrefab(string key, string path, string name)",76,LoadPrefab_Public_GameObject_String_String_String_0,100674315,0x6002b0b,0x60062c1
+AssetBundleCtrl,UnloadAB,public unsafe void UnloadAB(string key),49,UnloadAB_Public_Void_String_0,100674311,0x6002b07,0x60062bd
+AssetBundleCtrl,Load,"public unsafe void Load(string key, string aname)",47,Load_Public_Void_String_String_0,100674303,0x6002aff,0x60062b5
+AssetBundleCtrl,LoadFileObject,"public unsafe Il2CppSystem.Object LoadFileObject(string key, string path_name)",37,LoadFileObject_Public_Object_String_String_0,100674327,0x6002b17,0x60062cd
+AssetBundleCtrl,LoadFile,"public unsafe UnityEngine.Object LoadFile(string key, string path, string name, string extension)",18,LoadFile_Public_Object_String_String_String_String_0,100674323,0x6002b13,0x60062c9
+AssetBundleCtrl,LoadAsset,"public unsafe UnityEngine.Object LoadAsset(string key, string path, string name)",14,LoadAsset_Public_Object_String_String_String_0,100674322,0x6002b12,0x60062c8
+AssetBundleCtrl,dlc (property getter),public unsafe DlcFileCtr dlc { get; },10,get_dlc_Public_get_DlcFileCtr_0,100674302,0x6002afe,0x60062b4
+AssetBundleCtrl,GetAB,public unsafe AssetBundle GetAB(string key),8,GetAB_Public_AssetBundle_String_0,100674309,0x6002b05,0x60062bb
+AssetBundleCtrl,LoadFile,"public unsafe UnityEngine.Object LoadFile(string key, string path_name)",5,LoadFile_Public_Object_String_String_0,100674325,0x6002b15,0x60062cb
+AssetBundleCtrl,IsFileExists,"public unsafe bool IsFileExists(string key, string path_name)",5,IsFileExists_Public_Boolean_String_String_0,100674329,0x6002b19,0x60062cf
+AssetBundleCtrl,LoadSprite,"public unsafe Il2CppReferenceArray<Sprite> LoadSprite(string key, string path, string name)",4,LoadSprite_Public_Il2CppReferenceArray_1_Sprite_String_String_String_0,100674317,0x6002b0d,0x60062c3
+AssetBundleCtrl,LoadAudioClip,"public unsafe AudioClip LoadAudioClip(string key, string path, string name)",4,LoadAudioClip_Public_AudioClip_String_String_String_0,100674319,0x6002b0f,0x60062c5
+AssetBundleCtrl,GetKeys,public unsafe Il2CppStringArray GetKeys(),4,GetKeys_Public_Il2CppStringArray_0,100674330,0x6002b1a,0x60062d0
+AssetBundleCtrl,LoadSprite,"public unsafe Il2CppReferenceArray<Sprite> LoadSprite(string key, string fullPath)",2,LoadSprite_Public_Il2CppReferenceArray_1_Sprite_String_String_0,100674318,0x6002b0e,0x60062c4
+AssetBundleCtrl,CheckAsiaDLC,"public unsafe bool CheckAsiaDLC(string key, int dlc_id)",1,CheckAsiaDLC_Private_Boolean_String_Int32_0,100674304,0x6002b00,0x60062b6
+AssetBundleCtrl,CheckRaidouDLC,"public unsafe bool CheckRaidouDLC(string key, int dlc_id)",1,CheckRaidouDLC_Private_Boolean_String_Int32_0,100674305,0x6002b01,0x60062b7
+AssetBundleCtrl,LoadDirect,"public unsafe void LoadDirect(string key, string aname, int dlc_id)",1,LoadDirect_Public_Void_String_String_Int32_0,100674306,0x6002b02,0x60062b8
+AssetBundleCtrl,LoadVideoClip,"public unsafe VideoClip LoadVideoClip(string key, string path, string name)",1,LoadVideoClip_Public_VideoClip_String_String_String_0,100674320,0x6002b10,0x60062c6
+AssetBundleCtrl,LoadCoroutine,"public unsafe IEnumerator LoadCoroutine(string key, int dlc_id)",0,LoadCoroutine_Private_IEnumerator_String_Int32_0,100674307,0x6002b03,0x60062b9
+AssetBundleCtrl,GetABName,public unsafe string GetABName(string key),0,GetABName_Public_String_String_0,100674310,0x6002b06,0x60062bc
+AssetBundleCtrl,UnloadABAll,public unsafe void UnloadABAll(),0,UnloadABAll_Public_Void_0,100674312,0x6002b08,0x60062be
+AssetBundleCtrl,LoadPrefab,"public unsafe GameObject LoadPrefab(string key, string path, string name, string par, string name2 = null)",0,LoadPrefab_Public_GameObject_String_String_String_String_String_0,100674313,0x6002b09,0x60062bf
+AssetBundleCtrl,LoadPrefab,"public unsafe GameObject LoadPrefab(string key, string path, string name, GameObject parent, string name2 = null)",0,LoadPrefab_Public_GameObject_String_String_String_GameObject_String_0,100674314,0x6002b0a,0x60062c0
+AssetBundleCtrl,LoadPrefabAsync,"public unsafe AssetBundleRequest LoadPrefabAsync(string key, string path, string name)",0,LoadPrefabAsync_Public_AssetBundleRequest_String_String_String_0,100674316,0x6002b0c,0x60062c2
+AssetBundleCtrl,CheckChangeVoice,"public unsafe void CheckChangeVoice(ref string path, ref string name)",0,CheckChangeVoice_Private_Void_byref_String_byref_String_0,100674321,0x6002b11,0x60062c7
+AssetBundleCtrl,LoadFileAsync,"public unsafe AssetBundleRequest LoadFileAsync(string key, string path, string name, string extension)",0,LoadFileAsync_Public_AssetBundleRequest_String_String_String_String_0,100674324,0x6002b14,0x60062ca
+AssetBundleCtrl,LoadFileAsync,"public unsafe AssetBundleRequest LoadFileAsync(string key, string path_name)",0,LoadFileAsync_Public_AssetBundleRequest_String_String_0,100674326,0x6002b16,0x60062cc
+DlcFileCtr,Load,"public unsafe void Load(string key, int id, string aname)",7,Load_Public_Void_String_Int32_String_0,100674350,0x6002b2e,0x60062f1
+DlcFileCtr,GetIndex,public unsafe int GetIndex(int id),3,GetIndex_Private_Int32_Int32_0,100674347,0x6002b2b,0x60062ee
+DlcFileCtr,Check,public unsafe bool Check(int id),3,Check_Public_Boolean_Int32_0,100674348,0x6002b2c,0x60062ef
+DlcFileCtr,Mount,public unsafe bool Mount(int id),0,Mount_Public_Boolean_Int32_0,100674349,0x6002b2d,0x60062f0
+SteamDlcFileUtil,GetMountPath,public unsafe static string GetMountPath(int dlc_id),2,GetMountPath_Public_Static_String_Int32_0,100673967,0x60029af,0x6005fdf
+SteamDlcFileUtil,InitAddOnContent,public unsafe static IEnumerable<int> InitAddOnContent(),1,InitAddOnContent_Public_Static_IEnumerable_1_Int32_0,100673966,0x60029ae,0x6005fde
+SteamDlcFileUtil,CallStore,public unsafe static void CallStore(),0,CallStore_Public_Static_Void_0,100673968,0x60029b0,0x6005fe0
+file_Manager,fileHandleFree,public unsafe static int fileHandleFree(fileCb_t fileHandle),20,fileHandleFree_Public_Static_Int32_fileCb_t_0,100669165,0x60016ed,0x6002f15
+file_Manager,fileCheckEnd,public unsafe static int fileCheckEnd(fileCb_t fileHandle),1,fileCheckEnd_Public_Static_Int32_fileCb_t_0,100669169,0x60016f1,0x6002f19
+file_Manager,fileGetMemHandle,public unsafe static sdfMemHandle_t fileGetMemHandle(fileCb_t fileHandle),0,fileGetMemHandle_Public_Static_sdfMemHandle_t_fileCb_t_0,100669166,0x60016ee,0x6002f16
+file_Manager,fileGetLoadPtr,public unsafe static Il2CppSystem.Object fileGetLoadPtr(fileCb_t fileHandle),0,fileGetLoadPtr_Public_Static_Object_fileCb_t_0,100669167,0x60016ef,0x6002f17
+file_Manager,fileGetLoadSize,public unsafe static int fileGetLoadSize(fileCb_t fileHandle),0,fileGetLoadSize_Public_Static_Int32_fileCb_t_0,100669168,0x60016f0,0x6002f18
+sdfDevFile,sdfDevLoadFileUnity,"public unsafe static Il2CppSystem.Object sdfDevLoadFileUnity(string aFilename, ref Il2CppStructArray<byte> aTopPtr, int aSizePtr, string akey = """")",23,sdfDevLoadFileUnity_Public_Static_Object_String_byref_Il2CppStructArray_1_Byte_Int32_String_0,100669955,0x6001a03,0x6003778
+sdfDevFile,sdfDevLoadFileEx,"public unsafe static sdfMemHandle_t sdfDevLoadFileEx(string aFilename, Il2CppSystem.Object aTopPtr, ref int aSizePtr, int aMergin)",3,sdfDevLoadFileEx_Public_Static_sdfMemHandle_t_String_Object_byref_Int32_Int32_0,100669952,0x6001a00,0x6003775
+sdfDevFile,sdfDevLoadFile,"public unsafe static sdfMemHandle_t sdfDevLoadFile(string aFilename, ref Il2CppSystem.Object aTopPtr, int aSizePtr)",3,sdfDevLoadFile_Public_Static_sdfMemHandle_t_String_byref_Object_Int32_0,100669953,0x6001a01,0x6003776
+sdfDevFile,sdfDevLoadFileUnity,"public unsafe static Il2CppSystem.Object sdfDevLoadFileUnity(string aFilename, ref Il2CppSystem.Object aTopPtr, int aSizePtr, string akey = """")",1,sdfDevLoadFileUnity_Public_Static_Object_String_byref_Object_Int32_String_0,100669954,0x6001a02,0x6003777
+sdfDevFile,sdfDevLoadTexList,public unsafe static sdfModelTexList_t sdfDevLoadTexList(string aFilename),1,sdfDevLoadTexList_Public_Static_sdfModelTexList_t_String_0,100669956,0x6001a04,0x6003779

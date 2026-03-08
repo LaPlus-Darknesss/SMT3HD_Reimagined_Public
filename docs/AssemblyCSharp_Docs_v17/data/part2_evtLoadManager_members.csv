@@ -1,0 +1,39 @@
+token_dec,token_hex,rid,rva,kind,accessor,name,decl
+100670790,0x06001D46,7494,0x000D5000,method,,evtLoadManager,static evtLoadManager()
+100670791,0x06001D47,7495,0x000D5288,method,,InitializeLoadManager,public unsafe static void InitializeLoadManager()
+100670792,0x06001D48,7496,0x000D52B0,method,,StartLoad,public unsafe static void StartLoad()
+100670793,0x06001D49,7497,0x000D52D8,method,,FinalizeLoadManager,public unsafe static void FinalizeLoadManager(bool sw = false)
+100670794,0x06001D4A,7498,0x000D530C,method,,GetData,public unsafe static Il2CppSystem.Object GetData(string name)
+100670795,0x06001D4B,7499,0x000D5350,method,,GetKutiManager,public unsafe static evtKutiManager GetKutiManager()
+100670796,0x06001D4C,7500,0x000D5384,method,,Contains,public unsafe static bool Contains(string name)
+100670797,0x06001D4D,7501,0x000D53C8,method,,Load,public unsafe static int Load(int eventno)
+100670798,0x06001D4E,7502,0x000D5408,method,,init_readlist,public unsafe static void init_readlist(int evtno)
+100670799,0x06001D4F,7503,0x000D543C,method,,load_init,public unsafe static void load_init()
+100670800,0x06001D50,7504,0x000D5464,method,,load_wait,public unsafe static void load_wait()
+100670801,0x06001D51,7505,0x000D548C,method,,StartFKuti,"public unsafe static void StartFKuti(string key, string name, bool append = false)"
+100670802,0x06001D52,7506,0x000D54E4,method,,EndFKuti,public unsafe static void EndFKuti()
+100670803,0x06001D53,7507,0x000D550C,method,,SetEvtInstCash,"public unsafe static void SetEvtInstCash(GameObject prefab, int type)"
+100670804,0x06001D54,7508,0x000D5550,method,,GetEvtInstCash,public unsafe static GameObject GetEvtInstCash(GameObject obj)
+100670805,0x06001D55,7509,0x000D5594,method,,CheckCashField,public unsafe static bool CheckCashField()
+100670806,0x06001D56,7510,0x000D55C4,method,,PriChrHDSet,public unsafe static void PriChrHDSet(GameObject obj)
+100670807,0x06001D57,7511,0x000D55FC,method,,PriChrHDGet,public unsafe static FieldChrHD PriChrHDGet(GameObject obj)
+100670808,0x06001D58,7512,0x000D5640,method,,GetTarminalEventNo,"public unsafe static void GetTarminalEventNo(ref string _key, ref string _list)"
+100670809,0x06001D59,7513,0x0000BFAE,method,,evtLoadManager,public evtLoadManager(System.IntPtr pointer) : base(pointer)
+100670810,0x06001D5A,7514,0x000D56A4,property,get,eventno,public unsafe static int eventno
+100670812,0x06001D5C,7516,0x000D56C0,property,get,akey,public unsafe static string akey
+100670814,0x06001D5E,7518,0x000D56E0,property,get,keys,public unsafe static List<string> keys
+100670816,0x06001D60,7520,0x000D5708,property,get,lists,public unsafe static List<string> lists
+100670818,0x06001D62,7522,0x000D5730,property,get,objects,"public unsafe static Dictionary<string, evtLoadManager.eLoadData> objects"
+100670820,0x06001D64,7524,0x000D5758,property,get,rep_tbl,"public unsafe static Dictionary<string, string> rep_tbl"
+100670822,0x06001D66,7526,0x000D5780,property,get,event_msg,public unsafe static EventEMsgData event_msg
+100670824,0x06001D68,7528,0x000D57A8,property,get,kuti_obj,public unsafe static GameObject kuti_obj
+100670826,0x06001D6A,7530,0x000D57D0,property,get,kuti_scr,public unsafe static evtKutiManager kuti_scr
+100670828,0x06001D6C,7532,0x000D57F8,property,get,step_cnt,public unsafe static int step_cnt
+100670830,0x06001D6E,7534,0x000D5814,property,get,load_index,public unsafe static int load_index
+100670832,0x06001D70,7536,0x000D5830,property,get,inst_cash_dic,"public unsafe static Dictionary<string, GameObject> inst_cash_dic"
+100709411,0x0600B423,46115,0x00259398,method,,eLoadData,static eLoadData()
+100709412,0x0600B424,46116,0x0005A6CE,method,,eLoadData,public eLoadData(System.IntPtr pointer) : base(pointer)
+100709413,0x0600B425,46117,0x0005A6D7,method,,eLoadData,public eLoadData() : base(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<evtLoadManager.eLoadData>.NativeClassPtr))
+100709414,0x0600B426,46118,0x00259400,property,get,mode,public unsafe int mode
+100709416,0x0600B428,46120,0x00259428,property,get,type,public unsafe int type
+100709418,0x0600B42A,46122,0x00259450,property,get,data,public unsafe Il2CppSystem.Object data

@@ -1,0 +1,7 @@
+property,property_type,get_token,set_token
+flag,sbyte,0x06008395,0x06008396
+table,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppStructArray<sbyte>>>,0x06008397,0x06008398
+b_id,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppStructArray<ushort>>>,0x06008399,0x0600839A
+devil,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppReferenceArray<datUnitWork_t>>>,0x0600839B,0x0600839C
+keisyo,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppReferenceArray<fclKeisyoList_t>>>,0x0600839D,0x0600839E
+keisyoAll,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppReferenceArray<fclKeisyoListAll_t>>>,0x0600839F,0x060083A0

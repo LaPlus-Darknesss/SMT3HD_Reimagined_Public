@@ -1,0 +1,140 @@
+native_ptr_name,token,method,visibility,member_kind,return,args,overload,category,method_prefix
+DAT_STR_REF_DHNAME_Private_Static_String_Int32_0,100669285,DAT_STR_REF_DHNAME,Private,Static,String,['Int32'],0,DAT_STR (string lookup),DAT
+DAT_STR_REF_DVNAME_Private_Static_String_Int32_0,100669282,DAT_STR_REF_DVNAME,Private,Static,String,['Int32'],0,DAT_STR (string lookup),DAT
+DAT_STR_REF_ITNAME_Private_Static_String_Int32_0,100669284,DAT_STR_REF_ITNAME,Private,Static,String,['Int32'],0,DAT_STR (string lookup),DAT
+DAT_STR_REF_RCNAME_Private_Static_String_Int32_0,100669281,DAT_STR_REF_RCNAME,Private,Static,String,['Int32'],0,DAT_STR (string lookup),DAT
+DAT_STR_REF_SKNAME_Private_Static_String_Int32_0,100669283,DAT_STR_REF_SKNAME,Private,Static,String,['Int32'],0,DAT_STR (string lookup),DAT
+GetDataBytes_Internal_Static_Il2CppStructArray_1_Byte_Il2CppStructArray_1_Byte_Int32_Int32_0,100669410,GetDataBytes,Internal,Static,Il2CppStructArray,"['1', 'Byte', 'Il2CppStructArray', '1', 'Byte', 'Int32', 'Int32']",0,Lookup/helpers,GetDataBytes
+GetFRQString_Internal_Static_String__FRQ_0,100669287,GetFRQString,Internal,Static,String,"['', 'FRQ']",0,Lookup/helpers,GetFRQString
+GetFontHandleUnit_Internal_Static__FRQ_Il2CppStructArray_1_Byte_Il2CppStructArray_1_UInt32_Il2CppStructArray_1_Int32_Int32_UInt32_Int32_Int32_UInt32_0,100669315,GetFontHandleUnit,Internal,Static,,"['FRQ', 'Il2CppStructArray', '1', 'Byte', 'Il2CppStructArray', '1', 'UInt32', 'Il2CppStructArray', '1', 'Int32', 'Int32', 'UInt32', 'Int32', 'Int32', 'UInt32']",0,Lookup/helpers,GetFontHandleUnit
+GetLastLinkFontHandle_Public_Static__FRQ__FRQ_0,100669393,GetLastLinkFontHandle,Public,Static,,"['FRQ', '', 'FRQ']",0,Lookup/helpers,GetLastLinkFontHandle
+GetLastMessagePara_Internal_Static_Void__FRQ_message_tag_0,100669394,GetLastMessagePara,Internal,Static,Void,"['', 'FRQ', 'message', 'tag']",0,Lookup/helpers,GetLastMessagePara
+GetMaskedIndex_Internal_Static_Int32_Int32_UInt32_0,100669323,GetMaskedIndex,Internal,Static,Int32,"['Int32', 'UInt32']",0,Lookup/helpers,GetMaskedIndex
+GetMessagePagePtr_Internal_Static_Il2CppStructArray_1_Byte_itfMesBinMesHeader_t_Il2CppStructArray_1_Byte_Int32_0,100669293,GetMessagePagePtr,Internal,Static,Il2CppStructArray,"['1', 'Byte', 'itfMesBinMesHeader', 't', 'Il2CppStructArray', '1', 'Byte', 'Int32']",0,Lookup/helpers,GetMessagePagePtr
+GetNumSelectItem_Internal_Static_Int32_Int32_UInt32_0,100669314,GetNumSelectItem,Internal,Static,Int32,"['Int32', 'UInt32']",0,Lookup/helpers,GetNumSelectItem
+GetSpeakerName_Internal_Static_Il2CppStructArray_1_Byte_instanceMes_tag_0,100669313,GetSpeakerName,Internal,Static,Il2CppStructArray,"['1', 'Byte', 'instanceMes', 'tag']",0,Lookup/helpers,GetSpeakerName
+GetTypeHeader_Internal_Static_itfMesBinTypeHeader_t_instanceMes_tag_Int32_0,100669291,GetTypeHeader,Internal,Static,itfMesBinTypeHeader,"['t', 'instanceMes', 'tag', 'Int32']",0,Lookup/helpers,GetTypeHeader
+GetTypeHeader2_Internal_Static_itfMesBinTypeHeader2_t_Il2CppStructArray_1_Byte_0,100669292,GetTypeHeader2,Internal,Static,itfMesBinTypeHeader2,"['t', 'Il2CppStructArray', '1', 'Byte']",0,Lookup/helpers,GetTypeHeader2
+CalcCurCtr_Private_Static_Void_instanceMes_tag_0,100669401,CalcCurCtr,Private,Static,Void,"['instanceMes', 'tag']",0,Other,CalcCurCtr
+CalcManagerProc_Private_Static_dds3ProcessFunc_t_dds3ProcessID_t_0,100669407,CalcManagerProc,Private,Static,dds3ProcessFunc,"['t', 'dds3ProcessID', 't']",0,Other,CalcManagerProc
+CalcMesFlow_Internal_Static_Void_instanceMes_tag_0,100669339,CalcMesFlow,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,CalcMesFlow
+CalcMessage_Internal_Static_Void_instanceMes_tag_0,100669341,CalcMessage,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,CalcMessage
+CalcSelect_Private_Static_Void_instanceMes_tag_0,100669396,CalcSelect,Private,Static,Void,"['instanceMes', 'tag']",0,Other,CalcSelect
+CalcWindow_Internal_Static_Void_instanceMes_tag_0,100669340,CalcWindow,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,CalcWindow
+CallEventVoice_Internal_Static_Void_instanceMes_tag_0,100669411,CallEventVoice,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,CallEventVoice
+ChangeFontAlpha_Internal_Static_Void__FRQ_Int32_0,100669322,ChangeFontAlpha,Internal,Static,Void,"['', 'FRQ', 'Int32']",0,Other,ChangeFontAlpha
+ChangeFontColorAll_Internal_Static_Void__FRQ_Int32_0,100669321,ChangeFontColorAll,Internal,Static,Void,"['', 'FRQ', 'Int32']",0,Other,ChangeFontColorAll
+ChangeFontPosition_Internal_Static_Void__FRQ_Int32_Int32_0,100669318,ChangeFontPosition,Internal,Static,Void,"['', 'FRQ', 'Int32', 'Int32']",0,Other,ChangeFontPosition
+ChangeSelection_Internal_Static_Void_Int32_Int32_0,100669320,ChangeSelection,Internal,Static,Void,"['Int32', 'Int32']",0,Other,ChangeSelection
+ChangeZBuffer_Internal_Static_Void__FRQ_UInt32_0,100669319,ChangeZBuffer,Internal,Static,Void,"['', 'FRQ', 'UInt32']",0,Other,ChangeZBuffer
+ClearMessage_Internal_Static_Void_0,100669297,ClearMessage,Internal,Static,Void,[],0,Other,ClearMessage
+ClearSpeaker_Internal_Static_Void_0,100669298,ClearSpeaker,Internal,Static,Void,[],0,Other,ClearSpeaker
+CommitVarTable_Internal_Static_Void_variable_tag_0,100669312,CommitVarTable,Internal,Static,Void,"['variable', 'tag']",0,Other,CommitVarTable
+ConvertZenkakuNumber_Internal_Static_Void_byref_String_Int32_0,100669337,ConvertZenkakuNumber,Internal,Static,Void,"['byref', 'String', 'Int32']",0,Other,ConvertZenkakuNumber
+CountLineMessage_Private_Static_Int32__FRQ__FRQ_0,100669395,CountLineMessage,Private,Static,Int32,"['', 'FRQ', '', 'FRQ']",0,Other,CountLineMessage
+DebugDrawWindowLine_Private_Static_Void_itfpanel_t_0,100669409,DebugDrawWindowLine,Private,Static,Void,"['itfpanel', 't']",0,Other,DebugDrawWindowLine
+DestructFlow_Internal_Static_Void_Int32_0,100669289,DestructFlow,Internal,Static,Void,['Int32'],0,Other,DestructFlow
+DrawManagerProc_Private_Static_dds3ProcessFunc_t_dds3ProcessID_t_0,100669408,DrawManagerProc,Private,Static,dds3ProcessFunc,"['t', 'dds3ProcessID', 't']",0,Other,DrawManagerProc
+DrawMesFlow_Private_Static_Void_instanceMes_tag_0,100669402,DrawMesFlow,Private,Static,Void,"['instanceMes', 'tag']",0,Other,DrawMesFlow
+DrawMessage_Internal_Static_Int32__FRQ_0,100669404,DrawMessage,Internal,Static,Int32,"['', 'FRQ']",0,Other,DrawMessage
+DrawSelection_Internal_Static_Int32_UInt32_Boolean_0,100669405,DrawSelection,Internal,Static,Int32,"['UInt32', 'Boolean']",0,Other,DrawSelection
+DrawSpeaker_Internal_Static_Void__FRQ_0,100669403,DrawSpeaker,Internal,Static,Void,"['', 'FRQ']",0,Other,DrawSpeaker
+DrawWindow_Private_Static_Void_instanceMes_tag_0,100669406,DrawWindow,Private,Static,Void,"['instanceMes', 'tag']",0,Other,DrawWindow
+ExitALL_Private_Static_Void_0,100669391,ExitALL,Private,Static,Void,[],0,Other,ExitALL
+FR_DRAW_SPD_Private_Static_Int32__FRQ_0,100669286,FR_DRAW_SPD,Private,Static,Int32,"['', 'FRQ']",0,Other,FR
+FadeInWindow_Internal_Static_Void_0,100669308,FadeInWindow,Internal,Static,Void,[],0,Other,FadeInWindow
+FadeOutWindow_Internal_Static_Void_0,100669306,FadeOutWindow,Internal,Static,Void,[],0,Other,FadeOutWindow
+FinalDanteEventMsg_Public_Static_Void_0,100669416,FinalDanteEventMsg,Public,Static,Void,[],0,Other,FinalDanteEventMsg
+ForceSetCurCtr_Internal_Static_Void_curctr_tag_Int16_Int16_Int16_0,100669334,ForceSetCurCtr,Internal,Static,Void,"['curctr', 'tag', 'Int16', 'Int16', 'Int16']",0,Other,ForceSetCurCtr
+ForceWindowDispOff_Public_Static_Void_0,100669300,ForceWindowDispOff,Public,Static,Void,[],0,Other,ForceWindowDispOff
+InitDanteEventMsg_Public_Static_Void_0,100669415,InitDanteEventMsg,Public,Static,Void,[],0,Other,InitDanteEventMsg
+InitializeCurCtr_Internal_Static_Void_curctr_tag_Int32_0,100669333,InitializeCurCtr,Internal,Static,Void,"['curctr', 'tag', 'Int32']",0,Other,InitializeCurCtr
+InitializeMessage_Internal_Static_Void_message_tag_Int32_0,100669329,InitializeMessage,Internal,Static,Void,"['message', 'tag', 'Int32']",0,Other,InitializeMessage
+InitializeSelect_Internal_Static_Void_select_tag_0,100669330,InitializeSelect,Internal,Static,Void,"['select', 'tag']",0,Other,InitializeSelect
+InitializeSelectWindow_Internal_Static_Void__FRQ_Int32_0,100669316,InitializeSelectWindow,Internal,Static,Void,"['', 'FRQ', 'Int32']",0,Other,InitializeSelectWindow
+InitializeSpeaker_Internal_Static_Void_Speaker_tag_Int32_0,100669328,InitializeSpeaker,Internal,Static,Void,"['Speaker', 'tag', 'Int32']",0,Other,InitializeSpeaker
+InitializeVariable_Internal_Static_Void_variable_tag_0,100669332,InitializeVariable,Internal,Static,Void,"['variable', 'tag']",0,Other,InitializeVariable
+InitializeWindow_Internal_Static_Void_window_tag_0,100669331,InitializeWindow,Internal,Static,Void,"['window', 'tag']",0,Other,InitializeWindow
+IsCloseWindow_Public_Static_Boolean_Int32_0,100669288,IsCloseWindow,Public,Static,Boolean,['Int32'],0,Other,IsCloseWindow
+IsFadeOutWindow_Internal_Static_Boolean_0,100669307,IsFadeOutWindow,Internal,Static,Boolean,[],0,Other,IsFadeOutWindow
+IsSelectWindowDispOff_Internal_Static_Boolean_0,100669303,IsSelectWindowDispOff,Internal,Static,Boolean,[],0,Other,IsSelectWindowDispOff
+IsSelectWindowDispOn_Internal_Static_Boolean_Boolean_0,100669302,IsSelectWindowDispOn,Internal,Static,Boolean,['Boolean'],0,Other,IsSelectWindowDispOn
+IsSpeakStart_Public_Static_Boolean_0,100669414,IsSpeakStart,Public,Static,Boolean,[],0,Other,IsSpeakStart
+IsSpeaking_Public_Static_Boolean_0,100669413,IsSpeaking,Public,Static,Boolean,[],0,Other,IsSpeaking
+MsgWndActiveSelf_Internal_Static_Boolean_Int32_0,100669418,MsgWndActiveSelf,Internal,Static,Boolean,['Int32'],0,Other,MsgWndActiveSelf
+MsgWndOwnerShowUI_Public_Static_Void_Boolean_0,100669419,MsgWndOwnerShowUI,Public,Static,Void,['Boolean'],0,Other,MsgWndOwnerShowUI
+MsgWndSetActive_Public_Static_Void_Int32_Boolean_0,100669417,MsgWndSetActive,Public,Static,Void,"['Int32', 'Boolean']",0,Other,MsgWndSetActive
+OnIndexCallback_Private_Static_Void_Int32_SteamColliders_SteamCollider_Int32_0,100669392,OnIndexCallback,Private,Static,Void,"['Int32', 'SteamColliders', 'SteamCollider', 'Int32']",0,Other,OnIndexCallback
+OpenCheckSpeakerWindow_Internal_Static_Void_instanceMes_tag_0,100669327,OpenCheckSpeakerWindow,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,OpenCheckSpeakerWindow
+OpenMessageWindow_Internal_Static_Void_instanceMes_tag_0,100669326,OpenMessageWindow,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,OpenMessageWindow
+RaiseMessageSpeedMax_Internal_Static_Void__FRQ_0,100669324,RaiseMessageSpeedMax,Internal,Static,Void,"['', 'FRQ']",0,Other,RaiseMessageSpeedMax
+RaiseMessageSpeedMaxAll_Internal_Static_Void__FRQ_0,100669325,RaiseMessageSpeedMaxAll,Internal,Static,Void,"['', 'FRQ']",0,Other,RaiseMessageSpeedMaxAll
+ReadytoMessage_Internal_Static_Void_instanceMes_tag_Int32_0,100669294,ReadytoMessage,Internal,Static,Void,"['instanceMes', 'tag', 'Int32']",0,Other,ReadytoMessage
+ReleaseAllVariable_Internal_Static_Void_variable_tag_0,100669336,ReleaseAllVariable,Internal,Static,Void,"['variable', 'tag']",0,Other,ReleaseAllVariable
+ReleaseAllWindow_Internal_Static_Void_instanceMes_tag_0,100669335,ReleaseAllWindow,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,ReleaseAllWindow
+ResetWindowPara_Internal_Static_Void_window_tag_Int32_Int32_0,100669338,ResetWindowPara,Internal,Static,Void,"['window', 'tag', 'Int32', 'Int32']",0,Other,ResetWindowPara
+ResolveResourceAddress_Internal_Static_Void_Object_0,100669290,ResolveResourceAddress,Internal,Static,Void,['Object'],0,Other,ResolveResourceAddress
+SelectItem_Private_Static_Int32_instanceMes_tag_0,100669398,SelectItem,Private,Static,Int32,"['instanceMes', 'tag']",0,Other,SelectItem
+SelectItemDefKey_Private_Static_Int32_select_tag_0,100669400,SelectItemDefKey,Private,Static,Int32,"['select', 'tag']",0,Other,SelectItemDefKey
+SelectItemMove_Private_Static_Void_select_tag_Int32_0,100669399,SelectItemMove,Private,Static,Void,"['select', 'tag', 'Int32']",0,Other,SelectItemMove
+SelectWindowDispOff_Internal_Static_Void_instanceMes_tag_0,100669304,SelectWindowDispOff,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,SelectWindowDispOff
+SelectWindowDispOn_Internal_Static_Void_instanceMes_tag_0,100669301,SelectWindowDispOn,Internal,Static,Void,"['instanceMes', 'tag']",0,Other,SelectWindowDispOn
+SetMessage_Internal_Static_Void_GameObject_Int32_String_0,100669310,SetMessage,Internal,Static,Void,"['GameObject', 'Int32', 'String']",0,Other,SetMessage
+SetVar_Internal_Static_Void_instanceMes_tag_Int32_String_Int32_0,100669311,SetVar,Internal,Static,Void,"['instanceMes', 'tag', 'Int32', 'String', 'Int32']",0,Other,SetVar
+SlideUpDownMessage_Private_Static_Void_instanceMes_tag_Int32_0,100669397,SlideUpDownMessage,Private,Static,Void,"['instanceMes', 'tag', 'Int32']",0,Other,SlideUpDownMessage
+SwitchOK_Internal_Static_Void_Boolean_0,100669305,SwitchOK,Internal,Static,Void,['Boolean'],0,Other,SwitchOK
+SwitchSpeaker_Internal_Static_Void_Boolean_Boolean_0,100669309,SwitchSpeaker,Internal,Static,Void,"['Boolean', 'Boolean']",0,Other,SwitchSpeaker
+UnchainFontHandleUnit_Internal_Static__FRQ__FRQ_Int32_Int32_0,100669317,UnchainFontHandleUnit,Internal,Static,,"['FRQ', '', 'FRQ', 'Int32', 'Int32']",0,Other,UnchainFontHandleUnit
+check_aimsg_Internal_Static_Boolean_String_0,100669412,check_aimsg,Internal,Static,Boolean,['String'],0,Other,check
+create_bufferdata_Internal_Static__FRQ_Int32_Int32_0,100669367,create_bufferdata,Internal,Static,,"['FRQ', 'Int32', 'Int32']",0,Other,create
+WindowDispOff_Internal_Static_Void_Boolean_0,100669299,WindowDispOff,Internal,Static,Void,['Boolean'],0,Window/UI,WindowDispOff
+WindowDispOn_Public_Static_Void_Int32_0,100669295,WindowDispOn,Public,Static,Void,['Int32'],0,Window/UI,WindowDispOn
+WindowDispOn_Internal_Static_Void_instanceMes_tag_0,100669296,WindowDispOn,Internal,Static,Void,"['instanceMes', 'tag']",0,Window/UI,WindowDispOn
+itfMesPos_Public_Static_Void_Int32_Int32_0,100669373,itfMesPos,Public,Static,Void,"['Int32', 'Int32']",0,itfMes (message system helpers),itfMesPos
+itfMesPosDefault_Public_Static_Void_0,100669374,itfMesPosDefault,Public,Static,Void,[],0,itfMes (message system helpers),itfMesPosDefault
+itfMesMngChangeWindowType_Public_Static_Void_Int32_Int32_Int32_0,100669386,itfMesMngChangeWindowType,Public,Static,Void,"['Int32', 'Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngChangeWindowType
+itfMesMngClearBitStat_Public_Static_Void_Int32_UInt32_0,100669377,itfMesMngClearBitStat,Public,Static,Void,"['Int32', 'UInt32']",0,itfMesMng (message manager API),itfMesMngClearBitStat
+itfMesMngCloseSelectWindow_Public_Static_Int32_0,100669355,itfMesMngCloseSelectWindow,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngCloseSelectWindow
+itfMesMngCloseWindow_Public_Static_Int32_0,100669352,itfMesMngCloseWindow,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngCloseWindow
+itfMesMngGetFRQ_Public_Static__FRQ_Int32_Int32_0,100669385,itfMesMngGetFRQ,Public,Static,,"['FRQ', 'Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngGetFRQ
+itfMesMngGetPhase_Public_Static_Int32_Int32_0,100669343,itfMesMngGetPhase,Public,Static,Int32,['Int32'],0,itfMesMng (message manager API),itfMesMngGetPhase
+itfMesMngGetSelPhase_Public_Static_Int32_Int32_0,100669346,itfMesMngGetSelPhase,Public,Static,Int32,['Int32'],0,itfMesMng (message manager API),itfMesMngGetSelPhase
+itfMesMngGetSelectNo_Public_Static_Int32_Int32_0,100669348,itfMesMngGetSelectNo,Public,Static,Int32,['Int32'],0,itfMesMng (message manager API),itfMesMngGetSelectNo
+itfMesMngGetStrImmediate_Public_Static_String_Int32_Int32_Int32_0,100669384,itfMesMngGetStrImmediate,Public,Static,String,"['Int32', 'Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngGetStrImmediate
+itfMesMngGetVarLocalize_Public_Static_String_Int32_Int32_0,100669378,itfMesMngGetVarLocalize,Public,Static,String,"['Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngGetVarLocalize
+itfMesMngIgnoreConfig_Public_Static_Int32_0,100669357,itfMesMngIgnoreConfig,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngIgnoreConfig
+itfMesMngInitialize_Public_Static_Int32_Object_Il2CppStringArray_String_0,100669364,itfMesMngInitialize,Public,Static,Int32,"['Object', 'Il2CppStringArray', 'String']",0,itfMesMng (message manager API),itfMesMngInitialize
+itfMesMngInitializeManager_Public_Static_Void_0,100669390,itfMesMngInitializeManager,Public,Static,Void,[],0,itfMesMng (message manager API),itfMesMngInitializeManager
+itfMesMngMarkBitStat_Public_Static_Void_Int32_UInt32_0,100669376,itfMesMngMarkBitStat,Public,Static,Void,"['Int32', 'UInt32']",0,itfMesMng (message manager API),itfMesMngMarkBitStat
+itfMesMngMaskSelect_Public_Static_Int32_0,100669349,itfMesMngMaskSelect,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngMaskSelect
+itfMesMngMessage_Public_Static_Int32_0,100669342,itfMesMngMessage,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngMessage
+itfMesMngMsgWndCls_Public_Static_Void_Int32_0,100669353,itfMesMngMsgWndCls,Public,Static,Void,['Int32'],0,itfMesMng (message manager API),itfMesMngMsgWndCls
+itfMesMngOpenSelectWindow_Public_Static_Int32_0,100669354,itfMesMngOpenSelectWindow,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngOpenSelectWindow
+itfMesMngOpenWindow_Public_Static_Int32_0,100669351,itfMesMngOpenWindow,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngOpenWindow
+itfMesMngRelease_Public_Static_Void_Int32_0,100669365,itfMesMngRelease,Public,Static,Void,['Int32'],0,itfMesMng (message manager API),itfMesMngRelease
+itfMesMngRequestMessage_Public_Static_Int32_Int32_Int32_Int32_Int32_0,100669366,itfMesMngRequestMessage,Public,Static,Int32,"['Int32', 'Int32', 'Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngRequestMessage
+itfMesMngRequestMessageRelease_Public_Static_Void_Int32_Int32_0,100669368,itfMesMngRequestMessageRelease,Public,Static,Void,"['Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngRequestMessageRelease
+itfMesMngRequestSelect_Public_Static_Void_Int32_Int32_0,100669369,itfMesMngRequestSelect,Public,Static,Void,"['Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngRequestSelect
+itfMesMngRequestSelectRelease_Public_Static_Void_Int32_0,100669370,itfMesMngRequestSelectRelease,Public,Static,Void,['Int32'],0,itfMesMng (message manager API),itfMesMngRequestSelectRelease
+itfMesMngSelect_Public_Static_Int32_0,100669345,itfMesMngSelect,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngSelect
+itfMesMngSelectDefKey_Public_Static_Int32_0,100669363,itfMesMngSelectDefKey,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngSelectDefKey
+itfMesMngSetDefaultSpeed_Public_Static_Void_Int32_Int32_0,100669388,itfMesMngSetDefaultSpeed,Public,Static,Void,"['Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetDefaultSpeed
+itfMesMngSetFloor_Public_Static_String_Int32_0,100669380,itfMesMngSetFloor,Public,Static,String,['Int32'],0,itfMesMng (message manager API),itfMesMngSetFloor
+itfMesMngSetKutiCallback_Public_Static_Void_Int32_func_kutiDelegate_0,100669389,itfMesMngSetKutiCallback,Public,Static,Void,"['Int32', 'func', 'kutiDelegate']",0,itfMesMng (message manager API),itfMesMngSetKutiCallback
+itfMesMngSetMaskSelect_Public_Static_Void_Int32_UInt32_0,100669371,itfMesMngSetMaskSelect,Public,Static,Void,"['Int32', 'UInt32']",0,itfMesMng (message manager API),itfMesMngSetMaskSelect
+itfMesMngSetMesPosDefault_Public_Static_Int32_0,100669359,itfMesMngSetMesPosDefault,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngSetMesPosDefault
+itfMesMngSetMesPosition_Public_Static_Void_Int32_Int32_Int32_0,100669375,itfMesMngSetMesPosition,Public,Static,Void,"['Int32', 'Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetMesPosition
+itfMesMngSetMesPositionScript_Public_Static_Int32_0,100669358,itfMesMngSetMesPositionScript,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngSetMesPositionScript
+itfMesMngSetPhase_Public_Static_Void_Int32_Int32_0,100669344,itfMesMngSetPhase,Public,Static,Void,"['Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetPhase
+itfMesMngSetResourcePtr_Public_Static_Object_Int32_Object_0,100669383,itfMesMngSetResourcePtr,Public,Static,Object,"['Int32', 'Object']",0,itfMesMng (message manager API),itfMesMngSetResourcePtr
+itfMesMngSetSelPhase_Public_Static_Void_Int32_Int32_0,100669347,itfMesMngSetSelPhase,Public,Static,Void,"['Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetSelPhase
+itfMesMngSetSelect_Public_Static_Void_Int32_Int32_0,100669372,itfMesMngSetSelect,Public,Static,Void,"['Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetSelect
+itfMesMngSetSelectDefKey_Public_Static_Int32_Int32_Int32_Int32_0,100669387,itfMesMngSetSelectDefKey,Public,Static,Int32,"['Int32', 'Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetSelectDefKey
+itfMesMngSetVar_Public_Static_Void_Int32_Int32_Int32_Int32_0,100669379,itfMesMngSetVar,Public,Static,Void,"['Int32', 'Int32', 'Int32', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetVar
+itfMesMngSetVarImmediate_Public_Static_Void_Int32_Int32_String_0,100669381,itfMesMngSetVarImmediate,Public,Static,Void,"['Int32', 'Int32', 'String']",0,itfMesMng (message manager API),itfMesMngSetVarImmediate
+itfMesMngSetVarImmediate2_Public_Static_Void_Int32_Int32_String_Int32_0,100669382,itfMesMngSetVarImmediate2,Public,Static,Void,"['Int32', 'Int32', 'String', 'Int32']",0,itfMesMng (message manager API),itfMesMngSetVarImmediate2
+itfMesMngSetVarScr_Public_Static_Int32_0,100669356,itfMesMngSetVarScr,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngSetVarScr
+itfMesMngValidateNext_Public_Static_Int32_0,100669360,itfMesMngValidateNext,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngValidateNext
+itfMesMngWindowType_Public_Static_Int32_0,100669361,itfMesMngWindowType,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngWindowType
+itfMesMngWindowTypeAlpha_Public_Static_Int32_0,100669362,itfMesMngWindowTypeAlpha,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMngWindowTypeAlpha
+itfMesMng_SEL_SELNO_Public_Static_Int32_0,100669350,itfMesMng_SEL_SELNO,Public,Static,Int32,[],0,itfMesMng (message manager API),itfMesMng

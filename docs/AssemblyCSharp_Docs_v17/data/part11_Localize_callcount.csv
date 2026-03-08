@@ -1,0 +1,29 @@
+field,method_name,signature_line,signature_line_no,caller_count,RefRangeStart,RefRangeEnd,XrefRangeStart,XrefRangeEnd,il2cpp_token
+_ctor_Public_Void_0,__c__DisplayClass37_0,public unsafe __c__DisplayClass37_0() : this(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<Localize.__c__DisplayClass37_0>.NativeClassPtr)),728,2627248,38722,2665970,38722,2665970,100674532
+GetLocalizeText_Public_Static_String_String_0,GetLocalizeText,public unsafe static string GetLocalizeText(string ID),313,209,5592080,5592289,5592054,5592080,100674526
+LoadLocalizeText_Public_Static_Void_String_String_0,LoadLocalizeText,"public unsafe static void LoadLocalizeText(string key, string filename)",234,96,5591706,5591802,5591669,5591706,100674520
+Remove_Public_Static_Void_String_0,Remove,public unsafe static void Remove(string key),301,62,5591992,5592054,5591969,5591992,100674525
+IsEFIGS_Public_Static_Boolean_0,IsEFIGS,public unsafe static bool IsEFIGS(),94,52,5591263,5591315,5591259,5591263,100674508
+GetAppendix_Public_Static_String_0,GetAppendix,public unsafe static string GetAppendix(),166,42,5591446,5591488,5591437,5591446,100674514
+GetPlatformStr_Public_Static_String_0,GetPlatformStr,public unsafe static string GetPlatformStr(),142,35,5591342,5591377,5591327,5591342,100674512
+GetLanguageDefine_Public_Static_Int32_0,GetLanguageDefine,public unsafe static int GetLanguageDefine(),82,12,5591247,5591259,5591239,5591247,100674507
+ContainsIndex_Public_Static_Int32_String_0,ContainsIndex,public unsafe static int ContainsIndex(string name),340,10,5592334,5592344,5592316,5592334,100674528
+GetData_Public_Static_EventEMsgData_String_0,GetData,public unsafe static EventEMsgData GetData(string key),287,7,5591962,5591969,5591952,5591962,100674524
+LoadEventData_Public_Static_Void_String_String_Int32_Boolean_0,LoadEventData,"public unsafe static void LoadEventData(string key, string name, int eventno, bool check = false)",247,3,5591897,5591900,5591802,5591897,100674521
+GetBaseLanguage_Public_Static_Int32_0,GetBaseLanguage,public unsafe static int GetBaseLanguage(),58,2,5591233,5591235,5591181,5591233,100674505
+ChangeTitle_Public_Static_Void_0,ChangeTitle,public unsafe static void ChangeTitle(),201,1,5591576,5591577,5591549,5591576,100674517
+GetLangCode_Public_Static_String_0,GetLangCode,public unsafe static string GetLangCode(),178,1,5591496,5591497,5591488,5591496,100674515
+GetLocalizeText_Public_Static_String_String_String_0,GetLocalizeText,"public unsafe static string GetLocalizeText(string dic, string ID)",326,1,5592315,5592316,5592289,5592315,100674527
+IsJA_Public_Static_Boolean_0,IsJA,public unsafe static bool IsJA(),118,1,5591323,5591324,5591319,5591323,100674510
+Load_Public_Static_Void_String_String_0,Load,"public unsafe static void Load(string key, string filePath)",274,1,5591951,5591952,5591940,5591951,100674523
+LoadBattleLocalizeText_Public_Static_Void_0,LoadBattleLocalizeText,public unsafe static void LoadBattleLocalizeText(),212,1,5591628,5591629,5591577,5591628,100674518
+LoadDefault_Public_Static_Void_Int32_0,LoadDefault,public unsafe static void LoadDefault(int language),154,1,5591436,5591437,5591377,5591436,100674513
+ReleaseEventData_Public_Static_Void_Int32_0,ReleaseEventData,public unsafe static void ReleaseEventData(int eventno),262,1,5591939,5591940,5591900,5591939,100674522
+SettingFontMaterial_Public_Static_Void_0,SettingFontMaterial,public unsafe static void SettingFontMaterial(),353,1,5592516,5592517,5592344,5592516,100674529
+_ctor_Public_Void_String_EventEMsgData_0,EvtMsgDat,"public unsafe EvtMsgDat(string n, EventEMsgData d) : this(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<Localize.EvtMsgDat>.NativeClassPtr))",624,0,0,0,5591164,5591175,100674531
+GetLanguage_Public_Static_Int32_0,GetLanguage,public unsafe static int GetLanguage(),70,0,0,0,5591235,5591239,100674506
+GetPlatform_Public_Static_Int32_0,GetPlatform,public unsafe static int GetPlatform(),130,0,0,0,5591324,5591327,100674511
+IsCHKO_Public_Static_Boolean_0,IsCHKO,public unsafe static bool IsCHKO(),106,0,0,0,5591315,5591319,100674509
+LoadCommonData_Public_Static_Void_0,LoadCommonData,public unsafe static void LoadCommonData(),190,0,0,0,5591497,5591549,100674516
+RemoveBattleLocalizeText_Public_Static_Void_0,RemoveBattleLocalizeText,public unsafe static void RemoveBattleLocalizeText(),223,0,0,0,5591629,5591669,100674519
+_ContainsIndex_b__0_Internal_Boolean_EvtMsgDat_0,_ContainsIndex_b__0,public unsafe bool _ContainsIndex_b__0(Localize.EvtMsgDat e),739,0,0,0,5591175,5591181,100674533

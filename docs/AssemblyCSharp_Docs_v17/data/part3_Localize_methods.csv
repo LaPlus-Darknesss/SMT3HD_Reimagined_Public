@@ -1,0 +1,29 @@
+native_ptr_name,token,method,visibility,member_kind,return,args,overload,category
+LoadDefault_Public_Static_Void_Int32_0,100674513,LoadDefault,Public,Static,Void,['Int32'],0,Load/release
+LoadCommonData_Public_Static_Void_0,100674516,LoadCommonData,Public,Static,Void,[],0,Load/release
+LoadBattleLocalizeText_Public_Static_Void_0,100674518,LoadBattleLocalizeText,Public,Static,Void,[],0,Load/release
+RemoveBattleLocalizeText_Public_Static_Void_0,100674519,RemoveBattleLocalizeText,Public,Static,Void,[],0,Load/release
+LoadLocalizeText_Public_Static_Void_String_String_0,100674520,LoadLocalizeText,Public,Static,Void,"['String', 'String']",0,Load/release
+LoadEventData_Public_Static_Void_String_String_Int32_Boolean_0,100674521,LoadEventData,Public,Static,Void,"['String', 'String', 'Int32', 'Boolean']",0,Load/release
+ReleaseEventData_Public_Static_Void_Int32_0,100674522,ReleaseEventData,Public,Static,Void,['Int32'],0,Load/release
+Load_Public_Static_Void_String_String_0,100674523,Load,Public,Static,Void,"['String', 'String']",0,Load/release
+Remove_Public_Static_Void_String_0,100674525,Remove,Public,Static,Void,['String'],0,Load/release
+GetBaseLanguage_Public_Static_Int32_0,100674505,GetBaseLanguage,Public,Static,Int32,[],0,Locale/platform
+GetLanguage_Public_Static_Int32_0,100674506,GetLanguage,Public,Static,Int32,[],0,Locale/platform
+GetLanguageDefine_Public_Static_Int32_0,100674507,GetLanguageDefine,Public,Static,Int32,[],0,Locale/platform
+GetPlatform_Public_Static_Int32_0,100674511,GetPlatform,Public,Static,Int32,[],0,Locale/platform
+GetPlatformStr_Public_Static_String_0,100674512,GetPlatformStr,Public,Static,String,[],0,Locale/platform
+IsEFIGS_Public_Static_Boolean_0,100674508,IsEFIGS,Public,Static,Boolean,[],0,Other
+IsCHKO_Public_Static_Boolean_0,100674509,IsCHKO,Public,Static,Boolean,[],0,Other
+IsJA_Public_Static_Boolean_0,100674510,IsJA,Public,Static,Boolean,[],0,Other
+GetAppendix_Public_Static_String_0,100674514,GetAppendix,Public,Static,String,[],0,Other
+GetLangCode_Public_Static_String_0,100674515,GetLangCode,Public,Static,String,[],0,Other
+ChangeTitle_Public_Static_Void_0,100674517,ChangeTitle,Public,Static,Void,[],0,Other
+ContainsIndex_Public_Static_Int32_String_0,100674528,ContainsIndex,Public,Static,Int32,['String'],0,Other
+SettingFontMaterial_Public_Static_Void_0,100674529,SettingFontMaterial,Public,Static,Void,[],0,Other
+_ctor_Public_Void_String_EventEMsgData_0,100674531,_ctor,Public,Void,String,['EventEMsgData'],0,Other
+_ctor_Public_Void_0,100674532,_ctor,Public,Void,0,[],0,Other
+_ContainsIndex_b__0_Internal_Boolean_EvtMsgDat_0,100674533,_ContainsIndex_b__0,Internal,Boolean,EvtMsgDat,[],0,Other
+GetData_Public_Static_EventEMsgData_String_0,100674524,GetData,Public,Static,EventEMsgData,['String'],0,Text lookup
+GetLocalizeText_Public_Static_String_String_0,100674526,GetLocalizeText,Public,Static,String,['String'],0,Text lookup
+GetLocalizeText_Public_Static_String_String_String_0,100674527,GetLocalizeText,Public,Static,String,"['String', 'String']",0,Text lookup

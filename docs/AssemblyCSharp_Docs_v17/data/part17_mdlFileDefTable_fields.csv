@@ -1,0 +1,16 @@
+file,type,native_field
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,humanModelFileTable
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,devilModelFileTable
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,devilOnModelFileTable
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,fieldModelFileTable
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,eventModelFileTable
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,eventModelFileTable2
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,testModelFileTable
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,modelFileTable
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,humanModelIndex
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,devilModelIndex
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,devilOnModelIndex
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,fieldModelIndex
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,eventModelIndex
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,testModelIndex
+Il2Cpp/mdlFileDefTable.cs,mdlFileDefTable,modelFileKindTable

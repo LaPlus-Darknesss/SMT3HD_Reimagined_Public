@@ -1,0 +1,4 @@
+owner_type,property,property_type,get_token,set_token
+cmbSelDev_t,Index,sbyte,0x060083A4,0x060083A5
+cmbSelDev_t,CursorIndex,sbyte,0x060083A6,0x060083A7
+cmbSelDev_t,ID,ushort,0x060083A8,0x060083A9

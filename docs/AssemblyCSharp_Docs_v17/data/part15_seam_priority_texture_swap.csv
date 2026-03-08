@@ -1,0 +1,6 @@
+priority,surface,token,why,risk
+1,sdfDevFile.sdfDevLoadTexList,0x06003779,Earliest unified place where tex list enters runtime; can log filename and edit handles before any bind.,"Low (one object, mostly read-only unless mutated)"
+2,sdfTexHandle_t.hashname / image,(field),Direct mapping from logical tex key → Unity Texture2D array; easiest texture swap lever.,Medium (must keep dims/formats consistent)
+3,sdfMat.sdfMatSet / sdfMatListMake,0x060037D8 / 0x060037DA,Where defs are resolved against tex list; can confirm which handle each material picks.,Medium (material state shared across nodes)
+4,sdfModelUnity.sdfModelMakeRootUnity,0x06003826,Attaches texList/matList/motion to root; good for end-to-end logging of what was built.,Low–Medium (hot path during loads)
+5,dds3ModelBasic.dds3AddModelBasic2,0x060000DF,One call bundles modeldef + playbook + tex list; good seam for “swap one component”.,Medium (model ownership / lifetime)

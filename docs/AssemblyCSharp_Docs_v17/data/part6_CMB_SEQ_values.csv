@@ -1,0 +1,24 @@
+CMB_SEQ,value,calc,update,notes
+CMB_SEQ_RO,0,cmbCalcRoot,cmbUpdateRoot,Root / Combine entry
+CMB_SEQ_CM,1,,,Combine menu (likely dispatched inside Root/Sequence)
+CMB_SEQ_ZE,2,cmbCalcZensyo,cmbUpdateZensyo,Zensyo menu (?)
+CMB_SEQ_TL,3,,cmbUpdateSeqTalk,Talk menu / dialogue selection
+CMB_SEQ_EX,4,,,Extra / extension sequence (naming unclear)
+CMB_SEQ_1ST,5,cmbCalcDevSel1st,cmbUpdateDevSel1st,Select 1st devil (fusion input)
+CMB_SEQ_2ND,6,cmbCalcDevSel2nd,cmbUpdateDevSel2nd,Select 2nd devil (fusion input)
+CMB_SEQ_SAC_CFM,7,cmbCalcDevSelSac,cmbUpdateSacConfirm,Confirm sacrifice selection (Ikenie)
+CMB_SEQ_SAC,8,cmbCalcDevSelSac,cmbUpdateDevSelSac,Select sacrifice devil (Ikenie)
+CMB_SEQ_STA,9,cmbCalcStatus,cmbUpdateStatus,Status view (pre-result)
+CMB_SEQ_STA2,10,cmbCalcStatus,cmbUpdateStatus,Status view (variant)
+CMB_SEQ_BID,11,cmbCalcBirthDevil,cmbUpdateBirthDevil,Birth devil (result)
+CMB_SEQ_DCI,12,cmbCalcBirthDevil2,cmbUpdateDecideDevil,Decide/confirm birth devil
+CMB_SEQ_ACC,13,,cmbUpdateBirthDevil,Accident branch (likely uses same update w/ different flags)
+CMB_SEQ_ACT_WAIT,14,,,Wait for birth action/animation
+CMB_SEQ_ACT,15,,,Execute birth action/animation
+CMB_SEQ_INT,16,cmbCalcIntroduce,cmbUpdateIntroduce,Introduction / cut-in
+CMB_SEQ_ERR,17,cmbCalcError,cmbUpdateError,Error state
+CMB_SEQ_MSG,18,,cmbUpdateSeqMsg,Message state
+CMB_SEQ_END,19,,,End / return
+CMB_SEQ_SELECT_SKILL,20,,cmbUpdateBirthDevilSelectSkill,Skill selection (inherit)
+CMB_SEQ_CONF_SKILL,21,,cmbUpdateBirthDevilConfSkill,Confirm inherited skills
+CMB_SEQ_MAX,22,,,Sentinel / size

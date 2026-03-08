@@ -1,0 +1,17 @@
+surface,wrapper,type,kind,token
+datNegoTable.datNegoReqTable,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppStructArray<byte>>,table,
+datNegoTable.datNegoReqItemListA,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppStructArray<byte>>>,table,
+datNegoTable.datNegoTuikaReqtype,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppStructArray<byte>>,table,
+datNegoTable.datNegoReqItemListB,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppStructArray<byte>>>,table,
+datNegoTable.datNegoMukanTypeList,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppStructArray<byte>>,table,
+datNegoTable.datNegoFightTaido,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppStructArray<byte>>,table,
+datNegoTable.datNegoPrivateQues,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppStructArray<byte>>,table,
+datNegoTable.datNegoNormalQuesInfo,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppReferenceArray<datNegoNormalQuesInfo_t>>,table,
+datNegoTable.datNegoKotowariQuesInfo,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<Il2CppReferenceArray<Il2CppReferenceArray<Il2CppStructArray<byte>>>>,table,
+datNegoTable.InnenNegoTable,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<datInnenNegoTable_t>,table,
+datNegoTable.InfoSelectTable,Il2Cpp/datNegoTable.cs,Il2CppReferenceArray<datInfoSelectTable_t>,table,
+datDevilNegoFormat.tbl,Il2Cpp/datDevilNegoFormat.cs,Il2CppReferenceArray<datDevilNegoFormat_t>,table,
+datDevilNegoFormat.Get(id),Il2Cpp/datDevilNegoFormat.cs,datDevilNegoFormat_t,method,100672633.0
+datNegoSkill.tbl,Il2Cpp/datNegoSkill.cs,Il2CppReferenceArray<datNegoSkill_t>,table,
+nego_help.tbl,Il2Cpp/nego_help.cs,Il2CppStructArray<byte>,blob,
+nego_help_UP.tbl,Il2Cpp/nego_help_UP.cs,Il2CppStructArray<byte>,blob,

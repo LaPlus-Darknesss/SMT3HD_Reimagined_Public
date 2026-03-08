@@ -1,0 +1,7 @@
+struct,offset,field,type
+fclActParamTbl_t,0,PosMode,byte
+fclActParamTbl_t,1,MotionNo,byte
+fclActParamTbl_t,4,EffOfs,float
+fclActParamTbl_t,8,EffEraseSpd,float
+fclActParamTbl_t,12,Radius,float
+fclActParamTbl_t,16,Nums,int

@@ -1,0 +1,8 @@
+class_file,name,token,return,params,caller_count,xref_start,xref_end,ref_start,ref_end
+Il2Cpp/fldFileResolver.cs,SetsdfModelDef,0x060026C0,sdfModelDef_t,"Il2CppStructArray<byte> pData, int addr, bool set = true",1,5436690,5436731,5436731,5436732
+Il2Cpp/fldFileResolver.cs,SetsdfModelNodeDef,0x060026C8,sdfModelNodeDef_t,"Il2CppStructArray<byte> pData, ref int addr",1,5436831,5436865,5436865,5436866
+Il2Cpp/fldFileResolver.cs,SetsdfMotionCutChunk,0x060026C4,Il2CppReferenceArray<sdfMotionCutChunk_t>,"Il2CppStructArray<byte> pData, int addr",1,5436780,5436798,5436798,5436799
+Il2Cpp/fldFileResolver.cs,SetsdfMotionCutDef,0x060026C3,Il2CppReferenceArray<sdfMotionCutDef_t>,"Il2CppStructArray<byte> pData, int size, int addr",1,5436765,5436779,5436779,5436780
+Il2Cpp/fldFileResolver.cs,SetsdfMotionPlayBook,0x060026C2,sdfMotionPlayBook_t,"Il2CppStructArray<byte> pData, int addr",1,5436741,5436764,5436764,5436765
+Il2Cpp/fldFileResolver.cs,SetsdfMatDef,0x060026C1,sdfMatDef_t,"Il2CppStructArray<byte> pData, int addr",0,5436732,5436741,0,0
+Il2Cpp/fldFileResolver.cs,SetsdfMotionNodeDef,0x060026C5,Il2CppReferenceArray<sdfMotionNodeDef_t>,"Il2CppStructArray<byte> pData, int len, int addr",0,5436799,5436810,0,0

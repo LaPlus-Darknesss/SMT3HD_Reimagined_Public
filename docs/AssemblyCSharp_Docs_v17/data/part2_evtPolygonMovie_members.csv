@@ -1,0 +1,120 @@
+token_dec,token_hex,rid,rva,kind,accessor,name,decl,category
+100670932,0x06001DD4,7636,0x000D6DB0,method,,evtPolygonMovie,static evtPolygonMovie(),API
+100670933,0x06001DD5,7637,0x000D7588,method,,InitializeReplaceList,public unsafe static void InitializeReplaceList(int event_no),API
+100670934,0x06001DD6,7638,0x000D75BC,method,,StartAnimation,public unsafe static void StartAnimation(pmdProcessWork_t wdata),misc
+100670935,0x06001DD7,7639,0x000D75F4,method,,DispAnimation,public unsafe static void DispAnimation(pmdProcessWork_t wdata),misc
+100670936,0x06001DD8,7640,0x000D762C,method,,UnitFrameFunc,"public unsafe static void UnitFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670937,0x06001DD9,7641,0x000D7694,method,,CameraFrameFunc,"public unsafe static void CameraFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670938,0x06001DDA,7642,0x000D76FC,method,,GetNowCameraName,public unsafe static string GetNowCameraName(),API
+100670939,0x06001DDB,7643,0x000D7728,method,,QuakeFrameFunc,"public unsafe static void QuakeFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670940,0x06001DDC,7644,0x000D7790,method,,FadeFrameFunc,"public unsafe static void FadeFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670941,0x06001DDD,7645,0x000D77F8,method,,SeFrameFunc,"public unsafe static void SeFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670942,0x06001DDE,7646,0x000D7860,method,,BgmFrameFunc,"public unsafe static void BgmFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670943,0x06001DDF,7647,0x000D78C8,method,,BlurFrameFunc,"public unsafe static void BlurFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670944,0x06001DE0,7648,0x000D7930,method,,AddEffect,"public unsafe static dds3Basic_t AddEffect(pmdProcessWork_t wdata, pmdFrameTable_t f)",misc
+100670945,0x06001DE1,7649,0x000D7988,method,,AddEffectTable,"public unsafe static int AddEffectTable(int now, pmdProcessWork_t wdata, pmdFrameTable_t f, string effname, string targetname, int posindex, int cutno)",misc
+100670946,0x06001DE2,7650,0x000D7A2C,method,,AddEffectTableMG12,"public unsafe static int AddEffectTableMG12(int now, pmdProcessWork_t wdata, pmdFrameTable_t f)",misc
+100670947,0x06001DE3,7651,0x000D7A90,method,,DelEffectTable,"public unsafe static void DelEffectTable(pmdProcessWork_t wdata, int no)",misc
+100670948,0x06001DE4,7652,0x000D7AD4,method,,EffectFrameFunc,"public unsafe static void EffectFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670949,0x06001DE5,7653,0x000D7B3C,method,,SearchBasicFromNameIndex,"public unsafe static dds3Basic_t SearchBasicFromNameIndex(pmdProcessWork_t wdata, int nameindex)",misc
+100670950,0x06001DE6,7654,0x000D7B90,method,,MG12FrameFunc,"public unsafe static void MG12FrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670951,0x06001DE7,7655,0x000D7BF8,method,,BEDFrameFunc,"public unsafe static void BEDFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670952,0x06001DE8,7656,0x000D7C60,method,,LightFrameFunc,"public unsafe static void LightFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670953,0x06001DE9,7657,0x000D7CC8,method,,SkyFrameFunc,"public unsafe static void SkyFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670954,0x06001DEA,7658,0x000D7D30,method,,BokasiFrameFunc,"public unsafe static void BokasiFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670955,0x06001DEB,7659,0x000D7D98,method,,GetKeyFrameRatio,"public unsafe static float GetKeyFrameRatio(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",API
+100670956,0x06001DEC,7660,0x000D7E0C,method,,SLightFrameFunc,"public unsafe static void SLightFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670957,0x06001DED,7661,0x000D7E74,method,,SFogFrameFunc,"public unsafe static void SFogFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670958,0x06001DEE,7662,0x000D7EDC,method,,Blur2FrameFunc,"public unsafe static void Blur2FrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670959,0x06001DEF,7663,0x000D7F44,method,,MBlurFrameFunc,"public unsafe static void MBlurFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670960,0x06001DF0,7664,0x000D7FAC,method,,DBlurFrameFunc,"public unsafe static void DBlurFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670961,0x06001DF1,7665,0x000D8014,method,,RBlurFrameFunc,"public unsafe static void RBlurFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670962,0x06001DF2,7666,0x000D807C,method,,MFilterFrameFunc,"public unsafe static void MFilterFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670963,0x06001DF3,7667,0x000D80E4,method,,FilterFrameFunc,"public unsafe static void FilterFrameFunc(pmdProcessWork_t wdata, pmdFrameTable_t f, pmdFrameTable_t nf, int now)",FrameFunc
+100670964,0x06001DF4,7668,0x000D814C,method,,FrameRun,public unsafe static void FrameRun(pmdProcessWork_t wdata),Loop
+100670965,0x06001DF5,7669,0x000D8184,method,,FrameTableOverWrite,public unsafe static void FrameTableOverWrite(pmdProcessWork_t wdata),misc
+100670966,0x06001DF6,7670,0x000D81BC,method,,evtPolygonMovieProcess2,public unsafe static dds3ProcessFunc_t evtPolygonMovieProcess2(dds3ProcessID_t id),API
+100670967,0x06001DF7,7671,0x000D8200,method,,evtPolygonMovieProcess3,public unsafe static Il2CppSystem.Object evtPolygonMovieProcess3(dds3ProcessID_t id),API
+100670968,0x06001DF8,7672,0x000D8244,method,,CheckLoad,public unsafe static bool CheckLoad(pmdProcessWork_t wdata),misc
+100670969,0x06001DF9,7673,0x000D8288,method,,evtCheckPolygonMovieRun,public unsafe static int evtCheckPolygonMovieRun(dds3ProcessID_t id),API
+100670970,0x06001DFA,7674,0x000D82CC,method,,evtPolygonMovieProcess1,public unsafe static Il2CppSystem.Object evtPolygonMovieProcess1(dds3ProcessID_t id),API
+100670971,0x06001DFB,7675,0x000D8310,method,,dds3SearchSceneBasic_,"public unsafe static dds3Basic_t dds3SearchSceneBasic_(dds3SceneBasic_t scene, uint serialID, uint type)",misc
+100670972,0x06001DFC,7676,0x000D8370,method,,dds3SceneBasicSearchNameAndType_,"public unsafe static dds3Basic_t dds3SceneBasicSearchNameAndType_(dds3SceneBasic_t scene, uint type, string name)",misc
+100670973,0x06001DFD,7677,0x000D83D4,method,,evtPolygonMovieShutdown,public unsafe static Il2CppSystem.Object evtPolygonMovieShutdown(dds3ProcessID_t id),API
+100670974,0x06001DFE,7678,0x000D8418,method,,evtHokanFloat,"public unsafe static float evtHokanFloat(int hokan, float ratio, float f1, float f2)",Interp_Hokan
+100670975,0x06001DFF,7679,0x000D8480,method,,evtHokanInt,"public unsafe static int evtHokanInt(int hokan, float ratio, int i1, int i2)",Interp_Hokan
+100670976,0x06001E00,7680,0x000D84E8,method,,evtHokanUInt,"public unsafe static uint evtHokanUInt(int hokan, float ratio, uint i1, uint i2)",Interp_Hokan
+100670977,0x06001E01,7681,0x000D8550,method,,evtHokanColor,"public unsafe static uint evtHokanColor(int hokan, float ratio, uint c1, uint c2)",Interp_Hokan
+100670978,0x06001E02,7682,0x000D85B8,method,,evtHokanSceneLight,"public unsafe static void evtHokanSceneLight(int hokan, float ratio, pmdSceneLightTable_t key1, pmdSceneLightTable_t key2, ref pmdSceneLightTable_t d)",Interp_Hokan
+100670979,0x06001E03,7683,0x000D8648,method,,evtHokanSceneFog,"public unsafe static void evtHokanSceneFog(int hokan, float ratio, pmdSceneFogTable_t key1, pmdSceneFogTable_t key2, ref pmdSceneFogTable_t d)",Interp_Hokan
+100670980,0x06001E04,7684,0x000D86D8,method,,evtHokanBlur2,"public unsafe static void evtHokanBlur2(int hokan, float ratio, dds3Effect_Blur_t key1, dds3Effect_Blur_t key2, ref dds3Effect_Blur_t d)",Interp_Hokan
+100670981,0x06001E05,7685,0x000D8768,method,,evtHokanMultBlur,"public unsafe static void evtHokanMultBlur(int hokan, float ratio, dds3Effect_PartialMultiBlurParam_t key1, dds3Effect_PartialMultiBlurParam_t key2, ref dds3Effect_PartialMultiBlurParam_t d)",Interp_Hokan
+100670982,0x06001E06,7686,0x000D87F8,method,,evtHokanFilter,"public unsafe static void evtHokanFilter(int hokan, float ratio, dds3Effect_Filter_t key1, dds3Effect_Filter_t key2, ref dds3Effect_Filter_t d)",Interp_Hokan
+100670983,0x06001E07,7687,0x000D8888,method,,evtHokanMultFilter,"public unsafe static void evtHokanMultFilter(int hokan, float ratio, dds3Effect_PartialMultiFilterParam_t key1, dds3Effect_PartialMultiFilterParam_t key2, ref dds3Effect_PartialMultiFilterParam_t d)",Interp_Hokan
+100670984,0x06001E08,7688,0x000D8918,method,,evtHokanDistBlur,"public unsafe static void evtHokanDistBlur(int hokan, float ratio, dds3Effect_DistortionBlurParam_t key1, dds3Effect_DistortionBlurParam_t key2, ref dds3Effect_DistortionBlurParam_t d)",Interp_Hokan
+100670985,0x06001E09,7689,0x000D89A8,method,,evtHokanRipBlur,"public unsafe static void evtHokanRipBlur(int hokan, float ratio, dds3Effect_RippleBlurParam_t key1, dds3Effect_RippleBlurParam_t key2, ref dds3Effect_RippleBlurParam_t d)",Interp_Hokan
+100670986,0x06001E0A,7690,0x000D8A38,method,,evtRunUnitMode,"public unsafe static void evtRunUnitMode(pmdProcessWork_t wdata, dds3Basic_t unit, int mode)",API
+100670987,0x06001E0B,7691,0x000D8A90,method,,_mdlShow,"public unsafe static void _mdlShow(pmdProcessWork_t wdata, dds3ModelHandle_t mdl)",misc
+100670988,0x06001E0C,7692,0x000D8AD8,method,,_mdlHide,"public unsafe static void _mdlHide(pmdProcessWork_t wdata, dds3ModelHandle_t mdl)",misc
+100670989,0x06001E0D,7693,0x000D8B20,method,,evtSetPolygonMovieFlag,"public unsafe static void evtSetPolygonMovieFlag(dds3ProcessID_t id, uint flag)",API
+100670990,0x06001E0E,7694,0x000D8B64,method,,evtResetPolygonMovieFlag,"public unsafe static void evtResetPolygonMovieFlag(dds3ProcessID_t id, uint flag)",API
+100670991,0x06001E0F,7695,0x000D8BA8,method,,evtCheckPolygonMovieFlag,"public unsafe static int evtCheckPolygonMovieFlag(dds3ProcessID_t id, uint flag)",API
+100670992,0x06001E10,7696,0x000D8BF8,method,,GetNowFrame,public unsafe static int GetNowFrame(),API
+100670993,0x06001E11,7697,0x000D8C28,method,,evtStopMover,"public unsafe static void evtStopMover(dds3Basic_t mover, int sw, int baseframe, int nowframe)",API
+100670994,0x06001E12,7698,0x000D8C88,method,,InitPolygonMovieWorkData,public unsafe static pmdProcessWork_t InitPolygonMovieWorkData(),API
+100670995,0x06001E13,7699,0x000D8CBC,method,,evtGetPolygonMovieWorkData1,"public unsafe static pmdProcessWork_t evtGetPolygonMovieWorkData1(pmdProcessWork_t wdata, Il2CppStructArray<byte> pm1data, Il2CppStructArray<byte> pm2data)",API
+100670996,0x06001E14,7700,0x000D8D24,method,,evtFreePolygonMovieWorkData,public unsafe static void evtFreePolygonMovieWorkData(pmdProcessWork_t wdata),API
+100670997,0x06001E15,7701,0x000D8D5C,method,,SetPMFileName,"public unsafe static void SetPMFileName(int eventno, int cutno, out string pm1file, out string pm2file)",API
+100670998,0x06001E16,7702,0x000D8DD0,method,,evtStartPolygonMovie2,"public unsafe static dds3ProcessID_t evtStartPolygonMovie2(int priority, int eventno, int cutno)",API
+100670999,0x06001E17,7703,0x000D8E2C,method,,get_table,public unsafe static void get_table(Il2CppSystem.Object obj),misc
+100671000,0x06001E18,7704,0x000D8E64,method,,read_module,"public unsafe static void read_module(evtPolygonMovie.sLoadMode mode, pmdProcessWork_t wdata, GameObject ChrObj, GameObject FldObj)",misc
+100671001,0x06001E19,7705,0x000D8ED8,method,,read_module,public unsafe static void read_module(pmdProcessWork_t wdata),misc
+100671002,0x06001E1A,7706,0x000D8F10,method,,attach,"public unsafe static void attach(dds3Basic_t basic, GameObject obj)",misc
+100671003,0x06001E1B,7707,0x000D8F58,method,,EvtStartPMDuplicate,"public unsafe static dds3ProcessID_t EvtStartPMDuplicate(int priority, Il2CppSystem.Object pr, int eventno, int cutno)",misc
+100671004,0x06001E1C,7708,0x000D8FC8,method,,evtPolygonMovieProcess1e,public unsafe static Il2CppSystem.Object evtPolygonMovieProcess1e(dds3ProcessID_t id),API
+100671005,0x06001E1D,7709,0x000D900C,method,,evtPolygonMovieShutdown1e,public unsafe static Il2CppSystem.Object evtPolygonMovieShutdown1e(dds3ProcessID_t id),API
+100671006,0x06001E1E,7710,0x000D9050,method,,SwitchAnimation,"public unsafe static void SwitchAnimation(pmdProcessWork_t wdata, bool sw)",misc
+100671007,0x06001E1F,7711,0x0000C1DC,method,,evtPolygonMovie,public evtPolygonMovie(System.IntPtr pointer) : base(pointer),API
+100671008,0x06001E20,7712,0x000D9094,property,get,MSGTRG,public unsafe static int MSGTRG,misc
+100671010,0x06001E22,7714,0x000D90B0,property,get,replace_list,"public unsafe static Dictionary<string, string> replace_list",misc
+100671012,0x06001E24,7716,0x000D90D8,property,get,CurrentEventNo,public unsafe static int CurrentEventNo,misc
+100671014,0x06001E26,7718,0x000D90F4,property,get,EventCTree,public unsafe static GameObject EventCTree,misc
+100671016,0x06001E28,7720,0x000D911C,property,get,EventFTree,public unsafe static GameObject EventFTree,misc
+100671018,0x06001E2A,7722,0x000D9144,property,get,EventID,public unsafe static List<int> EventID,misc
+100671020,0x06001E2C,7724,0x000D916C,property,get,LoadMode,"public unsafe static Dictionary<int, evtPolygonMovie.sLoadMode> LoadMode",misc
+100671022,0x06001E2E,7726,0x000D9194,property,get,nowcamera,public unsafe static dds3Basic_t nowcamera,misc
+100671024,0x06001E30,7728,0x000D91BC,property,get,nowfovy,public unsafe static float nowfovy,misc
+100671026,0x06001E32,7730,0x000D91D8,property,get,CameraFrameFunc_nowframe,public unsafe static int CameraFrameFunc_nowframe,misc
+100671028,0x06001E34,7732,0x000D91F4,property,get,EffDat,public unsafe static Il2CppStructArray<byte> EffDat,misc
+100671030,0x06001E36,7734,0x000D921C,property,get,SLightFrameFunc_sl,public unsafe static pmdSceneLightTable_t SLightFrameFunc_sl,misc
+100671032,0x06001E38,7736,0x000D9244,property,get,SFogFrameFunc_sf,public unsafe static pmdSceneFogTable_t SFogFrameFunc_sf,misc
+100671034,0x06001E3A,7738,0x000D926C,property,get,Blur2FrameFunc_bl2,public unsafe static dds3Effect_Blur_t Blur2FrameFunc_bl2,misc
+100671036,0x06001E3C,7740,0x000D9294,property,get,MBlurFrameFunc_mbl,public unsafe static dds3Effect_PartialMultiBlurParam_t MBlurFrameFunc_mbl,misc
+100671038,0x06001E3E,7742,0x000D92BC,property,get,DBlurFrameFunc_dbl,public unsafe static dds3Effect_DistortionBlurParam_t DBlurFrameFunc_dbl,misc
+100671040,0x06001E40,7744,0x000D92E4,property,get,RBlurFrameFunc_rbl,public unsafe static dds3Effect_RippleBlurParam_t RBlurFrameFunc_rbl,misc
+100671042,0x06001E42,7746,0x000D930C,property,get,MFilterFrameFunc_mfl,public unsafe static dds3Effect_PartialMultiFilterParam_t MFilterFrameFunc_mfl,misc
+100671044,0x06001E44,7748,0x000D9334,property,get,FilterFrameFunc_fl,public unsafe static dds3Effect_Filter_t FilterFrameFunc_fl,misc
+100671046,0x06001E46,7750,0x000D935C,property,get,framefunc,public unsafe static Il2CppReferenceArray<evtPolygonMovie.FrameRunStruct> framefunc,misc
+100671048,0x06001E48,7752,0x000D9384,property,get,PMchkname,public unsafe static StringBuilder PMchkname,misc
+100671050,0x06001E4A,7754,0x000D93AC,property,get,UnitList,"public unsafe static Dictionary<uint, dds3Basic_t> UnitList",misc
+100671052,0x06001E4C,7756,0x000D93D4,property,get,Last_wdata_NowFrame,public unsafe static int Last_wdata_NowFrame,misc
+100671054,0x06001E4E,7758,0x000D93F0,property,get,pm2_dummydata,public unsafe static Il2CppStructArray<byte> pm2_dummydata,misc
+100709427,0x0600B433,46131,0x00259534,method,,sLoadMode,static sLoadMode(),misc
+100709428,0x0600B434,46132,0x0005A797,method,,sLoadMode,public sLoadMode(System.IntPtr pointer) : base(pointer),misc
+100709429,0x0600B435,46133,0x0005A7A0,method,,sLoadMode,public sLoadMode() : base(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<evtPolygonMovie.sLoadMode>.NativeClassPtr)),misc
+100709430,0x0600B436,46134,0x0025959C,property,get,cutno,public unsafe int cutno,misc
+100709432,0x0600B438,46136,0x002595C4,property,get,FldName,public unsafe string FldName,misc
+100709434,0x0600B43A,46138,0x002595EC,property,get,ChrName,"public unsafe Dictionary<string, string> ChrName",misc
+100709436,0x0600B43C,46140,0x0005A80B,method,,FrameRunStruct,static FrameRunStruct(),Loop
+100709437,0x0600B43D,46141,0x0005A83F,method,,FrameRunStruct,public FrameRunStruct(System.IntPtr pointer) : base(pointer),Loop
+100709438,0x0600B43E,46142,0x0005A848,method,,FrameRunStruct,public FrameRunStruct() : base(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<evtPolygonMovie.FrameRunStruct>.NativeClassPtr)),Loop
+100709439,0x0600B43F,46143,0x0025961C,property,get,func,public unsafe evtPolygonMovie.FrameRunStruct.funcDelegate func,misc
+100713450,0x0600C3EA,50154,0x002811E0,method,,funcDelegate,static funcDelegate(),Delegate
+100713451,0x0600C3EB,50155,0x00281254,method,,funcDelegate,"public unsafe funcDelegate(Il2CppSystem.Object @object, System.IntPtr method) : this(IL2CPP.il2cpp_object_new(Il2CppClassPointerStore<evtPolygonMovie.FrameRunStruct.funcDelegate>.NativeClassPtr))",Delegate
+100713452,0x0600C3EC,50156,0x002812B0,method,,Invoke,"public unsafe void Invoke(pmdProcessWork_t UnnamedParameter, pmdFrameTable_t UnnamedParameter2, pmdFrameTable_t UnnamedParameter3, int UnnamedParameter4)",Delegate
+100713453,0x0600C3ED,50157,0x00281324,method,,BeginInvoke,"public unsafe Il2CppSystem.IAsyncResult BeginInvoke(pmdProcessWork_t UnnamedParameter, pmdFrameTable_t UnnamedParameter2, pmdFrameTable_t UnnamedParameter3, int UnnamedParameter4, Il2CppSystem.AsyncCallback callback, Il2CppSystem.Object @object)",Delegate
+100713454,0x0600C3EE,50158,0x002813CC,method,,EndInvoke,public unsafe void EndInvoke(Il2CppSystem.IAsyncResult result),Delegate
+100713455,0x0600C3EF,50159,0x00065168,method,,funcDelegate,public funcDelegate(System.IntPtr pointer) : base(pointer),Delegate
+100713456,0x0600C3F0,50160,0x00065171,method,,evtPolygonMovie.FrameRunStruct.funcDelegate,"public static implicit operator evtPolygonMovie.FrameRunStruct.funcDelegate(Action<pmdProcessWork_t, pmdFrameTable_t, pmdFrameTable_t, int> A_0)",API
+100713457,0x0600C3F1,50161,0x00065179,method,,+,"public static evtPolygonMovie.FrameRunStruct.funcDelegate operator +(evtPolygonMovie.FrameRunStruct.funcDelegate A_0, evtPolygonMovie.FrameRunStruct.funcDelegate A_1)",misc
+100713458,0x0600C3F2,50162,0x00065187,method,,-,"public static evtPolygonMovie.FrameRunStruct.funcDelegate operator -(evtPolygonMovie.FrameRunStruct.funcDelegate A_0, evtPolygonMovie.FrameRunStruct.funcDelegate A_1)",misc

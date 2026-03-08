@@ -1,0 +1,59 @@
+token_dec,token_hex,rid,rva,kind,accessor,name,decl
+100670549,0x06001C55,7253,0x000D2A00,method,,evtDebug,static evtDebug()
+100670550,0x06001C56,7254,0x000D2E90,method,,IsPaused,public unsafe static bool IsPaused()
+100670551,0x06001C57,7255,0x000D2EC0,method,,draweventdebug,public unsafe static void draweventdebug()
+100670552,0x06001C58,7256,0x000D2EE8,method,,EventDebugProcess2,public unsafe static Il2CppSystem.Object EventDebugProcess2(dds3ProcessID_t id)
+100670553,0x06001C59,7257,0x000D2F2C,method,,EventDebugSelectFlash,public unsafe static Il2CppSystem.Object EventDebugSelectFlash(dds3ProcessID_t id)
+100670554,0x06001C5A,7258,0x000D2F70,method,,IsDlcEvent,public unsafe static bool IsDlcEvent()
+100670555,0x06001C5B,7259,0x000D2FA0,method,,EventDebugProcess1,public unsafe static Il2CppSystem.Object EventDebugProcess1(dds3ProcessID_t id)
+100670556,0x06001C5C,7260,0x000D2FE4,method,,CheckAssetBundleData,public unsafe static Il2CppSystem.Object CheckAssetBundleData()
+100670557,0x06001C5D,7261,0x000D3018,method,,EventDebugShutdown,public unsafe static Il2CppSystem.Object EventDebugShutdown(dds3ProcessID_t id)
+100670558,0x06001C5E,7262,0x000D305C,method,,evtInitEventTest,public unsafe static void evtInitEventTest()
+100670559,0x06001C5F,7263,0x000D3084,method,,evtExitEventTest,public unsafe static void evtExitEventTest()
+100670560,0x06001C60,7264,0x000D30AC,method,,evtChkEndProcess,public unsafe static bool evtChkEndProcess()
+100670561,0x06001C61,7265,0x000D30DC,method,,GetDbgEventName,public unsafe static string GetDbgEventName(int eve_id)
+100670562,0x06001C62,7266,0x0000B89D,method,,evtDebug,public evtDebug(System.IntPtr pointer) : base(pointer)
+100670563,0x06001C63,7267,0x000D3114,property,get,str_freecamera,public unsafe static string str_freecamera
+100670565,0x06001C65,7269,0x000D3134,property,get,debug_draw,public unsafe static int debug_draw
+100670567,0x06001C67,7271,0x000D3150,property,get,event_mode,public unsafe static int event_mode
+100670569,0x06001C69,7273,0x000D316C,property,get,event_filename,public unsafe static string event_filename
+100670571,0x06001C6B,7275,0x000D318C,property,get,free_camera,public unsafe static int free_camera
+100670573,0x06001C6D,7277,0x000D31A8,property,get,VoiceName,public unsafe static string VoiceName
+100670575,0x06001C6F,7279,0x000D31C8,property,get,bStatus,public unsafe static int bStatus
+100670577,0x06001C71,7281,0x000D31E4,property,get,cam_name,public unsafe static string cam_name
+100670579,0x06001C73,7283,0x000D3204,property,get,TagName,public unsafe static string TagName
+100670581,0x06001C75,7285,0x000D3224,property,get,itfon,public unsafe static int itfon
+100670583,0x06001C77,7287,0x000D3240,property,get,fieldObj,public unsafe static GameObject fieldObj
+100670585,0x06001C79,7289,0x000D3268,property,get,EventDebugProcess1_e,public unsafe static int EventDebugProcess1_e
+100670587,0x06001C7B,7291,0x000D3284,property,get,EvtNo1,public unsafe static int EvtNo1
+100670589,0x06001C7D,7293,0x000D32A0,property,get,EvtNo2,public unsafe static int EvtNo2
+100670591,0x06001C7F,7295,0x000D32BC,property,get,EvtNo3,public unsafe static int EvtNo3
+100670593,0x06001C81,7297,0x000D32D8,property,get,DlcHead,public unsafe static string DlcHead
+100670595,0x06001C83,7299,0x000D32F8,property,get,IsDataCheck,public unsafe static int IsDataCheck
+100670597,0x06001C85,7301,0x000D3314,property,get,EvtRaidou,public unsafe static Il2CppStructArray<int> EvtRaidou
+100670599,0x06001C87,7303,0x000D333C,property,get,EvtDante,public unsafe static Il2CppStructArray<int> EvtDante
+100670601,0x06001C89,7305,0x000D3364,property,get,E646_Type,public unsafe static int E646_Type
+100670603,0x06001C8B,7307,0x000D3380,property,get,E646_Text_E,public unsafe static Il2CppStringArray E646_Text_E
+100670605,0x06001C8D,7309,0x000D33A8,property,get,E655_Text_E,public unsafe static Il2CppStringArray E655_Text_E
+100670607,0x06001C8F,7311,0x000D33D0,property,get,E677_Type,public unsafe static int E677_Type
+100670609,0x06001C91,7313,0x000D33EC,property,get,E677_Text_E,public unsafe static Il2CppStringArray E677_Text_E
+100670611,0x06001C93,7315,0x000D3414,property,get,E681_Type,public unsafe static int E681_Type
+100670613,0x06001C95,7317,0x000D3430,property,get,E681_Text_E,public unsafe static Il2CppStringArray E681_Text_E
+100670615,0x06001C97,7319,0x000D3458,property,get,E705_Ending_Type,public unsafe static int E705_Ending_Type
+100670617,0x06001C99,7321,0x000D3474,property,get,E705_Ending_Text_E,public unsafe static Il2CppStringArray E705_Ending_Text_E
+100670619,0x06001C9B,7323,0x000D349C,property,get,E_BossBtlAfter_Text_E,public unsafe static Il2CppStringArray E_BossBtlAfter_Text_E
+100670621,0x06001C9D,7325,0x000D34C4,property,get,E_OldFuku_Text_E,public unsafe static Il2CppStringArray E_OldFuku_Text_E
+100670623,0x06001C9F,7327,0x000D34EC,property,get,E646_Text_J,public unsafe static Il2CppStringArray E646_Text_J
+100670625,0x06001CA1,7329,0x000D3514,property,get,E655_Text_J,public unsafe static Il2CppStringArray E655_Text_J
+100670627,0x06001CA3,7331,0x000D353C,property,get,E677_Text_J,public unsafe static Il2CppStringArray E677_Text_J
+100670629,0x06001CA5,7333,0x000D3564,property,get,E681_Text_J,public unsafe static Il2CppStringArray E681_Text_J
+100670631,0x06001CA7,7335,0x000D358C,property,get,E705_Ending_Text_J,public unsafe static Il2CppStringArray E705_Ending_Text_J
+100670633,0x06001CA9,7337,0x000D35B4,property,get,E_BossBtlAfter_Text_J,public unsafe static Il2CppStringArray E_BossBtlAfter_Text_J
+100670635,0x06001CAB,7339,0x000D35DC,property,get,E_OldFuku_Text_J,public unsafe static Il2CppStringArray E_OldFuku_Text_J
+100670637,0x06001CAD,7341,0x000D3604,property,get,dpy,public unsafe static int dpy
+100670639,0x06001CAF,7343,0x000D3620,property,get,curbase,public unsafe static int curbase
+100670641,0x06001CB1,7345,0x000D363C,property,get,curpoint,public unsafe static int curpoint
+100670643,0x06001CB3,7347,0x000D3658,property,get,Text_Nodata_E,public unsafe static string Text_Nodata_E
+100670645,0x06001CB5,7349,0x000D3678,property,get,Dic_EveName_E,"public unsafe static Dictionary<int, string> Dic_EveName_E"
+100670647,0x06001CB7,7351,0x000D36A0,property,get,Text_Nodata_J,public unsafe static string Text_Nodata_J
+100670649,0x06001CB9,7353,0x000D36C0,property,get,Dic_EveName_J,"public unsafe static Dictionary<int, string> Dic_EveName_J"

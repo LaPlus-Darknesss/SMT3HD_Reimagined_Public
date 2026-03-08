@@ -1,0 +1,16 @@
+token,token_dec,method,signature
+0x06001FB2,100671410,cmbGetKeisyoSkillEndIndex,public unsafe static sbyte cmbGetKeisyoSkillEndIndex(datUnitWork_t pStock)
+0x06001FC5,100671429,cmbAddKeisyoSkillFromSkill,"public unsafe static void cmbAddKeisyoSkillFromSkill(datUnitWork_t pDstStock, datUnitWork_t pSrcStock)"
+0x06001FC6,100671430,cmbDeleteKeisyoSkill,"public unsafe static void cmbDeleteKeisyoSkill(datUnitWork_t pStock, byte Index)"
+0x06001FC7,100671431,cmbMoveKeisyoSkillToSkill,"public unsafe static sbyte cmbMoveKeisyoSkillToSkill(ushort KeisyoSkillID, datUnitWork_t pStock)"
+0x06001FCA,100671434,cmbChkKeisyoSkillOwner,"public unsafe static sbyte cmbChkKeisyoSkillOwner(ushort SkillID, datUnitWork_t pStock)"
+0x06001FCB,100671435,cmbChkKeisyoSkillNums,public unsafe static sbyte cmbChkKeisyoSkillNums(datUnitWork_t pStock)
+0x06001FD0,100671440,cmbClearKeisyoSkill,public unsafe static void cmbClearKeisyoSkill(datUnitWork_t pStock)
+0x06001FD6,100671446,cmbCalcTotalKeisyoSkillRate,public unsafe static int cmbCalcTotalKeisyoSkillRate(datUnitWork_t pStock)
+0x06001FD7,100671447,cmbRndGetKeisyoSkill,public unsafe static ushort cmbRndGetKeisyoSkill(datUnitWork_t pStock)
+0x06001FD8,100671448,cmbRndAddKeisyoSkillToSkill,"public unsafe static void cmbRndAddKeisyoSkillToSkill(datUnitWork_t pDevil1, datUnitWork_t pDevil2, datUnitWork_t pSacrifice, datUnitWork_t pStock, fclKeisyoList_t pKeisyoBuf, ref fclKeisyoListAll_t pKeisyoAllBuf)"
+0x06001FD9,100671449,cmbSetKeisyoListBuf,public unsafe static void cmbSetKeisyoListBuf(fclKeisyoList_t pKeisyoList)
+0x06001FDA,100671450,GetcmbSetKeisyoListBuf,public unsafe static fclKeisyoList_t GetcmbSetKeisyoListBuf()
+0x06001FDB,100671451,cmbSetKeisyoListAllBuf,public unsafe static void cmbSetKeisyoListAllBuf(fclKeisyoListAll_t pKeisyoListAll)
+0x06001FDC,100671452,GetcmbSetKeisyoListAllBuf,public unsafe static fclKeisyoListAll_t GetcmbSetKeisyoListAllBuf()
+0x06001FDD,100671453,cmbChkLastKeisyoSkill,public unsafe static sbyte cmbChkLastKeisyoSkill(ushort SkillID)

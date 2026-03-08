@@ -1,0 +1,17 @@
+group,count,top_caller
+FieldResources (Res*),16,1.0
+Field loading (fldLoad*),10,20.0
+Field building (fldMake*),7,10.0
+FieldPlacement (ResPut*),7,4.0
+SDF defs (Setsdf*),7,1.0
+Other,5,11.0
+FieldCollision (ResCollision*),4,2.0
+FieldHeader (ResHead*),4,1.0
+FieldSetters (Setfld*),4,4.0
+File resolver (fldFile*),3,1.0
+Address resolve (fldAddress*),2,1.0
+Automap,2,4.0
+Field freeing (fldFree*),2,6.0
+FieldCollision (ResColl*),2,2.0
+Scene traversal helpers,2,2.0
+Region/DLC gates,1,1.0

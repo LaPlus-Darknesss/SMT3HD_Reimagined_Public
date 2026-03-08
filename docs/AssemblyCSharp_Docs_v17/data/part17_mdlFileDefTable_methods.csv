@@ -1,0 +1,4 @@
+type,name,params,ret,caller_count,il2cpp_token,rva,original_name
+mdlFileDefTable,GetAkey,int no,string,55,,,
+mdlFileDefTable,GetFname,int no,string,6,,,
+mdlFileDefTable,GetPBname,int no,string,6,,,

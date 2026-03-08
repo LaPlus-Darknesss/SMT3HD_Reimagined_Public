@@ -1,0 +1,11 @@
+property,property_type,get_token,set_token
+gFclCombineTexFile,Il2CppStringArray,0x06002040,0x06002041
+CMB_GBWK,cmbGlobalWork_t,0x06002042,0x06002043
+gProcessStat,sbyte,0x06002044,0x06002045
+gCombineMenuStr,Il2CppStringArray,0x06002046,0x06002047
+gCmdMenuFlag,Il2CppStructArray<byte>,0x06002048,0x06002049
+gZensyoMenuStr,Il2CppStringArray,0x0600204A,0x0600204B
+gTalkMenuStr,Il2CppStringArray,0x0600204C,0x0600204D
+gTalkMenuFlag,Il2CppStructArray<byte>,0x0600204E,0x0600204F
+bgmkeys,List<string>,0x06002050,0x06002051
+bgmkeysidx,int,0x06002052,0x06002053

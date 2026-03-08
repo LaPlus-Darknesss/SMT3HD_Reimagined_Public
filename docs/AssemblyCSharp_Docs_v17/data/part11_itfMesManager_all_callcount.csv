@@ -1,0 +1,140 @@
+field,method_name,signature_line,signature_line_no,caller_count,RefRangeStart,RefRangeEnd,XrefRangeStart,XrefRangeEnd,il2cpp_token
+WindowDispOff_Internal_Static_Void_Boolean_0,WindowDispOff,public unsafe static void WindowDispOff(bool sw = false),423,12,5469905,5469917,5469899,5469905,100669299
+SwitchSpeaker_Internal_Static_Void_Boolean_Boolean_0,SwitchSpeaker,"public unsafe static void SwitchSpeaker(bool sw, bool disp = true)",541,11,5470040,5470051,5470020,5470040,100669309
+itfMesMngInitialize_Public_Static_Int32_Object_Il2CppStringArray_String_0,itfMesMngInitialize,"public unsafe static int itfMesMngInitialize(Il2CppSystem.Object presource, Il2CppStringArray master_text = null, string key = null)",1236,11,5470544,5470555,5470488,5470544,100669364
+itfMesMngRelease_Public_Static_Void_Int32_0,itfMesMngRelease,public unsafe static void itfMesMngRelease(int id),1251,11,5470561,5470572,5470555,5470561,100669365
+itfMesMngSetVar_Public_Static_Void_Int32_Int32_Int32_Int32_0,itfMesMngSetVar,"public unsafe static void itfMesMngSetVar(int id, int index, int num, int type)",1436,9,5470871,5470880,5470853,5470871,100669379
+ChangeSelection_Internal_Static_Void_Int32_Int32_0,ChangeSelection,"public unsafe static void ChangeSelection(int index, int onoff)",697,8,5470217,5470225,5470156,5470217,100669320
+FadeOutWindow_Internal_Static_Void_0,FadeOutWindow,public unsafe static void FadeOutWindow(),507,7,5469994,5470001,5469983,5469994,100669306
+MsgWndSetActive_Public_Static_Void_Int32_Boolean_0,MsgWndSetActive,"public unsafe static void MsgWndSetActive(int i, bool sw)",1935,6,5471783,5471789,5471775,5471783,100669417
+SwitchOK_Internal_Static_Void_Boolean_0,SwitchOK,public unsafe static void SwitchOK(bool sw),495,6,5469977,5469983,5469974,5469977,100669305
+ClearMessage_Internal_Static_Void_0,ClearMessage,public unsafe static void ClearMessage(),401,4,5469874,5469878,5469873,5469874,100669297
+WindowDispOn_Internal_Static_Void_instanceMes_tag_0,WindowDispOn,public unsafe static void WindowDispOn(instanceMes_tag pinst),389,4,5469869,5469873,5469814,5469869,100669296
+itfMesMngRequestMessageRelease_Public_Static_Void_Int32_Int32_0,itfMesMngRequestMessageRelease,"public unsafe static void itfMesMngRequestMessageRelease(int id, int cls_speaker)",1294,4,5470709,5470713,5470706,5470709,100669368
+GetTypeHeader2_Internal_Static_itfMesBinTypeHeader2_t_Il2CppStructArray_1_Byte_0,GetTypeHeader2,public unsafe static itfMesBinTypeHeader2_t GetTypeHeader2(Il2CppStructArray<byte> pfileheader),334,3,5469716,5469719,5469714,5469716,100669292
+MsgWndActiveSelf_Internal_Static_Boolean_Int32_0,MsgWndActiveSelf,public unsafe static bool MsgWndActiveSelf(int i),1948,3,5471802,5471805,5471789,5471802,100669418
+MsgWndOwnerShowUI_Public_Static_Void_Boolean_0,MsgWndOwnerShowUI,public unsafe static void MsgWndOwnerShowUI(bool sw),1961,3,5471832,5471835,5471805,5471832,100669419
+itfMesMngMsgWndCls_Public_Static_Void_Int32_0,itfMesMngMsgWndCls,public unsafe static void itfMesMngMsgWndCls(int msgid),1106,3,5470453,5470456,5470428,5470453,100669353
+itfMesMngRequestMessage_Public_Static_Int32_Int32_Int32_Int32_Int32_0,itfMesMngRequestMessage,"public unsafe static int itfMesMngRequestMessage(int id, int message, int page, int callmode = 0)",1263,3,5470684,5470687,5470572,5470684,100669366
+itfMesMngRequestSelectRelease_Public_Static_Void_Int32_0,itfMesMngRequestSelectRelease,public unsafe static void itfMesMngRequestSelectRelease(int id),1320,3,5470794,5470797,5470793,5470794,100669370
+itfMesMngSetPhase_Public_Static_Void_Int32_Int32_0,itfMesMngSetPhase,"public unsafe static void itfMesMngSetPhase(int msgid, int phase)",994,3,5470367,5470370,5470366,5470367,100669344
+CommitVarTable_Internal_Static_Void_variable_tag_0,CommitVarTable,public unsafe static void CommitVarTable(variable_tag pvar),583,2,5470078,5470080,5470069,5470078,100669312
+ConvertZenkakuNumber_Internal_Static_Void_byref_String_Int32_0,ConvertZenkakuNumber,"public unsafe static void ConvertZenkakuNumber(ref string buf, int num)",903,2,5470291,5470293,5470287,5470291,100669337
+ForceWindowDispOff_Public_Static_Void_0,ForceWindowDispOff,public unsafe static void ForceWindowDispOff(),435,2,5469926,5469928,5469917,5469926,100669300
+GetSpeakerName_Internal_Static_Il2CppStructArray_1_Byte_instanceMes_tag_0,GetSpeakerName,public unsafe static Il2CppStructArray<byte> GetSpeakerName(instanceMes_tag pinst),595,2,5470105,5470107,5470080,5470105,100669313
+GetTypeHeader_Internal_Static_itfMesBinTypeHeader_t_instanceMes_tag_Int32_0,GetTypeHeader,"public unsafe static itfMesBinTypeHeader_t GetTypeHeader(instanceMes_tag pinst, int index)",319,2,5469712,5469714,5469709,5469712,100669291
+IsFadeOutWindow_Internal_Static_Boolean_0,IsFadeOutWindow,public unsafe static bool IsFadeOutWindow(),518,2,5470008,5470010,5470001,5470008,100669307
+IsSelectWindowDispOff_Internal_Static_Boolean_0,IsSelectWindowDispOff,public unsafe static bool IsSelectWindowDispOff(),471,2,5469961,5469963,5469954,5469961,100669303
+ResetWindowPara_Internal_Static_Void_window_tag_Int32_Int32_0,ResetWindowPara,"public unsafe static void ResetWindowPara(window_tag pwin, int type, int alpha)",919,2,5470300,5470302,5470293,5470300,100669338
+itfMesMngClearBitStat_Public_Static_Void_Int32_UInt32_0,itfMesMngClearBitStat,"public unsafe static void itfMesMngClearBitStat(int id, uint flag)",1409,2,5470847,5470849,5470842,5470847,100669377
+itfMesMngGetFRQ_Public_Static__FRQ_Int32_Int32_0,itfMesMngGetFRQ,"public unsafe static _FRQ itfMesMngGetFRQ(int id, int message)",1523,2,5470933,5470935,5470929,5470933,100669385
+itfMesMngGetSelPhase_Public_Static_Int32_Int32_0,itfMesMngGetSelPhase,public unsafe static int itfMesMngGetSelPhase(int msgid),1019,2,5470390,5470392,5470386,5470390,100669346
+itfMesMngGetSelectNo_Public_Static_Int32_Int32_0,itfMesMngGetSelectNo,public unsafe static int itfMesMngGetSelectNo(int msgid),1045,2,5470395,5470397,5470394,5470395,100669348
+itfMesMngMarkBitStat_Public_Static_Void_Int32_UInt32_0,itfMesMngMarkBitStat,"public unsafe static void itfMesMngMarkBitStat(int id, uint flag)",1396,2,5470840,5470842,5470836,5470840,100669376
+itfMesMngRequestSelect_Public_Static_Void_Int32_Int32_0,itfMesMngRequestSelect,"public unsafe static void itfMesMngRequestSelect(int id, int select)",1307,2,5470791,5470793,5470713,5470791,100669369
+itfMesMngSetKutiCallback_Public_Static_Void_Int32_func_kutiDelegate_0,itfMesMngSetKutiCallback,"public unsafe static void itfMesMngSetKutiCallback(int id, instanceMes_tag.func_kutiDelegate func)",1580,2,5470956,5470958,5470952,5470956,100669389
+itfMesMngSetVarImmediate_Public_Static_Void_Int32_Int32_String_0,itfMesMngSetVarImmediate,"public unsafe static void itfMesMngSetVarImmediate(int id, int index, string pstr)",1464,2,5470907,5470909,5470902,5470907,100669381
+CalcMesFlow_Internal_Static_Void_instanceMes_tag_0,CalcMesFlow,public unsafe static void CalcMesFlow(instanceMes_tag pinst),933,1,5470308,5470309,5470302,5470308,100669339
+CalcMessage_Internal_Static_Void_instanceMes_tag_0,CalcMessage,public unsafe static void CalcMessage(instanceMes_tag pinst),957,1,5470350,5470351,5470328,5470350,100669341
+CalcSelect_Private_Static_Void_instanceMes_tag_0,CalcSelect,public unsafe static void CalcSelect(instanceMes_tag pinst),1670,1,5471224,5471225,5471219,5471224,100669396
+CalcWindow_Internal_Static_Void_instanceMes_tag_0,CalcWindow,public unsafe static void CalcWindow(instanceMes_tag pinst),945,1,5470327,5470328,5470309,5470327,100669340
+CallEventVoice_Internal_Static_Void_instanceMes_tag_0,CallEventVoice,public unsafe static void CallEventVoice(instanceMes_tag pinst),1864,1,5471660,5471661,5471598,5471660,100669411
+ClearSpeaker_Internal_Static_Void_0,ClearSpeaker,public unsafe static void ClearSpeaker(),412,1,5469898,5469899,5469878,5469898,100669298
+DebugDrawWindowLine_Private_Static_Void_itfpanel_t_0,DebugDrawWindowLine,public unsafe static void DebugDrawWindowLine(itfpanel_t meswin),1836,1,5471596,5471597,5471485,5471596,100669409
+DestructFlow_Internal_Static_Void_Int32_0,DestructFlow,public unsafe static void DestructFlow(int id),295,1,5469707,5469708,5469697,5469707,100669289
+DrawMesFlow_Private_Static_Void_instanceMes_tag_0,DrawMesFlow,public unsafe static void DrawMesFlow(instanceMes_tag pinst),1745,1,5471346,5471347,5471301,5471346,100669402
+DrawMessage_Internal_Static_Int32__FRQ_0,DrawMessage,public unsafe static int DrawMessage(_FRQ pfont),1769,1,5471429,5471430,5471364,5471429,100669404
+DrawSelection_Internal_Static_Int32_UInt32_Boolean_0,DrawSelection,"public unsafe static int DrawSelection(uint stat, bool spda)",1782,1,5471439,5471440,5471430,5471439,100669405
+DrawWindow_Private_Static_Void_instanceMes_tag_0,DrawWindow,public unsafe static void DrawWindow(instanceMes_tag pinst),1796,1,5471463,5471464,5471440,5471463,100669406
+FinalDanteEventMsg_Public_Static_Void_0,FinalDanteEventMsg,public unsafe static void FinalDanteEventMsg(),1924,1,5471774,5471775,5471739,5471774,100669416
+GetFontHandleUnit_Internal_Static__FRQ_Il2CppStructArray_1_Byte_Il2CppStructArray_1_UInt32_Il2CppStructArray_1_Int32_Int32_UInt32_Int32_Int32_UInt32_0,GetFontHandleUnit,"public unsafe static _FRQ GetFontHandleUnit(Il2CppStructArray<byte> dat, Il2CppStructArray<uint> ppstr, Il2CppStructArray<int> pplen, int num, uint mask, int x, int y, uint z)",622,1,5470109,5470110,5470107,5470109,100669315
+InitDanteEventMsg_Public_Static_Void_0,InitDanteEventMsg,public unsafe static void InitDanteEventMsg(),1913,1,5471738,5471739,5471690,5471738,100669415
+IsSelectWindowDispOn_Internal_Static_Boolean_Boolean_0,IsSelectWindowDispOn,public unsafe static bool IsSelectWindowDispOn(bool spd),458,1,5469953,5469954,5469933,5469953,100669302
+IsSpeakStart_Public_Static_Boolean_0,IsSpeakStart,public unsafe static bool IsSpeakStart(),1901,1,5471689,5471690,5471682,5471689,100669414
+IsSpeaking_Public_Static_Boolean_0,IsSpeaking,public unsafe static bool IsSpeaking(),1889,1,5471681,5471682,5471680,5471681,100669413
+OpenCheckSpeakerWindow_Internal_Static_Void_instanceMes_tag_0,OpenCheckSpeakerWindow,public unsafe static void OpenCheckSpeakerWindow(instanceMes_tag pinst),784,1,5470274,5470275,5470254,5470274,100669327
+OpenMessageWindow_Internal_Static_Void_instanceMes_tag_0,OpenMessageWindow,public unsafe static void OpenMessageWindow(instanceMes_tag pinst),772,1,5470253,5470254,5470234,5470253,100669326
+ReadytoMessage_Internal_Static_Void_instanceMes_tag_Int32_0,ReadytoMessage,"public unsafe static void ReadytoMessage(instanceMes_tag pinst, int mode = 0)",364,1,5469788,5469789,5469721,5469788,100669294
+SelectWindowDispOn_Internal_Static_Void_instanceMes_tag_0,SelectWindowDispOn,public unsafe static void SelectWindowDispOn(instanceMes_tag pinst),446,1,5469932,5469933,5469928,5469932,100669301
+SetVar_Internal_Static_Void_instanceMes_tag_Int32_String_Int32_0,SetVar,"public unsafe static void SetVar(instanceMes_tag pinst, int index, string pstr, int length)",568,1,5470068,5470069,5470067,5470068,100669311
+SlideUpDownMessage_Private_Static_Void_instanceMes_tag_Int32_0,SlideUpDownMessage,"public unsafe static void SlideUpDownMessage(instanceMes_tag pinst, int y)",1682,1,5471236,5471237,5471225,5471236,100669397
+itfMesMngGetPhase_Public_Static_Int32_Int32_0,itfMesMngGetPhase,public unsafe static int itfMesMngGetPhase(int msgid),981,1,5470365,5470366,5470361,5470365,100669343
+itfMesMngGetStrImmediate_Public_Static_String_Int32_Int32_Int32_0,itfMesMngGetStrImmediate,"public unsafe static string itfMesMngGetStrImmediate(int id, int message, int page)",1508,1,5470928,5470929,5470926,5470928,100669384
+itfMesMngInitializeManager_Public_Static_Void_0,itfMesMngInitializeManager,public unsafe static void itfMesMngInitializeManager(),1593,1,5471143,5471144,5470958,5471143,100669390
+itfMesMngSetDefaultSpeed_Public_Static_Void_Int32_Int32_0,itfMesMngSetDefaultSpeed,"public unsafe static void itfMesMngSetDefaultSpeed(int id, int speed)",1567,1,5470951,5470952,5470947,5470951,100669388
+itfMesMngSetFloor_Public_Static_String_Int32_0,itfMesMngSetFloor,public unsafe static string itfMesMngSetFloor(int num),1451,1,5470901,5470902,5470880,5470901,100669380
+itfMesMngSetMesPosition_Public_Static_Void_Int32_Int32_Int32_0,itfMesMngSetMesPosition,"public unsafe static void itfMesMngSetMesPosition(int id, int x, int y)",1382,1,5470835,5470836,5470826,5470835,100669375
+itfMesMngSetSelPhase_Public_Static_Void_Int32_Int32_0,itfMesMngSetSelPhase,"public unsafe static void itfMesMngSetSelPhase(int msgid, int phase)",1032,1,5470393,5470394,5470392,5470393,100669347
+itfMesMngSetSelect_Public_Static_Void_Int32_Int32_0,itfMesMngSetSelect,"public unsafe static void itfMesMngSetSelect(int id, int selno)",1345,1,5470808,5470809,5470801,5470808,100669372
+itfMesMngSetSelectDefKey_Public_Static_Int32_Int32_Int32_Int32_0,itfMesMngSetSelectDefKey,"public unsafe static int itfMesMngSetSelectDefKey(int id, int key, int index)",1552,1,5470946,5470947,5470936,5470946,100669387
+CalcCurCtr_Private_Static_Void_instanceMes_tag_0,CalcCurCtr,public unsafe static void CalcCurCtr(instanceMes_tag pinst),1733,0,0,0,5471296,5471301,100669401
+CalcManagerProc_Private_Static_dds3ProcessFunc_t_dds3ProcessID_t_0,CalcManagerProc,public unsafe static dds3ProcessFunc_t CalcManagerProc(dds3ProcessID_t proc_id),1808,0,0,0,5471464,5471474,100669407
+ChangeFontAlpha_Internal_Static_Void__FRQ_Int32_0,ChangeFontAlpha,"public unsafe static void ChangeFontAlpha(_FRQ pfont, int alpha)",721,0,5470217,5470225,5470156,5470217,100669322
+ChangeFontColorAll_Internal_Static_Void__FRQ_Int32_0,ChangeFontColorAll,"public unsafe static void ChangeFontColorAll(_FRQ pfont, int color)",709,0,5470217,5470225,5470156,5470217,100669321
+ChangeFontPosition_Internal_Static_Void__FRQ_Int32_Int32_0,ChangeFontPosition,"public unsafe static void ChangeFontPosition(_FRQ pfont, int dist_x, int dist_y)",671,0,0,0,5470152,5470156,100669318
+ChangeZBuffer_Internal_Static_Void__FRQ_UInt32_0,ChangeZBuffer,"public unsafe static void ChangeZBuffer(_FRQ pfont, uint z)",684,0,0,0,5470152,5470156,100669319
+CountLineMessage_Private_Static_Int32__FRQ__FRQ_0,CountLineMessage,"public unsafe static int CountLineMessage(_FRQ pfont_top, _FRQ pfont)",1656,0,0,0,5471216,5471219,100669395
+DAT_STR_REF_DHNAME_Private_Static_String_Int32_0,DAT_STR_REF_DHNAME,public unsafe static string DAT_STR_REF_DHNAME(int _idx),244,0,0,0,5469662,5469666,100669285
+DAT_STR_REF_DVNAME_Private_Static_String_Int32_0,DAT_STR_REF_DVNAME,public unsafe static string DAT_STR_REF_DVNAME(int _idx),205,0,0,0,5469650,5469654,100669282
+DAT_STR_REF_ITNAME_Private_Static_String_Int32_0,DAT_STR_REF_ITNAME,public unsafe static string DAT_STR_REF_ITNAME(int _idx),231,0,0,0,5469658,5469662,100669284
+DAT_STR_REF_RCNAME_Private_Static_String_Int32_0,DAT_STR_REF_RCNAME,public unsafe static string DAT_STR_REF_RCNAME(int _idx),192,0,0,0,5469646,5469650,100669281
+DAT_STR_REF_SKNAME_Private_Static_String_Int32_0,DAT_STR_REF_SKNAME,public unsafe static string DAT_STR_REF_SKNAME(int _idx),218,0,0,0,5469654,5469658,100669283
+DrawManagerProc_Private_Static_dds3ProcessFunc_t_dds3ProcessID_t_0,DrawManagerProc,public unsafe static dds3ProcessFunc_t DrawManagerProc(dds3ProcessID_t proc_id),1822,0,0,0,5471474,5471485,100669408
+DrawSpeaker_Internal_Static_Void__FRQ_0,DrawSpeaker,public unsafe static void DrawSpeaker(_FRQ pfont),1757,0,0,0,5471347,5471364,100669403
+ExitALL_Private_Static_Void_0,ExitALL,public unsafe static void ExitALL(),1604,0,0,0,5471144,5471150,100669391
+FR_DRAW_SPD_Private_Static_Int32__FRQ_0,FR_DRAW_SPD,public unsafe static int FR_DRAW_SPD(_FRQ FRQ),256,0,0,0,5469662,5469666,100669286
+FadeInWindow_Internal_Static_Void_0,FadeInWindow,public unsafe static void FadeInWindow(),530,0,0,0,5470010,5470020,100669308
+ForceSetCurCtr_Internal_Static_Void_curctr_tag_Int16_Int16_Int16_0,ForceSetCurCtr,"public unsafe static void ForceSetCurCtr(curctr_tag pcurctr, short phase, short ctr0, short ctr1)",865,0,0,0,5470275,5470280,100669334
+GetDataBytes_Internal_Static_Il2CppStructArray_1_Byte_Il2CppStructArray_1_Byte_Int32_Int32_0,GetDataBytes,"public unsafe static Il2CppStructArray<byte> GetDataBytes(Il2CppStructArray<byte> data, int index, int len)",1848,0,0,0,5471597,5471598,100669410
+GetFRQString_Internal_Static_String__FRQ_0,GetFRQString,public unsafe static string GetFRQString(_FRQ frq),269,0,0,0,5469666,5469692,100669287
+GetLastLinkFontHandle_Public_Static__FRQ__FRQ_0,GetLastLinkFontHandle,public unsafe static _FRQ GetLastLinkFontHandle(_FRQ pfont),1630,0,0,0,5471215,5471216,100669393
+GetLastMessagePara_Internal_Static_Void__FRQ_message_tag_0,GetLastMessagePara,"public unsafe static void GetLastMessagePara(_FRQ pfont, message_tag pmessage)",1644,0,0,0,5471216,5471219,100669394
+GetMaskedIndex_Internal_Static_Int32_Int32_UInt32_0,GetMaskedIndex,"public unsafe static int GetMaskedIndex(int index, uint mask)",734,0,0,0,5470225,5470226,100669323
+GetMessagePagePtr_Internal_Static_Il2CppStructArray_1_Byte_itfMesBinMesHeader_t_Il2CppStructArray_1_Byte_Int32_0,GetMessagePagePtr,"public unsafe static Il2CppStructArray<byte> GetMessagePagePtr(itfMesBinMesHeader_t pmesheader, Il2CppStructArray<byte> data, int page)",348,0,0,0,5469719,5469721,100669293
+GetNumSelectItem_Internal_Static_Int32_Int32_UInt32_0,GetNumSelectItem,"public unsafe static int GetNumSelectItem(int allitem, uint mask)",608,0,5470105,5470107,5470080,5470105,100669314
+InitializeCurCtr_Internal_Static_Void_curctr_tag_Int32_0,InitializeCurCtr,"public unsafe static void InitializeCurCtr(curctr_tag pcurctr, int isdisp)",853,0,0,0,5470275,5470280,100669333
+InitializeMessage_Internal_Static_Void_message_tag_Int32_0,InitializeMessage,"public unsafe static void InitializeMessage(message_tag pmessage, int defaultpos)",807,0,5470274,5470275,5470254,5470274,100669329
+InitializeSelect_Internal_Static_Void_select_tag_0,InitializeSelect,public unsafe static void InitializeSelect(select_tag pselect),819,0,5470274,5470275,5470254,5470274,100669330
+InitializeSelectWindow_Internal_Static_Void__FRQ_Int32_0,InitializeSelectWindow,"public unsafe static void InitializeSelectWindow(_FRQ pFRQ, int max)",643,0,0,0,5470110,5470152,100669316
+InitializeSpeaker_Internal_Static_Void_Speaker_tag_Int32_0,InitializeSpeaker,"public unsafe static void InitializeSpeaker(Speaker_tag pspeaker, int defaultpos)",795,0,5470274,5470275,5470254,5470274,100669328
+InitializeVariable_Internal_Static_Void_variable_tag_0,InitializeVariable,public unsafe static void InitializeVariable(variable_tag pvariable),842,0,0,0,5470275,5470280,100669332
+InitializeWindow_Internal_Static_Void_window_tag_0,InitializeWindow,public unsafe static void InitializeWindow(window_tag pwindow),831,0,0,0,5470275,5470280,100669331
+IsCloseWindow_Public_Static_Boolean_Int32_0,IsCloseWindow,public unsafe static bool IsCloseWindow(int id),282,0,0,0,5469692,5469697,100669288
+OnIndexCallback_Private_Static_Void_Int32_SteamColliders_SteamCollider_Int32_0,OnIndexCallback,"public unsafe static void OnIndexCallback(int type, SteamColliders mine, SteamCollider collider, int index)",1615,0,0,0,5471150,5471215,100669392
+RaiseMessageSpeedMax_Internal_Static_Void__FRQ_0,RaiseMessageSpeedMax,public unsafe static void RaiseMessageSpeedMax(_FRQ pfont),748,0,0,0,5470226,5470230,100669324
+RaiseMessageSpeedMaxAll_Internal_Static_Void__FRQ_0,RaiseMessageSpeedMaxAll,public unsafe static void RaiseMessageSpeedMaxAll(_FRQ pfont),760,0,0,0,5470230,5470234,100669325
+ReleaseAllVariable_Internal_Static_Void_variable_tag_0,ReleaseAllVariable,public unsafe static void ReleaseAllVariable(variable_tag pvariable),891,0,0,0,5470280,5470287,100669336
+ReleaseAllWindow_Internal_Static_Void_instanceMes_tag_0,ReleaseAllWindow,public unsafe static void ReleaseAllWindow(instanceMes_tag pinst),880,0,0,0,5470280,5470287,100669335
+ResolveResourceAddress_Internal_Static_Void_Object_0,ResolveResourceAddress,public unsafe static void ResolveResourceAddress(Il2CppSystem.Object pdata),307,0,0,0,5469708,5469709,100669290
+SelectItem_Private_Static_Int32_instanceMes_tag_0,SelectItem,public unsafe static int SelectItem(instanceMes_tag pinst),1695,0,0,0,5471237,5471284,100669398
+SelectItemDefKey_Private_Static_Int32_select_tag_0,SelectItemDefKey,public unsafe static int SelectItemDefKey(select_tag psel),1721,0,0,0,5471296,5471301,100669400
+SelectItemMove_Private_Static_Void_select_tag_Int32_0,SelectItemMove,"public unsafe static void SelectItemMove(select_tag psel, int direct)",1708,0,0,0,5471284,5471296,100669399
+SelectWindowDispOff_Internal_Static_Void_instanceMes_tag_0,SelectWindowDispOff,public unsafe static void SelectWindowDispOff(instanceMes_tag pinst),483,0,0,0,5469963,5469974,100669304
+SetMessage_Internal_Static_Void_GameObject_Int32_String_0,SetMessage,"public unsafe static void SetMessage(GameObject obj, int line, string text)",554,0,0,0,5470051,5470067,100669310
+UnchainFontHandleUnit_Internal_Static__FRQ__FRQ_Int32_Int32_0,UnchainFontHandleUnit,"public unsafe static _FRQ UnchainFontHandleUnit(_FRQ pfont, int index, int lines)",656,0,0,0,5470152,5470156,100669317
+WindowDispOn_Public_Static_Void_Int32_0,WindowDispOn,public unsafe static void WindowDispOn(int MsgID),377,0,0,0,5469789,5469814,100669295
+check_aimsg_Internal_Static_Boolean_String_0,check_aimsg,public unsafe static bool check_aimsg(string tagid),1876,0,0,0,5471661,5471680,100669412
+create_bufferdata_Internal_Static__FRQ_Int32_Int32_0,create_bufferdata,"public unsafe static _FRQ create_bufferdata(int id, int var)",1279,0,0,0,5470687,5470706,100669367
+itfMesMngChangeWindowType_Public_Static_Void_Int32_Int32_Int32_0,itfMesMngChangeWindowType,"public unsafe static void itfMesMngChangeWindowType(int id, int type, int alpha)",1538,0,0,0,5470935,5470936,100669386
+itfMesMngCloseSelectWindow_Public_Static_Int32_0,itfMesMngCloseSelectWindow,public unsafe static int itfMesMngCloseSelectWindow(),1128,0,5470453,5470456,5470428,5470453,100669355
+itfMesMngCloseWindow_Public_Static_Int32_0,itfMesMngCloseWindow,public unsafe static int itfMesMngCloseWindow(),1094,0,0,0,5470416,5470428,100669352
+itfMesMngGetVarLocalize_Public_Static_String_Int32_Int32_0,itfMesMngGetVarLocalize,"public unsafe static string itfMesMngGetVarLocalize(int id, int index)",1422,0,0,0,5470849,5470853,100669378
+itfMesMngIgnoreConfig_Public_Static_Int32_0,itfMesMngIgnoreConfig,public unsafe static int itfMesMngIgnoreConfig(),1152,0,0,0,5470462,5470467,100669357
+itfMesMngMaskSelect_Public_Static_Int32_0,itfMesMngMaskSelect,public unsafe static int itfMesMngMaskSelect(),1058,0,0,0,5470397,5470411,100669349
+itfMesMngMessage_Public_Static_Int32_0,itfMesMngMessage,public unsafe static int itfMesMngMessage(),969,0,0,0,5470351,5470361,100669342
+itfMesMngOpenSelectWindow_Public_Static_Int32_0,itfMesMngOpenSelectWindow,public unsafe static int itfMesMngOpenSelectWindow(),1117,0,5470453,5470456,5470428,5470453,100669354
+itfMesMngOpenWindow_Public_Static_Int32_0,itfMesMngOpenWindow,public unsafe static int itfMesMngOpenWindow(),1082,0,0,0,5470415,5470416,100669351
+itfMesMngSelect_Public_Static_Int32_0,itfMesMngSelect,public unsafe static int itfMesMngSelect(),1007,0,0,0,5470370,5470386,100669345
+itfMesMngSelectDefKey_Public_Static_Int32_0,itfMesMngSelectDefKey,public unsafe static int itfMesMngSelectDefKey(),1224,0,0,0,5470487,5470488,100669363
+itfMesMngSetMaskSelect_Public_Static_Void_Int32_UInt32_0,itfMesMngSetMaskSelect,"public unsafe static void itfMesMngSetMaskSelect(int id, uint maskpattern)",1332,0,0,0,5470797,5470801,100669371
+itfMesMngSetMesPosDefault_Public_Static_Int32_0,itfMesMngSetMesPosDefault,public unsafe static int itfMesMngSetMesPosDefault(),1176,0,0,0,5470472,5470475,100669359
+itfMesMngSetMesPositionScript_Public_Static_Int32_0,itfMesMngSetMesPositionScript,public unsafe static int itfMesMngSetMesPositionScript(),1164,0,0,0,5470467,5470472,100669358
+itfMesMngSetResourcePtr_Public_Static_Object_Int32_Object_0,itfMesMngSetResourcePtr,"public unsafe static Il2CppSystem.Object itfMesMngSetResourcePtr(int id, Il2CppSystem.Object presource)",1493,0,0,0,5470917,5470926,100669383
+itfMesMngSetVarImmediate2_Public_Static_Void_Int32_Int32_String_Int32_0,itfMesMngSetVarImmediate2,"public unsafe static void itfMesMngSetVarImmediate2(int id, int index, string pstr, int length)",1478,0,0,0,5470909,5470917,100669382
+itfMesMngSetVarScr_Public_Static_Int32_0,itfMesMngSetVarScr,public unsafe static int itfMesMngSetVarScr(),1140,0,0,0,5470456,5470462,100669356
+itfMesMngValidateNext_Public_Static_Int32_0,itfMesMngValidateNext,public unsafe static int itfMesMngValidateNext(),1188,0,0,0,5470475,5470480,100669360
+itfMesMngWindowType_Public_Static_Int32_0,itfMesMngWindowType,public unsafe static int itfMesMngWindowType(),1200,0,0,0,5470480,5470483,100669361
+itfMesMngWindowTypeAlpha_Public_Static_Int32_0,itfMesMngWindowTypeAlpha,public unsafe static int itfMesMngWindowTypeAlpha(),1212,0,0,0,5470483,5470487,100669362
+itfMesMng_SEL_SELNO_Public_Static_Int32_0,itfMesMng_SEL_SELNO,public unsafe static int itfMesMng_SEL_SELNO(),1070,0,0,0,5470411,5470415,100669350
+itfMesPos_Public_Static_Void_Int32_Int32_0,itfMesPos,"public unsafe static void itfMesPos(int x, int y)",1358,0,0,0,5470809,5470823,100669373
+itfMesPosDefault_Public_Static_Void_0,itfMesPosDefault,public unsafe static void itfMesPosDefault(),1371,0,0,0,5470823,5470826,100669374
