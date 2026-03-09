@@ -10,7 +10,7 @@ C:\Users\<user>\Documents\SMT3HD_Reimagined\dumps
 ```
 
 ```
-C:\Users\user\Documents\SMT3HD_Reimagined\logs\reimagined
+C:\Users\<user>\Documents\SMT3HD_Reimagined\logs\reimagined
 ```
 
 
