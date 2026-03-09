@@ -8,26 +8,10 @@ namespace SMT3HD_Reimagined
 {
     public sealed partial class ReimaginedMod
     {
-        /// <summary>
-        /// Field interaction suppression that matches the spirit of vanilla menus:
-        /// when a menu overlay is active, the world remains rendered but "confirm/interact"
-        /// should not trigger NPC talk, terminals, doors, etc.
-        ///
-        /// Key design choice:
-        /// - Avoid IL2CPP detours here; they are easy to get subtly wrong and create false confidence.
-        /// - Prefer reversible state changes that we can explicitly own + restore.
-        ///
-        /// Current approach (vA30):
-        /// - DO NOT call fldEveHit_End. It appears to tear down registrations that do not reliably
-        ///   return until a field reload.
-        /// - Instead, do a reversible "soft-freeze" of EveHit evaluation while the overlay is active:
-        ///   snapshot a small set of fldEveHit static state (indices + counts), then override them
-        ///   to values that should make EveHit think there are no active ranges/hits.
-        ///
-        /// This is owned only while BOTH:
-        /// - debug-menu capture is enabled, AND
-        /// - the debug menu is (stably) visible OR we're in the short "opening" grace window.
-        /// </summary>
+        // Field interaction suppression that matches the spirit of vanilla menus:
+        // when a menu overlay is active, the world remains rendered but "confirm/interact"
+        // should not trigger NPC talk, terminals, doors, etc.
+
         private static class FieldInteractionSuppression
         {
             private static bool s_eveHitFreezeOwned;
@@ -51,9 +35,9 @@ namespace SMT3HD_Reimagined
             // If something transient fails (e.g., during load), retry slowly instead of spamming.
             private const int RetryFrames = 30;
 
-            /// <summary>
-            /// Historical name: this is a per-frame pump called from ReimaginedMod.OnUpdate.
-            /// </summary>
+            // 
+            // Historical name: this is a per-frame pump called from ReimaginedMod.OnUpdate.
+            // 
             internal static void TryInstall()
             {
                 bool want = false;
@@ -88,11 +72,11 @@ namespace SMT3HD_Reimagined
                 }
             }
 
-            /// <summary>
-            /// Snapshot a few fldEveHit static ints, then override them to values that should
-            /// remove the current "hit" and prevent new ones from being evaluated while the menu
-            /// overlay is active.
-            /// </summary>
+            //
+            // Snapshot a few fldEveHit static ints, then override them to values that should
+            // remove the current "hit" and prevent new ones from being evaluated while the menu
+            // overlay is active.
+            //
             private static bool TryFreezeEveHit(out string diag)
             {
                 diag = "";

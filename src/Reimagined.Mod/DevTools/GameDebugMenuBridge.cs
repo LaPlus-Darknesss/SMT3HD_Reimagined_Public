@@ -17,16 +17,12 @@ namespace SMT3HD_Reimagined
                     private static object? s_reimaginedSubList;
                     private static bool s_stockPatched;
 
-                    // Debug-menu assist toggles (kept extremely conservative).
-                    // We avoid relying on cmpDbgList_s.func being called every frame; instead we toggle small
-                    // watchers here, and poll them from ReimaginedMod.OnUpdate.
+                    // Debug-menu assist toggles 
                     private static bool s_padProbeEnabled;
                     private static ushort s_padProbeLastData0 = 0xFFFF;
                     private static int s_padProbeLastFrame = -100000;
 
-                    // Additional input diagnostics / mitigation (vA13):
-                    //  - Padmap trace: log TRIG2/PRESS2 padmaps when keys are pressed (helps map which internal padmap "Space" maps to).
-                    //  - Mes OK remap: temporarily remap itfMesManager.OK (and optionally CANCEL) while capture is active to suppress certain field actions.
+                    // Additional input diagnostics / mitigation
                     private static bool s_padmapTraceEnabled;
                     private static bool s_mesOkRemapEnabled;
                     private static bool s_mesOkRemapArmed;
@@ -34,18 +30,12 @@ namespace SMT3HD_Reimagined
                     private static object? s_mesCancelSaved;
 
 
-                    // Optional command-menu style pad disable (vA14):
-                    // When enabled, we call fldCommand_PAD_DISABLE while the debug menu is visible and capture is active.
-                    // This is meant to mirror how the vanilla Command Menu prevents field interaction (NPC talk/confirm)
-                    // without freezing simulation, and should help eliminate non-movement bleed-through like Space.
+                    // Optional command-menu style pad disable 
                     private static bool s_cmdPadDisableEnabled = true;
                     private static bool s_cmdPadDisableOwned;
 
 
-                    // Optional: hard gate for itfMesManager OK processing (vA15):
-                    // When enabled (and capture+FieldUnitPadRelease is active), we call itfMesManager.SwitchOK(false)
-                    // while the debug menu is visible. This is a "belt and suspenders" layer intended to stop confirm/advance
-                    // (Space / mouse / shift variants) from leaking into NPC dialogs while we keep debug-menu navigation working.
+                    // Optional: hard gate for itfMesManager OK processing 
                     private static bool s_mesOkSwitchEnabled = true;
                     private static bool s_mesOkSwitchOwned;
 
@@ -73,14 +63,6 @@ namespace SMT3HD_Reimagined
                     // When using FieldUnitPadRelease strategy, also engage fldPlayerEventStop for stronger suppression (blocks NPC talk/selection).
                     // This is enabled by default; toggle with Ctrl+Alt+F7 if it interferes with debug-menu navigation.
                     private static bool s_unitPadAlsoEngageFieldPlayerStop = true;
-
-                    // Hard-block field interactions (NPC talk, cache cubes, doors, etc.) while the game debug menu is open
-                    // and our input-capture is enabled.
-                    //
-                    // Implementation: a *soft-freeze* of fldEveHit's active-range state while the menu is open.
-                    // We snapshot (gEvnRngNum, gEvnRngIdx, gEvnHitNum, etc.), force a benign "no active hit range"
-                    // state during the menu, then restore on close. This matches the desired vanilla behavior:
-                    // the world stays rendered/running, but interactables stop reacting and the camera doesn't snap.
                     private static bool s_eveHitHardBlockEnabled = true;
 
                     // Immediate gating window: when toggling the debug menu on, we request a short hard-block
@@ -248,10 +230,6 @@ private static int s_fieldPlayerScrubLastApplyFrame = -1;
                         }
                     }
 
-                    /// <summary>
-                    /// "Is the debug menu actually visible/latched on-screen?"  cmpDbgPID/cmpChkDbgProcess are not always
-                    /// reliable signals for what is being drawn, so we also consult the classic cmpTest flags.
-                    /// </summary>
                     private static bool IsDebugMenuLikelyVisible(Type cmpTest, out string diag)
                     {
                         diag = "";
@@ -318,7 +296,6 @@ private static int s_fieldPlayerScrubLastApplyFrame = -1;
                         status = "unknown";
                         try
                         {
-                            // IMPORTANT: cmpDbgPID / cmpChkDbgProcess are not always reliable for what remains drawn.
                             // The debug menu is effectively latched by classic cmpTest flags.  If we don't clear those,
                             // the menu can remain on-screen even when the process signals say "closed", and opening again
                             // layers another instance.
@@ -455,8 +432,8 @@ private static int s_fieldPlayerScrubLastApplyFrame = -1;
                         }
 
                         // Toggle behavior:
-        // - If the debug process is active, attempt to close it (so F1 can act as a proper toggle).
-        // - Otherwise, inject (once) and start it.
+						// - If the debug process is active, attempt to close it (so F1 can act as a proper toggle).
+						// - Otherwise, inject (once) and start it.
                         bool isActive = IsDebugMenuLikelyVisible(cmpTest, out _);
 
         if (isActive)
@@ -1015,7 +992,6 @@ public static void HotkeyToggleMesOkSwitch()
                     private static void ReleaseMesOkRemap(string reason)
                     {
                         // Back-compat: previous passes used ReleaseMesOkRemap for cleanup.
-                        // In this pass, the remap is managed by TryApplyMesOk/TryRestoreMesOk.
                         TryRestoreMesOk(reason);
                     }
 
@@ -1786,7 +1762,7 @@ public static void HotkeyToggleMesOkSwitch()
                             MelonLogger.Msg($"[Reimagined] inputBlockResetAxes={(s_blockInputResetAxes ? "ON" : "OFF")}");
                             MelonLogger.Msg($"[Reimagined] sdfPadData[0]={(haveD0 ? $"0x{d0:X4}" : "?")}  sdfPadDataLast[0]={(haveDL0 ? $"0x{dl0:X4}" : "?")}");
                             MelonLogger.Msg($"[Reimagined] unity: anyKey={Input.anyKey} anyKeyDown={Input.anyKeyDown} mouseBtn0={Input.GetMouseButton(0)} mouseBtn1={Input.GetMouseButton(1)}");
-                            // vA13: one-shot padmap summary + MesOK mapping to correlate keyboard keys (e.g. SPACE) to internal padmaps.
+                            // one-shot padmap summary + MesOK mapping to correlate keyboard keys (e.g. SPACE) to internal padmaps.
                             DumpCampProbeSnapshot(reason);
                             AppendUiFocusSnapshotLines(s => MelonLogger.Msg(s));
                             TryDumpPadmapStatesOnce("[Snapshot]");
@@ -1904,7 +1880,7 @@ public static void PumpMenuPause()
                     {
                         try
                         {
-                            // vA31: optional trace of sequence-mode transitions (vanilla menu routing).
+                            // optional trace of sequence-mode transitions (vanilla menu routing).
                             PumpSequenceTrace();
 
                         if (s_immediateHardBlockFrames > 0)
@@ -1914,7 +1890,7 @@ public static void PumpMenuPause()
                                 s_immediateHardBlockReason = null;
                         }
 
-// Two independent probes:
+							// Two independent probes:
                             //  (1) Scene GameObject probe for actual UI presence (good for "is the menu drawn?").
                             //  (2) cmpTest process probe for "is the debug menu process alive?" (good for transitions/diagnostics).
                             var cmpTest = FindTypeInLoadedAssemblies("Il2Cpp.cmpTest");
@@ -1988,7 +1964,7 @@ public static void PumpMenuPause()
 
                             if (stable)
                             {
-                                // vA15: best-effort hard gate for itfMesManager OK processing while debug menu is visible.
+                                // best-effort hard gate for itfMesManager OK processing while debug menu is visible.
                                 PumpMesOkSwitch(menuVisibleStable: stable);
 
                                 if (s_pauseCaptureStrategy == PauseCaptureStrategy.KernelPause)
@@ -2156,7 +2132,7 @@ public static void PumpMenuPause()
                                 // ignore
                             }
 
-                            // Then try Atlus pad bitmask (best for controller + for mapping how menus consume input).
+                            // Then try Atlus pad bitmask 
                             if (!TryGetSdfPadU16("sdfPadData", 0, out ushort v0))
                                 return;
 
@@ -2544,7 +2520,7 @@ private static void ReleaseCmdPadDisable(string reason)
                 if (fldPlayer == null)
                     return;
 
-                // IMPORTANT: In SMT3HD, the wrapper signature is:
+                // In SMT3HD, the wrapper signature is:
                 //     public static void fldPlayerEventStop(bool sw = false)
                 // The default is sw=false, which strongly suggests "false engages stop" at most callsites.
                 // We treat s_fieldStopStopArg as the value to pass when ENGAGING the stop (default false),
@@ -2625,11 +2601,9 @@ private static void ReleaseCmdPadDisable(string reason)
                 s_fieldStopLastApplyFrame = -1;
             }
         }
-        /// <summary>
-        /// Extra "belt and suspenders": while the debug menu is visibly open AND we're using the FieldPlayerStop strategy,
-        /// we also aggressively zero the field-player input direction/counter each tick. This is intentionally narrow:
-        /// it should prevent movement/camera drift even if fldPlayerEventStop ends up being a no-op in some states.
-        /// </summary>
+        // Extra "belt and suspenders": while the debug menu is visibly open AND we're using the FieldPlayerStop strategy,
+        // we also aggressively zero the field-player input direction/counter each tick. This is intentionally narrow:
+        // it should prevent movement/camera drift even if fldPlayerEventStop ends up being a no-op in some states.
         private static void ApplyFieldInputSuppressionTick()
         {
             try
@@ -2763,7 +2737,7 @@ private static void EnsureFieldPlayerInputScrubSilent()
                     }
 
 
-        // vA34: kernel UI probes - these members are not ints on SMT3HD (UIDispGuide is Vector3, UIDispBackActive is a bool array).
+        // kernel UI probes - these members are not ints on SMT3HD (UIDispGuide is Vector3, UIDispBackActive is a bool array).
         private static bool TryReadVector3Static(Type t, string name, out Vector3 value)
         {
             value = default;
@@ -3082,8 +3056,8 @@ private static void EnsureFieldPlayerInputScrubSilent()
                         for (int i = 0; i < helpLines.Length; i++)
                             SetIl2CppRefArrayItem(helpList, i, MakeText(helpLines[i]));
 
-                        // Tools list (safe toggles + probes)
-                        // NOTE: we intentionally keep these self-contained and read-only where possible.
+                        // Tools list 
+                        // we intentionally keep these self-contained and read-only where possible.
                         const int TOOLS_COUNT = 7;
                         var toolsList = CreateIl2CppRefArray(listEntryType, TOOLS_COUNT);
                         int ti = 0;

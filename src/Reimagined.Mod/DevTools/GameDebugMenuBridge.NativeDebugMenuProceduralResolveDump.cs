@@ -9,14 +9,11 @@ namespace SMT3HD_Reimagined
     {
         private static partial class GameDebugMenuBridge
         {
-            /// <summary>
-            /// Best-effort resolver for the built-in (native) debug menu's "procedural" pages (ITEM/SKILL),
-            /// where the cursor list is not backed by a visible cmpDbgList_s[] array.
-            ///
-            /// Goal: when the cursor is sitting on a large list (e.g. listNums=160 with shiftMax=16),
-            /// resolve the currently-highlighted row into an actual data name using datItemName/datSkillName
-            /// via reflection (no compile-time Il2Cpp namespace dependency).
-            /// </summary>
+            // 
+            // Best-effort resolver for the built-in (native) debug menu's "procedural" pages (ITEM/SKILL),
+            // where the cursor list is not backed by a visible cmpDbgList_s[] array.
+           
+ 
             private static void DumpNativeDebugMenuProceduralResolution(Type cmpTest, TextWriter w)
             {
                 w.WriteLine("--- Procedural List Resolution (best-effort) ---");
@@ -59,7 +56,7 @@ namespace SMT3HD_Reimagined
                     return;
                 }
 
-                // Pass_B2: capture a compact snapshot up-front, so dumps are greppable.
+                //  capture a compact snapshot up-front, so dumps are greppable.
                 if (TryCaptureNativeDebugMenuSelectionSnapshot(cmpTest, out var snap))
                 {
                     WriteNativeDebugMenuSelectionSnapshot(w, snap);
@@ -146,17 +143,8 @@ namespace SMT3HD_Reimagined
 
                 
                 // -------------------------------------------------------------
-                // Pass_B1: SKILL "select a demon" page is a small procedural list.
+                //  SKILL "select a demon" page is a small procedural list.
                 //
-                // In your Pass95 demon-select dumps:
-                // - active cursor listNums=9, shiftMax=9
-                // - highlight moves via CursorPos.Shift (Index stays 0)
-                // - there is no cmpDbgList_s[] backing this list (resolvedWord is empty)
-                //
-                // So instead of trying to resolve by listName, we resolve by *global work*:
-                //   slot 0  -> unitwork[0] (protagonist; often shown as "------" in the native debug menu)
-                //   slot 1+ -> stocklist[slot-1] -> unitwork index -> unit id -> datDevilName
-                // -------------------------------------------------------------
                 bool didSkillDemonMap = false;
                 if (ShouldDumpSkillDemonSelection(rootWord, activeListNums, activeShiftMax))
                 {
@@ -229,9 +217,6 @@ namespace SMT3HD_Reimagined
             
             private static bool ShouldDumpSkillDemonSelection(string? rootWord, int listNums, int shiftMax)
             {
-                // The native debug menu's "select a demon" list is usually a fixed 9-row list:
-                //   [0] protagonist + [1..8] demon slots.
-                // On some builds, ShiftMax may report 0 even when ListNums is 9, so we allow both.
                 if (listNums != 9)
                     return false;
 
@@ -244,7 +229,7 @@ namespace SMT3HD_Reimagined
                     if (rootWord.IndexOf("skill", StringComparison.OrdinalIgnoreCase) >= 0)
                         return true;
 
-                    // Some builds localize this; if we're not sure, still allow because listNums=9 is rare.
+                   
                 }
 
                 return true;
@@ -486,10 +471,10 @@ private enum ProcMode
                 w.WriteLine($"  id={id,-6}  name=\"{name}\"");
             }
 
-            /// <summary>
-            /// datItemName/datSkillName keep a static 'txt' that behaves like an array/list.
-            /// We read it via reflection purely for a sanity-print (len), never as a hard requirement.
-            /// </summary>
+            // 
+            // datItemName/datSkillName keep a static 'txt' that behaves like an array/list.
+            // We read it via reflection purely for a sanity-print (len), never as a hard requirement.
+            // 
             private static int TryGetIl2CppTxtLength(string fullNameA, string fullNameB)
             {
                 try

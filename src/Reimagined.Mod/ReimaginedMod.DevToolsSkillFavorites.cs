@@ -7,7 +7,7 @@ namespace SMT3HD_Reimagined
     public sealed partial class ReimaginedMod
     {
         // =========================================================
-        // Pass_B11: Skill favorites (hotkey wrappers)
+        // Skill favorites 
         // =========================================================
         // Tiny wrappers that:
         //  - cycle a small curated list of skill IDs

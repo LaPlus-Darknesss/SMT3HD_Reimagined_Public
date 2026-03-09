@@ -25,7 +25,7 @@ namespace SMT3HD_Reimagined
 {
     public sealed partial class ReimaginedMod : MelonMod
     {
-        // ---- Project paths (outside Steam folder) ----
+        // ---- Project Path ----
         private static readonly string ProjectRoot =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SMT3HD_Reimagined");
 
@@ -38,10 +38,8 @@ namespace SMT3HD_Reimagined
 
         private static string MakeDumpPath(string stem, string ext = "txt")
         {
-            // Centralized dump path helper so new dumpers don't re-implement timestamp formatting differently.
-            // Always writes to ProjectRoot/dumps and ensures the directory exists.
-            //
-            // IMPORTANT: use millisecond precision + a monotonic nonce so rapid hotkey presses never overwrite dumps.
+          
+            // use millisecond precision + a monotonic nonce so rapid hotkey presses never overwrite dumps.
             Directory.CreateDirectory(DumpsDir);
 
             int nonce = Interlocked.Increment(ref s_dumpNonce);
@@ -61,7 +59,7 @@ namespace SMT3HD_Reimagined
 #pragma warning disable CS0169, CS0414
         private float _overlayScale = 1.0f;
 
-        // IMGUI overlay state (bootstrap UI; later we can migrate to UGUI per docs/OverlaySpec)
+        // IMGUI overlay state (bootstrap UI; later we can migrate to UGUI)
         private Rect _overlayRect = new Rect(16, 16, 720, 560);
         private int _overlayTab = 0;
         private Vector2 _scrollStatus;
@@ -331,8 +329,8 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
                 if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
                     _lastShiftHeldUnscaled = Time.unscaledTime;
 
-                // Failsafe: if we accidentally "nuke" Unity input via ResetInputAxes, we still want
-                // a way to recover without rebooting the game. This hotkey is separate from snapshots.
+                // Failsafe: if we accidentally nuke Unity input via ResetInputAxes, we still want
+                // a way to recover without rebooting the game.
                 bool _ctrlHeldNow = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
                 bool _shiftHeldNow = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
                 if (_ctrlHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.F2))
@@ -342,9 +340,8 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
                     return;
                 }
 
-                // Skill editor primitive (safe, incremental): apply currently highlighted replacement candidate
+                // Skill editor primitive, apply currently highlighted replacement candidate
                 // to the currently selected skill slot (native debug menu SKILL flow), and allow a single-step undo.
-                // We intentionally use Ctrl+Alt+Shift + a letter key to avoid colliding with existing Ctrl+Alt+Fn binds.
                 bool _altHeldNow = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
                 if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.K))
                 {
@@ -366,8 +363,8 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
                     return;
                 }
 
-                // Skill favorites (Pass_B11): cycle + apply without entering the native ReplacementPick flow.
-                // These still require you to be inside the native debug menu SKILL list with a valid slot.
+                // Skill favorites: cycle + apply without entering the native ReplacementPick flow.
+                // Requires being inside the native debug menu SKILL list with a valid slot.
                 if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.H))
                 {
                     MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+H (skill favorite prev)");
@@ -394,8 +391,7 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
                     return;
                 }
 
-                // Field warp / map tools (Pass_B14): map/warp identity + table dump, and a safe warp primitive.
-                // We keep this incremental: first we build rich dumpers so mapping is cheap, then we layer UX.
+                // Field warp / map tools: map/warp identity + table dump
                 //
                 // Hotkeys:
                 //   Ctrl+Alt+Shift+F9 : dump field warp table + current field context
@@ -404,11 +400,6 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
                 //   Ctrl+Alt+Shift+[  : warp favorite prev (also LeftArrow)
                 //   Ctrl+Alt+Shift+]  : warp favorite next (also RightArrow)
                 //   Ctrl+Alt+Shift+F8 : warp to current favorite (double-tap confirm)
-                // Legacy aliases kept for muscle memory / keyboard layouts:
-                //   Ctrl+Alt+Shift+O  : reload warp favorites file
-                //   Ctrl+Alt+Shift+B  : warp favorite prev
-                //   Ctrl+Alt+Shift+N  : warp favorite next
-                //   Ctrl+Alt+Shift+M  : warp to current favorite (double-tap confirm)
                 if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.F9))
                 {
                     MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+F9 (dump field warp table + map context)");
@@ -598,9 +589,7 @@ if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.F8)
                     }
 
 
-                    // Default: open the game-native debug menu surface (cmpTest) so we can stop fighting overlay quirks.
-                    // Shift+F1 toggles the legacy overlay (fallback). We allow a small timing window so "Shift then F1"
-                    // and "F1 then Shift" within a short interval still counts as Shift+F1.
+                    // Default: open the game-native debug menu surface (cmpTest)
                     bool ctrlHeldNow = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 
                     if (ctrlHeldNow)
@@ -648,7 +637,7 @@ if (_ctrlHeldNow && _altHeldNow && _shiftHeldNow && Input.GetKeyDown(KeyCode.F8)
     bool ctrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
-    // Ctrl+Alt+F2: flip fldPlayerEventStop polarity (FieldPlayerStop strategy debugging)
+    // Ctrl+Alt+F2: flip fldPlayerEventStop polarity 
     if (ctrlHeld && altHeld)
     {
         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+F2 (toggle field-stop polarity)");
@@ -682,7 +671,7 @@ if (Input.GetKeyDown(KeyCode.F4))
                     bool ctrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
                     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
-                    // Ctrl+Alt+F5: toggle command-menu style PAD_DISABLE helper (vA14).
+                    // Ctrl+Alt+F5: toggle command-menu style PAD_DISABLE helper 
                     if (ctrlHeld && altHeld)
                     {
                         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+F5 (toggle Cmd PAD_DISABLE)");
@@ -698,7 +687,7 @@ if (Input.GetKeyDown(KeyCode.F4))
     bool ctrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
-    // Ctrl+Alt+F8: toggle fldPlayer input-scrub overlay for FieldUnitPadRelease strategy (vA20).
+    // Ctrl+Alt+F8: toggle fldPlayer input-scrub overlay for FieldUnitPadRelease strategy
     if (ctrlHeld && altHeld)
     {
         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+F8 (toggle fldPlayer input-scrub overlay for FieldUnitPadRelease)");
@@ -715,7 +704,7 @@ if (Input.GetKeyDown(KeyCode.F4))
                     bool ctrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
                     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
-                    // Ctrl+Alt+F6: toggle hard MesOK SwitchOK gate (vA15).
+                    // Ctrl+Alt+F6: toggle hard MesOK SwitchOK gate 
                     if (ctrlHeld && altHeld)
                     {
                         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+F6 (toggle MesOK SwitchOK gate)");
@@ -731,7 +720,7 @@ if (Input.GetKeyDown(KeyCode.F4))
                     bool ctrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
                     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
-                    // Ctrl+Alt+F7: toggle FieldPlayerStop overlay for FieldUnitPadRelease strategy (vA18).
+                    // Ctrl+Alt+F7: toggle FieldPlayerStop overlay for FieldUnitPadRelease strategy 
                     if (ctrlHeld && altHeld)
                     {
                         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+F7 (toggle FieldPlayerStop overlay for FieldUnitPadRelease)");
@@ -759,7 +748,7 @@ if (Input.GetKeyDown(KeyCode.F10))
                     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
                     bool shiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-                    // Ctrl+Alt+Shift+F10: dump the current Shift+F1 HUD contents (compact, shareable text).
+                    // Ctrl+Alt+Shift+F10: dump the current Shift+F1 HUD contents 
                     if (ctrlHeld && altHeld && shiftHeld)
                     {
                         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+Shift+F10 (dump DevTools HUD text)");
@@ -794,8 +783,8 @@ if (Input.GetKeyDown(KeyCode.F10))
                         return;
                     }
 
-                    // Ctrl+Alt+F11: dump camp/command-menu reflection surface (vanilla RE helper).
-                    // Do this while the vanilla command menu is OPEN to discover the real member names for menu lists, cursor objects, etc.
+                    // Ctrl+Alt+F11: dump camp/command-menu reflection surface 
+                    // Use while command menu is open
                     if (ctrlHeld && altHeld)
                     {
                         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+F11 (dump camp/command-menu reflection surface)");
@@ -808,9 +797,9 @@ if (Input.GetKeyDown(KeyCode.F10))
 
                 if (Input.GetKeyDown(KeyCode.F12))
                 {
-                    // Keep plain F12 as the existing controller-state dump.
-                    // Use Ctrl+Alt+F12 for a lightweight camp selection summary dump.
-                    // Use Ctrl+Alt+Shift+F12 for a targeted UnitWork surface dump of the highlighted selection.
+                    // F12 as the existing controller-state dump.
+                    // Ctrl+Alt+F12 is lightweight camp selection summary dump.
+                    // Ctrl+Alt+Shift+F12 is for a targeted UnitWork surface dump of the highlighted selection.
                     bool ctrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
                     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
                     bool shiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
@@ -836,7 +825,7 @@ if (Input.GetKeyDown(KeyCode.F10))
                     bool ctrlHeld = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
                     bool altHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
-                    // Ctrl+Alt+F3: toggle Mes OK/CANCEL remap while debug-menu capture is active (experimental).
+                    // Ctrl+Alt+F3: toggle Mes OK/CANCEL remap while debug-menu capture is active
                     if (ctrlHeld && altHeld)
                     {
                         MelonLogger.Msg("[Reimagined] Hotkey: Ctrl+Alt+F3 (toggle itfMesManager.OK remap while debug-menu capture is active)");
@@ -898,7 +887,7 @@ if (Input.GetKeyDown(KeyCode.F10))
                     OverlayLog("warn", $"overlay_open_failed: {err}");
                     Toast("Overlay failed to open (see log)", ToastKind.Error);
 
-                    // Ensure we don't leave cursor/timescale in a weird state.
+                    // Ensure we don't leave cursor/timescale in a broken state.
                     ClearPauseBestEffort();
                     ClearCursorForOverlayBestEffort();
                     return;
@@ -929,7 +918,7 @@ if (Input.GetKeyDown(KeyCode.F10))
             }
 
             // HUD overlay is read-only and does not require cursor capture.
-            // Only restore cursor state when closing (if we had captured it in an older build / other code path).
+            // Only restore cursor state when closing
             if (!_overlayOpen)
                 ClearCursorForOverlayBestEffort();
         }
@@ -950,7 +939,6 @@ if (Input.GetKeyDown(KeyCode.F10))
                 {
                     MelonLogger.Warning($"[Reimagined] Game debug menu: {status}");
                     LogJson("warn", "devmenu_open_failed", new Dictionary<string, object?> { ["status"] = status });
-                    // No UI toast here: if the menu system is broken we don't want to depend on the overlay.
                 }
             }
             catch (Exception ex)
@@ -958,21 +946,11 @@ if (Input.GetKeyDown(KeyCode.F10))
                 MelonLogger.Warning($"[Reimagined] Game debug menu open failed: {ex.GetType().Name}: {ex.Message}");
             }
         }
-
-        /// <summary>
-        /// Bridge into the game's existing debug menu (cmpTest) so Reimagined can present a menu that behaves
-        /// like native UI (font, focus, input routing), instead of fighting a custom overlay.
-        ///
-        /// Pass A6: keep this intentionally minimal and low-risk:
-        /// - Inject a single root entry "Reimagined" that opens a static submenu with guidance.
-        /// - We do NOT try to create custom Il2Cpp delegates yet (action items remain hotkey-driven).
-        /// - We log everything and fail closed.
-        /// </summary>
         
         // (moved) GameDebugMenuBridge lives in DevTools/GameDebugMenuBridge.cs
 
 
-                // --------------------------
+        // --------------------------
         // Overlay (UGUI bootstrap)
         // --------------------------
 
@@ -993,7 +971,7 @@ if (Input.GetKeyDown(KeyCode.F10))
             }
             catch
             {
-                // Never let the overlay crash the mod.
+                // Never let the overlay crash
             }
         }
 
@@ -1170,7 +1148,7 @@ if (Input.GetKeyDown(KeyCode.F10))
                     }
                 }
 
-                // Fallback: System.Type overload (useful if running in a Mono/Editor-like environment).
+                // Fallback: System.Type overload 
                 if (s_goAddComponent_SystemType == null)
                 {
                     s_goAddComponent_SystemType = typeof(GameObject)
@@ -1445,7 +1423,7 @@ if (Input.GetKeyDown(KeyCode.F10))
         
         private static void ResetInputAxesBestEffort()
         {
-            // Some Unity builds (or trimmed bindings) do not expose Input.ResetInputAxes().
+            // Some Unity builds do not expose Input.ResetInputAxes().
             // Use reflection so we can compile against reduced Unity stubs safely.
             try
             {
@@ -1514,21 +1492,12 @@ if (Input.GetKeyDown(KeyCode.F10))
             _uguiOverlay?.Tick();
         }
 
-        // --------------------------
-        // Overlay (UGUI bootstrap)
-        // --------------------------
         
         // --------------------------
         // Overlay (UGUI HUD)
         // --------------------------
         private sealed class DevToolsOverlayUGUI
         {
-            // This overlay was intentionally redesigned as a small, read-only HUD:
-            // - No pause / timeScale changes by default.
-            // - No input capture by default.
-            // - No EventSystem / GraphicRaycaster (we're not clicking anything).
-            // This keeps it usable while navigating menus, and keeps the code surface small.
-
             private readonly ReimaginedMod _m;
 
             private GameObject _root;
@@ -1541,7 +1510,7 @@ if (Input.GetKeyDown(KeyCode.F10))
             private DateTime _nextRefresh = DateTime.MinValue;
 	            private string _lastText = "";
 
-            // Legacy helper (used by button helpers below; we keep it so the file compiles even if buttons are unused).
+            // Legacy helper
             private static bool s_warnedUnityActionNotManagedDelegate;
 
             public DevToolsOverlayUGUI(ReimaginedMod m)
@@ -1572,7 +1541,7 @@ if (Input.GetKeyDown(KeyCode.F10))
                     // NOTE: Intentionally no GraphicRaycaster / EventSystem.
                     // This HUD is read-only; removing the input system avoids messing with the game's UI.
 
-	                    // Slightly taller/wider HUD panel so the recent log and skill block fit comfortably.
+	                    // Height/Width for HUD panel 
 	                    _panel = CreatePanel(_root.transform, new Vector2(16, -16), new Vector2(700, 470));
 
 	                    _titleText = CreateText(_panel.transform, "Title", new Vector2(10, -8), new Vector2(680, 24), 18, FontStyle.Bold);
@@ -1757,7 +1726,7 @@ private string GetToastText()
 
                 try
                 {
-                    // NOTE: In some SMT3HD UnityDependencies bindings, `new UnityAction(...)` can throw at runtime
+                    // NOTE: In some UnityDependencies bindings, `new UnityAction(...)` can throw at runtime
                     // (MissingMethodException on UnityAction..ctor). `Delegate.CreateDelegate` is more resilient.
                     var ua = (UnityAction)Delegate.CreateDelegate(typeof(UnityAction), click.Target, click.Method);
                     btn.onClick.AddListener(ua);
@@ -1938,7 +1907,7 @@ private static Button CreateButtonWithLabel(Transform parent, string name, strin
 
         private string BuildDevToolsHudText(bool dumpMode)
         {
-            // Compact mode: readable in-game. Dump mode: richer, for sharing + offline analysis.
+            // Compact mode: readable in-game. Dump mode: richer for analysis.
             var sb = new StringBuilder(dumpMode ? 4096 : 1400);
 
             string San(string? s)
@@ -1962,7 +1931,7 @@ private static Button CreateButtonWithLabel(Transform parent, string name, strin
             }
 
             // NOTE: Some Il2Cpp/Unity reference assemblies used by MelonLoader stubs omit Time.frameCount.
-            // We avoid referencing it at compile-time and instead display unscaled time (stable and always available).
+            // We avoid referencing it at compile-time and instead display unscaled time
             sb.AppendLine($"UnscaledTime: {Time.unscaledTime:0.###}   TimeScale: {UnityEngine.Time.timeScale:0.###}");
             sb.AppendLine($"Overlay settings: pauseOnOpen={_pauseWhenOpen}  captureInputs={_captureInputsWhenOpen}  terminalInvokes={_allowTerminalInvokes}");
             sb.AppendLine($"Last dump: {(_lastDumpPath ?? "<none>")}");
@@ -2143,8 +2112,7 @@ void DumpDevToolsHudText()
                     ["prev_timescale"] = _prevTimeScale
                 });
 
-                // Optional: try to pause audio via reflection (do not hard-reference type).
-                // If it fails, it fails quietly; we’ll refine later once we find the game’s pause manager.
+                // Optional: try to pause audio via reflection 
                 TrySetAudioListenerPause(true);
             }
             catch (Exception ex)
@@ -2209,12 +2177,12 @@ void DumpDevToolsHudText()
             }
             catch
             {
-                // Silent by design. Audio pausing is not a P0 requirement.
+                
             }
         }
 
         // --------------------------
-        // Dumps (P0 core value)
+        // Dumps 
         // --------------------------
 
         private void DumpCapabilities()
@@ -2351,7 +2319,7 @@ void DumpDevToolsHudText()
                 var roots = CollectRootObjectsBySceneScan(scene, w, 128);
 
                 // We intentionally avoid relying on GameObject.GetComponents(Type) here because in IL2CPP
-                // some bindings vary (System.Type vs Il2CppSystem.Type) and it’s easy to end up with “0 hits”.
+                // some bindings vary (System.Type vs Il2CppSystem.Type) and it's easy to end up with '0 hits'.
                 // Instead we scan the *hierarchy names/paths* which we already know are stable and informative.
                 int maxNodes = 12000;
                 int nodeCount = 0;
@@ -2404,7 +2372,7 @@ void DumpDevToolsHudText()
                     }
                 }
 
-                // Derived “state” hints that we can trust even without components.
+                // Derived 'state' hints that we can trust even without components.
                 bool pauseMenuActive = snap.TryGetValue("Canvas_UI/campUIBase/campUI", out var camp) && camp.ActiveHier;
                 bool buttonGuideActive = snap.TryGetValue("Canvas_UI/buttonguide01/guide", out var guide) && guide.ActiveHier;
                 bool fieldLocationVisible = snap.TryGetValue("Canvas_UI/fieldUI/flocation", out var floc) && floc.ActiveHier;
@@ -2628,7 +2596,7 @@ if (!string.Equals(_lastUiSnapshotSig, sig, StringComparison.Ordinal))
                 var becameActive = new List<string>();
                 var becameInactive = new List<string>();
 
-                // Compare union of keys (some nodes may appear/disappear).
+                // Compare union of keys 
                 var keys = new HashSet<string>(prev.Keys, StringComparer.Ordinal);
                 keys.UnionWith(snap.Keys);
 
@@ -2837,8 +2805,7 @@ if (!string.Equals(_lastUiSnapshotSig, sig, StringComparison.Ordinal))
 
             foreach (var mi in methods)
             {
-                // Some IL2CPP bridge methods have signatures that throw when reflected (generic constraint issues).
-                // Keep this dump best-effort and never abort the whole file.
+                // Some IL2CPP bridge methods have signatures that throw when reflected.
                 w.WriteLine(FormatMethodSig(mi));
             }
 
@@ -2915,7 +2882,7 @@ if (!string.Equals(_lastUiSnapshotSig, sig, StringComparison.Ordinal))
                 w.WriteLine($"nodes_scanned={nodeCount} (cap {maxNodes})");
                 w.WriteLine();
 
-                // Anchors: prefer Canvas_UI children (stable across contexts), but also allow top-level roots (shopUI/terminalUI)
+                // Prefer Canvas_UI children, but also allow top-level roots (shopUI/terminalUI)
                 // so we still find them if they are exposed as separate fclUI roots.
                 var anchorQueries = new List<string>
                 {
@@ -2973,9 +2940,6 @@ if (!string.Equals(_lastUiSnapshotSig, sig, StringComparison.Ordinal))
                         else
                         {
                             // NOTE: Do NOT call the generic GetComponents<T>() here.
-                            // In this project's Unity/MelonLoader reference surface, GameObject exposes a non-generic GetComponents(...)
-                            // and attempting GetComponents<Component>() fails to compile (CS0308).
-                            // We use reflection below to call GetComponents(Type) instead.
                             foreach (var c in comps)
                             {
                                 try
@@ -3000,7 +2964,7 @@ if (!string.Equals(_lastUiSnapshotSig, sig, StringComparison.Ordinal))
                         w.WriteLine($"  <GetComponents failed: {ex.GetType().Name}: {ex.Message}>");
                     }
 
-                    // Children preview (helps spot which sub-object owns the interesting script)
+                    // Children preview 
                     try
                     {
                         var t = goLive.transform;
@@ -3298,7 +3262,7 @@ if (!string.Equals(_lastUiSnapshotSig, sig, StringComparison.Ordinal))
                 }
             }
 
-            // Try adding/removing Canvas_UI prefix (helps when fclUI returns shopUI/terminalUI as a root)
+            // Try adding/removing Canvas_UI prefix 
             const string pfx = "Canvas_UI/";
             if (desired.StartsWith(pfx, StringComparison.Ordinal))
             {
@@ -3373,7 +3337,7 @@ if (!string.Equals(_lastUiSnapshotSig, sig, StringComparison.Ordinal))
 
             if (!IsAlive(cur))
             {
-                // Sometimes the "root" is not in roots; try global find for first segment.
+                // Sometimes the 'root' is not in roots, attempt global find for first segment.
                 try { cur = GameObject.Find(parts[0]); } catch { cur = null; }
             }
 
@@ -3651,8 +3615,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, Type returnType
 
 private static string GetInputStringBestEffort()
 {
-    // Some Unity / IL2CPP bindings used by SMT3HD don't expose Input.inputString at compile-time.
-    // We grab it via reflection when available; otherwise return "".
+    // Some Unity / IL2CPP bindings used don't expose Input.inputString at compile-time.
     try
     {
         var tInput = typeof(UnityEngine.Input);
@@ -3711,7 +3674,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
 
 
         // --------------------------
-        // Safe Unity helpers (IL2CPP / stripped builds friendly)
+        // Safe Unity helpers 
         // --------------------------
 
         private static bool IsAlive(UnityEngine.Object? o)
@@ -3755,8 +3718,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
 
         private static string? TryGetIl2CppNativeFullName(object? obj)
         {
-            // Best-effort: ask Il2CppInterop's IL2CPP API for the native class name/namespace for this object.
-            // This avoids the common situation where managed wrapper types collapse to UnityEngine.Component.
+            // Best-effort: ask Il2CppInterop's IL2CPP API for the native class name/namespace for this object..
             if (obj == null) return null;
 
             try
@@ -3848,7 +3810,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
 
             var native = TryGetIl2CppNativeFullName(comp);
 
-            // If native type has no namespace (common for Assembly-CSharp), give it a helpful label and ref hint.
+            // If native type has no namespace, give it a helpful label and ref hint.
             if (!string.IsNullOrEmpty(native))
             {
                 if (native.IndexOf('.') < 0)
@@ -4372,7 +4334,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
 
 
         // --------------------------
-        // Game-owned UI root (preferred): Il2Cpp.fclUI.GetRootGameObject()
+        // Game-owned UI root: Il2Cpp.fclUI.GetRootGameObject()
         // --------------------------
 
         private static GameObject? _lastUiRoot;
@@ -4599,18 +4561,11 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
         }
 
         
-        // Root-object enumeration that avoids Scene.GetRootGameObjects (often stripped in SMT3HD).
+        // Root-object enumeration that avoids Scene.GetRootGameObjects 
         // We derive roots by scanning all loaded GameObjects and selecting those in the target scene whose Transform has no parent.
         private static List<GameObject> CollectRootObjectsBySceneScan(Scene scene, TextWriter w, int maxRoots)
 {
     var roots = new List<GameObject>();
-
-    // Note: SMT3HD IL2CPP can strip or partially stub Unity enumeration APIs.
-    // Strategy:
-    //   (1) game-owned UI root via fclUI.GetRootGameObject()
-    //   (2) Scene roots via Scene.GetRootGameObjects(List*) (preferred), then Scene.GetRootGameObjects()
-    //   (3) ACTIVE-only transform scan via Object.FindObjectsOfType<Transform>()
-    //   (4) Anchor scan via GameObject.Find(...) to avoid total-blackout cases
 
     try
     {
@@ -4646,7 +4601,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
         }
 
         // 2) Scene roots via reflection.
-        // IMPORTANT: On SMT3HD IL2CPP + Il2CppInterop, the array overload Scene.GetRootGameObjects() may throw
+        // With IL2CPP + Il2CppInterop the array overload Scene.GetRootGameObjects() may throw
         // MissingMethodException due to Il2CppSystem.Collections.Generic.List<T>.ToArray() being stubbed.
         // Prefer the 1-arg List overload if present; we can fill and index without calling ToArray().
         bool gotAny = false;
@@ -4837,8 +4792,8 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
             w.WriteLine($"Scene root enumeration failed: {ex.GetType().Name}: {ex.Message}");
         }
 
-        // 3) Last resort: derive roots from ACTIVE transforms (works even when Resources.FindObjectsOfTypeAll is missing).
-        // This will NOT see inactive UI trees, but it’s much better than failing the entire dump.
+        // 3) Last resort: derive roots from ACTIVE transforms 
+        // This will NOT see inactive UI trees, but it's much better than failing the entire dump.
         bool gotAnyAfterScene = roots.Count > 0;
 
         if (!gotAnyAfterScene)
@@ -4855,7 +4810,6 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
                 try
                 {
                     // Use reflection to avoid compile-time dependency on UnityEngine.Object.FindObjectsOfType<T>()
-                    // (some UnityEngine reference assemblies in mod toolchains omit this API).
                     MethodInfo? mGen0 = null;
                     MethodInfo? mGen1 = null;
                     try
@@ -5052,9 +5006,8 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
     return roots;
 }
 
-/// <summary>
-    /// Enumerate arrays / Il2Cpp arrays / unknown IEnumerable results safely without hard-binding to a concrete collection type.
-    /// </summary>
+
+    // Enumerate arrays / Il2Cpp arrays / unknown IEnumerable results safely without hard-binding to a concrete collection type.
     private static List<object?> EnumerateUnknownEnumerable(object? res)
     {
         var items = new List<object?>();
@@ -5137,7 +5090,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
 
     
     // =========================
-    // Pass A8: Controller-state probes (F12) + terminal seam snapshot (F3)
+    // Controller-state probes (F12) + terminal seam snapshot (F3)
     // =========================
 
     private void DumpUiControllerState()
@@ -5215,9 +5168,6 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
         w.WriteLine($"  go={SafeName(goAnchor)} activeInHierarchy={SafeBool(() => goAnchor.activeInHierarchy)}");
 
         // Controller candidates we care about right now:
-        // - saveUI / saveFileUI (save screen)
-        // - campMenu (facility menus)
-        // We locate them by (assembly,name) rather than generic GetComponent<T>() to avoid Unity reference-surface issues.
         var matches = new List<(string goPath, Component comp, string displayType)>(64);
 
         TraverseGameObjectTree(goAnchor, maxNodes: 7000, (go, goPath) =>
@@ -5284,7 +5234,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
             w.WriteLine($"  saveFileUI_count={saveFileCount} selected_cursor_index={(saveFileCursorIdx >= 0 ? saveFileCursorIdx.ToString() : "<none>")}");
         }
 
-        // campMenu (print a small primitive-field surface for a few instances)
+        // campMenu 
         int campMenusDumped = 0;
         foreach (var m in matches)
         {
@@ -5330,8 +5280,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
 
     private void DumpSaveUiController(StreamWriter w, string goPath, Component comp)
 {
-    // This is the "high-value" state dump for Save UI.
-    // Important: Il2CppInterop generates most members as PROPERTIES, so we must use TryGetFieldValue (field-or-prop).
+    // This is the 'high-value' state dump for Save UI.
 
     string F(object? o)
     {
@@ -5353,7 +5302,7 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
 
     w.WriteLine($"    _isOpen={F(isOpenObj)} _isInit={F(isInitObj)} _isPause={F(isPauseObj)} _isQuickSave={F(isQuickObj)} _notOpenSave={F(notOpenObj)} _selectSlot={F(selectSlotObj)} _forceTerminalNo={F(forceTermObj)}");
 
-    // Choice cursor (some flows use a shared cursor rather than per-slot cursor)
+    // Choice cursor 
     var choiceCursorGo = TryGetFieldValue(comp, "_choiceCursor") as GameObject;
     if (choiceCursorGo != null)
         w.WriteLine($"    _choiceCursor='{SafeName(choiceCursorGo)}' activeInHierarchy={choiceCursorGo.activeInHierarchy}");
@@ -5478,9 +5427,9 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
     {
         try
         {
-            string path = MakeDumpPath("terminal_seam_state");
-            _lastDumpPath = path;
-            using (var w = new StreamWriter(path, append: false, Encoding.UTF8))
+            string seamPath = MakeDumpPath("terminal_seam_state");
+            _lastDumpPath = seamPath;
+            using (var w = new StreamWriter(seamPath, append: false, Encoding.UTF8))
             {
                 w.WriteLine($"timestamp={DateTime.Now:O}");
                 w.WriteLine($"allow_invokes={_allowTerminalInvokes}");
@@ -5489,10 +5438,6 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
                 // Terminal seam helpers live across two classes in Assembly-CSharp:
                 // - fclTerminalInit : "static state" getters (call mode / event stat / process checks)
                 // - fclTerminalUpdate : some update-time state (e.g. save action flag / jump terminal no)
-                //
-                // IMPORTANT: Some "getter" methods can still have side effects in IL2CPP games.
-                // We keep a hard safety gate: enable invokes explicitly in the overlay Settings.
-
                 void SafeLine(string t, string m)
                     => w.WriteLine($"{t}.{m} -> <skipped: invokes disabled (enable in overlay Settings)>");
 
@@ -5524,15 +5469,757 @@ private static MethodInfo? FindStaticMethod(Type t, string name, int paramCount)
                 GameDebugMenuBridge.WriteSelectedWarpCatalogRouteFavoriteTerminalSeamProbe(w);
             }
 
-            MelonLogger.Msg($"[Reimagined] wrote terminal seam state dump: {path}");
-            OverlayLog("dump", $"terminal_seam_state: {Path.GetFileName(path)}");
-            Toast("Terminal seam state written", ToastKind.Ok);
+            MelonLogger.Msg($"[Reimagined] wrote terminal seam state dump: {seamPath}");
+            OverlayLog("dump", $"terminal_seam_state: {Path.GetFileName(seamPath)}");
+
+            string coveragePath = MakeDumpPath("terminal_coverage_export");
+            using (var w = new StreamWriter(coveragePath, append: false, Encoding.UTF8))
+            {
+                w.WriteLine($"timestamp={DateTime.Now:O}");
+                w.WriteLine($"allow_invokes={_allowTerminalInvokes}");
+                w.WriteLine();
+                GameDebugMenuBridge.WriteCurrentTerminalCoverageExport(w);
+            }
+
+            MelonLogger.Msg($"[Reimagined] wrote terminal coverage export dump: {coveragePath}");
+            OverlayLog("dump", $"terminal_coverage_export: {Path.GetFileName(coveragePath)}");
+
+            string terminalUiPath = MakeDumpPath("terminal_ui_text_export");
+            using (var w = new StreamWriter(terminalUiPath, append: false, Encoding.UTF8))
+            {
+                w.WriteLine($"timestamp={DateTime.Now:O}");
+                w.WriteLine($"allow_invokes={_allowTerminalInvokes}");
+                w.WriteLine();
+                DumpTerminalUiTextExport(w);
+            }
+
+            MelonLogger.Msg($"[Reimagined] wrote terminal UI text export dump: {terminalUiPath}");
+            OverlayLog("dump", $"terminal_ui_text_export: {Path.GetFileName(terminalUiPath)}");
+            Toast("Terminal seam + coverage + UI text written", ToastKind.Ok);
         }
         catch (Exception ex)
         {
             MelonLogger.Error($"[Reimagined] DumpTerminalSeamState failed: {ex}");
             Toast("Terminal seam dump failed", ToastKind.Error);
         }
+    }
+
+
+    private void DumpTerminalUiTextExport(StreamWriter w)
+    {
+        if (w == null)
+            return;
+
+        string San(string? s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            return s.Replace("\r", string.Empty).Replace("\n", "\\n").Trim();
+        }
+
+        w.WriteLine("[terminal ui text export]");
+
+        var scene = SceneManager.GetActiveScene();
+        var roots = CollectRootObjectsBySceneScan(scene, w, 128);
+        w.WriteLine($"scene={scene.name} ({scene.buildIndex})");
+        w.WriteLine($"roots={roots.Count}");
+
+        var snap = new Dictionary<string, UiNodeState>(StringComparer.Ordinal);
+        int nodeCount = 0;
+        foreach (var root in roots)
+        {
+            if (!IsAlive(root))
+                continue;
+
+            SnapshotObjectRecursive(root, SafeName(root), snap, ref nodeCount, maxNodes: 12000);
+            if (nodeCount >= 12000)
+                break;
+        }
+
+        w.WriteLine($"snapshot_nodes={nodeCount}");
+
+        string? terminalKey = FindFirstKeyBySuffix(snap, "Canvas_UI/terminalUI") ?? FindFirstKeyByLeafPrefix(snap, "terminalUI");
+        if (string.IsNullOrEmpty(terminalKey))
+        {
+            w.WriteLine("terminal_anchor_key=<not found>");
+            return;
+        }
+
+        w.WriteLine($"terminal_anchor_key={terminalKey}");
+        var terminalGo = TryFindGameObjectBySnapshotPath(roots, terminalKey);
+        if (!IsAlive(terminalGo))
+        {
+            w.WriteLine("terminal_anchor_go=<not resolved>");
+            return;
+        }
+
+        var anchorGo = terminalGo!;
+        w.WriteLine($"terminal_anchor_go={SafeName(anchorGo)} activeSelf={SafeBool(() => anchorGo.activeSelf)} activeHier={SafeBool(() => anchorGo.activeInHierarchy)}");
+
+        var lines = new List<string>(128);
+        var uniqueTexts = new HashSet<string>(StringComparer.Ordinal);
+        TraverseGameObjectTree(anchorGo, maxNodes: 4000, (go, goPath) =>
+        {
+            if (!IsAlive(go) || !SafeBool(() => go.activeInHierarchy))
+                return;
+
+            var comps = GetNodeComponentsBestEffort(go);
+            if (comps.Count == 0)
+                return;
+
+            foreach (var comp in comps)
+            {
+                if (comp == null)
+                    continue;
+
+                string? rawText = null;
+                string kind = "text";
+                try
+                {
+                    if (comp is Text uiText)
+                    {
+                        rawText = uiText.text;
+                        kind = "Text";
+                    }
+                    else
+                    {
+                        string typeName = comp.GetType().FullName ?? comp.GetType().Name;
+                        bool looksTmp = typeName.StartsWith("TMPro.", StringComparison.Ordinal) || typeName.IndexOf("TMP_", StringComparison.OrdinalIgnoreCase) >= 0;
+                        rawText = looksTmp ? (TryGetTextPropertyStrict(comp) ?? TryGetTmpText(comp)) : TryGetTextPropertyStrict(comp);
+                        kind = looksTmp ? "TMP" : typeName;
+                    }
+                }
+                catch
+                {
+                    rawText = null;
+                }
+
+                string textValue = San(rawText);
+                if (string.IsNullOrWhiteSpace(textValue))
+                    continue;
+
+                uniqueTexts.Add(textValue);
+                lines.Add($"entry[{lines.Count}]=path={goPath} kind={kind} text=\"{textValue}\"");
+            }
+        });
+
+        w.WriteLine($"visible_text_entries={lines.Count}");
+        w.WriteLine($"unique_visible_text_count={uniqueTexts.Count}");
+        w.WriteLine(uniqueTexts.Count == 0
+            ? "unique_visible_texts=<none>"
+            : $"unique_visible_texts={string.Join(" | ", uniqueTexts.OrderBy(s => s, StringComparer.Ordinal))}");
+
+        foreach (string line in lines)
+            w.WriteLine(line);
+
+        w.WriteLine();
+        WriteTerminalDrawStaticSurface(w);
+    }
+
+    private static void WriteTerminalDrawStaticSurface(StreamWriter w)
+    {
+        if (w == null)
+            return;
+
+        string San(string? s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            return s.Replace("\r", string.Empty).Replace("\n", "\\n").Trim();
+        }
+
+        w.WriteLine("[fclTerminalDraw static surface]");
+
+        var terminalDraw = TryFindLoadedType("Il2Cpp.fclTerminalDraw") ?? TryFindLoadedType("fclTerminalDraw");
+        if (terminalDraw == null)
+        {
+            w.WriteLine("type=<not found>");
+            return;
+        }
+
+        w.WriteLine($"type={terminalDraw.FullName}");
+        w.WriteLine($"ChildCount={FormatValueCompact(TryGetStaticMemberValue(terminalDraw, "ChildCount"))}");
+        w.WriteLine($"CsrMoveSw={FormatValueCompact(TryGetStaticMemberValue(terminalDraw, "CsrMoveSw"))}");
+
+        object? captionsObj = TryGetStaticMemberValue(terminalDraw, "gTerminalCaptionStr");
+        var captions = captionsObj != null ? TryEnumerateIndexable(captionsObj, 32) : new List<object?>();
+        w.WriteLine($"caption_count={captions.Count}");
+        for (int i = 0; i < captions.Count; i++)
+        {
+            string rawCaption = SanDump(captions[i]?.ToString());
+            string? captionLoc = TryResolveLocalizedText(rawCaption);
+            w.WriteLine($"caption[{i}]={rawCaption}{(!string.IsNullOrWhiteSpace(captionLoc) ? $" -> {SanDump(captionLoc)}" : string.Empty)}");
+        }
+
+        object? listObjs = TryGetStaticMemberValue(terminalDraw, "ListObjs");
+        w.WriteLine($"listobj_container_type={listObjs?.GetType().FullName ?? listObjs?.GetType().Name ?? "<null>"}");
+        var listEntries = TryEnumerateDictionaryEntries(listObjs, 128);
+        w.WriteLine($"listobj_count={listEntries.Count}");
+        for (int i = 0; i < listEntries.Count; i++)
+        {
+            var row = listEntries[i];
+            var go = TryResolveGameObjectDeep(row.value);
+            string goName = go != null ? SafeName(go) : "<none>";
+            string activeSelf = go != null ? (SafeBool(() => go.activeSelf) ? "true" : "false") : "<n/a>";
+            string activeHier = go != null ? (SafeBool(() => go.activeInHierarchy) ? "true" : "false") : "<n/a>";
+            string typeName = row.value?.GetType().FullName ?? row.value?.GetType().Name ?? "<null>";
+            string detail = TruncateForDump(DescribeTerminalDrawObjectHints(row.value), 700);
+            w.WriteLine($"listobj[{i}]=key={row.key} type={typeName} go={goName} activeSelf={activeSelf} activeHier={activeHier} details={detail}");
+        }
+
+        object? textObjs = TryGetStaticMemberValue(terminalDraw, "TextObjs");
+        w.WriteLine($"textobj_container_type={textObjs?.GetType().FullName ?? textObjs?.GetType().Name ?? "<null>"}");
+        var textEntries = TryEnumerateDictionaryEntries(textObjs, 128);
+        w.WriteLine($"textobj_count={textEntries.Count}");
+        var uniqueDrawTexts = new HashSet<string>(StringComparer.Ordinal);
+        for (int i = 0; i < textEntries.Count; i++)
+        {
+            var row = textEntries[i];
+            string text = San(TryGetTextPropertyStrict(row.value) ?? TryGetTmpText(row.value));
+            if (!string.IsNullOrWhiteSpace(text))
+                uniqueDrawTexts.Add(text);
+
+            var go = TryResolveGameObjectDeep(row.value);
+            string goName = go != null ? SafeName(go) : "<none>";
+            string activeSelf = go != null ? (SafeBool(() => go.activeSelf) ? "true" : "false") : "<n/a>";
+            string activeHier = go != null ? (SafeBool(() => go.activeInHierarchy) ? "true" : "false") : "<n/a>";
+            string typeName = row.value?.GetType().FullName ?? row.value?.GetType().Name ?? "<null>";
+            string detail = TruncateForDump(DescribeTerminalDrawObjectHints(row.value), 700);
+            w.WriteLine($"textobj[{i}]=key={row.key} type={typeName} go={goName} activeSelf={activeSelf} activeHier={activeHier} text=\"{text}\" details={detail}");
+        }
+
+        w.WriteLine(uniqueDrawTexts.Count == 0
+            ? "unique_draw_texts=<none>"
+            : $"unique_draw_texts={string.Join(" | ", uniqueDrawTexts.OrderBy(s => s, StringComparer.Ordinal))}");
+    }
+
+    private static string SanDump(string? s)
+    {
+        if (string.IsNullOrEmpty(s))
+            return string.Empty;
+        return s.Replace("\r", string.Empty).Replace("\n", "\\n").Trim();
+    }
+
+    private static string TruncateForDump(string s, int maxChars)
+    {
+        if (string.IsNullOrEmpty(s) || maxChars <= 0 || s.Length <= maxChars)
+            return s ?? string.Empty;
+        return s.Substring(0, maxChars) + "...";
+    }
+
+    private static bool LooksLikeLocalizationKey(string? s)
+    {
+        if (string.IsNullOrWhiteSpace(s))
+            return false;
+
+        string key = s!.Trim();
+        if (key.Length >= 2 && key[0] == '<' && key[key.Length - 1] == '>')
+            key = key.Substring(1, key.Length - 2).Trim();
+
+        if (key.Length < 6 || key.Length > 48)
+            return false;
+        if (key.IndexOf(' ') >= 0 || key.IndexOf('_') < 0)
+            return false;
+
+        int ok = 0;
+        for (int i = 0; i < key.Length; i++)
+        {
+            char c = key[i];
+            if ((c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_')
+                ok++;
+        }
+
+        return ok >= (int)(key.Length * 0.85f);
+    }
+
+    private static Type? s_terminalLocalizeType;
+    private static MethodInfo? s_terminalLocalizeGetLocalizeText;
+
+    private static string? TryResolveLocalizedText(string? raw)
+    {
+        if (!LooksLikeLocalizationKey(raw))
+            return null;
+
+        try
+        {
+            string key = raw!.Trim();
+            if (key.Length >= 2 && key[0] == '<' && key[key.Length - 1] == '>')
+                key = key.Substring(1, key.Length - 2).Trim();
+
+            if (string.IsNullOrWhiteSpace(key))
+                return null;
+
+            if (s_terminalLocalizeGetLocalizeText == null)
+            {
+                s_terminalLocalizeType ??= TryFindLoadedType("Il2Cpp.Localize") ?? TryFindLoadedType("Localize");
+                if (s_terminalLocalizeType != null)
+                {
+                    s_terminalLocalizeGetLocalizeText = s_terminalLocalizeType.GetMethod(
+                        "GetLocalizeText",
+                        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static,
+                        binder: null,
+                        types: new[] { typeof(string) },
+                        modifiers: null);
+                }
+            }
+
+            if (s_terminalLocalizeGetLocalizeText == null)
+                return null;
+
+            object? resolved = s_terminalLocalizeGetLocalizeText.Invoke(null, new object[] { key });
+            string? s = resolved as string ?? resolved?.ToString();
+            s = SanDump(s);
+            if (string.IsNullOrWhiteSpace(s) || string.Equals(s, key, StringComparison.OrdinalIgnoreCase))
+                return null;
+
+            return s;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private static string? TryExtractScalarString(object? obj)
+    {
+        if (obj == null)
+            return null;
+
+        try
+        {
+            if (obj is string s)
+                return s;
+
+            if (obj is bool || obj is byte || obj is sbyte || obj is short || obj is ushort || obj is int || obj is uint || obj is long || obj is ulong || obj is float || obj is double || obj is decimal || obj is char)
+                return obj.ToString();
+
+            var t = obj.GetType();
+            if (t.IsEnum)
+                return obj.ToString();
+
+            var pStr = t.GetProperty("String", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (pStr != null && pStr.GetIndexParameters().Length == 0)
+            {
+                object? v = null;
+                try { v = pStr.GetValue(obj, null); } catch { v = null; }
+                if (v is string s2 && !string.IsNullOrWhiteSpace(s2))
+                    return s2;
+                if (v != null)
+                {
+                    string sv = v.ToString() ?? string.Empty;
+                    if (!string.IsNullOrWhiteSpace(sv))
+                        return sv;
+                }
+            }
+        }
+        catch
+        {
+            // ignore
+        }
+
+        return null;
+    }
+
+    private static GameObject? TryResolveGameObjectDeep(object? obj)
+    {
+        var go = TryGetGameObjectFromObject(obj);
+        if (go != null)
+            return go;
+
+        if (obj == null)
+            return null;
+
+        string[] members = { "gameObject", "go", "obj", "target", "Target", "m_Target", "text", "listText", "txt", "Value", "value" };
+        foreach (string memberName in members)
+        {
+            object? inner = TryGetFieldValue(obj, memberName);
+            go = TryGetGameObjectFromObject(inner);
+            if (go != null)
+                return go;
+        }
+
+        return null;
+    }
+
+    private static string DescribeTerminalDrawObjectHints(object? obj)
+    {
+        if (obj == null)
+            return "<null>";
+
+        var parts = new List<string>(12);
+        try
+        {
+            string typeName = obj.GetType().FullName ?? obj.GetType().Name;
+            parts.Add($"type={typeName}");
+
+            string? rawScalar = TryExtractScalarString(obj);
+            if (!string.IsNullOrWhiteSpace(rawScalar))
+            {
+                string raw = SanDump(rawScalar);
+                string? rawLoc = TryResolveLocalizedText(raw);
+                parts.Add(!string.IsNullOrWhiteSpace(rawLoc) ? $"raw=\"{raw}\"->\"{SanDump(rawLoc)}\"" : $"raw=\"{raw}\"");
+            }
+
+            string? directText = TryGetTextPropertyStrict(obj) ?? TryGetTmpText(obj);
+            if (!string.IsNullOrWhiteSpace(directText))
+            {
+                string dt = SanDump(directText);
+                string? dtLoc = TryResolveLocalizedText(dt);
+                parts.Add(!string.IsNullOrWhiteSpace(dtLoc) ? $"directText=\"{dt}\"->\"{SanDump(dtLoc)}\"" : $"directText=\"{dt}\"");
+            }
+
+            string[] memberNames = { "txt_loc", "txt", "text", "listText", "label", "labelKey", "labelLoc", "loc", "name", "sprite", "spriteName", "gameObject", "go", "obj", "target", "Value", "value" };
+            foreach (string memberName in memberNames)
+            {
+                if (parts.Count >= 10)
+                    break;
+
+                object? inner = TryGetFieldValue(obj, memberName);
+                if (inner == null)
+                    continue;
+
+                var innerGo = TryGetGameObjectFromObject(inner);
+                if (innerGo != null)
+                {
+                    parts.Add($"{memberName}.go={SafeName(innerGo)}");
+                    continue;
+                }
+
+                string? innerText = TryGetTextPropertyStrict(inner) ?? TryGetTmpText(inner) ?? TryExtractScalarString(inner);
+                if (string.IsNullOrWhiteSpace(innerText))
+                    continue;
+
+                string it = SanDump(innerText);
+                string? itLoc = TryResolveLocalizedText(it);
+                parts.Add(!string.IsNullOrWhiteSpace(itLoc) ? $"{memberName}=\"{it}\"->\"{SanDump(itLoc)}\"" : $"{memberName}=\"{it}\"");
+            }
+        }
+        catch (Exception ex)
+        {
+            parts.Add($"hint_error={ex.GetType().Name}");
+        }
+
+        return string.Join(" ; ", parts.Where(p => !string.IsNullOrWhiteSpace(p)));
+    }
+
+    private static object? TryGetStaticMemberValue(Type t, string memberName)
+    {
+        if (t == null || string.IsNullOrEmpty(memberName))
+            return null;
+
+        try
+        {
+            var pi = t.GetProperty(memberName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+            if (pi != null)
+                return pi.GetValue(obj: null, index: null);
+        }
+        catch
+        {
+            // ignore
+        }
+
+        try
+        {
+            var fi = t.GetField(memberName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+            if (fi != null)
+                return fi.GetValue(obj: null);
+        }
+        catch
+        {
+            // ignore
+        }
+
+        return null;
+    }
+
+    private static List<object?> GetNodeComponentsBestEffort(GameObject go)
+    {
+        var comps = new List<object?>(16);
+        if (!IsAlive(go))
+            return comps;
+
+        try
+        {
+            var direct = GetComponentsSafe(go);
+            if (direct != null && direct.Length > 0)
+            {
+                foreach (var comp in direct)
+                    comps.Add(comp);
+                return comps;
+            }
+        }
+        catch
+        {
+            // ignore
+        }
+
+        try
+        {
+            var methods = go.GetType().GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            foreach (var mi in methods)
+            {
+                if (!string.Equals(mi.Name, "GetComponents", StringComparison.Ordinal))
+                    continue;
+
+                var ps = mi.GetParameters();
+                if (ps == null || ps.Length != 1)
+                    continue;
+
+                object? arg = null;
+                if (ps[0].ParameterType == typeof(Type) || ps[0].ParameterType == typeof(System.Type))
+                    arg = typeof(Component);
+                else
+                    continue;
+
+                object? res = null;
+                try { res = mi.Invoke(go, new[] { arg }); } catch { res = null; }
+                if (res != null)
+                {
+                    foreach (var obj in TryEnumerateIndexable(res, 256))
+                        comps.Add(obj);
+                }
+                if (comps.Count > 0)
+                    return comps;
+            }
+        }
+        catch
+        {
+            // ignore
+        }
+
+        return comps;
+    }
+
+    private static List<(string key, object? value)> TryEnumerateDictionaryEntries(object? dict, int maxEntries)
+    {
+        var rows = new List<(string key, object? value)>();
+        if (dict == null || maxEntries <= 0)
+            return rows;
+
+        try
+        {
+            if (dict is System.Collections.IEnumerable ie)
+            {
+                foreach (var entry in ie)
+                {
+                    if (rows.Count >= maxEntries)
+                        break;
+
+                    object? value = TryGetValueObject(entry) ?? entry;
+                    rows.Add((TryGetKeyString(entry, rows.Count), value));
+                }
+
+                if (rows.Count > 0)
+                    return rows;
+            }
+        }
+        catch
+        {
+            // ignore
+        }
+
+        foreach (var entry in TryEnumerateViaEnumerator(dict, maxEntries))
+        {
+            if (rows.Count >= maxEntries)
+                break;
+
+            object? value = TryGetValueObject(entry) ?? entry;
+            rows.Add((TryGetKeyString(entry, rows.Count), value));
+        }
+
+        if (rows.Count > 0)
+            return rows;
+
+        foreach (var row in TryEnumerateDictionaryEntriesByKeys(dict, maxEntries))
+        {
+            rows.Add(row);
+            if (rows.Count >= maxEntries)
+                break;
+        }
+
+        if (rows.Count > 0)
+            return rows;
+
+        foreach (var entry in TryEnumerateIndexable(dict, maxEntries))
+        {
+            if (rows.Count >= maxEntries)
+                break;
+
+            object? value = TryGetValueObject(entry) ?? entry;
+            rows.Add((TryGetKeyString(entry, rows.Count), value));
+        }
+
+        return rows;
+    }
+
+    private static string TryGetKeyString(object? entry, int fallbackIndex)
+    {
+        if (entry == null)
+            return $"entry_{fallbackIndex}";
+
+        object? key = TryGetFieldValue(entry, "Key")
+            ?? TryGetFieldValue(entry, "key")
+            ?? TryGetFieldValue(entry, "m_key");
+
+        string? s = key as string ?? key?.ToString();
+        if (!string.IsNullOrWhiteSpace(s))
+            return s!;
+
+        return $"entry_{fallbackIndex}";
+    }
+
+    private static object? TryGetValueObject(object? entry)
+    {
+        if (entry == null)
+            return null;
+
+        return TryGetFieldValue(entry, "Value")
+            ?? TryGetFieldValue(entry, "value")
+            ?? TryGetFieldValue(entry, "m_value");
+    }
+    private static List<object?> TryEnumerateViaEnumerator(object? source, int maxItems)
+    {
+        var outList = new List<object?>();
+        if (source == null || maxItems <= 0)
+            return outList;
+
+        try
+        {
+            var t = source.GetType();
+            var getEnumerator = t.GetMethod("GetEnumerator", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, binder: null, types: Type.EmptyTypes, modifiers: null);
+            if (getEnumerator == null)
+                return outList;
+
+            object? enumerator = null;
+            try { enumerator = getEnumerator.Invoke(source, parameters: null); } catch { enumerator = null; }
+            if (enumerator == null)
+                return outList;
+
+            var et = enumerator.GetType();
+            var moveNext = et.GetMethod("MoveNext", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, binder: null, types: Type.EmptyTypes, modifiers: null);
+            var currentProp = et.GetProperty("Current", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (moveNext == null || currentProp == null)
+                return outList;
+
+            while (outList.Count < maxItems)
+            {
+                bool hasNext;
+                try { hasNext = Convert.ToBoolean(moveNext.Invoke(enumerator, parameters: null)); }
+                catch { break; }
+
+                if (!hasNext)
+                    break;
+
+                object? current = null;
+                try { current = currentProp.GetValue(enumerator, index: null); } catch { current = null; }
+                outList.Add(current);
+            }
+        }
+        catch
+        {
+            // ignore
+        }
+
+        return outList;
+    }
+
+    private static List<(string key, object? value)> TryEnumerateDictionaryEntriesByKeys(object? dict, int maxEntries)
+    {
+        var rows = new List<(string key, object? value)>();
+        if (dict == null || maxEntries <= 0)
+            return rows;
+
+        try
+        {
+            object? keysObj = TryGetFieldValue(dict, "Keys")
+                ?? TryGetFieldValue(dict, "keys")
+                ?? TryGetFieldValue(dict, "m_keys");
+            if (keysObj == null)
+                return rows;
+
+            var keys = TryEnumerateViaEnumerator(keysObj, maxEntries);
+            if (keys.Count == 0)
+                keys = TryEnumerateIndexable(keysObj, maxEntries);
+            if (keys.Count == 0)
+                return rows;
+
+            var dictType = dict.GetType();
+            MethodInfo? getItem = null;
+            foreach (var mi in dictType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+            {
+                if (!string.Equals(mi.Name, "get_Item", StringComparison.Ordinal))
+                    continue;
+
+                var ps = mi.GetParameters();
+                if (ps != null && ps.Length == 1)
+                {
+                    getItem = mi;
+                    break;
+                }
+            }
+
+            PropertyInfo? itemProp = null;
+            if (getItem == null)
+            {
+                try { itemProp = dictType.GetProperty("Item", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance); } catch { itemProp = null; }
+            }
+
+            for (int i = 0; i < keys.Count && rows.Count < maxEntries; i++)
+            {
+                object? keyObj = keys[i];
+                if (keyObj == null)
+                    continue;
+
+                object? value = null;
+                try
+                {
+                    if (getItem != null)
+                        value = getItem.Invoke(dict, new[] { keyObj });
+                    else if (itemProp != null)
+                        value = itemProp.GetValue(dict, new[] { keyObj });
+                }
+                catch
+                {
+                    value = null;
+                }
+
+                string key = TryExtractScalarString(keyObj) ?? keyObj.ToString() ?? $"entry_{rows.Count}";
+                rows.Add((key, value));
+            }
+        }
+        catch
+        {
+            // ignore
+        }
+
+        return rows;
+    }
+
+    private static GameObject? TryGetGameObjectFromObject(object? obj)
+    {
+        if (obj == null)
+            return null;
+
+        if (obj is GameObject go)
+            return go;
+
+        if (obj is Component comp)
+        {
+            try { return comp.gameObject; } catch { return null; }
+        }
+
+        try
+        {
+            var maybeGo = TryGetFieldValue(obj, "gameObject") as GameObject;
+            if (maybeGo != null)
+                return maybeGo;
+        }
+        catch
+        {
+            // ignore
+        }
+
+        return null;
     }
 
     private void DumpStaticGetter(StreamWriter w, string typeFullName, string methodName)
@@ -5645,7 +6332,7 @@ private static Type? TryFindLoadedType(string fullName)
 
         Type t = obj.GetType();
 
-        // 1) Field lookup (rare with Il2CppInterop, but keep it)
+        // 1) Field lookup 
         try
         {
             var fi = t.GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
@@ -5873,7 +6560,7 @@ private static Type? TryFindLoadedType(string fullName)
                     continue;
                 }
 
-                // TMPro text fields (best-effort via property)
+                // TMPro text fields 
                 var maybeText = TryGetTmpText(val);
                 if (!string.IsNullOrEmpty(maybeText) && maybeText.Length <= 80)
                 {

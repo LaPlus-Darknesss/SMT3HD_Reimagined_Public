@@ -7,12 +7,9 @@ namespace SMT3HD_Reimagined
     public sealed partial class ReimaginedMod
     {
         // =========================================================
-        // Pass_B10: Hotkey handlers for the native-skill edit primitive
+        // Hotkey handlers for the native-skill edit primitive
         // =========================================================
-        // These are intentionally tiny wrappers that:
-        //  - call the GameDebugMenuBridge primitive,
-        //  - toast + log a short summary,
-        //  - never throw.
+
 
         private void Devtools_ApplyNativeSkillCandidateToSlot()
         {

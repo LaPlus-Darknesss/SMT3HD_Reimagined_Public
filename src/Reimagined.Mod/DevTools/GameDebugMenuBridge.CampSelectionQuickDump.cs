@@ -11,13 +11,9 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass 68: Lightweight camp selection summary dumper
+            // Lightweight camp selection summary dumper
             // =========================================================
-            // Goal:
-            // - Make iteration fast. Reflection surface dumps are extremely useful, but huge.
-            // - For "map the menu" work we mostly need a stable, diff-friendly snapshot:
-            //     drawMode + cmpCalc (itemId/dstIndex/src/dst) + resolved cursor match.
-            // - This dump is designed to be spammed while moving the cursor.
+            //
 
             internal static void HotkeyDumpCampSelectionSummary()
             {

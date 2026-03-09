@@ -11,14 +11,9 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass 74: Selected UnitWork surface dump (selection-driven)
+            // Selected UnitWork surface dump (selection-driven)
             // =========================================================
-            // Motivation:
-            // - We can now reliably resolve the highlighted demon to a UnitWork index.
-            // - The next unlock is mapping which UnitWork fields are truly stable/meaningful
-            //   (unique ids, roster indices, flags, skill arrays, etc.).
-            // - Dumping the entire camp reflection surface is too heavy for fast iteration.
-            // - This hotkey targets ONLY the resolved highlighted unit.
+ 
 
             internal static void HotkeyDumpCampSelectedUnitSurface()
             {

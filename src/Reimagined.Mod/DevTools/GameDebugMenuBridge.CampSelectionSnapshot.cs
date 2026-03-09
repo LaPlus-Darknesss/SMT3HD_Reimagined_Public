@@ -9,12 +9,8 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass 67: CampSelectionSnapshot (immutable POD for overlay/logging)
+            // CampSelectionSnapshot (immutable POD for overlay/logging)
             // =========================================================
-            // Design intent:
-            // - Centralize the *canonical* "what is currently selected?" record.
-            // - Keep it tiny + immutable so it can be safely copied and rendered by overlays later.
-            // - Do NOT depend on live pointers after capture (pointers are logged as numeric IDs only).
 
             internal enum CampSelectionRowKind
             {

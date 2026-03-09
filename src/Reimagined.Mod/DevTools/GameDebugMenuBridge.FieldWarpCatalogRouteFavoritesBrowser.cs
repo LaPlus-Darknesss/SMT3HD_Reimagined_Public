@@ -235,6 +235,309 @@ namespace SMT3HD_Reimagined
                 return $"[{(index + 1).ToString(CultureInfo.InvariantCulture)}/{count.ToString(CultureInfo.InvariantCulture)}] {body}";
             }
 
+            private readonly struct TerminalUiValueLabelRow
+            {
+                public TerminalUiValueLabelRow(int ordinal0, int value, string label, bool highlighted, string key)
+                {
+                    Ordinal0 = ordinal0;
+                    Value = value;
+                    Label = label ?? string.Empty;
+                    Highlighted = highlighted;
+                    Key = key ?? string.Empty;
+                }
+
+                public int Ordinal0 { get; }
+                public int Value { get; }
+                public string Label { get; }
+                public bool Highlighted { get; }
+                public string Key { get; }
+            }
+
+            private static bool TryReadCurrentTerminalUiValueLabelMap(out string? title, out List<TerminalUiValueLabelRow>? rows)
+            {
+                title = null;
+                rows = null;
+
+                if (!TryReadCurrentTerminalStaticWorkSnapshot(out TerminalStaticWorkSnapshot? staticWork) || staticWork == null)
+                    return false;
+
+                int[] terminalListValues = staticWork.TerminalListValues ?? Array.Empty<int>();
+                int activeCount = Math.Min(Math.Max(0, staticWork.TerminalCnt), terminalListValues.Length);
+                if (activeCount <= 0)
+                    return false;
+
+                Type? terminalDraw = TryFindLoadedType("Il2Cpp.fclTerminalDraw") ?? TryFindLoadedType("fclTerminalDraw");
+                if (terminalDraw == null)
+                    return false;
+
+                object? textObjs = TryGetStaticMemberValue(terminalDraw, "TextObjs");
+                var entries = TryEnumerateDictionaryEntries(textObjs, 128);
+                if (entries.Count == 0)
+                    return false;
+
+                var ordered = new SortedDictionary<int, TerminalUiValueLabelRow>();
+                for (int i = 0; i < entries.Count; i++)
+                {
+                    var row = entries[i];
+                    string key = row.key ?? string.Empty;
+                    string rawText = TryGetTextPropertyStrict(row.value) ?? TryGetTmpText(row.value) ?? string.Empty;
+                    string label = NormalizeTerminalUiLabel(rawText);
+                    if (string.IsNullOrWhiteSpace(label))
+                        continue;
+
+                    if (string.Equals(key, "tmnltitle", StringComparison.OrdinalIgnoreCase))
+                    {
+                        title = label;
+                        continue;
+                    }
+
+                    if (!TryParseTerminalWindowOrdinal0(key, out int ordinal0))
+                        continue;
+                    if (ordinal0 < 0 || ordinal0 >= activeCount)
+                        continue;
+
+                    bool highlighted = rawText.IndexOf("TMC01", StringComparison.OrdinalIgnoreCase) >= 0;
+                    ordered[ordinal0] = new TerminalUiValueLabelRow(ordinal0, terminalListValues[ordinal0], label, highlighted, key);
+                }
+
+                if (ordered.Count == 0)
+                    return false;
+
+                rows = ordered.Values.ToList();
+                return true;
+            }
+
+            private static bool TryParseTerminalWindowOrdinal0(string? key, out int ordinal0)
+            {
+                ordinal0 = -1;
+                if (string.IsNullOrWhiteSpace(key))
+                    return false;
+
+                const string prefix = "t_termwnd";
+                string k = key!.Trim();
+                if (!k.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+                    return false;
+
+                string digits = k.Substring(prefix.Length);
+                if (!int.TryParse(digits, NumberStyles.Integer, CultureInfo.InvariantCulture, out int ordinal1))
+                    return false;
+
+                ordinal0 = ordinal1 - 1;
+                return ordinal0 >= 0;
+            }
+
+            private static string NormalizeTerminalUiLabel(string? raw)
+            {
+                if (string.IsNullOrWhiteSpace(raw))
+                    return string.Empty;
+
+                string s = raw!;
+                var sb = new StringBuilder(s.Length);
+                bool inTag = false;
+                for (int i = 0; i < s.Length; i++)
+                {
+                    char c = s[i];
+                    if (c == '<')
+                    {
+                        inTag = true;
+                        continue;
+                    }
+                    if (c == '>')
+                    {
+                        inTag = false;
+                        continue;
+                    }
+                    if (!inTag)
+                        sb.Append(c);
+                }
+
+                string stripped = sb.ToString().Replace("\r", " ").Replace("\n", " ").Trim();
+                while (stripped.Contains("  ", StringComparison.Ordinal))
+                    stripped = stripped.Replace("  ", " ", StringComparison.Ordinal);
+                return stripped;
+            }
+
+            private static string FormatTerminalUiValueLabelRows(List<TerminalUiValueLabelRow> rows)
+            {
+                if (rows == null || rows.Count == 0)
+                    return "<none>";
+
+                var parts = new List<string>(rows.Count);
+                for (int i = 0; i < rows.Count; i++)
+                {
+                    TerminalUiValueLabelRow row = rows[i];
+                    parts.Add($"{row.Value.ToString(CultureInfo.InvariantCulture)}->{San(row.Label)}{(row.Highlighted ? " [selected]" : string.Empty)}");
+                }
+                return string.Join(" | ", parts);
+            }
+
+
+            public static void WriteCurrentTerminalCoverageExport(StreamWriter w)
+            {
+                if (w == null)
+                    return;
+
+                w.WriteLine("[terminal coverage export]");
+
+                TryGetCurrentFieldContext(out int curF, out int curA, out int curS, out _, out _);
+                string sourceContext = (curF >= 0 && curA >= 0 && curS >= 0)
+                    ? $"F{curF} A{curA} S{curS}"
+                    : "<unavailable>";
+                w.WriteLine($"source_context={sourceContext}");
+
+                if (TryGetSelectedWarpCatalogRouteFavoriteEntry(out WarpCatalogRouteFavoriteEntry? selectedEntry, out int selectedIndex, out int selectedCount) && selectedEntry != null)
+                    w.WriteLine($"selected_route_favorite={BuildWarpCatalogRouteFavoriteBrowseInline(selectedEntry, selectedIndex, selectedCount)}");
+                else
+                    w.WriteLine("selected_route_favorite=<none>");
+
+                if (!TryReadCurrentTerminalStaticWorkSnapshot(out TerminalStaticWorkSnapshot? staticWork) || staticWork == null)
+                {
+                    w.WriteLine("terminal_static_work=<unavailable>");
+                    return;
+                }
+
+                w.WriteLine($"phase_hint={ClassifyTerminalPhase(staticWork.SeqCurrent)}");
+                w.WriteLine($"seq_current={FormatTrmSeqValue(staticWork.SeqCurrent)}");
+                w.WriteLine($"seq_last={FormatTrmSeqValue(staticWork.SeqLast)}");
+                w.WriteLine($"terminal_identity=type={staticWork.TerminalType.ToString(CultureInfo.InvariantCulture)} no={staticWork.TerminalNo.ToString(CultureInfo.InvariantCulture)} cnt={staticWork.TerminalCnt.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"terminal_list_active={FormatTerminalListActive(staticWork.TerminalListValues, staticWork.TerminalCnt)}");
+
+                bool hasSelected = TryGetCurrentTerminalSelectedListValue(staticWork, out int selectedOrdinal0, out int selectedValue);
+                if (hasSelected)
+                    w.WriteLine($"selected_terminal_list=ordinal0={selectedOrdinal0.ToString(CultureInfo.InvariantCulture)} ordinal1={(selectedOrdinal0 + 1).ToString(CultureInfo.InvariantCulture)}/{Math.Max(0, staticWork.TerminalCnt).ToString(CultureInfo.InvariantCulture)} value={selectedValue.ToString(CultureInfo.InvariantCulture)}");
+                else
+                    w.WriteLine("selected_terminal_list=<unavailable>");
+
+                bool uiLabelPhaseEligible = staticWork.SeqCurrent == 1 || staticWork.SeqCurrent == 5;
+                string? uiTitle = null;
+                List<TerminalUiValueLabelRow>? uiLabelRows = null;
+                bool gotUiLabels = uiLabelPhaseEligible
+                    && TryReadCurrentTerminalUiValueLabelMap(out uiTitle, out uiLabelRows)
+                    && uiLabelRows != null
+                    && uiLabelRows.Count > 0;
+                if (gotUiLabels)
+                {
+                    w.WriteLine($"terminal_ui_title={San(uiTitle)}");
+                    w.WriteLine($"terminal_ui_value_label_map={FormatTerminalUiValueLabelRows(uiLabelRows!)}");
+                    if (hasSelected && selectedOrdinal0 >= 0 && selectedOrdinal0 < uiLabelRows!.Count)
+                    {
+                        TerminalUiValueLabelRow selectedUiRow = uiLabelRows[selectedOrdinal0];
+                        w.WriteLine($"selected_terminal_ui_label={San(selectedUiRow.Label)}");
+                        w.WriteLine($"selected_terminal_ui_highlight={(selectedUiRow.Highlighted ? "true" : "false")}");
+                    }
+                    else
+                    {
+                        w.WriteLine("selected_terminal_ui_label=<unavailable>");
+                        w.WriteLine("selected_terminal_ui_highlight=<unavailable>");
+                    }
+                }
+                else
+                {
+                    w.WriteLine(uiLabelPhaseEligible ? "terminal_ui_value_label_map=<unavailable>" : "terminal_ui_value_label_map=<not transport/confirm phase>");
+                }
+
+                if (!TryLoadWarpCatalogStats(out _, out List<WarpCatalogRoute> contextRoutes, out _, out _))
+                {
+                    w.WriteLine("warp_catalog_context_routes=<unavailable>");
+                    return;
+                }
+
+                List<WarpCatalogRoute> allTerminalRoutes = contextRoutes
+                    .Where(r => string.Equals(r.Kind, "terminal", StringComparison.Ordinal))
+                    .ToList();
+                List<WarpCatalogRoute> outgoingTerminalRoutes = allTerminalRoutes
+                    .Where(r => r.SrcF == curF
+                             && r.SrcA == curA
+                             && r.SrcS == curS)
+                    .OrderBy(r => r.TransportJumpNo)
+                    .ThenBy(r => r.DstF)
+                    .ThenBy(r => r.DstA)
+                    .ThenBy(r => r.DstS)
+                    .ThenBy(r => r.DstPointRes, StringComparer.Ordinal)
+                    .ToList();
+                List<WarpCatalogRoute> incomingTerminalRoutes = allTerminalRoutes
+                    .Where(r => r.DstF == curF
+                             && r.DstA == curA
+                             && r.DstS == curS)
+                    .OrderBy(r => r.SrcF)
+                    .ThenBy(r => r.SrcA)
+                    .ThenBy(r => r.SrcS)
+                    .ThenBy(r => r.RouteId, StringComparer.Ordinal)
+                    .ToList();
+
+                w.WriteLine($"catalog_terminal_routes_outgoing={outgoingTerminalRoutes.Count.ToString(CultureInfo.InvariantCulture)}");
+                w.WriteLine($"catalog_terminal_routes_incoming={incomingTerminalRoutes.Count.ToString(CultureInfo.InvariantCulture)}");
+
+                int activeCount = 0;
+                int mappedCount = 0;
+                int unmappedCount = 0;
+                int ambiguousCount = 0;
+                int[] terminalListValues = staticWork.TerminalListValues ?? Array.Empty<int>();
+                int count = Math.Min(Math.Max(0, staticWork.TerminalCnt), terminalListValues.Length);
+                activeCount = count;
+
+                var lines = new List<string>(count * 3 + 1);
+                for (int i = 0; i < count; i++)
+                {
+                    int value = terminalListValues[i];
+                    bool isSelected = hasSelected && i == selectedOrdinal0;
+                    List<WarpCatalogRoute> matches = outgoingTerminalRoutes
+                        .Where(r => ContainsObservedInt(GetOrderedObservedTransportJumpNoVariants(r), value))
+                        .ToList();
+
+                    string status;
+                    if (matches.Count == 0)
+                    {
+                        unmappedCount++;
+                        status = "unmapped";
+                    }
+                    else if (matches.Count == 1)
+                    {
+                        mappedCount++;
+                        status = "mapped";
+                    }
+                    else
+                    {
+                        ambiguousCount++;
+                        status = "ambiguous";
+                    }
+
+                    lines.Add($"entry[{i.ToString(CultureInfo.InvariantCulture)}]=value={value.ToString(CultureInfo.InvariantCulture)} selected={(isSelected ? "true" : "false")} status={status} match_count={matches.Count.ToString(CultureInfo.InvariantCulture)}");
+                    if (gotUiLabels && uiLabelRows != null && i >= 0 && i < uiLabelRows.Count)
+                    {
+                        TerminalUiValueLabelRow uiRow = uiLabelRows[i];
+                        lines.Add($"entry[{i.ToString(CultureInfo.InvariantCulture)}].ui_label={San(uiRow.Label)}");
+                        lines.Add($"entry[{i.ToString(CultureInfo.InvariantCulture)}].ui_highlight={(uiRow.Highlighted ? "true" : "false")}");
+                    }
+                    for (int m = 0; m < matches.Count; m++)
+                        lines.Add($"entry[{i.ToString(CultureInfo.InvariantCulture)}].match[{m.ToString(CultureInfo.InvariantCulture)}]={BuildCatalogTerminalRouteInferenceInline(matches[m])}");
+
+                    if (matches.Count > 0)
+                    {
+                        List<WarpCatalogRoute> reverseMatches = allTerminalRoutes
+                            .Where(r => matches.Any(m =>
+                                r.SrcF == m.DstF &&
+                                r.SrcA == m.DstA &&
+                                r.SrcS == m.DstS &&
+                                r.DstF == curF &&
+                                r.DstA == curA &&
+                                r.DstS == curS &&
+                                GetOrderedObservedTransportJumpNoVariants(r).Intersect(GetOrderedObservedTransportJumpNoVariants(m)).Any()))
+                            .OrderBy(r => r.SrcF)
+                            .ThenBy(r => r.SrcA)
+                            .ThenBy(r => r.SrcS)
+                            .ThenBy(r => r.RouteId, StringComparer.Ordinal)
+                            .ToList();
+                        lines.Add($"entry[{i.ToString(CultureInfo.InvariantCulture)}].reverse_match_count={reverseMatches.Count.ToString(CultureInfo.InvariantCulture)}");
+                        for (int r = 0; r < reverseMatches.Count; r++)
+                            lines.Add($"entry[{i.ToString(CultureInfo.InvariantCulture)}].reverse_match[{r.ToString(CultureInfo.InvariantCulture)}]={BuildCatalogTerminalReverseInferenceInline(reverseMatches[r], curF, curA, curS)}");
+                    }
+                }
+
+                w.WriteLine($"catalog_terminal_list_coverage=active={activeCount.ToString(CultureInfo.InvariantCulture)} mapped={mappedCount.ToString(CultureInfo.InvariantCulture)} unmapped={unmappedCount.ToString(CultureInfo.InvariantCulture)} ambiguous={ambiguousCount.ToString(CultureInfo.InvariantCulture)}");
+                for (int i = 0; i < lines.Count; i++)
+                    w.WriteLine(lines[i]);
+            }
 
             public static void WriteSelectedWarpCatalogRouteFavoriteTerminalSeamProbe(StreamWriter w)
             {
@@ -301,6 +604,101 @@ namespace SMT3HD_Reimagined
                 w.WriteLine($"  live_terminal_cnt={liveTerminalCnt.ToString(CultureInfo.InvariantCulture)}");
                 w.WriteLine($"  live_trm_seq=<unavailable from current safe probe surface>");
 
+                TryGetCurrentFieldContext(out int curF, out int curA, out int curS, out _, out _);
+                bool gotStaticWork = TryReadCurrentTerminalStaticWorkSnapshot(out TerminalStaticWorkSnapshot? staticWork) && staticWork != null;
+                int selectedListOrdinal0 = -1;
+                int selectedListValue = -1;
+                string catalogSourceContext = "<unavailable>";
+                int catalogSourceTerminalRouteCount = -1;
+                string catalogTerminalListMap = "<unavailable>";
+                int catalogActiveTerminalListCount = -1;
+                int catalogMappedTerminalListCount = -1;
+                int catalogUnmappedTerminalListCount = -1;
+                int catalogAmbiguousTerminalListCount = -1;
+                string catalogMappedTerminalListValues = "<unavailable>";
+                string catalogUnmappedTerminalListValues = "<unavailable>";
+                string catalogAmbiguousTerminalListValues = "<unavailable>";
+                List<WarpCatalogRoute>? selectedCatalogMatches = null;
+                List<WarpCatalogRoute>? selectedCatalogReverseMatches = null;
+                if (gotStaticWork)
+                {
+                    w.WriteLine($"  live_static_phase_hint={ClassifyTerminalPhase(staticWork!.SeqCurrent)}");
+                    w.WriteLine($"  live_static_seq_current={FormatTrmSeqValue(staticWork.SeqCurrent)}");
+                    w.WriteLine($"  live_static_seq_last={FormatTrmSeqValue(staticWork.SeqLast)}");
+                    if (TryGetCurrentTerminalSelectedListValue(staticWork, out selectedListOrdinal0, out selectedListValue))
+                    {
+                        int ordinal1 = selectedListOrdinal0 + 1;
+                        string countText = staticWork.TerminalCnt > 0
+                            ? staticWork.TerminalCnt.ToString(CultureInfo.InvariantCulture)
+                            : "?";
+                        w.WriteLine($"  live_selected_terminal_list=ordinal0={selectedListOrdinal0.ToString(CultureInfo.InvariantCulture)} ordinal1={ordinal1.ToString(CultureInfo.InvariantCulture)}/{countText} value={selectedListValue.ToString(CultureInfo.InvariantCulture)} getterJumpMatch={(selectedListValue == liveJumpNo ? "true" : "false")}");
+                    }
+                    else
+                    {
+                        w.WriteLine("  live_selected_terminal_list=<unavailable>");
+                    }
+
+                    _ = TryBuildCurrentTerminalCatalogInference(
+                        staticWork,
+                        selectedListValue,
+                        out catalogSourceContext,
+                        out catalogSourceTerminalRouteCount,
+                        out catalogTerminalListMap,
+                        out catalogActiveTerminalListCount,
+                        out catalogMappedTerminalListCount,
+                        out catalogUnmappedTerminalListCount,
+                        out catalogAmbiguousTerminalListCount,
+                        out catalogMappedTerminalListValues,
+                        out catalogUnmappedTerminalListValues,
+                        out catalogAmbiguousTerminalListValues,
+                        out selectedCatalogMatches,
+                        out selectedCatalogReverseMatches);
+                    w.WriteLine($"  live_catalog_source_context={catalogSourceContext}");
+                    w.WriteLine($"  live_catalog_source_terminal_route_count={(catalogSourceTerminalRouteCount >= 0 ? catalogSourceTerminalRouteCount.ToString(CultureInfo.InvariantCulture) : "<unavailable>")}");
+                    w.WriteLine($"  live_catalog_terminal_list_map={catalogTerminalListMap}");
+                    w.WriteLine($"  live_catalog_terminal_list_coverage={(catalogActiveTerminalListCount >= 0 ? $"active={catalogActiveTerminalListCount.ToString(CultureInfo.InvariantCulture)} mapped={catalogMappedTerminalListCount.ToString(CultureInfo.InvariantCulture)} unmapped={catalogUnmappedTerminalListCount.ToString(CultureInfo.InvariantCulture)} ambiguous={catalogAmbiguousTerminalListCount.ToString(CultureInfo.InvariantCulture)}" : "<unavailable>")}");
+                    w.WriteLine($"  live_catalog_terminal_list_mapped_values={catalogMappedTerminalListValues}");
+                    w.WriteLine($"  live_catalog_terminal_list_unmapped_values={catalogUnmappedTerminalListValues}");
+                    w.WriteLine($"  live_catalog_terminal_list_ambiguous_values={catalogAmbiguousTerminalListValues}");
+                    if (selectedCatalogMatches != null)
+                    {
+                        w.WriteLine($"  live_selected_catalog_match_count={selectedCatalogMatches.Count.ToString(CultureInfo.InvariantCulture)}");
+                        for (int i = 0; i < selectedCatalogMatches.Count; i++)
+                            w.WriteLine($"  live_selected_catalog_match[{i.ToString(CultureInfo.InvariantCulture)}]={BuildCatalogTerminalRouteInferenceInline(selectedCatalogMatches[i])}");
+                    }
+                    else
+                    {
+                        w.WriteLine("  live_selected_catalog_match_count=<unavailable>");
+                    }
+
+                    if (selectedCatalogReverseMatches != null)
+                    {
+                        w.WriteLine($"  live_selected_catalog_reverse_match_count={selectedCatalogReverseMatches.Count.ToString(CultureInfo.InvariantCulture)}");
+                        for (int i = 0; i < selectedCatalogReverseMatches.Count; i++)
+                            w.WriteLine($"  live_selected_catalog_reverse_match[{i.ToString(CultureInfo.InvariantCulture)}]={BuildCatalogTerminalReverseInferenceInline(selectedCatalogReverseMatches[i], curF, curA, curS)}");
+                    }
+                    else
+                    {
+                        w.WriteLine("  live_selected_catalog_reverse_match_count=<unavailable>");
+                    }
+                }
+                else
+                {
+                    w.WriteLine("  live_static_phase_hint=<unavailable>");
+                    w.WriteLine("  live_static_seq_current=<unavailable>");
+                    w.WriteLine("  live_static_seq_last=<unavailable>");
+                    w.WriteLine("  live_selected_terminal_list=<unavailable>");
+                    w.WriteLine("  live_catalog_source_context=<unavailable>");
+                    w.WriteLine("  live_catalog_source_terminal_route_count=<unavailable>");
+                    w.WriteLine("  live_catalog_terminal_list_map=<unavailable>");
+                    w.WriteLine("  live_catalog_terminal_list_coverage=<unavailable>");
+                    w.WriteLine("  live_catalog_terminal_list_mapped_values=<unavailable>");
+                    w.WriteLine("  live_catalog_terminal_list_unmapped_values=<unavailable>");
+                    w.WriteLine("  live_catalog_terminal_list_ambiguous_values=<unavailable>");
+                    w.WriteLine("  live_selected_catalog_match_count=<unavailable>");
+                    w.WriteLine("  live_selected_catalog_reverse_match_count=<unavailable>");
+                }
+
                 bool identityMatch =
                     ContainsObservedInt(observedTransportTerminalType, liveTerminalType) &&
                     ContainsObservedInt(observedTransportTerminalNo, liveTerminalNo) &&
@@ -310,13 +708,188 @@ namespace SMT3HD_Reimagined
                     ContainsObservedInt(observedTransportCallMode, liveCallMode) &&
                     ContainsObservedInt(observedTransportProcessStat, liveProcessStat) &&
                     ContainsObservedInt(observedTransportTerminalCnt, liveTerminalCnt);
+                bool selectedJumpMatch = selectedListValue >= 0 && ContainsObservedInt(observedTransportJumpNo, selectedListValue);
+                bool selectedCatalogRouteIdMatch = selectedCatalogMatches != null && selectedCatalogMatches.Any(m => string.Equals(m.RouteId, route.RouteId, StringComparison.Ordinal));
+                bool selectedCatalogDstMatch = selectedCatalogMatches != null && selectedCatalogMatches.Any(m => m.DstF == route.DstF && m.DstA == route.DstA && m.DstS == route.DstS && string.Equals(m.DstPointRes ?? string.Empty, route.DstPointRes ?? string.Empty, StringComparison.Ordinal));
+                bool selectedCatalogTerminalNoMatch = selectedCatalogMatches != null && selectedCatalogMatches.Any(m => ContainsObservedInt(GetOrderedObservedTransportTerminalNoVariants(m), route.TransportTerminalNo));
+                bool reverseCatalogLiveTerminalNoMatch = selectedCatalogReverseMatches != null && selectedCatalogReverseMatches.Any(m => ContainsObservedInt(GetOrderedObservedTransportTerminalNoVariants(m), liveTerminalNo));
 
                 w.WriteLine($"  compare_identity_match={identityMatch}");
                 w.WriteLine($"  compare_state_match={stateMatch}");
                 w.WriteLine($"  compare_call_mode_match={ContainsObservedInt(observedTransportCallMode, liveCallMode)}");
                 w.WriteLine($"  compare_process_stat_match={ContainsObservedInt(observedTransportProcessStat, liveProcessStat)}");
                 w.WriteLine($"  compare_terminal_cnt_match={ContainsObservedInt(observedTransportTerminalCnt, liveTerminalCnt)}");
+                w.WriteLine($"  compare_selected_jump_match={selectedJumpMatch}");
+                w.WriteLine($"  compare_selected_catalog_route_id_match={(selectedCatalogMatches != null ? (selectedCatalogRouteIdMatch ? "true" : "false") : "<unavailable>")}");
+                w.WriteLine($"  compare_selected_catalog_dst_match={(selectedCatalogMatches != null ? (selectedCatalogDstMatch ? "true" : "false") : "<unavailable>")}");
+                w.WriteLine($"  compare_selected_catalog_terminal_no_match={(selectedCatalogMatches != null ? (selectedCatalogTerminalNoMatch ? "true" : "false") : "<unavailable>")}");
+                w.WriteLine($"  compare_live_source_terminal_no_match={(selectedCatalogReverseMatches != null ? (reverseCatalogLiveTerminalNoMatch ? "true" : "false") : "<unavailable>")}");
                 w.WriteLine("  compare_trm_seq_match=<unavailable from current safe probe surface>");
+            }
+
+            private static bool TryBuildCurrentTerminalCatalogInference(TerminalStaticWorkSnapshot staticWork, int selectedListValue, out string sourceContext, out int sourceTerminalRouteCount, out string terminalListMap, out int activeTerminalListCount, out int mappedTerminalListCount, out int unmappedTerminalListCount, out int ambiguousTerminalListCount, out string mappedTerminalListValues, out string unmappedTerminalListValues, out string ambiguousTerminalListValues, out List<WarpCatalogRoute>? selectedMatches, out List<WarpCatalogRoute>? selectedCatalogReverseMatches)
+            {
+                sourceContext = "<unavailable>";
+                sourceTerminalRouteCount = -1;
+                terminalListMap = "<unavailable>";
+                activeTerminalListCount = -1;
+                mappedTerminalListCount = -1;
+                unmappedTerminalListCount = -1;
+                ambiguousTerminalListCount = -1;
+                mappedTerminalListValues = "<unavailable>";
+                unmappedTerminalListValues = "<unavailable>";
+                ambiguousTerminalListValues = "<unavailable>";
+                selectedMatches = null;
+                selectedCatalogReverseMatches = null;
+
+                TryGetCurrentFieldContext(out int curF, out int curA, out int curS, out _, out _);
+                if (curF < 0 || curA < 0 || curS < 0)
+                    return false;
+
+                sourceContext = $"F{curF} A{curA} S{curS}";
+                if (!TryLoadWarpCatalogStats(out _, out List<WarpCatalogRoute> contextRoutes, out _, out _))
+                    return false;
+
+                List<WarpCatalogRoute> allTerminalRoutes = contextRoutes
+                    .Where(r => string.Equals(r.Kind, "terminal", StringComparison.Ordinal))
+                    .ToList();
+
+                List<WarpCatalogRoute> terminalRoutes = allTerminalRoutes
+                    .Where(r => r.SrcF == curF
+                             && r.SrcA == curA
+                             && r.SrcS == curS)
+                    .OrderBy(r => r.TransportJumpNo)
+                    .ThenBy(r => r.DstF)
+                    .ThenBy(r => r.DstA)
+                    .ThenBy(r => r.DstS)
+                    .ThenBy(r => r.DstPointRes, StringComparer.Ordinal)
+                    .ToList();
+
+                sourceTerminalRouteCount = terminalRoutes.Count;
+                if (staticWork.TerminalListValues == null || staticWork.TerminalListValues.Length == 0 || staticWork.TerminalCnt <= 0)
+                {
+                    terminalListMap = "<none>";
+                    activeTerminalListCount = 0;
+                    mappedTerminalListCount = 0;
+                    unmappedTerminalListCount = 0;
+                    ambiguousTerminalListCount = 0;
+                    mappedTerminalListValues = "<none>";
+                    unmappedTerminalListValues = "<none>";
+                    ambiguousTerminalListValues = "<none>";
+                    selectedMatches = new List<WarpCatalogRoute>();
+                    selectedCatalogReverseMatches = new List<WarpCatalogRoute>();
+                    return true;
+                }
+
+                int count = Math.Min(staticWork.TerminalCnt, staticWork.TerminalListValues.Length);
+                activeTerminalListCount = count;
+                mappedTerminalListCount = 0;
+                unmappedTerminalListCount = 0;
+                ambiguousTerminalListCount = 0;
+                var parts = new List<string>(count);
+                var mappedValues = new List<int>(count);
+                var unmappedValues = new List<int>(count);
+                var ambiguousValues = new List<int>(count);
+                for (int i = 0; i < count; i++)
+                {
+                    int value = staticWork.TerminalListValues[i];
+                    List<WarpCatalogRoute> matches = terminalRoutes.Where(r => ContainsObservedInt(GetOrderedObservedTransportJumpNoVariants(r), value)).ToList();
+                    if (value == selectedListValue)
+                        selectedMatches = matches;
+
+                    if (matches.Count == 0)
+                    {
+                        unmappedTerminalListCount++;
+                        unmappedValues.Add(value);
+                        parts.Add($"{i}:{value}-><unmapped>");
+                    }
+                    else if (matches.Count == 1)
+                    {
+                        mappedTerminalListCount++;
+                        mappedValues.Add(value);
+                        parts.Add($"{i}:{value}->{BuildCatalogTerminalRouteInferenceInline(matches[0])}");
+                    }
+                    else
+                    {
+                        ambiguousTerminalListCount++;
+                        ambiguousValues.Add(value);
+                        parts.Add($"{i}:{value}-><ambiguous x{matches.Count.ToString(CultureInfo.InvariantCulture)}>");
+                    }
+                }
+
+                terminalListMap = parts.Count == 0 ? "<none>" : string.Join(" | ", parts);
+                mappedTerminalListValues = FormatObservedIntArray(mappedValues.ToArray());
+                unmappedTerminalListValues = FormatObservedIntArray(unmappedValues.ToArray());
+                ambiguousTerminalListValues = FormatObservedIntArray(ambiguousValues.ToArray());
+                if (selectedMatches == null)
+                    selectedMatches = new List<WarpCatalogRoute>();
+
+                if (selectedMatches.Count > 0)
+                {
+                    List<WarpCatalogRoute> selectedMatchesLocal = selectedMatches;
+                    selectedCatalogReverseMatches = allTerminalRoutes
+                        .Where(r => selectedMatchesLocal.Any(m =>
+                            r.SrcF == m.DstF &&
+                            r.SrcA == m.DstA &&
+                            r.SrcS == m.DstS &&
+                            r.DstF == curF &&
+                            r.DstA == curA &&
+                            r.DstS == curS &&
+                            GetOrderedObservedTransportJumpNoVariants(r).Intersect(GetOrderedObservedTransportJumpNoVariants(m)).Any()))
+                        .OrderBy(r => r.SrcF)
+                        .ThenBy(r => r.SrcA)
+                        .ThenBy(r => r.SrcS)
+                        .ThenBy(r => r.DstF)
+                        .ThenBy(r => r.DstA)
+                        .ThenBy(r => r.DstS)
+                        .ThenBy(r => r.RouteId, StringComparer.Ordinal)
+                        .ToList();
+                }
+                else
+                {
+                    selectedCatalogReverseMatches = new List<WarpCatalogRoute>();
+                }
+
+                return true;
+            }
+
+            private static string BuildCatalogTerminalRouteInferenceInline(WarpCatalogRoute route)
+            {
+                int[] observedJump = GetOrderedObservedTransportJumpNoVariants(route);
+                int[] observedTerminalNo = GetOrderedObservedTransportTerminalNoVariants(route);
+                var sb = new StringBuilder(160);
+                if (!string.IsNullOrEmpty(route.RouteId))
+                    sb.Append('[').Append(route.RouteId).Append("] ");
+                sb.Append("F").Append(route.DstF.ToString(CultureInfo.InvariantCulture));
+                sb.Append(" A").Append(route.DstA.ToString(CultureInfo.InvariantCulture));
+                sb.Append(" S").Append(route.DstS.ToString(CultureInfo.InvariantCulture));
+                if (!string.IsNullOrEmpty(route.DstPointRes))
+                    sb.Append(" point=\"").Append(San(route.DstPointRes)).Append("\"");
+                sb.Append(" jump=").Append(FormatObservedIntArray(observedJump));
+                sb.Append(" dstTermNo=").Append(FormatObservedIntArray(observedTerminalNo));
+                return sb.ToString();
+            }
+
+            private static string BuildCatalogTerminalReverseInferenceInline(WarpCatalogRoute route, int currentF, int currentA, int currentS)
+            {
+                int[] observedJump = GetOrderedObservedTransportJumpNoVariants(route);
+                int[] observedTerminalNo = GetOrderedObservedTransportTerminalNoVariants(route);
+                var sb = new StringBuilder(192);
+                if (!string.IsNullOrEmpty(route.RouteId))
+                    sb.Append('[').Append(route.RouteId).Append("] ");
+                sb.Append("from F").Append(route.SrcF.ToString(CultureInfo.InvariantCulture));
+                sb.Append(" A").Append(route.SrcA.ToString(CultureInfo.InvariantCulture));
+                sb.Append(" S").Append(route.SrcS.ToString(CultureInfo.InvariantCulture));
+                if (!string.IsNullOrEmpty(route.SrcPointRes))
+                    sb.Append(" point=\"").Append(San(route.SrcPointRes)).Append("\"");
+                sb.Append(" -> current F").Append(currentF.ToString(CultureInfo.InvariantCulture));
+                sb.Append(" A").Append(currentA.ToString(CultureInfo.InvariantCulture));
+                sb.Append(" S").Append(currentS.ToString(CultureInfo.InvariantCulture));
+                if (!string.IsNullOrEmpty(route.DstPointRes))
+                    sb.Append(" point=\"").Append(San(route.DstPointRes)).Append("\"");
+                sb.Append(" jump=").Append(FormatObservedIntArray(observedJump));
+                sb.Append(" srcTermNo=").Append(FormatObservedIntArray(observedTerminalNo));
+                return sb.ToString();
             }
 
             private static string FormatObservedIntArrayWithLabels(int[] values, bool eventLabels)

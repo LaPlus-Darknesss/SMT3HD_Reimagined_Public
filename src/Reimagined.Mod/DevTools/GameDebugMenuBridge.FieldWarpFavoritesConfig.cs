@@ -109,7 +109,6 @@ namespace SMT3HD_Reimagined
     }
 
     // When turning ON, report how many favorites match the current context
-    // so the user understands why cycling might appear "stuck".
     int curF = -1, curA = -1, curS = -1;
     string _pr = "", _cn = "";
     TryGetCurrentFieldContext(out curF, out curA, out curS, out _pr, out _cn);
@@ -444,7 +443,7 @@ namespace SMT3HD_Reimagined
 
 
 
-// === Warp Favorites file helpers (v2) ===========================================
+// === Warp Favorites file helpers (v2) 
 private static string SanFavValue(string? s)
 {
     if (string.IsNullOrEmpty(s))

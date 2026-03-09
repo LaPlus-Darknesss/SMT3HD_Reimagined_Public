@@ -13,6 +13,48 @@ namespace SMT3HD_Reimagined
     {
         private static partial class GameDebugMenuBridge
         {
+        private sealed class TerminalCursorSnapshot
+            {
+                public int Index = -1;
+                public int Shift = -1;
+                public int DrawShift = -1;
+                public int ShiftMax = -1;
+                public int ListNums = -1;
+                public int InvisibleListNums = -1;
+                public int Timer = -1;
+                public int ActiveTimer = -1;
+                public int StepY = -1;
+                public int StopFlag = -1;
+                public int SizeX = -1;
+                public int SizeY = -1;
+                public int SizeW = -1;
+                public int SizeH = -1;
+            }
+
+            private sealed class TerminalStaticWorkSnapshot
+            {
+                public string GbwkTypeName = "";
+                public int TerminalType = -1;
+                public int TerminalNo = -1;
+                public int LastTerminalType = -1;
+                public int TerminalCnt = -1;
+                public int ActFlag = -1;
+                public int ActStartFlag = -1;
+                public string InitializedText = "<unavailable>";
+                public string EventEndText = "<unavailable>";
+                public int SeqCurrent = -1;
+                public int SeqNext = -1;
+                public int SeqLast = -1;
+                public int SeqChange = -1;
+                public int SeqTimer = -1;
+                public int SeqMesFlag = -1;
+                public int SeqFlag = -1;
+                public TerminalCursorSnapshot CmdCursor = new TerminalCursorSnapshot();
+                public TerminalCursorSnapshot TransCursor = new TerminalCursorSnapshot();
+                public int[] TerminalListValues = Array.Empty<int>();
+                public bool HasSeqInfo = false;
+            }
+
             private const string WarpCatalogFileName = "warp_catalog.jsonl";
 
             private static bool s_warpCatalogArmed = false;
@@ -159,9 +201,7 @@ namespace SMT3HD_Reimagined
                 MelonLogger.Msg($"[WarpCatalog] Cancelled ({reason}). src=F{s_warpCatalogSrcF} A{s_warpCatalogSrcA} S{s_warpCatalogSrcS} door={s_warpCatalogHitDoorIndex} terminalSeen={s_warpCatalogSawTerminal} terminalTransport={s_warpCatalogSawTerminalTransport}");
             }
 
-            /// <summary>
-            /// Called once per frame from ReimaginedMod.OnUpdate().
-            /// </summary>
+            // Called once per frame from ReimaginedMod.OnUpdate().
             public static void TickWarpCatalogRecord()
             {
                 if (!s_warpCatalogArmed)
@@ -513,43 +553,185 @@ namespace SMT3HD_Reimagined
 
                 w.WriteLine("[terminal static work]");
 
-                var initType = FindGameType("Il2Cpp.fclTerminalInit", "fclTerminalInit");
-                if (initType == null)
+                if (!TryReadCurrentTerminalStaticWorkSnapshot(out TerminalStaticWorkSnapshot? snapshot) || snapshot == null)
                 {
-                    w.WriteLine("terminal_static_work: <fclTerminalInit not found>");
+                    w.WriteLine("terminal_static_work: <unavailable>");
                     return;
                 }
 
-                object? gbwk = GetStaticMemberValueLoose(initType, "GBWK");
-                if (gbwk == null)
-                {
-                    w.WriteLine("terminal_static_work: <GBWK unavailable>");
-                    return;
-                }
+                w.WriteLine($"gbwk_type={snapshot.GbwkTypeName}");
+                w.WriteLine($"terminal_identity=type={snapshot.TerminalType.ToString(CultureInfo.InvariantCulture)} no={snapshot.TerminalNo.ToString(CultureInfo.InvariantCulture)} lastType={snapshot.LastTerminalType.ToString(CultureInfo.InvariantCulture)} cnt={snapshot.TerminalCnt.ToString(CultureInfo.InvariantCulture)} act={snapshot.ActFlag.ToString(CultureInfo.InvariantCulture)} actStart={snapshot.ActStartFlag.ToString(CultureInfo.InvariantCulture)} init={snapshot.InitializedText} eventEnd={snapshot.EventEndText}");
 
-                w.WriteLine($"gbwk_type={gbwk.GetType().FullName}");
-                w.WriteLine($"terminal_identity=type={GetInt(gbwk, "TerminalType", -1).ToString(CultureInfo.InvariantCulture)} no={GetInt(gbwk, "TerminalNo", -1).ToString(CultureInfo.InvariantCulture)} lastType={GetInt(gbwk, "LastTerminalType", -1).ToString(CultureInfo.InvariantCulture)} cnt={GetInt(gbwk, "TerminalCnt", -1).ToString(CultureInfo.InvariantCulture)} act={GetInt(gbwk, "ActFlag", -1).ToString(CultureInfo.InvariantCulture)} actStart={GetInt(gbwk, "ActStartFlag", -1).ToString(CultureInfo.InvariantCulture)} init={FormatBoolField(gbwk, "Initialized")} eventEnd={FormatBoolField(gbwk, "EventEnd")}");
-
-                object? seqInfo = GetMember(gbwk, "SeqInfo");
-                if (seqInfo != null)
+                if (snapshot.HasSeqInfo)
                 {
-                    int current = GetInt(seqInfo, "Current", -1);
-                    int next = GetInt(seqInfo, "Next", -1);
-                    int last = GetInt(seqInfo, "Last", -1);
-                    int change = GetInt(seqInfo, "Change", -1);
-                    int timer = GetInt(seqInfo, "Timer", -1);
-                    int mesFlag = GetInt(seqInfo, "MesFlag", -1);
-                    int flag = GetInt(seqInfo, "Flag", -1);
-                    w.WriteLine($"seq_info=current={FormatTrmSeqValue(current)} next={FormatTrmSeqValue(next)} last={FormatTrmSeqValue(last)} change={change.ToString(CultureInfo.InvariantCulture)} timer={timer.ToString(CultureInfo.InvariantCulture)} mesFlag={mesFlag.ToString(CultureInfo.InvariantCulture)} flag={flag.ToString(CultureInfo.InvariantCulture)}");
+                    w.WriteLine($"seq_info=current={FormatTrmSeqValue(snapshot.SeqCurrent)} next={FormatTrmSeqValue(snapshot.SeqNext)} last={FormatTrmSeqValue(snapshot.SeqLast)} change={snapshot.SeqChange.ToString(CultureInfo.InvariantCulture)} timer={snapshot.SeqTimer.ToString(CultureInfo.InvariantCulture)} mesFlag={snapshot.SeqMesFlag.ToString(CultureInfo.InvariantCulture)} flag={snapshot.SeqFlag.ToString(CultureInfo.InvariantCulture)}");
+                    w.WriteLine($"phase_hint={ClassifyTerminalPhase(snapshot.SeqCurrent)}");
                 }
                 else
                 {
                     w.WriteLine("seq_info=<unavailable>");
+                    w.WriteLine("phase_hint=<unavailable>");
                 }
 
-                w.WriteLine($"cmd_cursor={FormatTerminalCursorSummary(GetMember(gbwk, "CmdSelInfo"), "CursorInfo")}");
-                w.WriteLine($"trans_cursor={FormatTerminalCursorSummary(GetMember(gbwk, "TransWindow"), "CursorInfo")}");
-                w.WriteLine($"terminal_list={FormatTerminalListPreview(GetMember(gbwk, "TerminalList"), 16)}");
+                w.WriteLine($"cmd_cursor={FormatTerminalCursorSummary(snapshot.CmdCursor)}");
+                w.WriteLine($"trans_cursor={FormatTerminalCursorSummary(snapshot.TransCursor)}");
+                w.WriteLine($"terminal_list={FormatTerminalListPreview(snapshot.TerminalListValues, 16)}");
+                w.WriteLine($"terminal_list_active={FormatTerminalListActive(snapshot.TerminalListValues, snapshot.TerminalCnt)}");
+
+                if (TryGetCurrentTerminalSelectedListValue(snapshot, out int selectedOrdinal0, out int selectedValue))
+                {
+                    int selectedOrdinal1 = selectedOrdinal0 + 1;
+                    string countText = snapshot.TerminalCnt > 0
+                        ? snapshot.TerminalCnt.ToString(CultureInfo.InvariantCulture)
+                        : "?";
+                    w.WriteLine($"trans_selection=ordinal0={selectedOrdinal0.ToString(CultureInfo.InvariantCulture)} ordinal1={selectedOrdinal1.ToString(CultureInfo.InvariantCulture)}/{countText} value={selectedValue.ToString(CultureInfo.InvariantCulture)}");
+                }
+                else
+                {
+                    w.WriteLine("trans_selection=<unavailable>");
+                }
+            }
+
+            private static bool TryReadCurrentTerminalStaticWorkSnapshot(out TerminalStaticWorkSnapshot? snapshot)
+            {
+                snapshot = null;
+
+                var initType = FindGameType("Il2Cpp.fclTerminalInit", "fclTerminalInit");
+                if (initType == null)
+                    return false;
+
+                object? gbwk = GetStaticMemberValueLoose(initType, "GBWK");
+                if (gbwk == null)
+                    return false;
+
+                var s = new TerminalStaticWorkSnapshot();
+                s.GbwkTypeName = gbwk.GetType().FullName ?? "<unknown>";
+                s.TerminalType = GetInt(gbwk, "TerminalType", -1);
+                s.TerminalNo = GetInt(gbwk, "TerminalNo", -1);
+                s.LastTerminalType = GetInt(gbwk, "LastTerminalType", -1);
+                s.TerminalCnt = GetInt(gbwk, "TerminalCnt", -1);
+                s.ActFlag = GetInt(gbwk, "ActFlag", -1);
+                s.ActStartFlag = GetInt(gbwk, "ActStartFlag", -1);
+                s.InitializedText = FormatBoolField(gbwk, "Initialized");
+                s.EventEndText = FormatBoolField(gbwk, "EventEnd");
+
+                object? seqInfo = GetMember(gbwk, "SeqInfo");
+                if (seqInfo != null)
+                {
+                    s.HasSeqInfo = true;
+                    s.SeqCurrent = GetInt(seqInfo, "Current", -1);
+                    s.SeqNext = GetInt(seqInfo, "Next", -1);
+                    s.SeqLast = GetInt(seqInfo, "Last", -1);
+                    s.SeqChange = GetInt(seqInfo, "Change", -1);
+                    s.SeqTimer = GetInt(seqInfo, "Timer", -1);
+                    s.SeqMesFlag = GetInt(seqInfo, "MesFlag", -1);
+                    s.SeqFlag = GetInt(seqInfo, "Flag", -1);
+                }
+
+                s.CmdCursor = SnapshotTerminalCursor(GetMember(gbwk, "CmdSelInfo"), "CursorInfo");
+                s.TransCursor = SnapshotTerminalCursor(GetMember(gbwk, "TransWindow"), "CursorInfo");
+                s.TerminalListValues = SnapshotTerminalListValues(GetMember(gbwk, "TerminalList"));
+
+                snapshot = s;
+                return true;
+            }
+
+            private static TerminalCursorSnapshot SnapshotTerminalCursor(object? owner, string cursorMemberName)
+            {
+                var snapshot = new TerminalCursorSnapshot();
+                if (owner == null)
+                    return snapshot;
+
+                object? cursor = GetMember(owner, cursorMemberName);
+                if (cursor == null)
+                    return snapshot;
+
+                object? pos = GetMember(cursor, "CursorPos");
+                object? size = GetMember(cursor, "CursorSize");
+
+                snapshot.Index = pos != null ? GetInt(pos, "Index", -1) : -1;
+                snapshot.Shift = pos != null ? GetInt(pos, "Shift", -1) : -1;
+                snapshot.DrawShift = pos != null ? GetInt(pos, "DrawShift", -1) : -1;
+                snapshot.ShiftMax = pos != null ? GetInt(pos, "ShiftMax", -1) : -1;
+                snapshot.ListNums = pos != null ? GetInt(pos, "ListNums", -1) : -1;
+                snapshot.InvisibleListNums = pos != null ? GetInt(pos, "InvisibleListNums", -1) : -1;
+                snapshot.Timer = pos != null ? GetInt(pos, "Timer", -1) : -1;
+                snapshot.ActiveTimer = pos != null ? GetInt(pos, "ActiveTimer", -1) : -1;
+                snapshot.StepY = GetInt(cursor, "StepY", -1);
+                snapshot.StopFlag = GetInt(cursor, "StopFlag", -1);
+                snapshot.SizeX = size != null ? GetInt(size, "X", -1) : -1;
+                snapshot.SizeY = size != null ? GetInt(size, "Y", -1) : -1;
+                snapshot.SizeW = size != null ? GetInt(size, "W", -1) : -1;
+                snapshot.SizeH = size != null ? GetInt(size, "H", -1) : -1;
+                return snapshot;
+            }
+
+            private static int[] SnapshotTerminalListValues(object? terminalList)
+            {
+                if (terminalList == null)
+                    return Array.Empty<int>();
+
+                if (!TryGetArrayLength(terminalList, out int len) || len <= 0)
+                    return Array.Empty<int>();
+
+                var values = new int[len];
+                for (int i = 0; i < len; i++)
+                {
+                    values[i] = -1;
+                    if (!TryGetArrayElement(terminalList, i, out object? elem) || elem == null)
+                        continue;
+                    try
+                    {
+                        values[i] = Convert.ToInt32(elem, CultureInfo.InvariantCulture);
+                    }
+                    catch
+                    {
+                        values[i] = -1;
+                    }
+                }
+                return values;
+            }
+
+            private static bool TryGetCurrentTerminalSelectedListValue(TerminalStaticWorkSnapshot? snapshot, out int selectedOrdinal0, out int selectedValue)
+            {
+                selectedOrdinal0 = -1;
+                selectedValue = -1;
+                if (snapshot == null)
+                    return false;
+
+                int index = snapshot.TransCursor.Index;
+                int shift = snapshot.TransCursor.Shift;
+                if (index < 0 || shift < 0)
+                    return false;
+
+                int ordinal = index + shift;
+                if (ordinal < 0 || ordinal >= snapshot.TerminalListValues.Length)
+                    return false;
+
+                int value = snapshot.TerminalListValues[ordinal];
+                if (value < 0)
+                    return false;
+
+                selectedOrdinal0 = ordinal;
+                selectedValue = value;
+                return true;
+            }
+
+            private static string ClassifyTerminalPhase(int seqCurrent)
+            {
+                return seqCurrent switch
+                {
+                    0 => "root_menu",
+                    1 => "transport_list",
+                    5 => "confirm",
+                    2 => "save_select",
+                    3 => "talk",
+                    4 => "exit",
+                    6 => "act",
+                    7 => "save_act_in",
+                    8 => "save_act_out",
+                    _ => "unknown",
+                };
             }
 
             private static string FormatBoolField(object obj, string memberName)
@@ -622,56 +804,51 @@ namespace SMT3HD_Reimagined
                 if (cursor == null)
                     return "<cursor unavailable>";
 
-                object? pos = GetMember(cursor, "CursorPos");
-                object? size = GetMember(cursor, "CursorSize");
+                return FormatTerminalCursorSummary(SnapshotTerminalCursor(owner, cursorMemberName));
+            }
 
-                int index = pos != null ? GetInt(pos, "Index", -1) : -1;
-                int shift = pos != null ? GetInt(pos, "Shift", -1) : -1;
-                int drawShift = pos != null ? GetInt(pos, "DrawShift", -1) : -1;
-                int shiftMax = pos != null ? GetInt(pos, "ShiftMax", -1) : -1;
-                int listNums = pos != null ? GetInt(pos, "ListNums", -1) : -1;
-                int invisibleListNums = pos != null ? GetInt(pos, "InvisibleListNums", -1) : -1;
-                int timer = pos != null ? GetInt(pos, "Timer", -1) : -1;
-                int activeTimer = pos != null ? GetInt(pos, "ActiveTimer", -1) : -1;
-                int stepY = GetInt(cursor, "StepY", -1);
-                int stopFlag = GetInt(cursor, "StopFlag", -1);
-                string sizeText = size != null
-                    ? $"x={GetInt(size, "X", -1).ToString(CultureInfo.InvariantCulture)} y={GetInt(size, "Y", -1).ToString(CultureInfo.InvariantCulture)} w={GetInt(size, "W", -1).ToString(CultureInfo.InvariantCulture)} h={GetInt(size, "H", -1).ToString(CultureInfo.InvariantCulture)}"
-                    : "<size unavailable>";
+            private static string FormatTerminalCursorSummary(TerminalCursorSnapshot? snapshot)
+            {
+                if (snapshot == null)
+                    return "<unavailable>";
 
-                return $"index={index.ToString(CultureInfo.InvariantCulture)} shift={shift.ToString(CultureInfo.InvariantCulture)} drawShift={drawShift.ToString(CultureInfo.InvariantCulture)} shiftMax={shiftMax.ToString(CultureInfo.InvariantCulture)} listNums={listNums.ToString(CultureInfo.InvariantCulture)} invisibleListNums={invisibleListNums.ToString(CultureInfo.InvariantCulture)} timer={timer.ToString(CultureInfo.InvariantCulture)} activeTimer={activeTimer.ToString(CultureInfo.InvariantCulture)} stepY={stepY.ToString(CultureInfo.InvariantCulture)} stop={stopFlag.ToString(CultureInfo.InvariantCulture)} size[{sizeText}]";
+                string sizeText = $"x={snapshot.SizeX.ToString(CultureInfo.InvariantCulture)} y={snapshot.SizeY.ToString(CultureInfo.InvariantCulture)} w={snapshot.SizeW.ToString(CultureInfo.InvariantCulture)} h={snapshot.SizeH.ToString(CultureInfo.InvariantCulture)}";
+                return $"index={snapshot.Index.ToString(CultureInfo.InvariantCulture)} shift={snapshot.Shift.ToString(CultureInfo.InvariantCulture)} drawShift={snapshot.DrawShift.ToString(CultureInfo.InvariantCulture)} shiftMax={snapshot.ShiftMax.ToString(CultureInfo.InvariantCulture)} listNums={snapshot.ListNums.ToString(CultureInfo.InvariantCulture)} invisibleListNums={snapshot.InvisibleListNums.ToString(CultureInfo.InvariantCulture)} timer={snapshot.Timer.ToString(CultureInfo.InvariantCulture)} activeTimer={snapshot.ActiveTimer.ToString(CultureInfo.InvariantCulture)} stepY={snapshot.StepY.ToString(CultureInfo.InvariantCulture)} stop={snapshot.StopFlag.ToString(CultureInfo.InvariantCulture)} size[{sizeText}]";
             }
 
             private static string FormatTerminalListPreview(object? terminalList, int maxItems)
             {
-                if (terminalList == null)
+                return FormatTerminalListPreview(SnapshotTerminalListValues(terminalList), maxItems);
+            }
+
+            private static string FormatTerminalListPreview(int[]? terminalListValues, int maxItems)
+            {
+                if (terminalListValues == null)
                     return "<unavailable>";
 
-                if (!TryGetArrayLength(terminalList, out int len))
-                    return "<length unavailable>";
-
+                int len = terminalListValues.Length;
                 int take = Math.Max(0, Math.Min(len, maxItems));
                 var parts = new List<string>(take);
                 for (int i = 0; i < take; i++)
-                {
-                    if (!TryGetArrayElement(terminalList, i, out object? elem) || elem == null)
-                    {
-                        parts.Add("?");
-                        continue;
-                    }
-
-                    try
-                    {
-                        parts.Add(Convert.ToInt32(elem, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture));
-                    }
-                    catch
-                    {
-                        parts.Add(elem.ToString() ?? "?");
-                    }
-                }
+                    parts.Add(terminalListValues[i].ToString(CultureInfo.InvariantCulture));
 
                 string suffix = len > take ? " ..." : string.Empty;
                 return $"len={len.ToString(CultureInfo.InvariantCulture)} values=[{string.Join("|", parts)}]{suffix}";
+            }
+
+            private static string FormatTerminalListActive(int[]? terminalListValues, int terminalCnt)
+            {
+                if (terminalListValues == null)
+                    return "<unavailable>";
+
+                int len = terminalListValues.Length;
+                if (terminalCnt < 0)
+                    terminalCnt = 0;
+                int take = Math.Max(0, Math.Min(len, terminalCnt));
+                var parts = new List<string>(take);
+                for (int i = 0; i < take; i++)
+                    parts.Add($"{i.ToString(CultureInfo.InvariantCulture)}:{terminalListValues[i].ToString(CultureInfo.InvariantCulture)}");
+                return $"cnt={take.ToString(CultureInfo.InvariantCulture)} values=[{string.Join("|", parts)}]";
             }
 
             private static bool TrySnapshotDoorEntryForIndex(int doorIndex)

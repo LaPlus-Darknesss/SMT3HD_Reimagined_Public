@@ -9,19 +9,12 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass_B11/B12: Skill favorites (small, config-driven QoL)
+            // Skill favorites 
             // =========================================================
-            // Design intent:
-            // - Reduce dependence on the native ReplacementPick flow for common testing.
-            // - Keep this tiny and safe: still requires Skill_List + valid slot + resolved unit.
-            // - Uses the same conservative swap/undo behavior as the candidate apply primitive.
 
-            // NOTE: Keep this list small (12-30). These are purely devtool helpers.
-            // B12 adds a file-backed favorites list, but we keep a hardcoded fallback
-            // so DevTools still works even if the file is missing or malformed.
-            private static readonly int[] s_skillFavoritesDefaults = new int[]
+            private static readonly int[] s_skillFavoritesDefaults =
             {
-                // Example utility/test skills (adjust to taste)
+                // default test skills
                 26, // Megidola
                 28, // Hama
                 7,  // Bufu

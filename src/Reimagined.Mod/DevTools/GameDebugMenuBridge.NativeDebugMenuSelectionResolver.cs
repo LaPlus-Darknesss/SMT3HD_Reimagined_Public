@@ -10,7 +10,7 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass_B2: Native debug menu selection capture/resolver
+            // Native debug menu selection capture/resolver
             // =========================================================
 
             private static bool TryCaptureNativeDebugMenuSelectionSnapshot(Type cmpTest, out NativeDebugMenuSelectionSnapshot snap, TextWriter? dbg = null)
@@ -98,7 +98,7 @@ namespace SMT3HD_Reimagined
                 }
 
                 int sel = shift + index;
-// Root word inference (best effort).
+				// Root word inference (best effort).
                 string rootWord = TryInferRootMenuWord(cmpTest, cursorArr) ?? string.Empty;
                 bool rootKnown = !string.IsNullOrEmpty(rootWord);
 
@@ -243,7 +243,7 @@ namespace SMT3HD_Reimagined
                 if (row < 0 || row >= rowLimit)
                     return false;
 
-                // Mapping A (observed in your dumps): row directly maps to stocklist[row] (stocklist includes protagonist at [0]).
+                // Mapping: row directly maps to stocklist[row] (stocklist includes protagonist at [0]).
                 // We still keep a guarded fallback in case stocklist is shorter than expected on a given build/state.
                 if (kind == SkillDemonSlotMappingKind.Stocklist0IsProtag)
                 {
@@ -307,7 +307,7 @@ namespace SMT3HD_Reimagined
 
 
             // ---------------------------------------------------------
-            // Pass_B3: Resolve the currently highlighted demon's skill list
+            // Resolve the currently highlighted demon's skill list
             // ---------------------------------------------------------
             private static void WriteUnitSkillsBestEffort(TextWriter w, int unitworkIdx, int highlightedSkillId, int gSelSkill, NativeDebugMenuPhase phase)
             {

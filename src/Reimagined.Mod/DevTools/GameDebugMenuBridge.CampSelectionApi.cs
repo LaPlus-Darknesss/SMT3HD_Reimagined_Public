@@ -9,16 +9,8 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass 73: Camp selection API + stable identity helpers
+            // Camp selection API + stable identity helpers
             // =========================================================
-            //
-            // Motivation:
-            // - We now have a best-effort derived highlighted selection (CampHighlightedSelection),
-            //   but QuickDump is still the primary consumer.
-            // - This file introduces a small, stable API surface we can reuse from:
-            //     * future "builders" (swap party, inject actions)
-            //     * live inspectors / watchers
-            //     * automated tracing/validation (unit list invariants)
             //
             // NOTE:
             // - Everything here is INTERNAL to the mod and intentionally "narrow":

@@ -16,19 +16,10 @@ namespace SMT3HD_Reimagined
                 High = 3,
             }
 
-// =========================================================
-            // Pass 70: Derive a single "highlighted unit" from the current camp snapshot
+			// =========================================================
+            //  Derive a single "highlighted unit" from the current camp snapshot
             // =========================================================
             //
-            // Why this exists:
-            // - Different camp flows expose selection in different ways:
-            //     - Item target selection (drawMode=5): the highlighted target is usually cmpCalc.Dst.
-            //     - Party -> Summon / Return-to-stock: cmpCalc pointers may be stale/zero, but StockInfo cursor data
-            //       still reveals the highlighted demon via LocalStock[ListIdx/StockIdx] at (Index+Shift).
-            //     - Stats screens often behave like "party highlight" (cursor[0] tends to be the moving one).
-            //
-            // This helper produces ONE "best-effort" highlighted UnitResolveInfo plus a human-readable reason.
-            // It is intentionally conservative: if we cannot resolve a believable unit, we return false.
 
             private static bool TryGetHighlightedUnit(in CampSelectionSnapshot snap, bool haveProbe, in CampProbeState st, out UnitResolveInfo hi, out CampHighlightConfidence confidence, out string reason)
             {

@@ -16,15 +16,9 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass A39: Camp/Command-menu reflection surface dumper
+            // Camp/Command-menu reflection surface dumper
             // =========================================================
-            // Motivation:
-            // We already can *observe* the vanilla command-menu (camp) state machine via seqTrace.
-            // The remaining missing piece is reliably identifying the real Il2Cpp member names for:
-            //   - the menu list (length, item entries)
-            //   - the active cursor object
-            //   - submenu routing objects / next lists
-            // This dumper is intentionally "read-only" and only uses reflection.
+
 
             internal static void HotkeyDumpCampReflectionSurface()
             {
@@ -80,7 +74,7 @@ namespace SMT3HD_Reimagined
 
 
                     // --- cmpInit menu string tables (best-effort) ---
-                    // Highest ROI for mapping SeqInfo.Current indices -> actual labels the vanilla command menu uses.
+                    // Mapping SeqInfo.Current indices -> actual labels the vanilla command menu uses.
                     // Dumped here so we can diff across contexts and correlate with seqTrace + snapshots.
                     w.WriteLine("--- cmpInit menu tables (best-effort) ---");
 	                    TryDumpIl2CppArrayStatic(w, cmpInit, "gCmpRootMenuStr", 32);
@@ -854,16 +848,13 @@ private static void TryDumpIntArrayMemberPreview(TextWriter w, object owner, str
 	            }
 
 	            
-	            	            // ---------------------------------------------------------------------
-	            // cmpCalc selection (read-only, best-effort)
+	            // ---------------------------------------------------------------------
+	            // cmpCalc selection 
 	            // ---------------------------------------------------------------------
 	            // Many camp flows (especially items / swap / multi-step menus) keep multiple StockInfo cursors
 	            // alive at once. The UI cursor position helps, but cmpCalc exposes the engine's current
 	            // "selected source" and "selected destination" unitworks directly.
-	            //
-	            // IMPORTANT: We intentionally avoid compile-time references to Il2Cpp game namespaces/types here
-	            // (e.g., Il2Cpp.*, newdata_H.*, datUnitWork_t) because wrapper namespace layouts can vary between
-	            // environments. Everything is bound via reflection and treated as object.
+	           
 	            private struct CmpCalcSelection
 	            {
 	                public bool Ok;
@@ -1106,7 +1097,7 @@ private static void TryDumpDerivedStockSelectionFromCmp(TextWriter w, object? gb
         try { if (calcSel.SrcObj != null) srcPtr = TryGetIl2CppPointer(calcSel.SrcObj).ToInt64(); } catch { }
         try { if (calcSel.DstObj != null) dstPtr = TryGetIl2CppPointer(calcSel.DstObj).ToInt64(); } catch { }
 
-        // Pass 1: locate which StockInfo cursor corresponds to cmpCalc.srcStock / cmpCalc.dstStock.
+        // locate which StockInfo cursor corresponds to cmpCalc.srcStock / cmpCalc.dstStock.
         int srcCursor = -1;
         int dstCursor = -1;
         UnitResolveInfo srcInfo = default;
@@ -1169,7 +1160,7 @@ private static void TryDumpDerivedStockSelectionFromCmp(TextWriter w, object? gb
             }
         }
 
-        // Pass 2: determine which cursor should be considered "active" for the UI selection we care about.
+        // determine which cursor should be considered "active" for the UI selection we care about.
         // In item-target selection (drawMode==5), the "dst" cursor is usually the one the player is moving.
         // In summon/return flows (drawMode==1), the "src" cursor is usually the one the player is moving.
         int cursorSel = TryReadInt32(stockInfo, "CursorSel", int.MinValue);
@@ -1191,7 +1182,7 @@ private static void TryDumpDerivedStockSelectionFromCmp(TextWriter w, object? gb
             $"derived.stockInfo.meta: drawMode={drawMode}  SelPos.Length={selLen}  LocalStock.Length={(localStockLen >= 0 ? localStockLen : -1)}  activeCursor={activeCursor}  CursorSel={cursorSel}  CursorCurSel={cursorCurSel}  " +
             $"cmpSrcPtr=0x{srcPtr:X}  cmpDstPtr=0x{dstPtr:X}  srcCursor={srcCursor}  dstCursor={dstCursor}  (SelPos.{selKind})");
 
-        // Pass 3: emit full per-cursor detail (this is the part you diff between dumps).
+        // emit full per-cursor detail 
         for (int cursor = 0; cursor < selLen; cursor++)
         {
             object? ci = null;
@@ -1282,7 +1273,7 @@ private static void TryDumpDerivedStockSelectionFromCmp(TextWriter w, object? gb
             }
         }
 
-        // Canonical summary for diffing and for future in-code "selection snapshot" APIs.
+        // Canonical summary for diffing and for future in-code selection snapshot APIs.
         string itemName = "";
         if (calcSel.ItemId >= 0)
             TryGetItemName(calcSel.ItemId, out itemName);
@@ -1343,7 +1334,7 @@ static Type? s_datDevilNameType;
 	                    if (devilId < 0)
 	                        return false;
 
-	                    // The protagonist (Demi-fiend) typically uses id=0 in unitwork; it is not present in datDevilName.
+	                    // The protagonist typically uses id=0 in unitwork; it is not present in datDevilName.
 	                    if (devilId == 0)
 	                    {
 	                        name = "Demi-fiend";
@@ -1902,7 +1893,6 @@ static Type? s_datDevilNameType;
 
 	            // Decode the *live* UI state of campUI in a way that's directly useful for
 	            // correlating to what the player sees (menu entries, cursor position, etc.).
-	            // This intentionally avoids any compile-time dependency on TMPro by using reflection.
 	            private static void TryDumpCampUiDecoded(TextWriter w, Type cmpInitType, object campUiObj, object? gbwkObj)
 	            {
 	                try
@@ -2506,7 +2496,7 @@ static Type? s_datDevilNameType;
 
 	            private 
 	            // =========================================================
-	            // Il2Cpp class-name helpers (best-effort)
+	            // Il2Cpp class-name helpers 
 	            // =========================================================
 	            static Type? s_il2cppApiType;
 	            static MethodInfo? s_il2cpp_object_get_class;
@@ -2814,7 +2804,7 @@ static void TryDumpRowIdentityProbe(TextWriter w, string label, GameObject go, i
 	                        w.WriteLine($"    (ancestor probe error)");
 	                    }
 
-// Member probe (strings + scalar ids) for non-Transform components.
+						// Member probe (strings + scalar ids) for non-Transform components.
 	                    int wrote = 0;
 	                    w.WriteLine($"  {label}.rowProbe.members (showing up to {maxHits})");
 	                    for (int i = 0; i < take && wrote < maxHits; i++)
@@ -3253,7 +3243,7 @@ private static bool TryGetIndexedValue(object arrObj, int index, out object? val
 	                text = null;
 	                try
 	                {
-	                    // IMPORTANT: SMT3HD IL2CPP surface often strips/changes the generic overload.
+	                    // IMPORTANT: IL2CPP surface often strips/changes the generic overload.
 	                    // Do not call GetComponentsInChildren<T>() directly; use reflection to support both:
 	                    //   - Component[] GetComponentsInChildren(bool includeInactive)
 	                    //   - Component[] GetComponentsInChildren(Type t, bool includeInactive)
@@ -3384,8 +3374,8 @@ private static bool TryGetIndexedValue(object arrObj, int index, out object? val
 	                    return false;
 	                }
 	            }
-
-// Many SMT3HD camp/menu lists appear to be sprite-driven (localized sprite atlases),
+				
+				// Many camp/menu lists appear to be sprite-driven (localized sprite atlases),
 	            // so we capture sprite names as first-class "what the player sees" labels.
 	            private static bool TryFindAnySpriteOn(GameObject go, out string? spriteInfo)
 	            {
@@ -3910,13 +3900,6 @@ private static bool TryGetIndexedValue(object arrObj, int index, out object? val
 // =========================================================
 // GetComponents() best-effort helpers (IL2CPP-safe)
 // =========================================================
-// The generic GameObject.GetComponents<T>() instantiation is sometimes stripped on IL2CPP builds,
-// which causes MissingMethodException at runtime (even though it compiles).
-// For devtools, we instead reflect for 1-param overloads that accept either:
-//   - System.Type
-//   - Il2CppSystem.Type
-// and then coerce the returned collection into a list of objects.
-
 private static bool s_getComponentsCacheInit;
 private static MethodInfo[] s_getComponentsSysType = Array.Empty<MethodInfo>();
 private static MethodInfo[] s_getComponentsIl2CppType = Array.Empty<MethodInfo>();

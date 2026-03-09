@@ -13,22 +13,8 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass 77: Game-native debug menu (cmpTest) tree/state dump
+            // Game-native debug menu (cmpTest) tree/state dump
             // =========================================================
-            //
-            // Why:
-            // - SMT3HD ships with a powerful internal debug menu (cmpTest) that can already:
-            //   - enumerate party/stock demons
-            //   - edit demon stats/skills
-            //   - edit items/money/moon/etc
-            // - Rather than reinventing every table path ourselves, we can *observe* how cmpTest
-            //   is wired and re-use the same sources for our own devtools (read-only first).
-            //
-            // What this dump does:
-            // - Emits current cmpTest "global" state (init/active/list/cursor fields)
-            // - Lists root menu entries (word/Para/hasFunc/nextSize)
-            // - For suspicious or high-value roots (Devil/Skill/Item/etc), expands one submenu layer
-            //   to give us a map of where demon/skill/item editors likely live.
 
             internal static void HotkeyDumpNativeDebugMenuTree()
             {

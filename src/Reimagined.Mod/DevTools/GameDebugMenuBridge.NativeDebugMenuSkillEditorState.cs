@@ -9,13 +9,9 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass_B6: Native debug menu skill-editor state (runtime API)
+            // Native debug menu skill-editor state 
             // =========================================================
-            // Design intent:
-            // - Convert our dump-only semantics (slot vs candidate vs stale) into a reusable, typed state record.
-            // - Keep everything best-effort / no-throw: this is for DevTools overlays and future tool builders.
-            // - Do not interpret Skill_id outside Skill_List; we only surface it as "observed" (likely stale).
-
+			
             internal enum NativeDebugMenuSkillEditorSubphase
             {
                 Unknown = 0,

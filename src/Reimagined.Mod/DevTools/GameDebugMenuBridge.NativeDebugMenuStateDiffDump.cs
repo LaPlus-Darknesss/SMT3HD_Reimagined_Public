@@ -11,20 +11,9 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass 78: cmpTest (native debug menu) *dynamic* state mining
+            // cmpTest (native debug menu) *dynamic* state mining
             // =========================================================
-            //
-            // The Pass77 tree dump mapped the static root entries, but in this build many
-            // root nodes are "func-only" (nextSize=0) and open a different internal list.
-            //
-            // To reuse cmpTest as a long-term devtools source, we need to discover:
-            // - which static members change as you navigate the menu,
-            // - which list arrays represent the *current* menu page (skills/items/params/etc),
-            // - which members point at "current demon"/"current slot"/"current skill id".
-            //
-            // This file adds:
-            // - a curated dump of a few common lists (cmpDbgStatusList/cmpDbgListParam/etc)
-            // - a static-field census + diff since last dump in the same session
+           
 
             private static Dictionary<string, string>? _cmpTestLastCensus;
 
@@ -463,7 +452,7 @@ namespace SMT3HD_Reimagined
                 if (name.StartsWith("NativePropertyInfoPtr_", StringComparison.Ordinal)) return true;
                 if (name.StartsWith("NativeTypeInfoPtr_", StringComparison.Ordinal)) return true;
                 if (name.StartsWith("NativeObjectPtr_", StringComparison.Ordinal)) return true;
-                                // Many Il2Cpp wrappers expose lots of constants; try to exclude obvious constant-ish symbols.
+                // Many Il2Cpp wrappers expose lots of constants; try to exclude obvious constant-ish symbols.
                 // (We keep this conservative; we still want selection indices.)
                 if (name.Length >= 6)
                 {

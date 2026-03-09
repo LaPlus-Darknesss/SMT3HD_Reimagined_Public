@@ -8,12 +8,9 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass_B2: NativeDebugMenuSelectionSnapshot (immutable POD)
+            // NativeDebugMenuSelectionSnapshot (immutable POD)
             // =========================================================
-            // Design intent:
-            // - Centralize "what is the native debug menu currently pointing at?" into a small record.
-            // - Make it safe to log/overlay without holding live pointers.
-            // - Keep it best-effort: it's fine for some fields to be Unknown on some pages/builds.
+
 
             internal enum NativeDebugMenuPhase
             {
@@ -26,7 +23,6 @@ namespace SMT3HD_Reimagined
             internal enum SkillDemonSlotMappingKind
             {
                 Unknown = 0,
-                // Observed in your dumps (B1): stockcnt=9 maxstock=8 and stocklist[0]=0,
                 // meaning stocklist includes the protagonist as its first element.
                 Stocklist0IsProtag = 1,
                 // Legacy fallback: protagonist is implicit (unitwork[0]) and stocklist begins at row 1.

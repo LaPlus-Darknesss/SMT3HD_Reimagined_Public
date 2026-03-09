@@ -8,15 +8,9 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass 71: CampHighlightedSelection
+            // CampHighlightedSelection
             // =========================================================
-            // Goal:
-            // - Provide a single, structured record of "what is highlighted right now".
-            // - Carry enough cursor metadata to support future *safe* tooling:
-            //     - distinguish "unitwork index" vs "stocklist index" when possible
-            //     - keep the original cursor indices (idx/shift/overall)
-            //     - attach the probe context (root/sub) used to pick the cursor
-            // - Stay read-only for now (builders/mutators come later).
+
 
             internal enum CampHighlightKind
             {

@@ -11,12 +11,8 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass_B12: File-backed skill favorites
+            // File-backed skill favorites
             // =========================================================
-            // Goal:
-            // - Make the favorites list editable without recompiling.
-            // - Keep it fail-safe: if the file is missing/malformed, fall back to defaults.
-            // - Provide a reload hotkey so iteration is fast.
 
             private static readonly string SkillFavoritesPath = Path.Combine(DumpsDir, "devtools_skill_favorites.txt");
 

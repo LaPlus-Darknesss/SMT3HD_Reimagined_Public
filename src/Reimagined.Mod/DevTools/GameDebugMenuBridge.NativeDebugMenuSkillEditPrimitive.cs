@@ -11,13 +11,8 @@ namespace SMT3HD_Reimagined
         private static partial class GameDebugMenuBridge
         {
             // =========================================================
-            // Pass_B10: Native debug menu SKILL edit primitive (apply + undo)
+            // Native debug menu SKILL edit primitive (apply + undo)
             // =========================================================
-            // Design intent:
-            // - Small, conservative building block for long-term tooling.
-            // - Fail-closed: only operates in Skill_List/ReplacementPick with a valid slot + candidate.
-            // - Single-step undo buffer (also fail-closed).
-            // - Best-effort only; never throws.
 
                         private readonly struct NativeSkillEditRecord
             {

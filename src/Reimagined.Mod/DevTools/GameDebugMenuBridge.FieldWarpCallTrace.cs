@@ -15,10 +15,7 @@ namespace SMT3HD_Reimagined
             private static HarmonyLib.Harmony? s_fieldWarpCallTraceHarmony;
 
             // Installed lazily when the user enables the warp trace hotkey.
-            // This is *log-only*: it never changes behavior.
-            //
-            // IMPORTANT: We avoid compile-time references to Il2Cpp.* wrapper types.
-            // Everything is resolved by name at runtime so this stays robust across versions.
+            // This is *log-only*
             private static void TryInstallFieldWarpCallTracePatchesOnce()
             {
                 if (s_fieldWarpCallTraceInstalled)
@@ -132,7 +129,7 @@ namespace SMT3HD_Reimagined
             }
 
             // ------------------------------------------------------------
-            // Patch handlers (log markers; no behavior changes)
+            // Patch handlers
             // ------------------------------------------------------------
 
             private static void CallTrace_Prefix_Generic(MethodBase __originalMethod, object[] __args)
@@ -150,6 +147,7 @@ namespace SMT3HD_Reimagined
                     catch { desc = "<err>"; }
 
                     AppendMarker($"# CALL {name} door={desc}");
+                    AppendCurrentTerminalSelectionMarker($"pre {name}");
                     StartAutoCapture("CALL MakeWarpIndex", frames: 150);
                     ForceSnapshot("CallTrace pre MakeWarpIndex");
                     return;
@@ -157,6 +155,12 @@ namespace SMT3HD_Reimagined
 
                 string args = FormatArgsOneLine(__args);
                 AppendMarker($"# CALL {name}{(string.IsNullOrEmpty(args) ? "" : " " + args)}");
+
+                bool isWarpOrTerminal =
+                    name.IndexOf("Warp", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    name.IndexOf("Terminal", StringComparison.OrdinalIgnoreCase) >= 0;
+                if (isWarpOrTerminal)
+                    AppendCurrentTerminalSelectionMarker($"pre {name}");
 
                 // Auto-capture window size depends on how big the pipeline is.
                 int frames = 90;
@@ -168,7 +172,7 @@ namespace SMT3HD_Reimagined
                 StartAutoCapture($"CALL {name}", frames);
 
                 // Explicit snapshots only on key transition entrypoints.
-                if (name.IndexOf("Warp", StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Terminal", StringComparison.OrdinalIgnoreCase) >= 0)
+                if (isWarpOrTerminal)
                     ForceSnapshot($"CallTrace pre {name}");
             }
 
@@ -199,6 +203,61 @@ namespace SMT3HD_Reimagined
 
                 if (name.IndexOf("Warp", StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("Terminal", StringComparison.OrdinalIgnoreCase) >= 0)
                     ForceSnapshot($"CallTrace post {name}");
+            }
+
+
+            private static void AppendCurrentTerminalSelectionMarker(string reason)
+            {
+                try
+                {
+                    if (!TryReadCurrentTerminalStaticWorkSnapshot(out TerminalStaticWorkSnapshot? staticWork) || staticWork == null)
+                        return;
+
+                    bool hasSelected = TryGetCurrentTerminalSelectedListValue(staticWork, out int selectedOrdinal0, out int selectedValue);
+
+                    TryGetCurrentFieldContext(out int curF, out int curA, out int curS, out _, out _);
+                    string sourceContext = (curF >= 0 && curA >= 0 && curS >= 0)
+                        ? $"F{curF} A{curA} S{curS}"
+                        : "<unavailable>";
+
+                    string title = "<unavailable>";
+                    string label = "<unavailable>";
+                    string highlight = "<unavailable>";
+                    bool uiPhaseEligible = staticWork.SeqCurrent == 1 || staticWork.SeqCurrent == 5;
+                    if (uiPhaseEligible
+                        && TryReadCurrentTerminalUiValueLabelMap(out string? uiTitle, out List<TerminalUiValueLabelRow>? uiRows)
+                        && uiRows != null
+                        && uiRows.Count > 0)
+                    {
+                        title = QuoteMarkerValue(uiTitle);
+                        if (hasSelected && selectedOrdinal0 >= 0 && selectedOrdinal0 < uiRows.Count)
+                        {
+                            TerminalUiValueLabelRow row = uiRows[selectedOrdinal0];
+                            label = QuoteMarkerValue(row.Label);
+                            highlight = row.Highlighted ? "true" : "false";
+                        }
+                    }
+
+                    string selected = hasSelected
+                        ? $"ordinal0={selectedOrdinal0} value={selectedValue}"
+                        : "<unavailable>";
+
+                    AppendMarker(
+                        $"# TERMCTX {SanitizeOneLine(reason)} src={sourceContext} phase={ClassifyTerminalPhase(staticWork.SeqCurrent)} seq={FormatTrmSeqValue(staticWork.SeqCurrent)} termType={staticWork.TerminalType} termNo={staticWork.TerminalNo} termCnt={staticWork.TerminalCnt} selected={selected} label={label} highlight={highlight} title={title}");
+                }
+                catch
+                {
+                    // Best-effort marker only.
+                }
+            }
+
+            private static string QuoteMarkerValue(string? s)
+            {
+                if (string.IsNullOrWhiteSpace(s))
+                    return "\"\"";
+
+                string clean = SanitizeOneLine(s).Replace("\"", "'", StringComparison.Ordinal);
+                return $"\"{clean}\"";
             }
 
             private static string FormatArgsOneLine(object[] args)
